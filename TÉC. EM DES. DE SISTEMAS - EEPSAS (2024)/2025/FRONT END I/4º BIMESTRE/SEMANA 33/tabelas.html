@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabelas de Consulta: Pseudo-classes e Pseudo-elementos</title>
+    <style>
+        /* Estilos para impressão e melhor visualização */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.5;
+            color: #333;
+        }
+        h1 {
+            color: #663322;
+            border-bottom: 2px solid #663322;
+            padding-bottom: 5px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        code {
+            background-color: #eee;
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+        .page-break {
+            margin-top: 40px;
+            margin-bottom: 40px;
+            border: 0;
+            border-top: 1px dashed #ccc;
+            page-break-before: always; /* Quebra de página na impressão */
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Tabela de Consulta: Pseudo-classes</h1>
+    <p>Use estas pseudo-classes para aplicar estilos especiais a elementos com base em seu estado ou posição.</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Pseudo-classe</th>
+                <th>O que faz?</th>
+                <th>Exemplo de Uso</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>:hover</code></td>
+                <td>Aplica um estilo quando o cursor do mouse está sobre um elemento. Essencial para interatividade.</td>
+                <td><code>#barra-lateral a:hover { text-decoration: underline; color: #663322; }</code><br>(Sublinha e muda a cor do item de menu quando o mouse passa por cima).</td>
+            </tr>
+            <tr>
+                <td><code>:active</code></td>
+                <td>Aplica um estilo no momento exato em que um elemento está sendo clicado.</td>
+                <td><code>#barra-lateral a:active { color: red; }</code><br>(Muda a cor do link do menu para vermelho no exato instante do clique).</td>
+            </tr>
+            <tr>
+                <td><code>:visited</code></td>
+                <td>Aplica um estilo a um link que já foi visitado pelo usuário.</td>
+                <td><code>#barra-lateral a:visited { color: #8c6d5d; }</code><br>(Deixa os links de menu já visitados com uma cor de café mais clara).</td>
+            </tr>
+             <tr>
+                <td><code>:first-child</code></td>
+                <td>Seleciona o primeiro elemento entre um grupo de irmãos.</td>
+                <td><code>.item-cardapio:first-child { font-weight: bold; }</code><br>(Deixa o primeiro item do cardápio em negrito para destacá-lo).</td>
+            </tr>
+            <tr>
+                <td><code>:last-child</code></td>
+                <td>Seleciona o último elemento entre um grupo de irmãos.</td>
+                <td><code>.item-cardapio:last-child { margin-bottom: 0; }</code><br>(Remove a margem inferior do último item do cardápio para ajustar o espaçamento).</td>
+            </tr>
+            <tr>
+                <td><code>:focus</code></td>
+                <td>Aplica um estilo a um elemento que recebeu foco (ex: link selecionado com a tecla Tab). Essencial para acessibilidade.</td>
+                <td><code>a:focus { outline: 2px solid orange; }</code><br>(Adiciona uma borda de destaque em qualquer link focado via teclado).</td>
+            </tr>
+            <tr>
+                <td><code>:nth-child(n)</code></td>
+                <td>Seleciona elementos com base em sua posição. Use <code>even</code> para pares e <code>odd</code> para ímpares.</td>
+                <td><code>.item-cardapio:nth-child(even) { background-color: #fdfaf8; }</code><br>(Aplica um fundo suave nos itens pares do cardápio, criando um efeito "zebrado").</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <hr class="page-break">
+
+    <h1>Tabela de Consulta: Pseudo-elementos</h1>
+    <p>Use estes pseudo-elementos para estilizar partes específicas de um elemento ou para adicionar conteúdo decorativo.</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Pseudo-elemento</th>
+                <th>O que faz?</th>
+                <th>Exemplo de Uso</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>::before</code></td>
+                <td>Insere um conteúdo (texto ou símbolo) <strong>antes</strong> do conteúdo de um elemento.</td>
+                <td><code>.item-cardapio::before { content: '&#9749; '; }</code><br>(Adiciona um ícone de xícara de café antes de cada item do cardápio).</td>
+            </tr>
+            <tr>
+                <td><code>::after</code></td>
+                <td>Insere um conteúdo (texto ou símbolo) <strong>depois</strong> do conteúdo de um elemento.</td>
+                <td><code>h1::after { content: ' &hearts;'; font-size: 0.8em; color: #ffb6c1; }</code><br>(Adiciona um coração decorativo depois do título principal).</td>
+            </tr>
+            <tr>
+                <td><code>::first-letter</code></td>
+                <td>Seleciona e estiliza a primeira letra de um bloco de texto.</td>
+                <td><code>#principal p::first-letter { font-size: 2em; color: #663322; float: left; margin-right: 5px;}</code><br>(Cria um efeito de letra capitular no parágrafo principal).</td>
+            </tr>
+            <tr>
+                <td><code>::first-line</code></td>
+                <td>Seleciona e estiliza a primeira linha de um bloco de texto.</td>
+                <td><code>#principal p::first-line { font-weight: bold; }</code><br>(Deixa toda a primeira linha do parágrafo principal em negrito).</td>
+            </tr>
+             <tr>
+                <td><code>::selection</code></td>
+                <td>Aplica um estilo ao texto que é selecionado (destacado) pelo usuário.</td>
+                <td><code>::selection { background-color: #663322; color: white; }</code><br>(Muda a cor de fundo da seleção de texto para a cor de café, com texto branco).</td>
+            </tr>
+            <tr>
+                <td><code>::marker</code></td>
+                <td>Permite estilizar o marcador (bullet point ou número) de um item de lista (<code>&lt;li&gt;</code>).</td>
+                <td><code>.item-cardapio::marker { content: '☕'; font-size: 1.2em; }</code><br>(Substitui o marcador padrão do cardápio por um emoji de xícara de café).</td>
+            </tr>
+            <tr>
+                <td><code>::placeholder</code></td>
+                <td>Permite estilizar o texto de placeholder em campos de formulário como <code>&lt;input&gt;</code>.</td>
+                <td><code>input::placeholder { color: #aaa; font-style: italic; }</code><br>(Estiliza o texto de um futuro campo de busca, como "Pesquisar no cardápio...").</td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>
+

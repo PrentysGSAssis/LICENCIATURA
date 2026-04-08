@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semana 29 - Estruturas de Repetição</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f7f4; /* Warm Neutral Background */
+        }
+        .nav-item-active {
+            background-color: #60a5fa; /* Tailwind blue-400 - Soft Blue Accent */
+            color: white;
+            transform: translateX(4px);
+        }
+        .code-block {
+            background-color: #2d3748; /* Tailwind gray-800 */
+            color: #f7fafc; /* Tailwind gray-100 */
+            padding: 1rem;
+            border-radius: 0.5rem; /* rounded-lg */
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            overflow-x: auto;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.875rem; /* text-sm */
+        }
+        .output-block {
+            background-color: #4a5568; /* Tailwind gray-700 */
+            color: #e2e8f0; /* Tailwind gray-300 */
+            padding: 1rem;
+            border-radius: 0.5rem; /* rounded-lg */
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            overflow-x: auto;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.875rem; /* text-sm */
+        }
+        .enunciado-block, .questions-block {
+            background-color: #ffffff;
+            padding: 1.5rem;
+            border-radius: 0.5rem; /* rounded-lg */
+            border: 1px solid #e2e8f0; /* Tailwind gray-200 */
+            margin-bottom: 1.5rem;
+        }
+        .gabarito-answers-block {
+            background-color: #ebf8ff; /* Tailwind blue-50 */
+            color: #2c5282; /* Tailwind blue-800 */
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-top: 1rem;
+            border: 1px solid #bee3f8; /* Tailwind blue-200 */
+        }
+        .texto-didatico-content h1 { font-size: 1.6em; border-bottom: 1.5px solid #eee; padding-bottom: 7px; margin-bottom: 20px; color: #333; }
+        .texto-didatico-content h2 { font-size: 1.3em; margin-top: 22px; margin-bottom: 12px; color: #333; }
+        .texto-didatico-content h3 { font-size: 1.05em; margin-top: 16px; margin-bottom: 8px; color: #333; }
+        .texto-didatico-content p, .texto-didatico-content li { line-height: 1.6; font-size: 0.95em; color: #444; margin-bottom: 12px;}
+        .texto-didatico-content code { background-color: #f4f4f4; padding: 2px 5px; border-radius: 3px; font-family: "Consolas", "Courier New", Courier, monospace; font-size: 0.9em; color: #c7254e;}
+        .texto-didatico-content pre { background-color: #2d2d2d; color: #f8f8f2; padding: 15px; border-radius: 4px; overflow-x: auto; font-size: 0.85em; border: 1px solid #444; margin-top: 10px; margin-bottom: 15px;}
+        .texto-didatico-content pre code { background-color: transparent; padding: 0; color: inherit; font-size: 1em;}
+        .texto-didatico-content ul, .texto-didatico-content ol { margin-top: 5px; margin-bottom: 15px; padding-left: 30px;}
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <div class="container mx-auto max-w-7xl p-4 sm:p-6 lg:p-8">
+        <header class="mb-8 pb-4 border-b border-gray-200">
+            <h1 class="text-4xl font-bold text-gray-800">Semana 29: Estruturas de Repetição</h1>
+            <p class="text-lg text-gray-500 mt-2">Repetindo Tarefas com o Laço `enquanto`</p>
+        </header>
+
+        <div class="flex flex-col md:flex-row gap-8">
+            <aside class="md:w-1/4">
+                <div class="sticky top-8">
+                    <h2 class="text-xl font-semibold mb-4 text-gray-700">Conteúdo da Aula</h2>
+                    <nav id="section-nav" class="space-y-2">
+                    </nav>
+                </div>
+            </aside>
+
+            <main id="section-content-area" class="md:w-3/4 bg-white p-6 sm:p-8 rounded-lg shadow-sm min-h-[80vh]">
+                <div id="section-placeholder" class="text-center text-gray-400 flex flex-col justify-center items-center h-full">
+                    <svg class="w-24 h-24 mb-4 text-gray-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l-4 4m0 0l-4-4m4 4V4M7 7h10M7 12h4m1.5 0h.01M7 17h4m1.5 0h.01" />
+                    </svg>
+                    <p class="text-xl font-medium">Selecione uma seção ao lado para começar.</p>
+                    <p class="mt-2 text-base">Explore o texto didático e as atividades da semana.</p>
+                </div>
+            </main>
+        </div>
+
+        <footer class="mt-12 text-center text-sm text-gray-400">
+            <p>&copy; <span id="currentYear"></span> Plataforma de Revisão de Algoritmos. Desenvolvido para fins didáticos.</p>
+        </footer>
+    </div>
+
+    <script>
+        const semana29Conteudo = {
+            textoDidatico: {
+                id: "texto-didatico",
+                title: "Texto Didático",
+                subtitle: "Introdução às Estruturas de Repetição",
+                content: `
+                    <div class="texto-didatico-content">
+                        <p>Até agora, nossos programas executam cada linha de código uma única vez, de cima para baixo. Mas e se precisarmos repetir uma mesma tarefa várias vezes? Por exemplo, mostrar os números de 1 a 100, ou pedir para o usuário digitar uma senha até que ele acerte. Escrever a mesma linha de código 100 vezes seria impraticável!</p>
+                        <p>É para isso que servem as <strong>Estruturas de Repetição</strong>, também conhecidas como <strong>laços</strong> ou <strong>loops</strong>. Elas nos permitem executar um bloco de código repetidamente, enquanto uma determinada condição for verdadeira.</p>
+                        
+                        <h2>O Laço 'enquanto'</h2>
+                        <p>Nossa primeira estrutura de repetição será o <code>enquanto</code>. A sua lógica é muito simples e direta: "enquanto uma condição for verdadeira, faça o que está dentro do bloco".</p>
+                        <h3>Sintaxe:</h3>
+                        <pre><code>enquanto (condicao) {\n    // Bloco de código a ser repetido\n    // ...\n}</code></pre>
+                        <p>O <code>enquanto</code> possui 3 partes essenciais para funcionar corretamente:</p>
+                        <ul>
+                            <li><strong>Inicialização:</strong> A preparação de uma variável de controle antes do laço começar.</li>
+                            <li><strong>Condição:</strong> A expressão lógica que é testada a cada repetição. Se for verdadeira, o laço continua; se for falsa, ele para.</li>
+                            <li><strong>Atualização:</strong> A modificação da variável de controle dentro do laço, para que em algum momento a condição se torne falsa e o laço termine.</li>
+                        </ul>
+                        
+                        <h3 style="color: #c53030;">Cuidado com o Laço Infinito!</h3>
+                        <p>Se a condição de parada nunca for atingida (ou seja, se a atualização da variável de controle for esquecida), o programa entrará em um <strong>laço infinito</strong>, travando a execução. Veja o exemplo abaixo onde a variável <code>contador</code> nunca é incrementada:</p>
+                        <pre><code>// Exemplo de LAÇO INFINITO (NÃO FAÇA ISSO!)\ninteiro contador = 1\nenquanto (contador <= 10) {\n    escreva("Esta mensagem vai se repetir para sempre!\\n")\n    // Faltou a linha: contador = contador + 1\n}</code></pre>
+                    </div>
+                `
+            },
+            atividadeGuiada: {
+                id: "atividade-guiada",
+                title: "Atividade Guiada",
+                subtitle: "Contador de 1 a 10",
+                objetivo: "Criar um primeiro programa com um laço de repetição, entendendo as 3 partes essenciais: inicialização, condição e atualização.",
+                enunciado: ["Vamos criar juntos um programa que mostra na tela os números de 1 até 10. Este exercício simples nos ajudará a fixar a estrutura do laço `enquanto`."],
+                gabarito: `programa 
+{
+    funcao inicio() {
+        // 1. Inicialização
+        inteiro contador = 1
+
+        escreva("Iniciando a contagem...\\n")
+
+        // 2. Condição
+        enquanto (contador <= 10) {
+            // 3. Ação
+            escreva(contador, "\\n")
+
+            // 4. Atualização
+            contador = contador + 1
+        }
+
+        escreva("Contagem finalizada!\\n")
+    }
+}`
+            },
+            atividadesReforco: [
+                {
+                    id: "reforco-1",
+                    title: "Reforço (ex016): Contagem Específica",
+                    enunciado: ["Escreva um programa que mostre na tela a seguinte contagem: `6 7 8 9 10 11 Acabou!`"],
+                    saidaEsperada: "6 7 8 9 10 11 Acabou!",
+                    gabarito: `programa\n{\n    funcao inicio()\n    {\n        inteiro contador = 6\n        enquanto(contador <= 11){\n            escreva(contador, " ")\n            contador = contador + 1\n        }\n        escreva("Acabou!")\n    }\n}`
+                },
+                {
+                    id: "reforco-2",
+                    title: "Reforço (ex017): Contagem até N",
+                    enunciado: ["Faça um algoritmo que pergunte ao usuário um número inteiro e positivo qualquer e mostre uma contagem de 1 até esse valor."],
+                    saidaEsperada: "Digite um valor: 7\nContagem: 1 2 3 4 5 6 7 Acabou!"
+                }
+            ],
+            interpretacaoCodigo: {
+                id: "interpretacao-codigo",
+                title: "Interpretação de Código",
+                code: `programa 
+{
+    funcao inicio() {
+        inteiro segredo = 30
+        inteiro passo = 4
+
+        enquanto (segredo > 5) {
+            segredo = segredo - passo
+        }
+
+        escreva("O valor final do segredo é: ", segredo)
+    }
+}`,
+                questions: [
+                    "Qual o valor inicial da variável `segredo`?",
+                    "Qual a condição para o laço `enquanto` continuar executando?",
+                    "Qual será o valor final da variável `segredo` que será exibido na tela?"
+                ],
+                gabaritoAnswers: [
+                    "O valor inicial é `30`.",
+                    "A condição é que o valor da variável `segredo` seja maior que `5`.",
+                    "O valor final será `2`. O laço executa 7 vezes (30->26, 26->22, 22->18, 18->14, 14->10, 10->6, 6->2). Quando `segredo` se torna 2, a condição `2 > 5` é falsa e o laço para."
+                ]
+            },
+            entrega: {
+                id: "entrega",
+                title: "Entrega: Hunt com Meta de Lucro (Tibia)",
+                objetivo: "Combinar um laço `enquanto` com uma estrutura `se` para criar uma condição de parada baseada em um valor acumulado.",
+                enunciado: [
+                    "Uma party de aventureiros está caçando até atingir uma meta de lucro de 100.000 GP para comprar um item raro.",
+                    "1. Crie um programa que pergunte o valor em GP de cada item de loot coletado.",
+                    "2. O programa deve continuar pedindo valores e somando-os a uma variável `total_gp`.",
+                    "3. A caçada termina **imediatamente** quando o `total_gp` atingir ou ultrapassar 100.000.",
+                    "4. Dentro do laço, use uma estrutura `se` para verificar se a meta foi atingida após cada soma.",
+                    "5. No final, exiba uma mensagem de sucesso e o total de GP exato que foi coletado."
+                ],
+                saidaEsperada: `--- Hunt com Meta de Lucro ---
+Meta: 100000 GP
+GP atual: 99850
+Digite o valor do próximo item: 250
+
+--- Relatório Final da Hunt ---
+Meta alcançada!
+Total de GP coletado: 100100`
+            }
+        };
+
+        const navContainer = document.getElementById('section-nav');
+        const contentArea = document.getElementById('section-content-area');
+        const placeholder = document.getElementById('section-placeholder');
+        let currentActiveButton = null;
+
+        function displaySection(sectionId) {
+            let sectionData;
+            let sectionType;
+
+            const navMap = {
+                "texto-didatico": { data: semana29Conteudo.textoDidatico, type: 'textoDidatico' },
+                "atividade-guiada": { data: semana29Conteudo.atividadeGuiada, type: 'atividade' },
+                "reforco-1": { data: semana29Conteudo.atividadesReforco[0], type: 'atividade' },
+                "reforco-2": { data: semana29Conteudo.atividadesReforco[1], type: 'atividade' },
+                "interpretacao-codigo": { data: semana29Conteudo.interpretacaoCodigo, type: 'interpretacao' },
+                "entrega": { data: semana29Conteudo.entrega, type: 'atividade' }
+            };
+
+            const selected = navMap[sectionId];
+            if (!selected) {
+                contentArea.innerHTML = '<p class="text-red-500">Conteúdo não encontrado.</p>';
+                return;
+            }
+            sectionData = selected.data;
+            sectionType = selected.type;
+
+            if(placeholder) placeholder.style.display = 'none';
+            contentArea.innerHTML = ''; 
+
+            const article = document.createElement('article');
+            article.id = `section-${sectionData.id}`;
+            
+            const titleText = sectionData.subtitle ? `${sectionData.title}: ${sectionData.subtitle}` : sectionData.title;
+            const titleH2 = document.createElement('h2');
+            titleH2.className = "text-3xl font-bold text-gray-800 mb-6 pb-3 border-b border-gray-200";
+            titleH2.textContent = titleText;
+            article.appendChild(titleH2);
+            
+            if (sectionType === 'textoDidatico') {
+                const divContent = document.createElement('div');
+                divContent.innerHTML = sectionData.content;
+                article.appendChild(divContent);
+            } else {
+                 if (sectionData.objetivo) {
+                    const objP = document.createElement('p');
+                    objP.className = "text-gray-500 italic mb-6 text-base";
+                    objP.innerHTML = `<strong>Objetivo:</strong> ${sectionData.objetivo}`;
+                    article.appendChild(objP);
+                }
+
+                if(sectionData.enunciado){
+                    const enunciadoDiv = document.createElement('div');
+                    enunciadoDiv.className = "enunciado-block";
+                    const enunciadoTitle = document.createElement('h3');
+                    enunciadoTitle.className = "text-xl font-semibold text-gray-800 mb-3";
+                    enunciadoTitle.textContent = "Enunciado";
+                    enunciadoDiv.appendChild(enunciadoTitle);
+                    sectionData.enunciado.forEach(line => {
+                        const p = document.createElement('p');
+                        p.className = "text-gray-700 mb-1";
+                        p.innerHTML = line.replace(/`([^`]+)`/g, '<code class="bg-gray-200 text-sm text-pink-600 px-1 rounded">$1</code>');
+                        enunciadoDiv.appendChild(p);
+                    });
+                    article.appendChild(enunciadoDiv);
+                }
+                
+                 if (sectionData.questions) { 
+                    const questionsDiv = document.createElement('div');
+                    questionsDiv.className = "questions-block";
+                    const qTitle = document.createElement('h3');
+                    qTitle.className = "text-xl font-semibold text-gray-800 mb-3";
+                    qTitle.textContent = "Responda:";
+                    const qOl = document.createElement('ol');
+                    qOl.className = "list-decimal list-inside"
+                    questionsDiv.appendChild(qTitle);
+                    sectionData.questions.forEach(q => {
+                        const qLi = document.createElement('li');
+                        qLi.className = "text-gray-700"
+                        qLi.innerHTML = q.replace(/`([^`]+)`/g, '<code class="bg-gray-200 text-sm text-pink-600 px-1 rounded">$1</code>');
+                        qOl.appendChild(qLi);
+                    });
+                    questionsDiv.appendChild(qOl);
+                    article.appendChild(questionsDiv);
+                }
+                
+                if (sectionData.code) { 
+                    const codeTitle = document.createElement('h3');
+                    codeTitle.className = "text-xl font-semibold text-gray-800 mb-2 mt-4";
+                    codeTitle.textContent = "Analise o código abaixo:";
+                    article.appendChild(codeTitle);
+                    const codeBlockDiv = document.createElement('div');
+                    codeBlockDiv.className = "code-block";
+                    codeBlockDiv.innerHTML = `<pre><code>${sectionData.code.replace(/</g, "&lt;").replace(/>/g, "&gt;")}</code></pre>`;
+                    article.appendChild(codeBlockDiv);
+                }
+
+                if (sectionData.saidaEsperada) {
+                    const saidaTitle = document.createElement('h3');
+                    saidaTitle.className = "text-xl font-semibold text-gray-800 mb-2 mt-6";
+                    saidaTitle.textContent = "Saída Esperada (Exemplo):";
+                    article.appendChild(saidaTitle);
+                    const outputBlockDiv = document.createElement('div');
+                    outputBlockDiv.className = "output-block";
+                    outputBlockDiv.innerHTML = `<pre><code>${sectionData.saidaEsperada.replace(/</g, "&lt;").replace(/>/g, "&gt;")}</code></pre>`;
+                    article.appendChild(outputBlockDiv);
+                }
+
+                if (sectionData.gabarito || sectionData.gabaritoAnswers) {
+                    const gabaritoContainer = document.createElement('div');
+                    gabaritoContainer.className = "mt-6";
+                    const toggleButton = document.createElement('button');
+                    toggleButton.className = "bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg transition duration-150 ease-in-out mb-2 shadow";
+                    const gabaritoContent = document.createElement('div');
+                    gabaritoContent.id = `gabarito-content-${sectionData.id}`;
+                    gabaritoContent.classList.add('hidden');
+                    if (sectionData.gabaritoAnswers) {
+                        toggleButton.textContent = "Mostrar Respostas das Questões";
+                        gabaritoContent.classList.add('gabarito-answers-block');
+                        let answersHtml = '<h4 class="font-semibold mb-2">Respostas:</h4><ol class="list-decimal list-inside space-y-2">';
+                        sectionData.gabaritoAnswers.forEach(ans => {
+                            answersHtml += `<li>${ans.replace(/`([^`]+)`/g, '<code class="bg-gray-200 text-sm text-pink-600 px-1 rounded">$1</code>')}</li>`;
+                        });
+                        answersHtml += '</ol>';
+                        gabaritoContent.innerHTML = answersHtml;
+                    } else if (sectionData.gabarito) {
+                        toggleButton.textContent = "Mostrar Gabarito do Código";
+                        gabaritoContent.classList.add('code-block');
+                        gabaritoContent.innerHTML = `<pre><code>${sectionData.gabarito.replace(/</g, "&lt;").replace(/>/g, "&gt;")}</code></pre>`;
+                    }
+                    gabaritoContainer.appendChild(toggleButton);
+                    gabaritoContainer.appendChild(gabaritoContent);
+                    article.appendChild(gabaritoContainer);
+                    toggleButton.addEventListener('click', () => {
+                        const isHidden = gabaritoContent.classList.toggle('hidden');
+                        toggleButton.textContent = isHidden ? (sectionData.gabaritoAnswers ? "Mostrar Respostas" : "Mostrar Gabarito") : (sectionData.gabaritoAnswers ? "Esconder Respostas" : "Esconder Gabarito");
+                    });
+                }
+
+            }
+            contentArea.appendChild(article);
+        }
+
+        function setActiveButton(button) {
+            if (currentActiveButton) {
+                currentActiveButton.classList.remove('nav-item-active');
+            }
+            button.classList.add('nav-item-active');
+            currentActiveButton = button;
+        }
+        
+        const navSections = [
+            semana29Conteudo.textoDidatico,
+            semana29Conteudo.atividadeGuiada,
+            ...semana29Conteudo.atividadesReforco,
+            semana29Conteudo.interpretacaoCodigo,
+            semana29Conteudo.entrega
+        ];
+
+        navSections.forEach((section) => {
+            const button = document.createElement('button');
+            button.textContent = section.title;
+            button.classList.add(
+                'w-full', 'text-left', 'px-4', 'py-3', 'rounded-lg', 
+                'transition-all', 'duration-200', 'ease-in-out', 
+                'font-medium', 'text-gray-600', 'hover:bg-blue-100', 'hover:text-blue-600'
+            );
+            button.addEventListener('click', () => {
+                displaySection(section.id);
+                setActiveButton(button);
+            });
+            navContainer.appendChild(button);
+        });
+        
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Auto-seleciona a primeira seção ao carregar
+        if (navSections.length > 0) {
+            const firstButton = navContainer.querySelector('button');
+            if (firstButton) {
+                firstButton.click();
+            }
+        }
+    </script>
+</body>
+</html>

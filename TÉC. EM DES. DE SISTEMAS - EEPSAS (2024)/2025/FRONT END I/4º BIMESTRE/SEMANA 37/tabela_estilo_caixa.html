@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabela de Propriedades de Caixas</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f0f0f0; }
+        .page-container { width: 210mm; min-height: 297mm; margin: 20px auto; padding: 15mm; box-shadow: 0 0 10px rgba(0,0,0,0.1); box-sizing: border-box; background-color: white;}
+        .content-container { padding-top: 10px; }
+        h1 { font-size: 1.6em; border-bottom: 1.5px solid #eee; padding-bottom: 7px; margin-top: 0; color: #333; text-align: center; margin-bottom: 20px;}
+        table { width: 100%; margin: 15px 0; border-collapse: collapse; font-size: 0.95em; }
+        th, td { border: 1px solid #ccc; padding: 10px 12px; text-align: left; vertical-align: top; line-height: 1.5; }
+        th { background-color: #e9ecef; font-size: 1.05em;}
+        tr:nth-child(even) { background-color: #f8f9fa; }
+        code { background-color: #e4e4e4; padding: 2px 5px; border-radius: 4px; font-family: "Consolas", Courier, monospace; font-size: 1em; }
+        .prop-cell { font-weight: bold; }
+        @media print { 
+            body { background-color: white; }
+            .page-container { margin: 0; padding: 0; box-shadow: none; width: 100%; min-height: 0;}
+            @page { margin: 12mm 10mm; } 
+        }
+    </style>
+</head>
+<body>
+<div class="page-container">
+    <div class="content-container">
+        <h1>Tabela de Propriedades de Estilização de Caixas</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Propriedade CSS</th>
+                    <th>Significado e Função</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="prop-cell"><code>width</code> / <code>height</code></td>
+                    <td>Definem a largura e a altura da área de <strong>conteúdo (content)</strong> do elemento.</td>
+                </tr>
+                <tr>
+                    <td class="prop-cell"><code>padding</code></td>
+                    <td>Define o <strong>preenchimento</strong>, um espaçamento interno transparente entre o conteúdo e a borda.</td>
+                </tr>
+                <tr>
+                    <td class="prop-cell"><code>border</code></td>
+                    <td>Define a <strong>borda</strong> que envolve o conteúdo e o preenchimento. É um atalho para <code>border-width</code>, <code>border-style</code> e <code>border-color</code>.</td>
+                </tr>
+                <tr>
+                    <td class="prop-cell"><code>margin</code></td>
+                    <td>Define a <strong>margem</strong>, um espaçamento externo transparente que afasta o elemento de outros ao seu redor.</td>
+                </tr>
+                <tr>
+                    <td class="prop-cell"><code>box-shadow</code></td>
+                    <td>Aplica uma ou mais <strong>sombras</strong> à caixa, criando um efeito de profundidade. Controla-se o deslocamento, o desfoque e a cor.</td>
+                </tr>
+                <tr>
+                    <td class="prop-cell"><code>border-radius</code></td>
+                    <td><strong>Arredonda os cantos</strong> da borda de um elemento, suavizando sua aparência. Pode ser usado para criar círculos e outras formas.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

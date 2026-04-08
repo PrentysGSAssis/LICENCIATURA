@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semana 16: Explorando a Pasta Usuários e Seus Tesouros</title>
+    <style>
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #212529;
+        }
+        .container {
+            width: 85%;
+            max-width: 900px;
+            margin: 25px auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #007bff;
+            text-align: center;
+            border-bottom: 3px solid #007bff;
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+        }
+        h2 {
+            color: #17a2b8;
+            margin-top: 35px;
+            border-bottom: 1px solid #dee2e6;
+            padding-bottom: 8px;
+        }
+        h3 {
+            color: #28a745;
+            margin-top: 25px;
+        }
+        p, li {
+            text-align: justify;
+            margin-bottom: 12px;
+            font-size: 1.05em;
+        }
+        ul {
+            margin-left: 25px;
+            list-style-type: disc;
+        }
+        code {
+            background-color: #e9ecef;
+            padding: 3px 6px;
+            border-radius: 5px;
+            font-family: Consolas, "Courier New", monospace;
+            color: #c7254e;
+        }
+        .path-example {
+            background-color: #f0f0f0;
+            border-left: 4px solid #17a2b8;
+            padding: 10px 15px;
+            margin: 15px 0;
+            font-style: italic;
+        }
+        .activity-box {
+            background-color: #e6f7ff;
+            border: 1px solid #b3e0ff;
+            border-left-width: 5px;
+            border-left-color: #007bff;
+            padding: 20px;
+            margin-top: 30px;
+            border-radius: 5px;
+        }
+        .activity-box h3 {
+            margin-top: 0;
+            color: #0056b3;
+        }
+        .warning {
+            color: #dc3545;
+            font-weight: bold;
+        }
+        .task-instruction {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            padding: 10px;
+            margin-bottom:10px;
+            border-radius: 4px;
+        }
+        .task-instruction strong {
+            color: #856404;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        th, td {
+            border: 1px solid #dee2e6;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #e9ecef;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Semana 16: Explorando a Pasta Usuários e Seus Tesouros</h1>
+
+        <h2>Texto para Digitação: Onde Moram Seus Arquivos? Uma Viagem pela Pasta Usuários</h2>
+
+        <p>Olá, turma! Continuando nossa exploração do Windows, hoje vamos focar em um dos diretórios mais importantes para qualquer pessoa que utiliza o computador: a pasta do seu perfil de usuário. É aqui que o sistema operacional guarda a maioria dos seus arquivos pessoais, configurações e dados de aplicativos. Entender a estrutura dessa pasta é fundamental para organizar seus arquivos, fazer backups e até mesmo solucionar alguns problemas.</p>
+
+        <h3>O Coração do Seu Mundo Digital: A Pasta do Perfil de Usuário</h3>
+        <p>Quando você faz login no Windows, o sistema carrega o seu perfil, que inclui todas as suas personalizações e, crucialmente, o acesso às suas pastas pessoais. Todas essas pastas estão aninhadas dentro de um diretório principal, geralmente localizado em <code>C:\Usuários\</code> (ou <code>C:\Users\</code> em versões em inglês do Windows). Dentro desta pasta "Usuários", você encontrará uma subpasta com o nome que você escolheu ao criar sua conta de usuário, ou um nome padrão definido pelo sistema.</p>
+        <p class="path-example">Por exemplo, se o seu nome de usuário for "Aluno", o caminho completo para a sua pasta de perfil será algo como: <code>C:\Usuários\Aluno\</code>.</p>
+        <p>Vamos agora explorar as principais subpastas que residem dentro do seu perfil e entender a função de cada uma. Ao longo desta exploração, você também aprenderá como verificar informações importantes sobre elas, como sua localização exata e o espaço que ocupam no disco.</p>
+
+        <div class="task-instruction">
+            <p><strong>Tarefa de Exploração Inicial:</strong></p>
+            <ol>
+                <li>Abra o <strong>Explorador de Arquivos</strong> (você pode clicar no ícone da pasta na barra de tarefas ou pressionar as teclas <code>Win + E</code>).</li>
+                <li>Na barra de endereço do Explorador de Arquivos, digite <code>C:\Usuários\</code> e pressione Enter.</li>
+                <li>Localize a pasta com o seu nome de usuário e dê um duplo clique para abri-la. Observe as pastas que aparecem.</li>
+            </ol>
+        </div>
+
+        <h3>As Pastas Padrão do Seu Perfil e Suas Funções:</h3>
+
+        <h4>1. Área de Trabalho (Desktop)</h4>
+        <p><strong>Localização Típica:</strong> <code>C:\Usuários\[SeuNomeDeUsuário]\Desktop</code></p>
+        <p>A pasta "Área de Trabalho" armazena todos os arquivos, atalhos e pastas que você vê diretamente no plano de fundo da sua tela principal. É um local de acesso rápido, mas é bom evitar enchê-la demais com arquivos grandes, pois isso pode, em alguns casos, tornar a inicialização do perfil um pouco mais lenta. Muitos usuários utilizam a área de trabalho para arquivos temporários ou atalhos para programas e documentos usados com frequência.</p>
+        <div class="task-instruction">
+            <p><strong>Explore a Área de Trabalho:</strong></p>
+            <ul>
+                <li>Dentro da pasta do seu perfil, localize a subpasta "Área de Trabalho".</li>
+                <li>Clique com o botão direito do mouse sobre ela e selecione "Propriedades".</li>
+                <li>Na janela de Propriedades, observe a aba "Geral". Anote a "Localização" completa da pasta. Qual o "Tamanho em disco" que ela ocupa?</li>
+            </ul>
+        </div>
+
+        <h4>2. Documentos (Documents)</h4>
+        <p><strong>Localização Típica:</strong> <code>C:\Usuários\[SeuNomeDeUsuário]\Documents</code></p>
+        <p>Como o nome sugere, esta é a pasta padrão designada pelo Windows para você salvar seus arquivos de texto, planilhas, apresentações, PDFs e outros trabalhos. Muitos programas, ao salvar um arquivo pela primeira vez, sugerem a pasta "Documentos" como destino padrão. Manter seus documentos organizados aqui facilita a localização e o backup.</p>
+        <div class="task-instruction">
+            <p><strong>Explore Documentos:</strong></p>
+            <ul>
+                <li>Localize a subpasta "Documentos" no seu perfil.</li>
+                <li>Acesse suas "Propriedades". Anote a "Localização" e o "Tamanho em disco".</li>
+                <li>Observe a aba "Local" (se disponível). Esta aba permite redirecionar esta pasta para outro local no disco ou até mesmo para outra unidade, uma técnica útil para organizar o armazenamento em computadores com múltiplos discos. <span class="warning">Apenas observe, não altere o local em máquinas de laboratório sem permissão!</span></li>
+            </ul>
+        </div>
+
+        <h4>3. Downloads</h4>
+        <p><strong>Localização Típica:</strong> <code>C:\Usuários\[SeuNomeDeUsuário]\Downloads</code></p>
+        <p>A pasta "Downloads" é o destino padrão para a maioria dos arquivos que você baixa da internet usando seu navegador web ou outros aplicativos. É comum que esta pasta acumule muitos arquivos com o tempo, desde instaladores de programas até documentos e imagens. É uma boa prática revisá-la periodicamente para apagar o que não é mais necessário ou mover arquivos importantes para pastas mais adequadas, como "Documentos" ou "Imagens".</p>
+        <div class="task-instruction">
+            <p><strong>Explore Downloads:</strong></p>
+            <ul>
+                <li>Encontre a subpasta "Downloads".</li>
+                <li>Verifique suas "Propriedades". Anote a "Localização" e o "Tamanho em disco". Esta pasta costuma ser uma das que mais ocupa espaço!</li>
+            </ul>
+        </div>
+
+        <h4>4. Imagens (Pictures)</h4>
+        <p><strong>Localização Típica:</strong> <code>C:\Usuários\[SeuNomeDeUsuário]\Pictures</code></p>
+        <p>Destinada ao armazenamento de suas fotografias digitais, capturas de tela e outros arquivos de imagem. Dentro dela, você pode encontrar subpastas criadas por aplicativos de câmera, como "Imagens da Câmera", ou a pasta "Capturas de tela", onde o Windows salva automaticamente as imagens capturadas com a ferramenta de captura (<code>Win + Shift + S</code> ou Print Screen).</p>
+        <div class="task-instruction">
+            <p><strong>Explore Imagens:</strong></p>
+            <ul>
+                <li>Ache a subpasta "Imagens".</li>
+                <li>Examine suas "Propriedades". Anote a "Localização" e o "Tamanho em disco".</li>
+            </ul>
+        </div>
+
+        <h4>5. Músicas (Music)</h4>
+        <p><strong>Localização Típica:</strong> <code>C:\Usuários\[SeuNomeDeUsuário]\Music</code></p>
+        <p>Esta pasta é o local padrão para organizar sua coleção de arquivos de áudio, como músicas em formato MP3, WAV, entre outros. Aplicativos de música podem usar esta pasta para armazenar ou procurar por sua biblioteca musical.</p>
+        <div class="task-instruction">
+            <p><strong>Explore Músicas:</strong></p>
+            <ul>
+                <li>Localize a subpasta "Músicas".</li>
+                <li>Verifique suas "Propriedades". Anote a "Localização" e o "Tamanho em disco".</li>
+            </ul>
+        </div>
+
+        <h4>6. Vídeos (Videos)</h4>
+        <p><strong>Localização Típica:</strong> <code>C:\Usuários\[SeuNomeDeUsuário]\Videos</code></p>
+        <p>Similar à pasta "Músicas" e "Imagens", a pasta "Vídeos" é designada para armazenar seus arquivos de vídeo, sejam eles filmes, séries baixadas, gravações pessoais feitas com a câmera do celular ou webcam, ou projetos de edição de vídeo.</p>
+        <div class="task-instruction">
+            <p><strong>Explore Vídeos:</strong></p>
+            <ul>
+                <li>Encontre a subpasta "Vídeos".</li>
+                <li>Acesse suas "Propriedades". Anote a "Localização" e o "Tamanho em disco".</li>
+            </ul>
+        </div>
+
+        <h3>A Misteriosa Pasta AppData</h3>
+        <p>Além das pastas visíveis que acabamos de explorar, existe uma pasta muito importante, mas geralmente oculta por padrão, chamada <strong>AppData</strong>.</p>
+        <p><strong>Localização Típica:</strong> <code>C:\Usuários\[SeuNomeDeUsuário]\AppData</code></p>
+        <p>A pasta AppData (Application Data) é onde muitos programas instalados no seu computador guardam suas configurações específicas, dados de cache, arquivos temporários, modelos e outras informações necessárias para seu funcionamento correto e para lembrar suas preferências. Ela é dividida em três subpastas: <code>Local</code>, <code>LocalLow</code>, e <code>Roaming</code>.</p>
+        <ul>
+            <li><code>Roaming</code>: Contém dados que podem "vagar" com o seu perfil de usuário entre diferentes computadores em um ambiente de rede com perfis móveis (mais comum em empresas).</li>
+            <li><code>Local</code>: Contém dados específicos da máquina local, que não devem ser sincronizados, como arquivos de cache grandes.</li>
+            <li><code>LocalLow</code>: Similar à Local, mas usada por aplicativos que rodam com restrições de segurança mais baixas (como alguns navegadores em modo protegido).</li>
+        </ul>
+        <p><span class="warning">É crucial ter muito cuidado ao mexer na pasta AppData. Apagar arquivos ou pastas daqui sem saber o que está fazendo pode causar problemas no funcionamento dos seus programas.</span> Geralmente, você não precisará acessá-la diretamente, a menos que esteja seguindo instruções específicas para solucionar um problema ou fazer um backup manual de configurações de algum aplicativo.</p>
+        <div class="task-instruction">
+            <p><strong>Tentando Visualizar a AppData (com cautela):</strong></p>
+            <ol>
+                <li>No Explorador de Arquivos, dentro da pasta do seu perfil de usuário, clique na aba "Exibir" (ou "View") no topo da janela.</li>
+                <li>Procure por uma caixa de seleção chamada "Itens ocultos" (ou "Hidden items") e marque-a.</li>
+                <li>Você deverá ver a pasta "AppData" aparecer. Dê um duplo clique para explorá-la brevemente e veja as subpastas Local, LocalLow e Roaming. <span class="warning">Não apague ou modifique nada aqui!</span></li>
+                <li>Após a exploração, é recomendável desmarcar a opção "Itens ocultos" novamente para evitar modificações acidentais em arquivos importantes do sistema.</li>
+            </ol>
+        </div>
+
+        <h3>Outras Pastas Comuns</h3>
+        <p>Dependendo da versão do Windows e dos programas que você usa, outras pastas podem aparecer no seu perfil, como "Contatos", "Favoritos" (para o Internet Explorer antigo), "Links", "OneDrive" (se você usa o serviço de nuvem da Microsoft), "Jogos Salvos", entre outras. Cada uma tem um propósito específico, geralmente relacionado a funcionalidades do sistema ou de aplicativos integrados.</p>
+        <p>Compreender a estrutura da pasta do seu perfil de usuário é um passo fundamental para se tornar um usuário mais consciente e organizado do Windows. Saber onde seus arquivos estão armazenados facilita não apenas o acesso e a organização, mas também a realização de backups eficazes e a solução de problemas quando necessário.</p>
+
+        <hr style="margin: 40px 0;">
+
+        <div class="activity-box">
+            <h2>Atividade Prática da Semana: Mapeando Seu Perfil de Usuário</h2>
+            <h3>Objetivo:</h3>
+            <p>Identificar as principais pastas dentro do seu perfil de usuário no Windows, verificar suas localizações exatas e o espaço que ocupam, e entender a função de cada uma.</p>
+
+            <h3>Instruções:</h3>
+            <p>Utilizando o Explorador de Arquivos e as instruções fornecidas no texto acima, complete a tabela abaixo para as pastas listadas. Se alguma pasta não existir no seu perfil, apenas indique "Não encontrada".</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome da Pasta no Perfil</th>
+                        <th>Localização Completa (Caminho)</th>
+                        <th>Tamanho em Disco</th>
+                        <th>Função Principal (Resumida)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Área de Trabalho (Desktop)</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Documentos</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Downloads</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Imagens</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Músicas</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Vídeos</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>AppData (Observar se conseguiu visualizar)</td>
+                        <td>(Ex: C:\Usuários\SeuNome\AppData)</td>
+                        <td>(Pode ser grande)</td>
+                        <td>Armazena configurações e dados de aplicativos.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Questões para Reflexão (anote suas respostas):</h3>
+            <ol>
+                <li>Qual das suas pastas pessoais (Documentos, Downloads, Imagens, etc.) ocupa mais espaço em disco? Você esperava esse resultado?</li>
+                <li>Você conseguiu visualizar a pasta AppData? O que achou do conteúdo dentro das subpastas Local, LocalLow e Roaming (apenas observando os nomes das pastas internas)?</li>
+                <li>Você já precisou acessar alguma dessas pastas do perfil para encontrar um arquivo específico ou resolver algum problema? Qual foi a situação?</li>
+            </ol>
+        </div>
+    </div>
+</body>
+</html>

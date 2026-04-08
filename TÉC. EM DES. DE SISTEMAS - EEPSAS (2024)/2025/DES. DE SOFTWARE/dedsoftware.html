@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plano Anual - Desenvolvimento de Software</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #FCE4EC; /* Rosa muito claro */
+            --primary-pink: #EC407A; /* Rosa primário */
+            --accent-pink: #F06292; /* Rosa de destaque */
+            --text-dark: #880E4F; /* Rosa escuro para texto */
+            --text-light: #AD1457; /* Rosa mais claro para texto */
+            --border-color: #F8BBD0; /* Rosa bem claro para bordas */
+        }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-main); color: var(--text-dark); }
+        .nav-link {
+            transition: all 0.2s ease-in-out;
+            border-left: 4px solid transparent;
+            color: var(--text-light);
+        }
+        .nav-link.active {
+            border-left-color: var(--primary-pink);
+            background-color: #FFFFFF;
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+        .semana-box {
+            background-color: white;
+            border: 1px solid var(--border-color);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .semana-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .semana-header h3 { font-size: 1.25rem; font-weight: 600; color: var(--text-dark); }
+        .copy-btn {
+            background-color: var(--accent-pink);
+            color: white;
+            font-size: 0.875rem;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .copy-btn:hover { background-color: var(--primary-pink); }
+        .semana-content strong { color: var(--primary-pink); }
+        .semana-content ul { list-style-type: '» '; padding-left: 1.25rem; margin-top: 0.5rem; }
+        .semana-content li { margin-bottom: 0.5rem; }
+    </style>
+</head>
+<body class="p-4 sm:p-6 lg:p-8">
+
+    <header class="text-center mb-10">
+        <h1 class="text-4xl font-bold" style="color: var(--text-dark);">Plano Anual de Aulas 2025</h1>
+        <p class="text-xl mt-2" style="color: var(--text-light);">Desenvolvimento de Software - 3º Ano</p>
+        <p class="text-lg font-semibold mt-1" style="color: var(--text-dark);">(Total: 72 aulas anuais)</p>
+    </header>
+
+    <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-10">
+        <aside class="lg:w-1/4">
+            <div id="sidebar" class="sticky top-8">
+                <h2 class="text-xl font-semibold mb-4" style="color: var(--text-dark);">Navegação</h2>
+                <nav id="bimestre-nav" class="flex flex-col space-y-2">
+                    <a href="#bimestre-1" class="nav-link active p-4 rounded-r-lg">1º Bimestre</a>
+                    <a href="#bimestre-2" class="nav-link p-4 rounded-r-lg">2º Bimestre</a>
+                    <a href="#bimestre-3" class="nav-link p-4 rounded-r-lg">3º Bimestre</a>
+                    <a href="#bimestre-4" class="nav-link p-4 rounded-r-lg">4º Bimestre</a>
+                </nav>
+            </div>
+        </aside>
+
+        <main class="lg:w-3/4">
+            <section id="bimestre-1" class="bimestre-section">
+                <h2 class="text-3xl font-bold mb-6 pb-2 border-b-2" style="border-color: var(--primary-pink);">1º Bimestre (20 aulas)</h2>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 1 (06/02)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Introdução à Programação Orientada a Objetos (POO).<br><strong>Objetivo:</strong> Compreender a mudança de paradigma da programação procedural para a orientada a objetos.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">06/02 (Quinta-feira - 2 aulas):</strong><ul class="mt-1"><li>Apresentação. Paradigmas de programação. Limitações do procedural.</li><li>Conceitos fundamentais de POO: Abstração, Encapsulamento, Herança e Polimorfismo.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 2 (13/02)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Classes e Objetos.<br><strong>Objetivo:</strong> Aprender a definir classes como moldes e a criar objetos como instâncias dessas classes.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">13/02 (Quinta-feira - 2 aulas):</strong><ul class="mt-1"><li>Sintaxe de uma classe. Atributos (características) e Métodos (comportamentos).</li><li>Instanciação de objetos. Exemplo prático com uma classe `Carro`.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 3 (20/02)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Ambiente de Desenvolvimento e Sintaxe Básica.<br><strong>Objetivo:</strong> Configurar o ambiente (IDE, JDK) e aprender a sintaxe fundamental da linguagem OO escolhida (ex: Java).<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">20/02 (Quinta-feira - 2 aulas):</strong><ul class="mt-1"><li>Instalação da IDE (VS Code, Eclipse) e do kit de desenvolvimento.</li><li>Estrutura de um programa: método `main`, tipos de dados primitivos, declaração de variáveis.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 4 (27/02)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Métodos, Atributos e Encapsulamento.<br><strong>Objetivo:</strong> Implementar métodos, trabalhar com atributos e proteger os dados usando encapsulamento.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">27/02 (Quinta-feira - 2 aulas):</strong><ul class="mt-1"><li>Modificadores de acesso: `public` e `private`.</li><li>Métodos Getters e Setters para acesso controlado aos atributos.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 5 (06/03)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Construtores e a Palavra-chave `this`.<br><strong>Objetivo:</strong> Aprender a inicializar objetos de forma eficiente com construtores.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">06/03 (Quinta-feira - 2 aulas):</strong><ul class="mt-1"><li>O que é um construtor? Construtor padrão e construtores com parâmetros.</li><li>Uso do `this` para desambiguar atributos de parâmetros.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 6 (13/03)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Operadores e Expressões.<br><strong>Objetivo:</strong> Utilizar operadores para realizar cálculos e comparações.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">13/03 (Quinta-feira - 2 aulas):</strong><ul class="mt-1"><li>Operadores aritméticos, relacionais e lógicos. Precedência.</li><li>Estruturas de seleção: `if-else`, `else if`.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 7 (20/03)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Estruturas de Repetição.<br><strong>Objetivo:</strong> Implementar laços para executar blocos de código repetidamente.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">20/03 (Quinta-feira - 2 aulas):</strong><ul class="mt-1"><li>Laços `while` e `do-while`.</li><li>Laço `for`. Atividade prática para consolidar as três estruturas.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 8 (27/03)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Membros Estáticos.<br><strong>Objetivo:</strong> Entender a diferença entre membros de instância e membros de classe (estáticos).<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">27/03 (Quinta-feira - 2 aulas):</strong><ul class="mt-1"><li>Palavra-chave `static`. Atributos estáticos (compartilhados por todos os objetos).</li><li>Métodos estáticos (não precisam de uma instância para serem chamados).</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 9 (03/04)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Atividade Prática Integrada.<br><strong>Objetivo:</strong> Aplicar todos os conceitos de classes, objetos e sintaxe básica em um pequeno projeto.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">03/04 (Quinta-feira - 2 aulas):</strong><ul class="mt-1"><li>Desenvolvimento de um sistema simples (ex: Cadastro de Alunos) usando múltiplas classes e objetos.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 10 (10/04)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Revisão e Avaliação do 1º Bimestre.<br><strong>Objetivo:</strong> Avaliar a compreensão dos conceitos fundamentais da POO e da sintaxe da linguagem.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">10/04 (Quinta-feira - 2 aulas):</strong><ul class="mt-1"><li>Revisão geral e tira-dúvidas.</li><li>Aplicação de avaliação prática no laboratório.</li></ul></div></div></div></div>
+            </section>
+            
+            <section id="bimestre-2" class="bimestre-section pt-10">
+                <h2 class="text-3xl font-bold mb-6 pb-2 border-b-2" style="border-color: var(--primary-pink);">2º Bimestre (16 aulas)</h2>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 11 (29/04)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Introdução a Herança.<br><strong>Objetivo:</strong> Compreender o conceito de herança como mecanismo de reutilização de código.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">29/04 (Terça-feira com Horário de Quinta - 2 aulas):</strong><ul class="mt-1"><li>Conceito de Superclasse e Subclasse.</li><li>Sintaxe da herança (`extends`). Reutilização de atributos e métodos.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 12 (08/05)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> A Palavra-chave `super`.<br><strong>Objetivo:</strong> Aprender a chamar construtores e métodos da superclasse a partir da subclasse.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">08/05 (Quinta-feira - 2 aulas):</strong><ul class="mt-1"><li>Usando `super()` para chamar o construtor da classe pai.</li><li>Usando `super.` para acessar um método da superclasse.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 13 (15/05)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Sobrescrita de Métodos (Overriding).<br><strong>Objetivo:</strong> Especializar o comportamento de métodos herdados nas subclasses.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">15/05 (Quinta-feira - 2 aulas):</strong><ul class="mt-1"><li>Conceito de sobrescrita. Anotação `@Override`.</li><li>Exemplo prático: classe `Animal` com método `emitirSom()`, e subclasses `Cachorro` e `Gato` sobrescrevendo o método.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 14 (22/05)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Polimorfismo.<br><strong>Objetivo:</strong> Compreender como objetos de diferentes classes podem ser tratados de forma unificada.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">22/05 (Quinta-feira - 2 aulas):</strong><ul class="mt-1"><li>Conceito de Polimorfismo. "Muitas formas".</li><li>Atividade: criar uma lista de `Animal` e adicionar objetos `Cachorro` e `Gato`, chamando o método `emitirSom()` de cada um.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 15 (05/06) - Prova Parcial</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Avaliação Parcial.<br><strong>Objetivo:</strong> Avaliar a aplicação dos conceitos de herança e polimorfismo.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">05/06 (Quinta-feira - 2 aulas):</strong><ul class="mt-1"><li>Aplicação de avaliação prática no laboratório envolvendo a criação de um sistema com herança.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 16 (12/06)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Classes e Métodos Abstratos.<br><strong>Objetivo:</strong> Aprender a criar classes que servem como modelo para herança, mas não podem ser instanciadas.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">12/06 (Quinta-feira - 2 aulas):</strong><ul class="mt-1"><li>Palavra-chave `abstract`. Classes abstratas.</li><li>Métodos abstratos (sem corpo, obrigatórios para subclasses).</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 17 (26/06) - Prova Global</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Avaliação Global e Revisão Final.<br><strong>Objetivo:</strong> Avaliar o conhecimento do bimestre e revisar para recuperação.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">26/06 (Quinta-feira - 2 aulas):</strong><ul class="mt-1"><li>Prova Global sobre Herança, Polimorfismo e Classes Abstratas.</li><li>Correção e feedback da prova.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 18 (03/07) - Recuperação</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Semana de Recuperação Parcial.<br><strong>Objetivo:</strong> Oferecer nova oportunidade de aprendizado e avaliação.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">03/07 (Quinta-feira - 2 aulas):</strong><ul class="mt-1"><li>Aula de reforço com foco em Herança e Polimorfismo.</li><li>Aplicação de atividades/prova de recuperação.</li></ul></div></div></div></div>
+            </section>
+
+            <section id="bimestre-3" class="bimestre-section pt-10">
+                <h2 class="text-3xl font-bold mb-6 pb-2 border-b-2" style="border-color: var(--primary-pink);">3º Bimestre (22 aulas)</h2>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 19 (07/08)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Interfaces.<br><strong>Objetivo:</strong> Entender interfaces como contratos que definem um conjunto de métodos a serem implementados.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">07/08 (Quinta-feira - 2 aulas):</strong><ul class="mt-1"><li>O que é uma interface? Palavra-chave `interface`.</li><li>Diferença fundamental entre interfaces e classes abstratas.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 20 (14/08)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Implementando Interfaces.<br><strong>Objetivo:</strong> Aplicar interfaces em classes para garantir a implementação de comportamentos específicos.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">14/08 (Quinta-feira - 2 aulas):</strong><ul class="mt-1"><li>Palavra-chave `implements`. Uma classe pode implementar múltiplas interfaces.</li><li>Exemplo: interface `Autenticavel` com método `autentica()`.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 21 (21/08, 23/08)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Polimorfismo com Interfaces.<br><strong>Objetivo:</strong> Utilizar o polimorfismo aplicando o tipo da interface a objetos de classes que a implementam.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">21/08 (Quinta-feira - 2 aulas):</strong><ul class="mt-1"><li>Declarar variáveis e parâmetros do tipo de uma interface.</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">23/08 (Sábado - Horário de Quinta - 2 aulas):</strong><ul class="mt-1"><li>Atividade prática: criar um sistema com diferentes tipos de funcionários que implementam a interface `Autenticavel`.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 22 (28/08)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Introdução a Coleções (Collections).<br><strong>Objetivo:</strong> Apresentar as estruturas de dados fornecidas pela linguagem para armazenar grupos de objetos.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">28/08 (Quinta-feira - 2 aulas):</strong><ul class="mt-1"><li>Problemas de usar arrays (`[]`) de tamanho fixo.</li><li>Introdução à `ArrayList` ou equivalente: uma lista de tamanho dinâmico.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 23 (04/09)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Manipulando Listas.<br><strong>Objetivo:</strong> Aprender a adicionar, remover, buscar e percorrer elementos em uma lista.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">04/09 (Quinta-feira - 2 aulas):</strong><ul class="mt-1"><li>Métodos principais: `.add()`, `.get()`, `.remove()`, `.size()`.</li><li>Percorrendo uma lista com o laço `for-each`.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 24 (11/09)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Revisão e Avaliação.<br><strong>Objetivo:</strong> Consolidar o aprendizado sobre interfaces e coleções.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">11/09 (Quinta-feira - 2 aulas):</strong><ul class="mt-1"><li>Revisão geral e tira-dúvidas.</li><li>Prova prática: refatorar um projeto para usar interfaces e `ArrayList`.</li></ul></div></div></div></div>
+            </section>
+
+            <section id="bimestre-4" class="bimestre-section pt-10">
+                <h2 class="text-3xl font-bold mb-6 pb-2 border-b-2" style="border-color: var(--primary-pink);">4º Bimestre (14 aulas)</h2>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 25 (23/10)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Tratamento de Exceções.<br><strong>Objetivo:</strong> Aprender a lidar com erros e situações inesperadas de forma elegante, sem quebrar o programa.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">23/10 (Quinta-feira - 2 aulas):</strong><ul class="mt-1"><li>Conceito de exceção. Pilha de execução (Stack Trace).</li><li>O bloco `try-catch` para capturar exceções.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 26 (30/10)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Tipos de Exceções e `finally`.<br><strong>Objetivo:</strong> Aprofundar o tratamento de exceções, diferenciando tipos e utilizando o bloco `finally`.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">30/10 (Quinta-feira - 2 aulas):</strong><ul class="mt-1"><li>Exceções checadas vs. não checadas.</li><li>O bloco `finally` para código que sempre deve ser executado.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 27 (06/11)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Lançando Exceções.<br><strong>Objetivo:</strong> Aprender a criar e lançar as próprias exceções para sinalizar erros de negócio.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">06/11 (Quinta-feira - 2 aulas):</strong><ul class="mt-1"><li>A cláusula `throw` para lançar uma exceção.</li><li>Criando classes de exceção personalizadas.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 28 (13/11)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Definição do Projeto Final.<br><strong>Objetivo:</strong> Estruturar o projeto final que integrará todos os conceitos de POO do ano.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">13/11 (Quinta-feira - 2 aulas):</strong><ul class="mt-1"><li>Apresentação da proposta do projeto: sistema de gerenciamento em console.</li><li>Formação dos grupos e brainstorming da arquitetura de classes.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 29 (27/11)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Desenvolvimento do Projeto Final.<br><strong>Objetivo:</strong> Desenvolver o projeto final com a mentoria do professor.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">27/11 (Quinta-feira - 2 aulas):</strong><ul class="mt-1"><li>Desenvolvimento assistido do projeto no laboratório. Foco em Herança e Interfaces.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 30 (04/12)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Finalização do Projeto.<br><strong>Objetivo:</strong> Concluir a implementação do projeto, adicionando tratamento de exceções.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">04/12 (Quinta-feira - 2 aulas):</strong><ul class="mt-1"><li>Desenvolvimento assistido. Foco em coleções e tratamento de erros.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 31 (11/12)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Apresentação do Projeto Final.<br><strong>Objetivo:</strong> Apresentar o projeto, demonstrando o domínio dos conceitos de POO.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">11/12 (Quinta-feira - 2 aulas):</strong><ul class="mt-1"><li>Apresentação dos projetos finais para a turma.</li><li>Avaliação do código, da aplicação dos conceitos e encerramento da disciplina.</li></ul></div></div></div></div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('.bimestre-section');
+            const copyButtons = document.querySelectorAll('.copy-btn');
+            const header = document.querySelector('header');
+            
+            function updateActiveLinkOnScroll() {
+                let currentSectionId = '';
+                const offset = header ? header.offsetHeight + 40 : 150; 
+        
+                sections.forEach(section => {
+                    if (section.offsetTop <= window.scrollY + offset) {
+                        currentSectionId = section.id;
+                    }
+                });
+                
+                const scrollHeight = document.documentElement.scrollHeight;
+                const clientHeight = document.documentElement.clientHeight;
+                if (window.scrollY + clientHeight >= scrollHeight - 1) { 
+                    currentSectionId = sections[sections.length - 1].id;
+                }
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${currentSectionId}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+        
+            window.addEventListener('scroll', updateActiveLinkOnScroll);
+            updateActiveLinkOnScroll(); 
+
+            copyButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const semanaBox = button.closest('.semana-box');
+                    const title = semanaBox.querySelector('.week-title').innerText;
+                    const contentNode = semanaBox.querySelector('.semana-content').cloneNode(true);
+                    
+                    contentNode.querySelectorAll('ul').forEach(ul => {
+                        ul.querySelectorAll('li').forEach(li => {
+                            li.textContent = `- ${li.textContent}`;
+                        });
+                    });
+
+                    const content = contentNode.innerText;
+                    const fullText = `${title}\n\n${content}`;
+
+                    navigator.clipboard.writeText(fullText).then(() => {
+                        const originalText = button.innerText;
+                        button.innerText = 'Copiado!';
+                        button.style.backgroundColor = '#4CAF50';
+                        button.style.color = 'white';
+                        setTimeout(() => {
+                            button.innerText = originalText;
+                            button.style.backgroundColor = '';
+                            button.style.color = '';
+                        }, 2000);
+                    }).catch(err => {
+                        console.error('Falha ao copiar:', err);
+                        const originalText = button.innerText;
+                        button.innerText = 'Falhou!';
+                        button.style.backgroundColor = '#F44336';
+                        button.style.color = 'white';
+                        setTimeout(() => {
+                            button.innerText = originalText;
+                            button.style.backgroundColor = '';
+                            button.style.color = '';
+                        }, 2000);
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

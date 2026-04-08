@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plano de Aula Anual - Front-End II</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --bg-main: #F5F5F5;
+            --primary-gray: #424242;
+            --accent-gray: #757575;
+            --text-dark: #212121;
+            --text-light: #616161;
+            --border-color: #E0E0E0;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        .nav-link.active {
+            background-color: var(--primary-gray);
+            color: white;
+        }
+        .nav-link:not(.active) {
+            color: var(--text-light);
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-slate-100 text-slate-800 h-full">
+
+    <div class="flex h-full">
+        <aside class="w-64 bg-white border-r border-slate-200 p-6 flex-col fixed h-full hidden md:flex">
+            <header class="mb-10">
+                <h1 class="text-xl font-bold text-slate-900">Front-End II</h1>
+                <p class="text-sm text-slate-500">3º Ano - Ensino Médio</p>
+                 <p class="text-sm font-semibold mt-2 text-slate-700">Total: 107 aulas anuais</p>
+            </header>
+            <nav id="navigation" class="flex flex-col space-y-2">
+                <a href="#" data-view="home" class="nav-link flex items-center px-4 py-2 rounded-lg font-semibold">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" viewBox="0 0 20 20" fill="currentColor"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" /></svg>
+                    Início
+                </a>
+                <a href="#" data-view="bimestre-1" class="nav-link hover:bg-slate-100 hover:text-slate-900 flex items-center px-4 py-2 rounded-lg font-medium">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd" /></svg>
+                    1º Bimestre
+                </a>
+                <a href="#" data-view="bimestre-2" class="nav-link hover:bg-slate-100 hover:text-slate-900 flex items-center px-4 py-2 rounded-lg font-medium">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd" /></svg>
+                    2º Bimestre
+                </a>
+                <a href="#" data-view="bimestre-3" class="nav-link hover:bg-slate-100 hover:text-slate-900 flex items-center px-4 py-2 rounded-lg font-medium">
+                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd" /></svg>
+                    3º Bimestre
+                </a>
+                <a href="#" data-view="bimestre-4" class="nav-link hover:bg-slate-100 hover:text-slate-900 flex items-center px-4 py-2 rounded-lg font-medium">
+                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd" /></svg>
+                    4º Bimestre
+                </a>
+            </nav>
+        </aside>
+
+        <main id="main-content" class="md:ml-64 flex-1 p-4 md:p-8 overflow-y-auto">
+        </main>
+    </div>
+
+    <script>
+        const courseData = {
+            ementa: {
+                titulo: "Ementa: Desenvolvimento Front-End II",
+                objetivoGeral: "Desenvolver sistemas para internet com conexão ao Banco de Dados, focando na interação entre cliente e servidor e na construção de interfaces dinâmicas e responsivas.",
+                topicos: [
+                    "Introdução ao JavaScript", "Validação de formulários",
+                    "Arquitetura de aplicações web", "Modelo cliente-servidor", "Padrão MVC",
+                    "Consumo de serviços de Back end (APIs)", "Framework CSS responsivo (Bootstrap)",
+                    "Processamento script lado cliente", "Introdução ao processamento lado servidor",
+                    "Persistência em banco de dados (conceitual)", "Execução de comandos SQL (conceitual)"
+                ]
+            },
+            focoBimestres: [
+                { bimestre: "1º Bimestre (27 aulas)", foco: "Fundamentação em JavaScript e Interação com o DOM. O foco é capacitar o aluno a criar páginas dinâmicas, manipular elementos HTML, responder a eventos do usuário e aplicar validações robustas em formulários, compreendendo a arquitetura cliente-servidor." },
+                { bimestre: "2º Bimestre (26 aulas)", foco: "Consolidação das habilidades em JavaScript, com ênfase em assincronismo para consumo de APIs externas (serviços de Back-end). Introdução e aplicação de frameworks como Bootstrap para agilizar o desenvolvimento de interfaces complexas e responsivas." },
+                { bimestre: "3º Bimestre (32 aulas)", foco: "Introdução conceitual ao desenvolvimento do lado do servidor (Back-End), compreendendo como o front-end envia e recebe informações para processamento. Foco na interação com uma API, entendendo a lógica de negócio que acontece no servidor." },
+                { bimestre: "4º Bimestre (22 aulas)", foco: "Integração completa (Full Stack). Foco em conectar o front-end a uma API que persiste dados em um banco, entendendo a relação entre as ações na interface e os comandos SQL executados no servidor. O objetivo é desenvolver um projeto prático que conecta todas as pontas." }
+            ],
+            planejamento: [
+                { semana: 1, data: "04/02 a 07/02", tema: "Introdução ao JavaScript", objetivo: "Compreender o papel fundamental do JavaScript como a linguagem de programação da web, capaz de adicionar interatividade e dinamismo às páginas. O aluno será introduzido à sua sintaxe básica, aprendendo como declará-la e os principais comandos de saída para depuração.", topicos: [ { dia: "Terça-feira (2 aulas)", atividades: ["Apresentação da disciplina, ementa e critérios de avaliação.", "O que é JavaScript? Onde ele roda? Inserindo JS em uma página HTML com a tag `<script>`. Comandos de saída (`console.log`) e comentários."] }, { dia: "Sexta-feira", atividades: ["Introdução a variáveis com `let` e `const`. Apresentação dos tipos de dados primitivos: string, number e boolean. Prática com operadores aritméticos e concatenação de strings."] } ] },
+                { semana: 2, data: "11/02 a 14/02", tema: "Manipulação do DOM", objetivo: "Aprender a acessar e modificar a estrutura, o conteúdo e o estilo de uma página HTML em tempo real usando JavaScript, tornando as interfaces responsivas às ações do usuário e a dados dinâmicos.", topicos: [ { dia: "Terça-feira (2 aulas)", atividades: ["O que é o DOM (Document Object Model)? Apresentação da árvore de elementos.", "Selecionando elementos do DOM com `getElementById`, `querySelector` e `querySelectorAll`."] }, { dia: "Sexta-feira", atividades: ["Manipulando o conteúdo de elementos com `innerHTML` e `innerText`. Alterando estilos CSS via JavaScript com a propriedade `element.style`."] } ] },
+                { semana: 3, data: "18/02 a 21/02", tema: "Eventos e Condicionais", objetivo: "Capacitar o aluno a criar páginas verdadeiramente interativas, que respondem a ações do usuário (como cliques e digitação) e executam diferentes blocos de código com base em lógica condicional, que é a base para qualquer aplicação complexa.", topicos: [ { dia: "Terça-feira (2 aulas)", atividades: ["Conceito de Eventos. O evento de clique (`onclick`) e a forma moderna de adicionar eventos com `addEventListener`.", "Introdução aos operadores relacionais (==, !=, >, <) e lógicos (&&, ||, !). Estrutura condicional `if/else`."] }, { dia: "Sexta-feira", atividades: ["Explorando outros eventos comuns: `mouseover`, `keydown`, `submit`. Atividade prática que combina eventos e condicionais para criar um efeito de interatividade simples."] } ] },
+                { semana: 4, data: "25/02 a 28/02", tema: "Validação de Formulários", objetivo: "Desenvolver a habilidade de validar dados inseridos pelo usuário diretamente no navegador, fornecendo feedback imediato e garantindo que apenas informações válidas sejam processadas, melhorando a experiência do usuário e a qualidade dos dados.", topicos: [ { dia: "Terça-feira (2 aulas)", atividades: ["Obtendo valores de diferentes tipos de campos de formulário (`.value`, `.checked`).", "Prevenindo o comportamento padrão de envio do formulário com `event.preventDefault()` para realizar a validação."] }, { dia: "Sexta-feira", atividades: ["Atividade prática: validar se campos estão vazios, se um e-mail tem formato válido e se uma senha atinge um comprimento mínimo, exibindo mensagens de erro dinamicamente na página."] } ] },
+                { semana: 5, data: "11/03 a 14/03", tema: "Funções e Estruturas de Repetição", objetivo: "Aprender a organizar o código em blocos reutilizáveis com funções e a executar tarefas repetitivas de forma eficiente com laços, fundamentos essenciais para a criação de scripts mais complexos, limpos e de fácil manutenção.", topicos: [ { dia: "Terça-feira (2 aulas)", atividades: ["Declarando e chamando funções. A importância de parâmetros e da palavra-chave `return`.", "Laços `for` e `while` para iterar sobre sequências numéricas e listas de elementos do DOM."] }, { dia: "Sexta-feira", atividades: ["Sintaxe moderna de funções: Funções anônimas e Arrow Functions (`=>`)."] } ] },
+                { semana: 6, data: "18/03 a 21/03", tema: "Arrays (Vetores)", objetivo: "Capacitar o aluno a trabalhar com coleções de dados, aprendendo a criar, acessar e manipular listas de informações, uma habilidade crucial para lidar com dados dinâmicos recebidos de APIs ou gerados pelo usuário em qualquer aplicação.", topicos: [ { dia: "Terça-feira (2 aulas)", atividades: ["Criando arrays literais. Acessando e modificando elementos por seu índice. A propriedade `.length`.", "Métodos básicos para adicionar e remover elementos: `push`, `pop`, `shift`, `unshift`."] }, { dia: "Sexta-feira", atividades: ["Iterando (percorrendo) sobre arrays de forma eficiente utilizando o método `forEach`."] } ] },
+                { semana: 7, data: "25/03 a 28/03", tema: "Arquitetura Web e Padrão MVC", objetivo: "Introduzir os conceitos de arquitetura que sustentam as aplicações web modernas, diferenciando as responsabilidades do cliente e do servidor e apresentando o padrão MVC como uma forma de organizar o código de forma lógica e escalável.", topicos: [ { dia: "Terça-feira (2 aulas)", atividades: ["Exposição teórica aprofundada sobre a arquitetura cliente-servidor, com analogias.", "Apresentação conceitual do padrão MVC (Model-View-Controller), explicando as responsabilidades de cada camada."] }, { dia: "Sexta-feira", atividades: ["Análise de um diagrama de sistema web para identificar onde cada tecnologia (HTML, CSS, JS, SQL, etc.) se encaixa no padrão MVC."] } ] },
+                { semana: 8, data: "01/04 a 04/04", tema: "Revisão e Avaliação do 1º Bimestre", objetivo: "Avaliar de forma integrada a capacidade do aluno de criar uma página web interativa, utilizando manipulação do DOM, eventos e validação de formulários com JavaScript puro, consolidando a base para os próximos bimestres.", topicos: [ { dia: "Terça-feira (2 aulas)", atividades: ["Revisão geral de todos os tópicos abordados no bimestre, com resolução de exercícios modelo.", "Início da avaliação prática: desenvolver uma página com um formulário interativo completo."] }, { dia: "Sexta-feira", atividades: ["Finalização, tira-dúvidas e entrega da avaliação prática bimestral."] } ] },
+                { semana: 9, data: "02/05", tema: "Objetos e JSON", objetivo: "Aprender a estruturar dados complexos de forma organizada usando objetos literais em JavaScript e compreender o formato JSON, que é o padrão universal para a troca de informações entre o front-end e o back-end na web.", topicos: [ { dia: "Sexta-feira", atividades: ["Criando objetos literais. Acessando propriedades com notação de ponto e colchetes. O que é JSON (JavaScript Object Notation) e sua sintaxe?"] } ] },
+                { semana: 10, data: "06/05 a 09/05", tema: "Métodos de Array", objetivo: "Capacitar o aluno a utilizar métodos de iteração modernos e funcionais para manipular coleções de dados de forma declarativa e eficiente, escrevendo menos código e de forma mais legível e profissional.", topicos: [ { dia: "Terça-feira (2 aulas)", atividades: ["Método `.map()` para transformar cada elemento de um array em um novo array.", "Método `.filter()` para criar um novo array contendo apenas os elementos que passam em um teste lógico."] }, { dia: "Sexta-feira", atividades: ["Método `.find()` para buscar o primeiro elemento que satisfaz uma condição e `.reduce()` para agregar valores de um array em um único resultado."] } ] },
+                { semana: 11, data: "13/05 a 16/05", tema: "JavaScript Assíncrono e Consumo de APIs", objetivo: "Compreender o conceito de assincronismo no JavaScript e aprender a fazer requisições HTTP para APIs externas, a base para a criação de aplicações dinâmicas que consomem dados de serviços de back-end.", topicos: [ { dia: "Terça-feira (2 aulas)", atividades: ["Código síncrono vs. assíncrono. O problema do 'Callback Hell'.", "Introdução a Promises como uma solução para gerenciar operações assíncronas."] }, { dia: "Sexta-feira", atividades: ["Introdução à API `fetch` para fazer requisições de rede. Uso do `.then()` e `.catch()` para lidar com a resposta."] } ] },
+                { semana: 12, data: "20/05 a 23/05", tema: "Consumo de APIs com Fetch e Async/Await", objetivo: "Aprofundar a prática de consumo de APIs, manipulando os dados recebidos para exibi-los no DOM e utilizando a sintaxe moderna `async/await` para simplificar o código assíncrono e torná-lo mais legível.", topicos: [ { dia: "Terça-feira (2 aulas)", atividades: ["Atividade prática: fazendo uma requisição GET para uma API pública (ex: ViaCEP).", "Manipulando a resposta JSON e preenchendo campos de um formulário com os dados recebidos."] }, { dia: "Sexta-feira", atividades: ["Refatorando o código com `fetch` para usar a sintaxe `async/await` e tratamento de erros com `try/catch`."] } ] },
+                { semana: 13, data: "03/06 a 06/06", tema: "Frameworks CSS (Bootstrap)", objetivo: "Introduzir o conceito de frameworks CSS e utilizar o Bootstrap para agilizar drasticamente o desenvolvimento de interfaces complexas, responsivas e visualmente agradáveis, sem a necessidade de escrever CSS do zero.", topicos: [ { dia: "Terça-feira (2 aulas)", atividades: ["O que é um framework CSS? Vantagens. Configurando o Bootstrap via CDN.", "Introdução ao sistema de Grid de 12 colunas do Bootstrap: `container`, `row` e `col`."] }, { dia: "Sexta-feira", atividades: ["Atividade prática: recriar um layout de portal de notícias utilizando as classes responsivas do grid do Bootstrap (`col-sm`, `col-md`, `col-lg`)."] } ] },
+                { semana: 14, data: "10/06 a 13/06", tema: "Componentes do Bootstrap", objetivo: "Capacitar o aluno a utilizar a vasta biblioteca de componentes pré-estilizados do Bootstrap para construir rapidamente elementos comuns de interface, como menus, botões, cards e modais, focando na produtividade.", topicos: [ { dia: "Terça-feira (2 aulas)", atividades: ["Explorando componentes básicos: botões, alertas, badges e a barra de navegação (Navbar).", "Utilizando componentes de conteúdo para exibição de dados: Cards e Carrossel de imagens."] }, { dia: "Sexta-feira", atividades: ["Implementando componentes interativos que exigem o JavaScript do Bootstrap: Modal, Dropdowns e Collapse (sanfona)."] } ] },
+                { semana: 15, data: "24/06 a 27/06", tema: "Avaliação Global e Recuperação", objetivo: "Avaliar a capacidade do aluno de desenvolver uma página web responsiva e dinâmica, que consome dados de uma API externa e é estilizada com um framework CSS como o Bootstrap.", topicos: [ { dia: "Terça-feira (2 aulas)", atividades: ["Aplicação da Prova Global do 2º Bimestre: desenvolver a interface de um catálogo de produtos."] }, { dia: "Sexta-feira", atividades: ["Correção comentada da prova, feedback individual e preparação para a recuperação."] } ] },
+                { semana: 16, data: "01/07 a 04/07", tema: "Recuperação do 2º Bimestre", objetivo: "Oferecer uma nova oportunidade de aprendizado e avaliação, focando nos pontos de maior dificuldade apresentados pela turma, como manipulação de dados de APIs e o sistema de grid do Bootstrap.", topicos: [ { dia: "Terça-feira (2 aulas)", atividades: ["Aula de reforço com exercícios práticos guiados sobre Promises, `fetch` e Bootstrap."] }, { dia: "Sexta-feira", atividades: ["Aplicação de atividades ou prova de recuperação. Atendimento individualizado para sanar dúvidas."] } ] },
+                { semana: 17, data: "05/08 a 08/08", tema: "Introdução ao Back-End (Conceitual)", objetivo: "Compreender o papel do lado do servidor em uma aplicação web, distinguindo entre renderização no servidor (SSR) e no cliente (CSR) e como o front-end se comunica com o back-end para enviar e receber dados.", topicos: [ { dia: "Terça-feira (2 aulas)", atividades: ["O que é uma linguagem de script no servidor? (Ex: PHP, Node.js).", "Como o front-end envia dados para o back-end através de formulários e requisições `fetch` com o método POST."] }, { dia: "Sexta-feira", atividades: ["Introdução à persistência de dados e a necessidade de um banco de dados para armazenar informações de forma permanente."] } ] },
+                { semana: 18, data: "12/08 a 13/08", tema: "Lógica de Programação no Back-End", objetivo: "Entender como as estruturas de controle de fluxo (condicionais e laços) são aplicadas na lógica do servidor para processar dados e tomar decisões antes de enviar uma resposta ao cliente.", topicos: [ { dia: "Terça-feira (2 aulas)", atividades: ["Revisão da sintaxe básica de uma linguagem de servidor: variáveis e tipos de dados.", "Aplicando estruturas de decisão `if/else` para validar dados recebidos no servidor."] }, { dia: "Terça-feira", atividades: ["Utilizando laços `for` e `while` para processar listas de dados no servidor. Atividade prática conceitual."] } ] },
+                { semana: 19, data: "09/09 a 12/09", tema: "Interação Front-End e Back-End", objetivo: "Solidificar o entendimento de como capturar no back-end os dados enviados por um formulário HTML, completando o ciclo de comunicação entre cliente e servidor de forma prática.", topicos: [ { dia: "Terça-feira (2 aulas)", atividades: ["Revisão detalhada de como formulários enviam dados (métodos GET e POST).", "Exercício prático: criar um formulário no front-end e um script simples no back-end para receber e exibir os dados enviados."] }, { dia: "Sexta-feira", atividades: ["Discussão sobre a importância da segurança no envio de dados (validação no front-end e no back-end)."] } ] },
+                { semana: 20, data: "16/09 a 19/09", tema: "SQL sob a Ótica do Front-End", objetivo: "Associar as requisições HTTP realizadas pelo front-end com as operações CRUD (Create, Read, Update, Delete) e os respectivos comandos SQL que são executados no back-end.", topicos: [ { dia: "Terça-feira (2 aulas)", atividades: ["Mapeamento teórico: GET -> SELECT; POST -> INSERT.", "Mapeamento teórico: PUT -> UPDATE; DELETE -> DELETE."] }, { dia: "Sexta-feira", atividades: ["Atividade teórica: para uma interface de e-commerce, mapear ações como 'adicionar ao carrinho' e 'finalizar compra' para as requisições HTTP e operações de BD correspondentes."] } ] },
+                { semana: 21, data: "23/09 a 26/09", tema: "Projeto Final (Full Stack) - Planejamento", objetivo: "Planejar a arquitetura de um sistema CRUD completo, definindo a estrutura do banco de dados, as rotas da API e o design da interface do usuário para o projeto final da disciplina.", topicos: [ { dia: "Terça-feira (2 aulas)", atividades: ["Lançamento do projeto final (ex: lista de tarefas, cadastro de livros). Discussão em grupo.", "Modelagem do banco de dados e desenho do wireframe das interfaces do front-end."] }, { dia: "Sexta-feira", atividades: ["Definição detalhada dos endpoints da API (rotas, métodos HTTP, corpo da requisição/resposta) para as operações CRUD."] } ] },
+                { semana: 22, data: "30/09 a 03/10", tema: "Projeto Final - Desenvolvimento", objetivo: "Desenvolver o projeto prático, conectando a interface construída no front-end com a API desenvolvida no back-end para criar uma aplicação funcional e completa.", topicos: [ { dia: "Terça-feira (2 aulas)", atividades: ["Desenvolvimento do back-end: criação dos scripts de servidor para conectar ao BD e implementação dos endpoints da API."] }, { dia: "Sexta-feira", atividades: ["Desenvolvimento do front-end: construção da interface com HTML/Bootstrap e implementação da lógica de consumo da API com `fetch`."] } ] },
+                { semana: 23, data: "07/10", tema: "Projeto Final - Apresentação e Entrega", objetivo: "Apresentar o projeto CRUD funcional para a turma, explicando a arquitetura utilizada e as decisões de implementação, e realizar os ajustes finais com base no feedback recebido.", topicos: [ { dia: "Terça-feira (2 aulas)", atividades: ["Apresentação dos sistemas para a turma. Avaliação do projeto final.", "Feedback geral sobre os projetos, discussão sobre desafios e aprendizados, e encerramento da disciplina."] } ] }
+            ]
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainContent = document.getElementById('main-content');
+            const navigation = document.getElementById('navigation');
+
+            const setActiveLink = (view) => {
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.classList.remove('active');
+                    if (link.dataset.view === view) {
+                        link.classList.add('active');
+                    }
+                });
+            };
+
+            const renderHome = () => {
+                mainContent.innerHTML = `
+                    <div class="space-y-12">
+                        <div>
+                            <h2 class="text-3xl font-bold border-b border-slate-300 pb-3 mb-4 text-slate-900">${courseData.ementa.titulo}</h2>
+                            <p class="text-slate-600 mb-4 text-lg">${courseData.ementa.objetivoGeral}</p>
+                            <div class="mt-6 bg-white p-6 rounded-xl border border-slate-200">
+                                <h3 class="font-bold text-lg text-slate-800 mb-3">Tópicos da Ementa:</h3>
+                                <ul class="list-disc list-inside grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2 text-slate-700">
+                                    ${courseData.ementa.topicos.map(item => `<li>${item}</li>`).join('')}
+                                </ul>
+                            </div>
+                        </div>
+                        <div>
+                            <h2 class="text-3xl font-bold border-b border-slate-300 pb-3 mb-6 text-slate-900">Foco de Cada Bimestre</h2>
+                            <div class="space-y-6">
+                                ${courseData.focoBimestres.map(b => `
+                                    <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm transition hover:shadow-md hover:border-slate-300">
+                                        <h3 class="font-bold text-lg text-slate-900">${b.bimestre}</h3>
+                                        <p class="text-slate-600 mt-2">${b.foco}</p>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </div>
+                `;
+                mainContent.scrollTop = 0;
+                setActiveLink('home');
+            };
+
+            const renderBimestre = (bimestreNum) => {
+                const bimestreRanges = [
+                    { start: 1, end: 8 }, 
+                    { start: 9, end: 16 },
+                    { start: 17, end: 20 }, 
+                    { start: 21, end: 23 }
+                ];
+                const range = bimestreRanges[bimestreNum - 1];
+
+                const semanasDoBimestre = courseData.planejamento.filter(
+                    aula => aula.semana >= range.start && aula.semana <= range.end
+                );
+                
+                mainContent.innerHTML = `
+                    <h2 class="text-3xl font-bold border-b border-slate-300 pb-3 mb-6 text-slate-900">${courseData.focoBimestres[bimestreNum-1].bimestre} - Planejamento Semanal</h2>
+                    <div class="space-y-8">
+                        ${semanasDoBimestre.map(week => `
+                            <div class="semana-box bg-white p-6 rounded-xl border border-slate-200 shadow-sm transition hover:shadow-md hover:border-slate-300">
+                                <header class="semana-header flex justify-between items-start border-b border-slate-200 pb-4 mb-4">
+                                    <div class="flex-1">
+                                      <h3 class="font-bold text-lg text-slate-900">SEMANA ${week.semana.toString().padStart(2, '0')}</h3>
+                                      <span class="text-sm font-semibold text-slate-500">${week.data}</span>
+                                    </div>
+                                    <button class="copy-btn bg-slate-600 hover:bg-slate-700 text-white font-bold py-2 px-4 rounded-lg flex items-center ml-4 shrink-0">
+                                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
+                                      Copiar
+                                    </button>
+                                </header>
+                                <div class="semana-content">
+                                    <p class="mb-4"><strong class="font-semibold text-slate-800">Tema:</strong> <span class="text-slate-600">${week.tema}</span></p>
+                                    <p class="mb-4"><strong class="font-semibold text-slate-800">Objetivo:</strong> <span class="text-slate-600">${week.objetivo}</span></p>
+                                    <div>
+                                        <strong class="font-semibold text-slate-800">Tópicos:</strong>
+                                        <div class="mt-2 space-y-3">
+                                            ${week.topicos.map(aula => `
+                                                <div>
+                                                    <p class="font-semibold text-slate-700">${aula.dia}:</p>
+                                                    <ul class="list-disc list-inside ml-4 text-slate-600">
+                                                        ${aula.atividades.map(atividade => `<li>${atividade}</li>`).join('')}
+                                                    </ul>
+                                                </div>
+                                            `).join('')}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+                mainContent.scrollTop = 0;
+                setActiveLink(`bimestre-${bimestreNum}`);
+                 addCopyFunctionality();
+            };
+            
+            function addCopyFunctionality() {
+                document.querySelectorAll('.copy-btn').forEach(button => {
+                    button.addEventListener('click', (e) => {
+                        const semanaBox = e.target.closest('.semana-box');
+                        let textToCopy = '';
+                        
+                        const title = semanaBox.querySelector('h3').innerText;
+                        const date = semanaBox.querySelector('span.text-slate-500').innerText;
+                        textToCopy += `${title} (${date})\n\n`;
+
+                        const contentNode = semanaBox.querySelector('.semana-content');
+                        const tema = contentNode.querySelector('p:nth-of-type(1)').innerText;
+                        const objetivo = contentNode.querySelector('p:nth-of-type(2)').innerText;
+                        const topicos = contentNode.querySelector('div:last-of-type').innerText;
+                        
+                        textToCopy += `${tema}\n\n${objetivo}\n\n${topicos}`;
+                        
+                        navigator.clipboard.writeText(textToCopy).then(() => {
+                           const originalHTML = button.innerHTML;
+                           button.innerHTML = 'Copiado!';
+                           setTimeout(() => { button.innerHTML = originalHTML }, 2000);
+                        }).catch(err => console.error('Erro ao copiar: ', err));
+                    });
+                });
+            }
+
+            navigation.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetLink = e.target.closest('.nav-link');
+                if (!targetLink) return;
+                const view = targetLink.dataset.view;
+                
+                if (view === 'home') {
+                    renderHome();
+                } else if (view.startsWith('bimestre-')) {
+                    const bimestreNum = parseInt(view.split('-')[1]);
+                    renderBimestre(bimestreNum);
+                }
+            });
+
+            renderHome();
+        });
+    </script>
+</body>
+</html>

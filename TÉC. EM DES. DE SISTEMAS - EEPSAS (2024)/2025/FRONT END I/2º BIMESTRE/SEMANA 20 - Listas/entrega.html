@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Jogo Incrível - Guia Rápido</title>
+    <link rel="shortcut icon" href="favicon_jogo.ico" type="image/x-icon"> <style>
+        /* Estilos do MODELO: CABEÇALHO (Completos e Corretos) */
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background-color: #f0f0f0; /* Fundo para a página inteira */
+        }
+        .page-container { 
+            width: 210mm; /* Largura A4 */
+            min-height: 297mm; /* Altura A4, mas o conteúdo pode expandir */
+            margin: 20px auto; /* Centraliza e adiciona margem para visualização */
+            padding: 15mm; /* Margens de impressão A4 típicas */
+            box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Sombra para visualização */
+            box-sizing: border-box;
+            background-color: white; /* Fundo branco para a "folha" */
+        }
+        .header-top-container { 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            border-bottom: 1px solid black; 
+            padding-bottom: 10px; 
+            margin-bottom: 10px; 
+        }
+        .logo { 
+            max-width: 65px; 
+            height: auto; 
+            margin-right: 15px; 
+        }
+        .school-info { 
+            text-align: center; 
+            padding: 0 5px; 
+        }
+        .school-info strong.school-name { 
+            display: block; 
+            margin-bottom: 4px; 
+            font-size: 1em; 
+        }
+        .school-info .address-details span { 
+            display: inline; 
+            font-size: 0.75em; 
+            margin-right: 4px; 
+        }
+        .school-info .address-details span:last-child { 
+            margin-right: 0; 
+        }
+        .form-fields-grid { 
+            display: grid; 
+            gap: 5px 10px; 
+            width: 100%; 
+            margin-bottom: 15px; 
+            grid-template-rows: auto auto auto; 
+        }
+        .form-row { 
+            display: grid; 
+            grid-template-columns: 3fr 2fr; /* DISCIPLINA/ATIVIDADE/ALUNO (3/5), PROF/DATA/TURMA (2/5) */
+            gap: 10px; 
+            width: 100%; 
+        }
+        .form-field { 
+            border: 1px solid black; 
+            padding: 5px 8px; 
+            font-size: 0.8em; 
+            box-sizing: border-box; 
+            overflow: hidden; 
+            white-space: nowrap; 
+            text-overflow: ellipsis; 
+            display: flex; 
+            align-items: center; 
+        }
+        .form-field strong { 
+            margin-right: 5px; 
+            white-space: nowrap; 
+        }
+        .form-field .value-content { 
+            overflow: hidden; 
+            text-overflow: ellipsis; 
+            white-space: nowrap; 
+            flex-grow: 1; 
+        }
+        .fill-in { 
+            display: inline-block; 
+            border-bottom: 1px solid black; 
+            min-width: 25px; 
+            margin: 0 2px; 
+            padding: 0 1px; 
+            line-height: 0.9; 
+            height: 0.8em; 
+        }
+        
+        /* Estilos específicos para o conteúdo do guia do jogo */
+        .content-container { 
+            padding-top: 10px; 
+        }
+        .content-container h1, .content-container h2 { 
+            color: #333; 
+            margin-bottom: 10px; 
+        }
+        .content-container h1 { 
+            font-size: 1.8em; 
+            text-align:center; 
+        }
+        .content-container h2 { 
+            font-size: 1.4em; 
+            margin-top: 20px; 
+            border-bottom: 1px solid #eee; 
+            padding-bottom: 5px;
+        }
+        .content-container img.game-banner { 
+            max-width: 250px; 
+            display: block; 
+            margin: 15px auto; 
+            border:1px solid #ddd; 
+            border-radius: 4px; 
+        }
+        .content-container ul, .content-container ol, .content-container dl { 
+            margin-left:20px; 
+            padding-left:15px; 
+            margin-bottom: 15px; 
+        }
+        .content-container li, .content-container dd { 
+            margin-bottom: 8px; /* Aumentado para os comandos */
+            line-height: 1.4;  /* Aumentado para os comandos */
+        }
+        .content-container dt { 
+            font-weight: bold; 
+            margin-top: 8px;
+        }
+        .content-container dd { 
+            margin-left: 20px; 
+        }
+        .content-container code { 
+            background-color: #f0f0f0; 
+            padding: 2px 5px; /* Aumentado padding do code */
+            border: 1px solid #ddd; /* Adicionada borda sutil */
+            border-radius:3px; 
+            font-family: "Courier New", Courier, monospace; 
+            margin: 0 2px; /* Espaço ao redor do code */
+        }
+        .content-container p { 
+            margin-top:5px; 
+            margin-bottom:10px; 
+            line-height: 1.6;
+        }
+        sup { 
+            font-size: 0.75em; 
+            vertical-align: super; 
+            line-height: 0; 
+        } 
+        .console-button { /* Estilo para os símbolos de console, se usar span */
+            font-family: 'Arial Unicode MS', 'Lucida Sans Unicode', 'DejaVu Sans', sans-serif;
+            font-size: 1.1em; /* Tamanho um pouco maior para os símbolos */
+            padding: 0 3px;
+            border: 1px solid #ccc;
+            background-color: #f8f8f8;
+            border-radius: 3px;
+            display: inline-block;
+            min-width: 1em;
+            text-align: center;
+        }
+        @media print { 
+            body { font-size: 9.5pt; background-color: white; } 
+            .page-container { width: auto; min-height: 0; margin: 0; padding: 0; box-shadow: none; } 
+            @page { margin: 12mm 8mm 12mm 8mm; } 
+            .header-top-container, .form-fields-grid { page-break-after: avoid; } 
+            .logo { max-width: 60px;} 
+            .school-info strong.school-name { font-size: 0.9em; } 
+            .school-info .address-details span { font-size: 0.7em; } 
+            .form-field { padding: 4px 6px; font-size: 0.75em; } 
+            .form-fields-grid { gap: 4px 8px; margin-bottom: 10px; } 
+            .content-container h1 { font-size: 14pt; } 
+            .content-container h2 { font-size: 12pt; } 
+            .content-container p, .content-container li, .content-container dd, .content-container dt { font-size: 9pt; line-height: 1.35; } 
+            .content-container code, .console-button { font-size: 8pt; padding: 1px 2px; } 
+        }
+    </style>
+</head>
+<body>
+<div class="page-container">
+
+    <div class="content-container">
+        <h1>Meu Jogo Incrível - Guia Rápido &#x1F3AE;</h1> 
+        <img src="game_banner.png" alt="Banner principal do Meu Jogo Incrível com personagens em ação" class="game-banner">
+        <p>Bem-vindo ao guia rápido para <em>dominar</em> os segredos de "Meu Jogo Incrível"! Prepare-se para a aventura &copy; 2025.</p>
+
+        <h2>Comandos Essenciais de Movimentação</h2>
+        <ul type="square">
+            <li><strong>Mover para Cima:</strong> Tecla <code>W</code> / Console: <span class="console-button">&uarr;</span></li>
+            <li><strong>Mover para Baixo:</strong> Tecla <code>S</code> / Console: <span class="console-button">&darr;</span></li>
+            <li><strong>Mover para Esquerda:</strong> Tecla <code>A</code> / Console: <span class="console-button">&larr;</span></li>
+            <li><strong>Mover para Direita:</strong> Tecla <code>D</code> / Console: <span class="console-button">&rarr;</span></li>
+            <li><strong>Pular / Confirmar:</strong> Tecla <code>Barra de Espaço</code> ou <code>Enter</code> / Console: <span class="console-button">&#x2715;</span> (X)</li>
+            <li><strong>Ação Secundária / Cancelar:</strong> Tecla <code>CTRL</code> / Console: <span class="console-button">&#x25CB;</span> (Bola/Círculo)</li>
+            <li><strong>Menu / Opções:</strong> Tecla <code>ESC</code> / Console: <span class="console-button">&#x25B3;</span> (Triângulo)</li>
+            <li><strong>Inventário:</strong> Tecla <code>I</code> / Console: <span class="console-button">&#x25A1;</span> (Quadrado)</li>
+        </ul>
+
+        <h2>Sequência de Ataque Especial (Combo "Fúria Pixelada")</h2>
+        <ol type="I" start="1">
+            <li>Pressione <span class="console-button">&#x25A1;</span>, <span class="console-button">&#x25A1;</span> (duas vezes rapidamente)</li>
+            <li>Em seguida, pressione <em><span class="console-button">&#x25CB;</span></em> com precisão</li>
+            <li>Finalize segurando <code>R2</code> e apertando <span class="console-button">&#x2715;</span></li>
+        </ol>
+
+        <h2>Glossário de Itens do Jogo</h2>
+        <dl>
+            <dt>Cristal de Energia &#x1F48E;</dt> 
+            <dd>Restaura 100 pontos de energia da sua nave. <mark>Use com sabedoria!</mark></dd>
+            <dt>Escudo Defletor Mk.II &#x1F6E1;&#xFE0F;</dt> 
+            <dd>Oferece proteção temporária contra todos os tipos de dano. Dura 30 segundos.</dd>
+            <dt><abbr title="Pontos de Experiência">XP</abbr> Doubler &#x2728;</dt> 
+            <dd>Dobra a quantidade de Pontos de Experiência ganhos por 5 minutos.</dd>
+        </dl>
+    </div> </div> </body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form007</title>
+</head>
+<body>
+
+    <h1>Formulario com Opções Extras</h1>
+
+    <form action="form007.html" method="POST" autocomplete="on">
+            <!--área do formulario-->
+        <p>
+            <label for="idestado">Estado: </label>
+            <select name="estado" id="idestado">
+                <option value="">-- Estado --</option>
+                <optgroup label="Sudeste">
+                    <option value="sp">São Paulo</option>
+                    <option value="mg">Minas Gerais</option>
+                    <option value="rj">Rio de Janeiro</option>
+                </optgroup>
+                <optgroup label="Nordeste">
+                    <option value="ma">Maranhão</option>
+                    <option value="pe">Pernambuco</option>
+                    <option value="rn">Rio Grande do Norte</option>
+                </optgroup>
+            </select>
+        </p>
+        <p>
+            <label for="idprof">Profissão: </label>
+            <input type="text" name="profissao" id="idprof" list="listprof">
+            <datalist id="listprof">
+                <option value="Administrador"></option>
+                <option value="Contador"></option>
+                <option value="Desenvolvedor"></option>
+            </datalist>
+        </p>
+        <p>
+            <label for="idmsg">Mensagem: </label> <br>
+            <textarea name="mensagem" id="idmsg" cols="30" rows="10" placeholder="Escreva uma Mensagem..."></textarea>
+        </p>
+            <!--área dos botões de envio-->
+        <p>
+            <input type="submit" value="Enviar">
+            <input type="reset" value="Limpar">
+        </p>
+    </form>
+
+    <p><a href="ex012.html">Voltar</a></p>
+    
+</body>
+</html>

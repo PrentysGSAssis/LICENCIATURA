@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semana 18 - Operadores e Expressões</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f7f4; /* Warm Neutral Background */
+        }
+        .nav-item-active {
+            background-color: #60a5fa; /* Tailwind blue-400 - Soft Blue Accent */
+            color: white;
+            transform: translateX(4px);
+        }
+        .code-block {
+            background-color: #2d3748; /* Tailwind gray-800 */
+            color: #f7fafc; /* Tailwind gray-100 */
+            padding: 1rem;
+            border-radius: 0.5rem; /* rounded-lg */
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            overflow-x: auto;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.875rem; /* text-sm */
+        }
+        .output-block {
+            background-color: #4a5568; /* Tailwind gray-700 */
+            color: #e2e8f0; /* Tailwind gray-300 */
+            padding: 1rem;
+            border-radius: 0.5rem; /* rounded-lg */
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            overflow-x: auto;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.875rem; /* text-sm */
+        }
+        .enunciado-block, .questions-block {
+            background-color: #ffffff;
+            padding: 1.5rem;
+            border-radius: 0.5rem; /* rounded-lg */
+            border: 1px solid #e2e8f0; /* Tailwind gray-200 */
+            margin-bottom: 1.5rem;
+        }
+        .questions-block ol {
+            list-style-type: decimal;
+            padding-left: 1.5rem;
+        }
+        .questions-block li {
+            margin-bottom: 0.75rem;
+        }
+        .gabarito-answers-block {
+            background-color: #ebf8ff; /* Tailwind blue-50 */
+            color: #2c5282; /* Tailwind blue-800 */
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-top: 1rem;
+            border: 1px solid #bee3f8; /* Tailwind blue-200 */
+        }
+    </style>
+    </head>
+<body class="text-gray-800">
+
+    <div class="container mx-auto max-w-7xl p-4 sm:p-6 lg:p-8">
+        <header class="mb-8 pb-4 border-b border-gray-200">
+            <h1 class="text-4xl font-bold text-gray-800">Semana 18: Operadores e Expressões</h1>
+            <p class="text-lg text-gray-500 mt-2">Manipulando, Transformando e Comparando Dados</p>
+        </header>
+
+        <div class="flex flex-col md:flex-row gap-8">
+            <aside class="md:w-1/4">
+                <div class="sticky top-8">
+                    <h2 class="text-xl font-semibold mb-4 text-gray-700">Conteúdo da Aula</h2>
+                    <nav id="section-nav" class="space-y-2">
+                    </nav>
+                </div>
+            </aside>
+
+            <main id="section-content-area" class="md:w-3/4 bg-white p-6 sm:p-8 rounded-lg shadow-sm min-h-[80vh]">
+                <div id="section-placeholder" class="text-center text-gray-400 flex flex-col justify-center items-center h-full">
+                    <svg class="w-24 h-24 mb-4 text-gray-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l-4 4m0 0l-4-4m4 4V4M7 7h10M7 12h4m1.5 0h.01M7 17h4m1.5 0h.01" />
+                    </svg>
+                    <p class="text-xl font-medium">Selecione uma seção ao lado para começar.</p>
+                    <p class="mt-2 text-base">Explore o texto didático e as atividades da semana.</p>
+                </div>
+            </main>
+        </div>
+
+        <footer class="mt-12 text-center text-sm text-gray-400">
+            <p>&copy; <span id="currentYear"></span> Plataforma de Revisão de Algoritmos. Desenvolvido para fins didáticos.</p>
+        </footer>
+    </div>
+
+    <script>
+        const semana18Conteudo = {
+            textoDidatico: {
+                id: "texto-didatico",
+                title: "Texto Didático",
+                subtitle: "Operadores em Ação",
+                content: `
+                        <div class="texto-didatico-content">
+                            <p class="mb-4">Prezados futuros <strong>Programadores</strong>, nas semanas anteriores, aprendemos a declarar variáveis de diversos tipos e a interagir com o usuário através de <code>leia()</code> e <code>escreva()</code>. Agora, vamos explorar como podemos <strong>manipular</strong> esses dados, realizando cálculos e comparações. Para isso, utilizaremos os <strong>operadores</strong>.</p>
+                            <h3 class="text-xl font-semibold mt-6 mb-3">O que são Operadores?</h3>
+                            <p>Operadores são símbolos especiais que realizam operações sobre valores (chamados operandos) para produzir um resultado. No Portugol Studio, temos principalmente três categorias:</p>
+
+                            <h4 class="text-lg font-semibold mt-6 mb-2">1. Operadores Aritméticos</h4>
+                            <p class="mb-2">Realizam cálculos matemáticos.</p>
+                            <ul class="list-disc list-inside space-y-1 mb-4">
+                                <li><code>+</code> (Adição)</li>
+                                <li><code>-</code> (Subtração)</li>
+                                <li><code>*</code> (Multiplicação)</li>
+                                <li><code>/</code> (Divisão Real)</li>
+                                <li><code>%</code> (Módulo - resto da divisão inteira)</li>
+                            </ul>
+                            <div class="code-block"><pre><code>programa {
+    inteiro a = 10, b = 3
+    real c = 10.0, d = 4.0
+    real soma, divisao, sobra
+    funcao inicio() {
+
+    soma=(a + b)
+    divisao=(c / d)
+    sobra=(a % b)
+
+    escreva("10 + 3 = ", soma, "\\n")
+    escreva("10.0 / 4.0 = ", divisao, "\\n")
+    escreva("Resto de 10 / 3 = ", sobra, "\\n")
+    }
+}</code></pre></div>
+
+                            <h4 class="text-lg font-semibold mt-6 mb-2">2. Operadores Relacionais</h4>
+                            <p class="mb-2">Comparam dois valores e o resultado é sempre um valor <code>logico</code> (<code>verdadeiro</code> ou <code>falso</code>).</p>
+                            <ul class="list-disc list-inside space-y-1 mb-4">
+                                 <li><code>==</code> (Igual a)</li>
+                                 <li><code>!=</code> (Diferente de)</li>
+                                 <li><code>></code> (Maior que)</li>
+                                 <li><code>&lt;</code> (Menor que)</li>
+                                 <li><code>>=</code> (Maior ou igual a)</li>
+                                 <li><code>&lt;=</code> (Menor ou igual a)</li>
+                            </ul>
+                             <div class="code-block"><pre><code>programa {\n    inteiro level_jogador = 20\n    const inteiro LEVEL_MINIMO = 25\n    funcao inicio() {\n        logico pode_entrar = (level_jogador >= LEVEL_MINIMO)\n        escreva("Pode entrar na área? ", pode_entrar, "\\\\n") // Saída: falso\n    }\n}</code></pre></div>
+
+                            <h4 class="text-lg font-semibold mt-6 mb-2">3. Operadores Lógicos</h4>
+                            <p class="mb-2">Permitem combinar múltiplas expressões lógicas.</p>
+                             <ul class="list-disc list-inside space-y-1 mb-4">
+                                <li><code>e</code> (E lógico / AND): Retorna <code>verdadeiro</code> somente se AMBAS as expressões forem verdadeiras.</li>
+                                <li><code>ou</code> (OU lógico / OR): Retorna <code>verdadeiro</code> se PELO MENOS UMA expressão for verdadeira.</li>
+                                <li><code>nao</code> (NÃO lógico / NOT): Inverte o valor lógico de uma expressão.</li>
+                            </ul>
+                            <div class="code-block"><pre><code>programa {\n    real nota = 7.5\n    inteiro faltas = 3\n    funcao inicio() {\n        logico aprovado = (nota >= 7.0 e faltas < 5)\n        escreva("Aluno aprovado? ", aprovado, "\\\\n") // Saída: verdadeiro\n    }\n}</code></pre></div>
+
+                            <h3 class="text-xl font-semibold mt-8 mb-3">Precedência de Operadores</h3>
+                            <p>É a ordem em que os operadores são avaliados. A ordem geral é: 1º Aritméticos, 2º Relacionais, 3º Lógicos. Use parênteses <code>()</code> para controlar a ordem e garantir a clareza.</p>
+                        </div>
+                `
+            },
+            atividadeGuiada: {
+                id: "atividade-guiada",
+                title: "Atividade Guiada",
+                subtitle: "Calculadora de Bônus de Atributo (Tibia)",
+                objetivo: "Utilizar operadores aritméticos e relacionais para calcular um bônus simples e determinar se ele é aplicável, no contexto do Tibia.",
+                gabarito: `programa
+{
+    inteiro skill_base_personagem
+    inteiro bonus_equipamento
+    inteiro skill_total
+    const inteiro SKILL_NECESSARIA_BONUS_EXTRA = 100
+    logico recebe_bonus_extra
+
+    funcao inicio()
+    {
+        escreva("--- Calculadora de Bônus de Skill (Tibia) ---\\n")
+        escreva("Digite sua skill base (ex: Sword Fighting): ")
+        leia(skill_base_personagem)
+        escreva("Digite o bônus de skill do seu equipamento: +")
+        leia(bonus_equipamento)
+
+        skill_total = skill_base_personagem + bonus_equipamento
+        recebe_bonus_extra = (skill_total >= SKILL_NECESSARIA_BONUS_EXTRA)
+
+        escreva("\\n--- Status da Skill ---\\n")
+        escreva("Skill Base: ", skill_base_personagem, "\\n")
+        escreva("Bônus de Equipamento: +", bonus_equipamento, "\\n")
+        escreva("Skill Total Calculada: ", skill_total, "\\n")
+        escreva("Alcançou patamar para bônus extra (skill >= ", SKILL_NECESSARIA_BONUS_EXTRA, ")? ", recebe_bonus_extra, "\\n")
+    }
+}`
+            },
+            atividadesReforco: [
+                {
+                    id: "reforco-1",
+                    title: "cod010: Verificador de Múltiplo",
+                    enunciado: ["Crie um programa que leia dois números inteiros. Armazene em uma variável <code>logico</code> se o primeiro número é múltiplo do segundo (ou seja, se o resto da divisão do primeiro pelo segundo é zero). Exiba o valor desta variável <code>logico</code>."],
+                    saidaEsperada: "Digite o primeiro número inteiro: 10\nDigite o segundo número inteiro: 2\nO primeiro é múltiplo do segundo? verdadeiro"
+                },
+                {
+                    id: "reforco-2",
+                    title: "cod011: Comparador de Preços",
+                    enunciado: ["Faça um programa que leia o preço de dois produtos (<code>real</code>). Armazene em uma variável <code>logico</code> se o preço do primeiro produto é menor que o preço do segundo. Em outra variável <code>logico</code>, armazene se os preços são iguais. Exiba os valores dessas duas variáveis lógicas."],
+                    saidaEsperada: "Preço do Produto A: 25.50\nPreço do Produto B: 30.00\nProduto A é mais barato que B? verdadeiro\nOs preços são iguais? falso"
+                },
+                {
+                    id: "reforco-3",
+                    title: "cod012: Expressão Lógica Complexa",
+                    enunciado: ["Declare três variáveis <code>logico</code>: <code>condicao1 = verdadeiro</code>, <code>condicao2 = falso</code>, <code>condicao3 = verdadeiro</code>. Calcule e exiba o resultado da expressão: <code>(condicao1 e condicao2) ou (nao condicao2 e condicao3)</code>."],
+                    saidaEsperada: "Resultado da expressão: verdadeiro"
+                }
+            ],
+            interpretacaoCodigo: {
+                id: "interpretacao-codigo",
+                title: "Interpretação de Código",
+                code: `programa
+{
+    inteiro x = 10, y = 5, z = 2
+    logico r1, r2, r_final
+    real media
+
+    funcao inicio()
+    {
+        media = (x + y + z) / 3.0 
+        r1 = (x > y)
+        r2 = (y < z)
+        r_final = (r1 ou r2) e (nao r2)
+
+        escreva("Média: ", media, "\\n")
+        escreva("R1 (x > y): ", r1, "\\n")
+        escreva("R2 (y < z): ", r2, "\\n")
+        escreva("Resultado Final (lógico): ", r_final, "\\n")
+    }
+}`,
+                questions: [
+                    "Qual o objetivo principal deste algoritmo?",
+                    "Qual será a saída EXATA do programa no console?",
+                    "Se a linha `r_final = (r1 ou r2) e (nao r2)` fosse alterada para `r_final = nao (r1 e r2)`, qual seria o novo valor de `r_final` exibido?"
+                ]
+            },
+            entrega: {
+                id: "entrega",
+                title: "Entrega: Simulador de Teste de Skill (Tibia)",
+                objetivo: "Integrar o uso de variáveis, constantes, operadores aritméticos e relacionais para simular um teste de skill no Tibia.",
+                enunciado: [
+                    "No Tibia, para usar certas magias ou equipamentos, um personagem precisa ter um determinado nível de \"magic level\" ou outra skill. Crie um programa `TesteDeSkillTibia` que:",
+                    "1. Defina constantes para os requisitos: `MAGIC_LEVEL_REQUERIDO_MAGIA = 15` e `SKILL_MINIMA_ARMA = 70`.",
+                    "2. Leia o nome do personagem (`cadeia`), o \"magic level\" atual (`inteiro`) e a skill de \"distance fighting\" atual (`inteiro`).",
+                    "3. O personagem ganha um bônus temporário de \"+5\" no magic level e \"+10\" na skill de distance devido a um item. Calcule o magic level efetivo e a skill de distance efetiva.",
+                    "4. Armazene em variáveis `logico` separadas (`pode_usar_magia` e `pode_usar_arma`) se os respectivos níveis efetivos são suficientes.",
+                    "5. Exiba um relatório para o personagem mostrando os resultados das verificações."
+                ],
+                saidaEsperada: `--- Teste de Skills Avançadas (Tibia) ---
+Nome do Personagem: Arqueira Veloz
+Magic Level atual: 12
+Distance Fighting atual: 65
+
+--- Relatório de Skills Efetivas para Arqueira Veloz ---
+Magic Level Efetivo (com bônus +5): 17
+Distance Fighting Efetivo (com bônus +10): 75
+Pode usar a Magia de ML 15? verdadeiro
+Pode usar a Arma de Skill 70? verdadeiro`,
+            }
+        };
+
+        const navContainer = document.getElementById('section-nav');
+        const contentArea = document.getElementById('section-content-area');
+        const placeholder = document.getElementById('section-placeholder');
+        let currentActiveButton = null;
+
+        function displaySection(sectionId) {
+            let sectionData;
+            let sectionType;
+
+            const navMap = {
+                "texto-didatico": { data: semana18Conteudo.textoDidatico, type: 'textoDidatico' },
+                "atividade-guiada": { data: semana18Conteudo.atividadeGuiada, type: 'atividade' },
+                "reforco-1": { data: semana18Conteudo.atividadesReforco[0], type: 'atividade' },
+                "reforco-2": { data: semana18Conteudo.atividadesReforco[1], type: 'atividade' },
+                "reforco-3": { data: semana18Conteudo.atividadesReforco[2], type: 'atividade' },
+                "interpretacao-codigo": { data: semana18Conteudo.interpretacaoCodigo, type: 'interpretacao' },
+                "entrega": { data: semana18Conteudo.entrega, type: 'atividade' }
+            };
+
+            const selected = navMap[sectionId];
+            if (!selected) {
+                contentArea.innerHTML = '<p class="text-red-500">Conteúdo não encontrado.</p>';
+                return;
+            }
+            sectionData = selected.data;
+            sectionType = selected.type;
+
+            if(placeholder) placeholder.style.display = 'none';
+            contentArea.innerHTML = ''; 
+
+            const article = document.createElement('article');
+            article.id = `section-${sectionData.id}`;
+            article.className = "fade-in";
+
+            const titleText = sectionData.subtitle ? `${sectionData.title}: ${sectionData.subtitle}` : sectionData.title;
+            const titleH2 = document.createElement('h2');
+            titleH2.className = "text-3xl font-bold text-gray-800 mb-6 pb-3 border-b border-gray-200";
+            titleH2.textContent = titleText;
+            article.appendChild(titleH2);
+            
+            if (sectionType === 'textoDidatico') {
+                const divContent = document.createElement('div');
+                divContent.innerHTML = sectionData.content;
+                article.appendChild(divContent);
+            } else {
+                 if (sectionData.objetivo) {
+                    const objP = document.createElement('p');
+                    objP.className = "text-gray-500 italic mb-6 text-base";
+                    objP.innerHTML = `<strong>Objetivo:</strong> ${sectionData.objetivo}`;
+                    article.appendChild(objP);
+                }
+
+                if(sectionData.enunciado){
+                    const enunciadoDiv = document.createElement('div');
+                    enunciadoDiv.className = "enunciado-block";
+                    const enunciadoTitle = document.createElement('h3');
+                    enunciadoTitle.className = "text-xl font-semibold text-gray-800 mb-3";
+                    enunciadoTitle.textContent = "Enunciado";
+                    enunciadoDiv.appendChild(enunciadoTitle);
+                    sectionData.enunciado.forEach(line => {
+                        const p = document.createElement('p');
+                        p.className = "text-gray-700 mb-1";
+                        p.innerHTML = line.replace(/`([^`]+)`/g, '<code class="bg-gray-200 text-sm text-pink-600 px-1 rounded">$1</code>');
+                        enunciadoDiv.appendChild(p);
+                    });
+                    article.appendChild(enunciadoDiv);
+                }
+                
+                 if (sectionData.questions) { 
+                    const questionsDiv = document.createElement('div');
+                    questionsDiv.className = "questions-block";
+                    const qTitle = document.createElement('h3');
+                    qTitle.className = "text-xl font-semibold text-gray-800 mb-3";
+                    qTitle.textContent = "Responda:";
+                    questionsDiv.appendChild(qTitle);
+                    const qOl = document.createElement('ol');
+                    qOl.className = "list-decimal list-inside"
+                    sectionData.questions.forEach(q => {
+                        const qLi = document.createElement('li');
+                        qLi.className = "text-gray-700"
+                        qLi.innerHTML = q.replace(/`([^`]+)`/g, '<code class="bg-gray-200 text-sm text-pink-600 px-1 rounded">$1</code>');
+                        qOl.appendChild(qLi);
+                    });
+                    questionsDiv.appendChild(qOl);
+                    article.appendChild(questionsDiv);
+                }
+                
+                if (sectionData.code) { 
+                    const codeTitle = document.createElement('h3');
+                    codeTitle.className = "text-xl font-semibold text-gray-800 mb-2 mt-4";
+                    codeTitle.textContent = "Analise o código abaixo:";
+                    article.appendChild(codeTitle);
+                    const codeBlockDiv = document.createElement('div');
+                    codeBlockDiv.className = "code-block";
+                    codeBlockDiv.innerHTML = `<pre><code>${sectionData.code.replace(/</g, "&lt;").replace(/>/g, "&gt;")}</code></pre>`;
+                    article.appendChild(codeBlockDiv);
+                }
+
+                if (sectionData.saidaEsperada) {
+                    const saidaTitle = document.createElement('h3');
+                    saidaTitle.className = "text-xl font-semibold text-gray-800 mb-2 mt-6";
+                    saidaTitle.textContent = "Saída Esperada (Exemplo):";
+                    article.appendChild(saidaTitle);
+                    const outputBlockDiv = document.createElement('div');
+                    outputBlockDiv.className = "output-block";
+                    outputBlockDiv.innerHTML = `<pre><code>${sectionData.saidaEsperada.replace(/</g, "&lt;").replace(/>/g, "&gt;")}</code></pre>`;
+                    article.appendChild(outputBlockDiv);
+                }
+
+                if (sectionData.gabarito || sectionData.gabaritoAnswers) {
+                    const gabaritoContainer = document.createElement('div');
+                    gabaritoContainer.className = "mt-6";
+                    const toggleButton = document.createElement('button');
+                    toggleButton.className = "bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg transition duration-150 ease-in-out mb-2 shadow";
+                    const gabaritoContent = document.createElement('div');
+                    gabaritoContent.id = `gabarito-content-${sectionData.id}`;
+                    gabaritoContent.classList.add('hidden');
+                    if (sectionData.gabaritoAnswers) {
+                        toggleButton.textContent = "Mostrar Respostas das Questões";
+                        gabaritoContent.classList.add('gabarito-answers-block');
+                        let answersHtml = '<h4 class="font-semibold mb-2">Respostas:</h4><ol class="list-decimal list-inside">';
+                        sectionData.gabaritoAnswers.forEach(ans => {
+                            answersHtml += `<li>${ans.replace(/`([^`]+)`/g, '<code class="bg-gray-200 text-sm text-pink-600 px-1 rounded">$1</code>')}</li>`;
+                        });
+                        answersHtml += '</ol>';
+                        gabaritoContent.innerHTML = answersHtml;
+                    } else if (sectionData.gabarito) {
+                        toggleButton.textContent = "Mostrar Gabarito do Código";
+                        gabaritoContent.classList.add('code-block');
+                        gabaritoContent.innerHTML = `<pre><code>${sectionData.gabarito.replace(/</g, "&lt;").replace(/>/g, "&gt;")}</code></pre>`;
+                    }
+                    gabaritoContainer.appendChild(toggleButton);
+                    gabaritoContainer.appendChild(gabaritoContent);
+                    article.appendChild(gabaritoContainer);
+                    toggleButton.addEventListener('click', () => {
+                        const isHidden = gabaritoContent.classList.toggle('hidden');
+                        toggleButton.textContent = isHidden ? (sectionData.gabaritoAnswers ? "Mostrar Respostas" : "Mostrar Gabarito") : (sectionData.gabaritoAnswers ? "Esconder Respostas" : "Esconder Gabarito");
+                    });
+                }
+
+            }
+            contentArea.appendChild(article);
+        }
+
+        function setActiveButton(button) {
+            if (currentActiveButton) {
+                currentActiveButton.classList.remove('nav-item-active');
+            }
+            button.classList.add('nav-item-active');
+            currentActiveButton = button;
+        }
+        
+        const navSections = [
+            semana18Conteudo.textoDidatico,
+            semana18Conteudo.atividadeGuiada,
+            ...semana18Conteudo.atividadesReforco,
+            semana18Conteudo.interpretacaoCodigo,
+            semana18Conteudo.entrega
+        ];
+
+        navSections.forEach((section, index) => {
+            const button = document.createElement('button');
+            let buttonText = section.title;
+            if(section.id.startsWith("reforco-")) {
+                 buttonText = `Reforço ${section.id.split('-')[1]}`;
+            }
+
+            button.textContent = buttonText;
+            button.classList.add(
+                'w-full', 'text-left', 'px-4', 'py-3', 'rounded-lg', 
+                'transition-all', 'duration-200', 'ease-in-out', 
+                'font-medium', 'text-gray-600', 'hover:bg-blue-100', 'hover:text-blue-600'
+            );
+            button.addEventListener('click', () => {
+                displaySection(section.id);
+                setActiveButton(button);
+            });
+            navContainer.appendChild(button);
+        });
+        
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

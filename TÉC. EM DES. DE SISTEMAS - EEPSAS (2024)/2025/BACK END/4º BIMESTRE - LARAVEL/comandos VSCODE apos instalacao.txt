@@ -1,0 +1,5 @@
+php -v
+
+composer --version
+
+composer global require laravel/installer

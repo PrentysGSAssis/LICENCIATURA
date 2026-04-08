@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEMANA 15 - Tipos de Dados</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f0f0f0; }
+        .page-container { width: 210mm; min-height: 297mm; margin: 20px auto; padding: 15mm; box-shadow: 0 0 10px rgba(0,0,0,0.1); box-sizing: border-box; background-color: #fff; }
+        .header-top-container { display: flex; justify-content: center; align-items: center; border-bottom: 1px solid black; padding-bottom: 10px; margin-bottom: 10px; }
+        .logo { max-width: 65px; height: auto; margin-right: 15px; }
+        .school-info { text-align: center; padding: 0 5px; }
+        .school-info strong.school-name { display: block; margin-bottom: 4px; font-size: 1em; }
+        .school-info .address-details span { display: inline; font-size: 0.75em; margin-right: 4px; }
+        .school-info .address-details span:last-child { margin-right: 0; }
+        .form-fields-grid { display: grid; gap: 5px 10px; width: 100%; margin-bottom: 15px; grid-template-rows: auto auto auto; }
+        .form-row { display: grid; grid-template-columns: 3fr 2fr; gap: 10px; width: 100%; }
+        .form-field { border: 1px solid black; padding: 5px 8px; font-size: 0.8em; box-sizing: border-box; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; display: flex; align-items: center; }
+        .form-field strong { margin-right: 5px; white-space: nowrap; }
+        .form-field .value-content { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex-grow: 1; }
+        .fill-in { display: inline-block; border-bottom: 1px solid black; min-width: 25px; margin: 0 2px; padding: 0 1px; line-height: 0.9; height: 0.8em; }
+        .content-container { padding-top: 10px; }
+        .content-container h1, .content-container h2, .content-container h3 { color: #333; }
+        .content-container h1 { font-size: 1.6em; border-bottom: 1.5px solid #eee; padding-bottom: 7px; margin-top: 0; margin-bottom: 20px;}
+        .content-container h2 { font-size: 1.3em; margin-top: 22px; margin-bottom: 12px;}
+        .content-container h3 { font-size: 1.05em; margin-top: 16px; margin-bottom: 8px;}
+        .content-container p, .content-container li { line-height: 1.6; font-size: 0.95em; color: #444; margin-bottom: 12px;}
+        .content-container dt { font-weight: bold; margin-top: 10px; font-size: 0.95em; color: #444;}
+        .content-container dd { margin-left: 20px; font-size: 0.95em; color: #444; margin-bottom: 10px;}
+        .content-container code.inline-code { background-color: #f4f4f4; padding: 2px 5px; border-radius: 3px; font-family: "Consolas", "Courier New", Courier, monospace; font-size: 0.9em; color: #c7254e;}
+        .content-container pre { background-color: #2d2d2d; color: #f8f8f2; padding: 15px; border-radius: 4px; overflow-x: auto; font-size: 0.85em; border: 1px solid #444; margin-top: 10px; margin-bottom: 15px;}
+        .content-container pre code { background-color: transparent; padding: 0; color: inherit; font-family: "Consolas", "Courier New", Courier, monospace; font-size: 1em;}
+        .content-container ul, .content-container ol { margin-top: 5px; margin-bottom: 15px; padding-left: 30px;}
+        .content-container hr { border: 0; height: 1px; background: #ccc; margin: 30px 0;}
+        .references-section { margin-top: 30px; font-size: 0.85em; color: #555;}
+        .references-section p { font-size: 1em; margin-bottom: 5px;}
+        sup { font-size: 0.70em; vertical-align: super; line-height: 0; position: relative; top: -0.4em; }
+        @media print { 
+            body { font-size: 9.5pt; background-color: #fff; } 
+            .page-container { width: auto; min-height: 0; margin: 0; padding: 0; box-shadow: none; } 
+            @page { margin: 12mm 8mm 12mm 8mm; } 
+            .header-top-container, .form-fields-grid { page-break-after: avoid; } 
+            .logo { max-width: 60px;} 
+            .school-info strong.school-name { font-size: 0.9em; } 
+            .school-info .address-details span { font-size: 0.7em; } 
+            .form-field { padding: 4px 6px; font-size: 0.75em; } 
+            .form-fields-grid { gap: 4px 8px; margin-bottom: 10px; } 
+            .content-container h1 { font-size: 14pt; } 
+            .content-container h2 { font-size: 12pt; } 
+            .content-container h3 { font-size: 10pt; } 
+            .content-container p, .content-container li, .content-container dd, .content-container dt, .content-container td, .content-container th { font-size: 9pt; line-height: 1.35; } 
+            .content-container code.inline-code, .content-container pre code { font-size: 8pt; } 
+            .content-container pre { padding: 7px; background-color: #ededed; color: #333; border: 1px solid #ccc;} 
+        }
+    </style>
+</head>
+<body>
+<div class="page-container">
+    <div class="header-top-container">
+        <img src="https://1drv.ms/i/c/9e9e1f5991e00f07/IQTuKfwDXz6eQZG682I84WqBASSJENKf1uHvN3nSBXphxkU?width=1024" alt="Logo da Escola" class="logo" onerror="this.onerror=null; this.src='https://placehold.co/65x65/ccc/000?text=Logo'; this.alt='Erro ao carregar logo';">
+        <div class="school-info">
+            <strong class="school-name">ESCOLA ESTADUAL PROFESSORA SEBASTIANA DE ALMEIDA E SILVA</strong>
+            <div class="address-details">
+                <span>Rua São José, nº 30, Jaguaruçu - MG.</span>
+                <span>CEP: 35.188-000</span>
+                <span>Tel: (31) 3845-1209</span>
+            </div>
+        </div>
+    </div>
+    <div class="form-fields-grid">
+        <div class="form-row">
+            <div class="form-field"><strong>DISCIPLINA:</strong> <span class="value-content">Algoritmos e Estrutura de Dados</span></div>
+            <div class="form-field"><strong>PROFESSOR(A):</strong> <span class="value-content">Prentys Assis</span></div>
+        </div>
+        <div class="form-row">
+            <div class="form-field"><strong>ATIVIDADE:</strong> <span class="value-content">SEMANA 15 - Tipos de Dados</span></div>
+            <div class="form-field"><strong>DATA:</strong> <span class="value-content">21/05/2025</span></div>
+        </div>
+        <div class="form-row">
+            <div class="form-field"><strong>ALUNO(A):</strong> <span class="value-content"></span></div>
+            <div class="form-field"><strong>TURMA:</strong> <span class="value-content">2º Ano</span></div>
+        </div>
+    </div>
+
+    <div class="content-container">
+        <h1>Explorando os Tipos de Dados</h1>
+    
+        <p>Prezados futuros <strong>Programadores</strong>, na semana anterior, introduzimos o conceito fundamental de variáveis como "caixas" para guardar informações que podem mudar. Vimos os tipos <code class="inline-code">inteiro</code> e <code class="inline-code">cadeia</code>. Hoje, expandiremos nosso conhecimento explorando outros <strong>tipos de dados</strong> básicos que o Portugol Studio oferece: <code class="inline-code">real</code> e <code class="inline-code">caracter</code>. Compreender esses tipos é essencial, pois cada um é adequado para armazenar um tipo diferente de informação, otimizando o uso da memória e permitindo operações específicas. Lembrem-se, estamos construindo a lógica de Programadores, instruindo o computador a realizar tarefas.</p>
+
+        <h2>Recapitulando e Expandindo:</h2>
+        <ul>
+            <li><strong><code class="inline-code">inteiro</code></strong>: Armazena números inteiros.
+                <pre><code class="language-portugol">
+programa {
+    inteiro numero_original, resultado_soma
+
+    funcao inicio() {
+        escreva("Digite um número inteiro: ")
+        leia(numero_original)
+        resultado_soma = numero_original + 10 // Soma 10 ao número lido
+        escreva(numero_original, " + 10 = ", resultado_soma, ".\n")
+    }
+}
+                </code></pre>
+            </li>
+            <li><strong><code class="inline-code">cadeia</code></strong>: Armazena sequências de caracteres (texto), entre aspas duplas.
+                <pre><code class="language-portugol">
+programa {
+    cadeia nome_usuario
+
+    funcao inicio() {
+        escreva("Qual é o seu nome? ")
+        leia(nome_usuario)
+        escreva("Olá, ", nome_usuario, "! Bem-vindo(a).\n") // Exibição direta
+    }
+}
+                </code></pre>
+            </li>
+        </ul>
+
+        <h2>Novos Tipos:</h2>
+        <ul>
+            <li><strong><code class="inline-code">real</code></strong>: Armazena números que podem ter casas decimais, usando o ponto <code class="inline-code">.</code> como separador.
+                <pre><code class="language-portugol">
+programa {
+    real preco_item, preco_com_acrescimo
+    const real VALOR_ACRESCIMO = 5.50
+
+    funcao inicio() {
+        escreva("Digite o preço do item: R$")
+        leia(preco_item)
+        preco_com_acrescimo = preco_item + VALOR_ACRESCIMO
+        escreva("Preço com acréscimo: R$", preco_com_acrescimo, "\n")
+    }
+}
+                </code></pre>
+            </li>
+            <li><strong><code class="inline-code">caracter</code></strong>: Armazena um <em>único</em> caractere, delimitado por aspas simples <code class="inline-code">' '</code>.
+                <pre><code class="language-portugol">
+programa {
+    caracter inicial_nome
+
+    funcao inicio() {
+        escreva("Digite a primeira letra do seu nome: ")
+        leia(inicial_nome)
+        escreva("Sua inicial é: ", inicial_nome, "\n")
+    }
+}
+                </code></pre>
+            </li>
+        </ul>
+
+        <h2>Por que Diferentes Tipos?</h2>
+        <p>Usar o tipo correto garante que o computador armazene e processe a informação eficientemente. Tipos numéricos (<code class="inline-code">inteiro</code>, <code class="inline-code">real</code>) permitem cálculos matemáticos. Tipos de texto (<code class="inline-code">cadeia</code>, <code class="inline-code">caracter</code>) permitem manipulação textual. Misturar tipos de forma inadequada (ex: guardar "abc" num <code class="inline-code">inteiro</code>) resulta em erro.</p>
+
+        <h2>Exemplo Integrado (Contexto Tibia):</h2>
+        <p>Vamos simular a leitura de alguns dados de um personagem no Tibia e exibir um resumo, utilizando os tipos que aprendemos.</p>
+        <pre><code class="language-portugol">
+programa {
+    // Constantes e Variáveis Globais
+    const cadeia NOME_JOGO = "Tibia"
+    cadeia nome_char
+    inteiro level_char
+    real capacidade_char // Alterado de dinheiro_char para capacidade_char
+
+    funcao inicio() {
+         escreva("--- Cadastro Rápido de Personagem em ", NOME_JOGO, " ---\n")
+         
+         escreva("Nome do seu personagem: ")
+         leia(nome_char)
+         
+         escreva("Level atual de ", nome_char, ": ")
+         leia(level_char)
+         
+         escreva("Capacidade de carga (ex: 750.0 Oz): ")
+         leia(capacidade_char)
+         
+         escreva("\n--- Resumo do Personagem ---\n")
+         escreva("Nome: ", nome_char, "\n")
+         escreva("Level: ", level_char, "\n")
+         escreva("Capacidade: ", capacidade_char, " Oz\n")
+    }
+}
+        </code></pre>
+        <p>Este exemplo demonstra como diferentes tipos coexistem para representar dados variados. A prática com <code class="inline-code">leia()</code> e <code class="inline-code">escreva()</code> usando estes tipos é fundamental.</p>
+
+        <hr>
+        <div class="references-section">
+            <p><em>Referências: Biblioteca da Linguagem Portugol Studio (Seções 2, 3), Apostila - VisualG.pdf (Caps 5, 6 adaptados), Nybo (2019), Drozdek (2016), exercicios-algoritmos.pdf.</em></p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

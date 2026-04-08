@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revisão de Algoritmos - Semana 16 (Exercícios 1-20)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .nav-item-active {
+            background-color: #3b82f6; /* Tailwind blue-500 */
+            color: white;
+        }
+        .code-block {
+            background-color: #1f2937; /* Tailwind gray-800 */
+            color: #f3f4f6; /* Tailwind gray-100 */
+            padding: 1rem;
+            border-radius: 0.375rem; /* rounded-md */
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            overflow-x: auto;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.875rem; /* text-sm */
+        }
+        .output-block {
+            background-color: #374151; /* Tailwind gray-700 */
+            color: #e5e7eb; /* Tailwind gray-200 */
+            padding: 1rem;
+            border-radius: 0.375rem; /* rounded-md */
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            overflow-x: auto;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.875rem; /* text-sm */
+        }
+        .enunciado-block {
+            background-color: #f9fafb; /* Tailwind gray-50 */
+            padding: 1rem;
+            border-radius: 0.375rem; /* rounded-md */
+            border: 1px solid #e5e7eb; /* Tailwind gray-200 */
+        }
+    </style>
+    <!-- Visualization & Content Choices: 
+        Exercises 1-5 (S13 Review - `escreva`): Goal: Reinforce basic output. Method: Textual display. Interaction: Gabarito toggle for Ex1. Justification: Foundational practice.
+        Exercises 6-10 (S14 Review - `leia`, `const`, `inteiro`/`cadeia` vars): Goal: Reinforce input, constants, basic variables. Method: Textual display. Interaction: Gabarito toggle for Ex6. Justification: Building on input/storage.
+        Exercises 11-15 (S15 Review - `real`/`caracter` vars, arithmetic): Goal: Reinforce more data types and calculations. Method: Textual display. Interaction: Gabarito toggle for Ex11. Justification: Expanding data handling.
+        Exercise 16 (Mana Calculator): Goal: Review const, variables, input/output, arithmetic. Method: Textual display. Interaction: Gabarito toggle. Justification: Clear presentation of a solved problem.
+        Exercise 17 (Inventory): Goal: Review variables (cadeia, real, inteiro), input/output, arithmetic. Method: Textual display. Interaction: N/A. Justification: Practice problem.
+        Exercise 18 (Discount Calculator): Goal: Review const, variables, input/output, arithmetic. Method: Textual display. Interaction: N/A. Justification: Practice problem.
+        Exercise 19 (Rectangle Calc): Goal: Review variables, input/output, arithmetic. Method: Textual display. Interaction: N/A. Justification: Practice problem.
+        Exercise 20 (Hunt Report): Goal: Comprehensive review of all concepts. Method: Textual display. Interaction: Gabarito toggle. Justification: Complex solved problem for detailed study.
+        All Libraries: N/A (Vanilla JS for UI interaction).
+    -->
+    </head>
+<body class="bg-gray-100 text-gray-900">
+
+    <div class="container mx-auto max-w-6xl p-4 sm:p-6 lg:p-8">
+        <header class="mb-8 text-center">
+            <h1 class="text-4xl font-bold text-blue-600">Revisão de Algoritmos</h1>
+            <p class="text-lg text-gray-600 mt-2">Exercícios da Semana 16 (Baseados nas Semanas 13-15)</p>
+        </header>
+
+        <div class="flex flex-col md:flex-row gap-6">
+            <aside class="md:w-1/4 bg-white p-6 rounded-lg shadow-lg max-h-[80vh] overflow-y-auto">
+                <h2 class="text-xl font-semibold mb-4 text-blue-700 border-b pb-2 sticky top-0 bg-white">Exercícios</h2>
+                <nav id="exercise-nav" class="space-y-1">
+                </nav>
+            </aside>
+
+            <main id="exercise-content-area" class="md:w-3/4 bg-white p-6 rounded-lg shadow-lg min-h-[60vh]">
+                <div id="exercise-placeholder" class="text-center text-gray-500 flex flex-col justify-center items-center h-full">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 mx-auto mb-4 text-blue-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v17.792M6.875 5.062C3.589 7.004 1.5 10.005 1.5 13.5c0 4.142 3.358 7.5 7.5 7.5s7.5-3.358 7.5-7.5c0-3.495-2.089-6.496-5.375-8.438m-2.625 0V3.104m0 1.958C9.007 4.044 7.93 3.5 6.75 3.5A3.75 3.75 0 003 7.25V10.5M17.125 5.062C20.411 7.004 22.5 10.005 22.5 13.5c0 4.142-3.358 7.5-7.5 7.5s-7.5-3.358-7.5-7.5c0-3.495 2.089-6.496 5.375-8.438m2.625 0V3.104m0 1.958c.993-1.016 2.07-1.562 3.25-1.562a3.75 3.75 0 013.75 3.75V10.5" />
+                    </svg>
+                    <p class="text-xl">Selecione um exercício ao lado para começar.</p>
+                    <p class="text-sm mt-2">Esta plataforma apresenta os exercícios de revisão das semanas 13, 14 e 15.</p>
+                </div>
+            </main>
+        </div>
+
+        <footer class="mt-12 text-center text-sm text-gray-500">
+            <p>&copy; <span id="currentYear"></span> Plataforma de Revisão de Algoritmos. Desenvolvido para fins didáticos.</p>
+        </footer>
+    </div>
+
+    <script>
+        const exercises = [
+            {
+                id: 1,
+                title: "Apresentação Simples",
+                enunciado: ["Crie um programa que exiba seu nome completo na primeira linha, o nome da sua disciplina favorita na segunda linha e o nome da sua cidade natal na terceira linha."],
+                gabarito: `programa
+{
+    funcao inicio()
+    {
+        escreva("Nome Completo: Prentys T. Assis\\n")
+        escreva("Disciplina Favorita: Algoritmos e Estrutura de Dados\\n")
+        escreva("Cidade Natal: Coronel Fabriciano\\n")
+    }
+}`,
+                saidaEsperada: `Nome Completo: Prentys T. Assis
+Disciplina Favorita: Algoritmos e Estrutura de Dados
+Cidade Natal: Coronel Fabriciano`
+            },
+            {
+                id: 2,
+                title: "Cardápio Dia",
+                enunciado: ["Elabore um algoritmo que mostre um cardápio simples para um café da manhã, almoço e jantar, cada um em uma nova linha.", "Exemplo de linha: \"Café da Manhã: Pão com manteiga e café.\""],
+                gabarito: null,
+                saidaEsperada: `Café da Manhã: Pão com queijo e café com leite.
+Almoço: Arroz, feijão, bife e salada.
+Jantar: Sopa de legumes.`
+            },
+            {
+                id: 3,
+                title: "Ficha de Filme",
+                enunciado: ["Crie um programa que escreva uma pequena \"ficha técnica\" de um filme à sua escolha, contendo: Título do Filme, Ano de Lançamento e Diretor(a). Cada informação deve estar em uma linha separada e ser precedida por um rótulo (ex: \"Ano: 2023\")."],
+                gabarito: null,
+                saidaEsperada: `Título do Filme: A Origem
+Ano de Lançamento: 2010
+Diretor(a): Christopher Nolan`
+            },
+            {
+                id: 4,
+                title: "Letra de Música Favorita",
+                enunciado: ["Desenvolva um programa que exiba um trecho (pelo menos 4 linhas) da sua música favorita, respeitando as quebras de linha originais da letra."],
+                gabarito: null,
+                saidaEsperada: `Is this the real life?
+Is this just fantasy?
+Caught in a landslide,
+No escape from reality.`
+            },
+            {
+                id: 5,
+                title: "Desenho Simples (S13 Elaborado)",
+                enunciado: ["Crie um programa que, utilizando apenas o comando `escreva()` e caracteres como `*`, `-`, `|`, `#`, etc., tente desenhar uma forma simples no console, como um pequeno pinheiro ou um rosto simplificado. Use pelo menos 4 linhas.", "Exemplo de uma linha de um pinheiro: `escreva(\"  * \\n\")`"],
+                gabarito: null,
+                saidaEsperada: ` ----
+| O O |
+|  ^  |
+| --- |
+ ----`
+            },
+            {
+                id: 6,
+                title: "Saudação Personalizada",
+                enunciado: ["Crie um programa que pergunte o nome do usuário e, em seguida, exiba uma mensagem de boas-vindas personalizada com o nome digitado."],
+                gabarito: `programa
+{
+    // Declaração de variável global
+    cadeia nome_usuario
+
+    funcao inicio()
+    {
+        escreva("Qual é o seu nome? ")
+        leia(nome_usuario)
+        escreva("Olá, ", nome_usuario, "! Seja muito bem-vindo(a) à nossa revisão!\\n")
+    }
+}`,
+                saidaEsperada: `Qual é o seu nome? Alex
+Olá, Alex! Seja muito bem-vindo(a) à nossa revisão!`
+            },
+            {
+                id: 7,
+                title: "Cadastro de Jogo",
+                enunciado: ["Faça um programa que leia o nome de um jogo (`cadeia`) e o ano em que você começou a jogá-lo (`inteiro`). Depois, exiba: \"Você joga [Nome do Jogo] desde [Ano].\""],
+                gabarito: null,
+                saidaEsperada: `Nome do jogo: Tibia
+Ano que começou a jogar: 2003
+Você joga Tibia desde 2003.`
+            },
+            {
+                id: 8,
+                title: "Mensagem com Constante",
+                enunciado: ["Desenvolva um programa que utilize uma `constante` para armazenar o nome da sua cor favorita. Em seguida, peça ao usuário para digitar o nome de um objeto e exiba: \"Um(a) [Objeto] da cor [Sua Cor Favorita] seria interessante!\""],
+                gabarito: null,
+                saidaEsperada: `Digite o nome de um objeto: Carro
+Um(a) Carro da cor Azul seria interessante!`
+            },
+            {
+                id: 9,
+                title: "Informações de Contato",
+                enunciado: ["Crie um programa que leia o nome de uma pessoa (`cadeia`) e seu número de telefone (como `cadeia`, para permitir hifens ou outros caracteres). Apresente a informação no formato: \"Contato: [Nome da Pessoa] - Telefone: [Número do Telefone]\"."],
+                gabarito: null,
+                saidaEsperada: `Nome da pessoa: Maria Souza
+Número de telefone: (31) 99887-6655
+Contato: Maria Souza - Telefone: (31) 99887-6655`
+            },
+            {
+                id: 10,
+                title: "Pequeno Perfil (S14 Elaborado)",
+                enunciado: ["Elabore um programa que colete três informações sobre um usuário: apelido (`cadeia`), idade (`inteiro`) e comida favorita (`cadeia`). Ao final, exiba um pequeno perfil com todas essas informações, cada uma em uma nova linha e com rótulos descritivos."],
+                gabarito: null,
+                saidaEsperada: `Seu apelido: Rex
+Sua idade: 25
+Sua comida favorita: Lasanha
+--- Perfil do Usuário ---
+Apelido: Rex
+Idade: 25 anos
+Comida Favorita: Lasanha`
+            },
+            {
+                id: 11,
+                title: "Calculadora de Soma de Decimais",
+                enunciado: ["Crie um programa que leia dois números do tipo `real` (com casas decimais) e exiba o resultado da soma deles."],
+                gabarito: `programa
+{
+    // Variáveis globais
+    real numero1, numero2, soma_resultado
+
+    funcao inicio()
+    {
+        escreva("Digite o primeiro número decimal (ex: 3.5): ")
+        leia(numero1)
+        escreva("Digite o segundo número decimal (ex: 2.25): ")
+        leia(numero2)
+        soma_resultado = numero1 + numero2
+        escreva("A soma de ", numero1, " e ", numero2, " é: ", soma_resultado, "\\n")
+    }
+}`,
+                saidaEsperada: `Digite o primeiro número decimal (ex: 3.5): 4.2
+Digite o segundo número decimal (ex: 2.25): 1.3
+A soma de 4.2 e 1.3 é: 5.5`
+            },
+            {
+                id: 12,
+                title: "Conversor de Temperatura Simples",
+                enunciado: ["Faça um programa que leia uma temperatura em graus Celsius (`real`) e a converta para Fahrenheit. Exiba ambas as temperaturas. Fórmula: `F = (C * 9.0/5.0) + 32`."],
+                gabarito: null,
+                saidaEsperada: `Digite a temperatura em Celsius: 25.0
+Temperatura em Celsius: 25.0 C
+Temperatura em Fahrenheit: 77.0 F`
+            },
+            {
+                id: 13,
+                title: "Custo de Viagem",
+                enunciado: ["Desenvolva um programa que leia o preço do litro do combustível (`real`), o consumo do carro em km/L (`real`, ex: 10.5) e a distância da viagem em km (`real`). Calcule e mostre o custo total da viagem."],
+                gabarito: null,
+                saidaEsperada: `Preço do combustível (R$/L): 5.50
+Consumo do carro (Km/L): 12.0
+Distância da viagem (Km): 300.0
+O custo total da viagem será de R$ 137.50`
+            },
+            {
+                id: 14,
+                title: "Inicial e Código",
+                enunciado: ["Crie um programa que leia a primeira letra do nome de um setor de uma empresa (`caracter`, ex: 'F' para Financeiro) e um código numérico identificador do funcionário nesse setor (`inteiro`). Exiba uma mensagem como: \"Funcionário do setor [Letra], código [Numero].\""],
+                gabarito: null,
+                saidaEsperada: `Letra do setor (F, V, M, etc.): M
+Código do funcionário: 105
+Funcionário do setor M, código 105.`
+            },
+            {
+                id: 15,
+                title: "Cálculo de IMC (S15 Elaborado)",
+                enunciado: ["Elabore um programa que leia o peso de uma pessoa em quilogramas (`real`) e sua altura em metros (`real`). Calcule e exiba o Índice de Massa Corporal (IMC). Fórmula: `IMC = peso / (altura * altura)`."],
+                gabarito: null,
+                saidaEsperada: `Digite seu peso (Kg): 70.5
+Digite sua altura (m): 1.75
+Seu IMC é: 23.02040816...`
+            },
+            {
+                id: 16,
+                title: "Calculadora de Custo de Mana (Tibia)",
+                enunciado: [
+                    "Um mago no Tibia quer calcular quanta mana gastará para lançar uma certa quantidade de uma magia. Crie um programa que:",
+                    "1. Defina uma `const cadeia` para o nome da magia (ex: \"Energy Beam\").",
+                    "2. Defina uma `const inteiro` para o custo de mana da magia (ex: 20).",
+                    "3. Pergunte ao usuário quantas vezes ele pretende lançar essa magia (`inteiro`).",
+                    "4. Calcule o custo total de mana (quantidade de lançamentos * custo de mana da magia).",
+                    "5. Exiba uma mensagem mostrando o nome da magia, quantas vezes será lançada e o custo total de mana."
+                ],
+                gabarito: `programa
+{
+    // Constantes globais para dados fixos da magia
+    const cadeia NOME_MAGIA = "Energy Beam"
+    const inteiro CUSTO_MANA_MAGIA = 20
+
+    // Variáveis globais para armazenar dados de entrada e resultados
+    inteiro quantidade_lancamentos
+    inteiro custo_total_mana
+
+    funcao inicio()
+    {
+        escreva("--- Calculadora de Custo de Mana (Magia: ", NOME_MAGIA, ") ---\\n")
+
+        escreva("Quantas vezes você pretende lançar a magia '", NOME_MAGIA, "'? ")
+        leia(quantidade_lancamentos)
+
+        // Calcula o custo total de mana multiplicando a quantidade pelo custo unitário
+        custo_total_mana = quantidade_lancamentos * CUSTO_MANA_MAGIA
+
+        escreva("\\nPara lançar a magia '", NOME_MAGIA, "' ", quantidade_lancamentos, " vez(es), você gastará: ", custo_total_mana, " de mana.\\n")
+    }
+}`,
+                saidaEsperada: `--- Calculadora de Custo de Mana (Magia: Energy Beam) ---
+Quantas vezes você pretende lançar a magia 'Energy Beam'? 7
+
+Para lançar a magia 'Energy Beam' 7 vez(es), você gastará: 140 de mana.`
+            },
+            {
+                id: 17,
+                title: "Inventário de Itens Simples",
+                enunciado: [
+                    "Crie um programa que registre informações sobre um tipo de item em um inventário. Ele deve:",
+                    "1. Ler o nome do item (`cadeia`).",
+                    "2. Ler o peso unitário do item em Oz (`real`).",
+                    "3. Ler a quantidade desse item que o jogador possui (`inteiro`).",
+                    "4. Calcular o peso total ocupado por todos esses itens (peso unitário * quantidade).",
+                    "5. Exibir o nome do item, a quantidade, o peso unitário e o peso total calculado."
+                ],
+                gabarito: null, 
+                saidaEsperada: `Nome do item: Health Potion
+Peso unitário (Oz): 2.5
+Quantidade em posse: 20
+--- Detalhes do Item ---
+Item: Health Potion
+Quantidade: 20
+Peso Unitário: 2.5 Oz
+Peso Total: 50.0 Oz`
+            },
+            {
+                id: 18,
+                title: "Calculadora de Preço com Desconto Fixo",
+                enunciado: [
+                    "Desenvolva um programa que calcule o preço final de um produto após um desconto percentual fixo. Ele deve:",
+                    "1. Definir uma `const real` para o percentual de desconto (ex: \`PERCENTUAL_DESCONTO = 0.15\` para 15%).",
+                    "2. Ler o nome do produto (`cadeia`).",
+                    "3. Ler o preço original do produto (`real`).",
+                    "4. Calcular o valor do desconto (preço original * `PERCENTUAL_DESCONTO`).",
+                    "5. Calcular o preço final (preço original - valor do desconto).",
+                    "6. Exibir o nome do produto, o preço original, o valor do desconto e o preço final."
+                ],
+                gabarito: null,
+                saidaEsperada: `Nome do produto: Espada Longa
+Preço original: 150.00
+--- Preço Promocional ---
+Produto: Espada Longa
+Preço Original: R$150.0
+Desconto (15.0%): R$22.5
+Preço Final: R$127.5`
+            },
+            {
+                id: 19,
+                title: "Média de Três Valores e Soma Total",
+                enunciado: [
+                    "Elabore um programa que:",
+                    "1. Leia três valores numéricos do tipo `real` (podem ser notas, medições, etc.).",
+                    "2. Calcule a soma desses três valores.",
+                    "3. Calcule a média aritmética simples dos três valores (soma / 3.0).",
+                    "4. Exiba os três valores lidos, a soma total e a média calculada."
+                ],
+                gabarito: null,
+                saidaEsperada: `Digite o primeiro valor: 7.5
+Digite o segundo valor: 8.0
+Digite o terceiro valor: 6.5
+--- Resultados ---
+Valores: 7.5, 8.0, 6.5
+Soma Total: 22.0
+Média: 7.33333...`
+            },
+            {
+                id: 20,
+                title: "Relatório Diário de Caça (Tibia)",
+                enunciado: [
+                    "Crie um programa para gerar um relatório de uma sessão de caça no Tibia. O programa deve:",
+                    "1. Definir constantes globais para:",
+                    "   * `XP_POR_MONSTRO_X` (inteiro, ex: 150 para \"Cyclops\").",
+                    "   * `GP_MEDIO_POR_MONSTRO_X` (real, ex: 25.5 para \"Cyclops\").",
+                    "   * `PESO_LOOT_MEDIO_POR_MONSTRO_X` (real, ex: 3.2 oz para \"Cyclops\").",
+                    "   * `NOME_MONSTRO_PADRAO` (cadeia, ex: \"Cyclops\").",
+                    "2. Ler o nome do personagem do jogador (`cadeia`).",
+                    "3. Ler a quantidade de monstros do tipo `NOME_MONSTRO_PADRAO` que foram derrotados (`inteiro`).",
+                    "4. Ler o tempo total gasto na caçada em horas (`real`, ex: 1.5 para uma hora e meia).",
+                    "5. Ler o custo total das poções e outros suprimentos gastos na caçada (`real`).",
+                    "6. Calcular:",
+                    "   * XP total ganha (quantidade de monstros * `XP_POR_MONSTRO_X`).",
+                    "   * GP total estimado coletado (quantidade de monstros * `GP_MEDIO_POR_MONSTRO_X`).",
+                    "   * Peso total estimado do loot coletado (quantidade de monstros * `PESO_LOOT_MEDIO_POR_MONSTRO_X`).",
+                    "   * Lucro/Prejuízo da caçada (GP total coletado - custo dos suprimentos).",
+                    "   * XP por hora (XP total / tempo gasto).",
+                    "   * GP por hora (GP total coletado / tempo gasto).",
+                    "7. Exibir um relatório detalhado com todas as informações de entrada e os resultados calculados."
+                ],
+                gabarito: `programa
+{
+    // --- Constantes Globais Definindo Parâmetros da Caçada ---
+    // Estes valores podem ser alterados para simular diferentes monstros/situações
+    const cadeia NOME_MONSTRO_PADRAO = "Cyclops"
+    const inteiro XP_POR_MONSTRO_X = 150
+    const real GP_MEDIO_POR_MONSTRO_X = 25.50
+    const real PESO_LOOT_MEDIO_POR_MONSTRO_X = 3.2
+
+    // --- Variáveis Globais para Armazenar Entradas e Resultados ---
+    // Entradas do usuário
+    cadeia nome_personagem
+    inteiro quantidade_monstros_derrotados
+    real tempo_gasto_horas
+    real custo_suprimentos
+
+    // Resultados calculados
+    inteiro xp_total_ganha
+    real gp_total_coletado
+    real peso_total_loot
+    real lucro_prejuizo_cacada
+    real xp_por_hora
+    real gp_por_hora
+
+    funcao inicio()
+    {
+        // --- Seção de Boas-Vindas e Coleta de Dados ---
+        escreva("--- Relatório Detalhado de Caçada no Tibia ---\\n")
+        escreva("Monstro Caçado: ", NOME_MONSTRO_PADRAO, "\\n\\n")
+
+        escreva("Nome do seu Personagem: ")
+        leia(nome_personagem)
+
+        escreva("Quantos ", NOME_MONSTRO_PADRAO, "(s) você derrotou? ")
+        leia(quantidade_monstros_derrotados)
+
+        escreva("Tempo total gasto na caçada (em horas, ex: 1.5 para 1h30min): ")
+        leia(tempo_gasto_horas)
+
+        escreva("Custo total dos suprimentos (poções, etc.) em GPs: ")
+        leia(custo_suprimentos)
+
+        // --- Seção de Cálculos ---
+        // Cálculo da Experiência (XP)
+        xp_total_ganha = quantidade_monstros_derrotados * XP_POR_MONSTRO_X
+
+        // Cálculo do Ouro (GP) Coletado
+        gp_total_coletado = quantidade_monstros_derrotados * GP_MEDIO_POR_MONSTRO_X
+
+        // Cálculo do Peso do Loot
+        peso_total_loot = quantidade_monstros_derrotados * PESO_LOOT_MEDIO_POR_MONSTRO_X
+
+        // Cálculo do Lucro ou Prejuízo
+        lucro_prejuizo_cacada = gp_total_coletado - custo_suprimentos
+
+        // Cálculo de XP por Hora e GP por Hora
+        xp_por_hora = xp_total_ganha / tempo_gasto_horas
+        gp_por_hora = gp_total_coletado / tempo_gasto_horas
+        
+        // --- Seção de Exibição do Relatório ---
+        escreva("\\n\\n--- Relatório da Caçada de ", nome_personagem, " ---\\n")
+        escreva("Monstro Focado: ", NOME_MONSTRO_PADRAO, "\\n")
+        escreva("Quantidade Derrotada: ", quantidade_monstros_derrotados, "\\n")
+        escreva("Tempo da Caçada: ", tempo_gasto_horas, " horas\\n")
+        escreva("--------------------------------------------------\\n")
+        escreva("XP Total Ganhada: ", xp_total_ganha, " pontos de experiência\\n")
+        escreva("GP Total Estimado Coletado: ", gp_total_coletado, " GPs\\n")
+        escreva("Peso Estimado do Loot: ", peso_total_loot, " Oz\\n")
+        escreva("--------------------------------------------------\\n")
+        escreva("Custo dos Suprimentos: ", custo_suprimentos, " GPs\\n")
+        escreva("Lucro/Prejuízo Estimado: ", lucro_prejuizo_cacada, " GPs\\n")
+        escreva("--------------------------------------------------\\n")
+        escreva("Média de XP por Hora: ", xp_por_hora, " XP/h\\n")
+        escreva("Média de GP por Hora: ", gp_por_hora, " GP/h\\n")
+        escreva("--------------------------------------------------\\n")
+        escreva("Bom jogo, ", nome_personagem, "!\\n")
+    }
+}`,
+                saidaEsperada: `--- Relatório Detalhado de Caçada no Tibia ---
+Monstro Caçado: Cyclops
+
+Nome do seu Personagem: Paladino Aventureiro
+Quantos Cyclops(s) você derrotou? 50
+Tempo total gasto na caçada (em horas, ex: 1.5 para 1h30min): 1.0
+Custo total dos suprimentos (poções, etc.) em GPs: 300.0
+
+--- Relatório da Caçada de Paladino Aventureiro ---
+Monstro Focado: Cyclops
+Quantidade Derrotada: 50
+Tempo da Caçada: 1.0 horas
+--------------------------------------------------
+XP Total Ganhada: 7500 pontos de experiência
+GP Total Estimado Coletado: 1275.0 GPs
+Peso Estimado do Loot: 160.0 Oz
+--------------------------------------------------
+Custo dos Suprimentos: 300.0 GPs
+Lucro/Prejuízo Estimado: 975.0 GPs
+--------------------------------------------------
+Média de XP por Hora: 7500.0 XP/h
+Média de GP por Hora: 1275.0 GP/h
+--------------------------------------------------
+Bom jogo, Paladino Aventureiro!`
+            }
+        ];
+
+        const navContainer = document.getElementById('exercise-nav');
+        const contentArea = document.getElementById('exercise-content-area');
+        const placeholder = document.getElementById('exercise-placeholder');
+        let currentActiveButton = null;
+
+        function displayExercise(exerciseId) {
+            const exercise = exercises.find(ex => ex.id === exerciseId);
+            if (!exercise) {
+                contentArea.innerHTML = '<p class="text-red-500">Exercício não encontrado.</p>';
+                return;
+            }
+
+            if(placeholder) placeholder.style.display = 'none';
+
+            let enunciadoHtml = exercise.enunciado.map(line => `<p class="text-gray-700 mb-1">${line.replace(/`([^`]+)`/g, '<code class="bg-gray-200 text-sm text-pink-600 px-1 rounded">\$1</code>')}</p>`).join('');
+
+            let gabaritoHtml = '';
+            if (exercise.gabarito) {
+                gabaritoHtml = `
+                    <div class="mt-6">
+                        <button id="toggle-gabarito-btn-${exercise.id}" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md transition duration-150 ease-in-out mb-2">
+                            Mostrar Gabarito
+                        </button>
+                        <div id="gabarito-content-${exercise.id}" class="code-block hidden">
+                            <pre><code>${exercise.gabarito.replace(/</g, "&lt;").replace(/>/g, "&gt;")}</code></pre>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            contentArea.innerHTML = `
+                <article id="ex-${exercise.id}">
+                    <h2 class="text-3xl font-bold text-blue-700 mb-6 border-b-2 border-blue-200 pb-3">Exercício ${exercise.id}: ${exercise.title}</h2>
+                    <div class="enunciado-block mb-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Enunciado:</h3>
+                        ${enunciadoHtml}
+                    </div>
+                    
+                    ${gabaritoHtml}
+
+                    <div class="mt-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Saída Esperada (Exemplo):</h3>
+                        <div class="output-block">
+                            <pre><code>${exercise.saidaEsperada.replace(/</g, "&lt;").replace(/>/g, "&gt;")}</code></pre>
+                        </div>
+                    </div>
+                </article>
+            `;
+
+            if (exercise.gabarito) {
+                const toggleButton = document.getElementById(`toggle-gabarito-btn-${exercise.id}`);
+                const gabaritoContent = document.getElementById(`gabarito-content-${exercise.id}`);
+                toggleButton.addEventListener('click', () => {
+                    const isHidden = gabaritoContent.classList.toggle('hidden');
+                    toggleButton.textContent = isHidden ? 'Mostrar Gabarito' : 'Esconder Gabarito';
+                });
+            }
+        }
+
+        function setActiveButton(button) {
+            if (currentActiveButton) {
+                currentActiveButton.classList.remove('nav-item-active', 'bg-blue-500', 'text-white');
+                currentActiveButton.classList.add('bg-gray-200', 'hover:bg-gray-300', 'text-gray-700');
+            }
+            button.classList.remove('bg-gray-200', 'hover:bg-gray-300', 'text-gray-700');
+            button.classList.add('nav-item-active', 'bg-blue-500', 'text-white');
+            currentActiveButton = button;
+        }
+
+        exercises.sort((a, b) => a.id - b.id).forEach(ex => {
+            const button = document.createElement('button');
+            button.textContent = `Exercício ${ex.id}`;
+            button.classList.add(
+                'w-full', 'text-left', 'px-4', 'py-2', 'rounded-md', 
+                'transition', 'duration-150', 'ease-in-out', 
+                'font-medium', 'bg-gray-200', 'hover:bg-gray-300', 'text-gray-700'
+            );
+            button.addEventListener('click', () => {
+                displayExercise(ex.id);
+                setActiveButton(button);
+            });
+            navContainer.appendChild(button);
+        });
+        
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

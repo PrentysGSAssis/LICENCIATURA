@@ -1,0 +1,61 @@
+As fontes "01" e "02" na verdade são apresentações que falam de POO.
+Eu inicialmente as imaginei de forma separada, POIS acreditei que seriam necessárias duas aulas para abordar o conteúdo, MAS por fim, não será necessário.
+Assim sendo, solicito:
+
+Unifique as duas apresentações em apenas uma. Seguindo os critérios:
+> Mantenha a estética proposta, o layout apresentado pelas duas apresentações é bem próximo, e desejo manter o design.
+
+> O conteúdo de Encapsulamento é tratado nas DUAS apresentações, e isto não será necessário. Elimine o conceito trago na primeira apresentação.
+
+> A ideia é trazer os conceitos apresentados na seguinte forma: CLASSE >> OBJETO e INSTANCIA >> HERANCA >> POLIMORFISMO >> ENCAPSULAMENTO.
+
+> Em ambas apresentações possui uma "nota" em cada slide, gostaria de rever o conceito destas notas contigo:
+	1) Estas notas na verdade devem obedecer a regra da primeira apresentação, e serem chamadas de "Nota de Aprendizagem", e não de "Guia do Professor"
+	2) A nota de aprendizagem é um conceito que eu trago para sala de aula. Meus alunos, após a minha explicação, precisam COPIAR no caderno o "conceito chave", ou a "analogia", enfim, eu utilizo a Nota de Aprendizagem para que os alunos não saiam da minha apresentação sem nada anotado. A função da Nota, é extrair a ideia principal por traz daquele slide para o caderno para que no fim, eles tenham o que buscar e estudar caso eu não esteja presente. 
+	3) Assim sendo, revise os "Guia do Professor" para que este traga na verdade o conceito chave do slide, mas não necessariamente de forma técnica, permita que esta Nota também tenham insights que auxiliem os alunos a entender um conceito que pode ser complexo. Caso EU julgar necessário, farei pequenas alterações pontuais a posteriori.
+
+> Persona e Abordagem:
+
+Atue como um Desenvolvedor Sênior e Professor de Ensino Técnico. A apresentação deve guiar o aluno do problema para a solução arquitetural. Os conteúdos mais densos devem ser diluídos: apresente o conceito técnico fragmentado primeiro e, e depois revele a "imagem maior" com uma analogia visual clara.
+
+Estrutura da Apresentação:
+
+Slide 1 (Título): Título atrativo focado na mudança de paradigma.
+Slide 2 (O Dilema): O problema da programação tradicional (dados e funções separados e desorganizados).
+- A partir deste ponto irei me referir como GRUPO DE SLIDES, pois solicito que dimensione a quantidade de slides necessária para abordar o conteúdo de cada grupo, uma vez que o material e os conceitos abordados podem exigir mais quadros/tabelas e outras abordagens para explicação.-
+
+== fonte '01.pdf' ==
+Grupo de slides 3 ( O Paradigma POO): A POO como solução arquitetural que imita o mundo real.
+Grupo de slides 4 (Conceito Fragmentado: A Classe): Explique tecnicamente o que é uma Classe (a abstração, o molde, a "montadora").
+Grupo de slides 5 (Classe): Apresente a analogia visual para o grupo anterior (ex: a planta arquitetônica de uma casa detalhando o que ela terá).
+Grupo de slides 6 (Conceito Fragmentado: O Objeto): Explique tecnicamente o que é um Objeto (a instância concreta gerada a partir da classe, com seus próprios dados).
+Grupo de slides 7 (Objeto e Instancia):Apresente a analogia visual para o grupo anterior (ex: várias casas construídas a partir da mesma planta, cada uma pintada de uma cor).
+= fonte '02.pdf' =
+Grupo de slides 8 (Herança conceito): Utilize os conceitos JÁ trabalhados na fonte 02;
+Grupo de slides 9 (Herança analogia): Utilize os conceitos JÁ trabalhados na fonte 02;
+Grupo de slides 10 (Polimorfismo conceito): Utilize os conceitos JÁ trabalhados na fonte 02;
+Grupo de slides 11 (Polimorfismo analogia): Utilize os conceitos JÁ trabalhados na fonte 02;
+Grupo de slides 12 (Encapsulamento conceito): Utilize os conceitos JÁ trabalhados na fonte 02;
+Grupo de slides 13 (Encapsulamento analogia): Utilize os conceitos JÁ trabalhados na fonte 02; 
+
+Grupo de slides 14 (Síntese Visual): Um quadro comparativo lado a lado (Classe vs. Objeto) para fixação final antes de ir para o código. (conforme fonte '01.pdf')
+grupo de slides 15 (Sintese Visual): Quadro comparativo (conforme fonte '02.pdf)
+
+
+
+======================
+As fontes "01" e "02" na verdade são apresentações que falam de POO.
+Eu inicialmente as imaginei de forma separada, POIS acreditei que seriam necessárias duas aulas para abordar o conteúdo, MAS por fim, não será necessário.
+Assim sendo, solicito:
+
+Unifique as duas apresentações em apenas uma. Seguindo os critérios:
+> Mantenha a estética proposta, o layout apresentado pelas duas apresentações é bem próximo, e desejo manter o design.
+
+> O conteúdo de Encapsulamento é tratado nas DUAS apresentações, e isto não será necessário. Elimine o conceito trago na primeira apresentação.
+
+> A ideia é trazer os conceitos apresentados na seguinte forma: CLASSE >> OBJETO e INSTANCIA >> HERANCA >> POLIMORFISMO >> ENCAPSULAMENTO.
+
+> Em ambas apresentações possui uma "nota" em cada slide, gostaria de rever o conceito destas notas contigo:
+	1) Estas notas na verdade devem obedecer a regra da primeira apresentação, e serem chamadas de "Nota de Aprendizagem", e não de "Guia do Professor"
+	2) A nota de aprendizagem é um conceito que eu trago para sala de aula. Meus alunos, após a minha explicação, precisam COPIAR no caderno o "conceito chave", ou a "analogia", enfim, eu utilizo a Nota de Aprendizagem para que os alunos não saiam da minha apresentação sem nada anotado. A função da Nota, é extrair a ideia principal por traz daquele slide para o caderno para que no fim, eles tenham o que buscar e estudar caso eu não esteja presente. 
+	3) Assim sendo, revise os "Guia do Professor" para que este traga na verdade o conceito chave do slide, mas não necessariamente de forma técnica, permita que esta Nota também tenham insights que auxiliem os alunos a entender um conceito que pode ser complexo. Caso EU julgar necessário, farei pequenas alterações pontuais a posteriori.

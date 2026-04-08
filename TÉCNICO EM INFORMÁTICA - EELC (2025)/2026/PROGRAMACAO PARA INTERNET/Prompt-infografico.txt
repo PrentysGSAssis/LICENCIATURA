@@ -1,0 +1,8 @@
+> Público Alvo: Guia de sintaxe para a turma do 3º do curso técnico de Desenvolvimento de Sistemas, com foco no conteúdo de Desenvolvimento Front End II;
+> Layout: O infográfico deve apresentar uma paleta de tons claros;
+> Parâmetros:
+
+1º O infográfico deve ser separado em duas áreas, onde a primeira foca exclusivamente na sintaxe da linguagem explorada pela fonte, e a outra em como ela funciona/explicação/entendimento da mesma;
+2º O infográfico não deve em momento nenhum citar ALURA, ou dar a entender que a fonte de conteúdo se trata de uma transcrição e/ou diálogo;
+3º O infográfico será um guia dos itens da linguagem abordados na fonte, funcionando como uma espécie de dicionário da linguagem;
+4º O titulo do infográfico deve ser o principal item da linguagem que está sendo explorada na fonte (pode utilizar como REFERÊNCIA o titulo da fonte, mas não utilize o TÍTULO EXATO DA FONTE;

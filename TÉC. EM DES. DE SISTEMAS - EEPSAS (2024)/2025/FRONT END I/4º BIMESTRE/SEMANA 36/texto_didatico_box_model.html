@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEMANA 34 - O Modelo de Caixas e Estrutura Semântica</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f0f0f0; }
+        .page-container { width: 210mm; min-height: 297mm; margin: 20px auto; padding: 15mm; box-shadow: 0 0 10px rgba(0,0,0,0.1); box-sizing: border-box; background-color: white;}
+        /* Estilos do MODELO: CABEÇALHO */
+        .header-top-container { display: flex; justify-content: center; align-items: center; border-bottom: 1px solid black; padding-bottom: 10px; margin-bottom: 10px; }
+        .logo { max-width: 65px; height: auto; margin-right: 15px; }
+        .school-info { text-align: center; padding: 0 5px; }
+        .school-info strong.school-name { display: block; margin-bottom: 4px; font-size: 1em; }
+        .school-info .address-details span { display: inline; font-size: 0.75em; margin-right: 4px; }
+        .form-fields-grid { display: grid; gap: 5px 10px; width: 100%; margin-bottom: 15px; grid-template-rows: auto auto auto; }
+        .form-row { display: grid; grid-template-columns: 3fr 2fr; gap: 10px; width: 100%; }
+        .form-field { border: 1px solid black; padding: 5px 8px; font-size: 0.8em; box-sizing: border-box; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; display: flex; align-items: center; }
+        .form-field strong { margin-right: 5px; }
+        .form-field .value-content { flex-grow: 1; }
+        .fill-in { display: inline-block; border-bottom: 1px solid black; min-width: 25px; margin: 0 2px; height: 0.8em; }
+        /* Estilos do Conteúdo Didático */
+        .content-container { padding-top: 10px; }
+        h1 { font-size: 1.6em; border-bottom: 1.5px solid #eee; padding-bottom: 7px; margin-top: 0; color: #333; }
+        h2 { font-size: 1.3em; margin-top: 25px; color: #333; border-bottom: 1px solid #f0f0f0; padding-bottom: 5px;}
+        h3 { font-size: 1.1em; margin-top: 20px; color: #0056b3; }
+        p, li, dd, dt { line-height: 1.6; font-size: 0.95em; color: #333; }
+        ul, dl { padding-left: 20px; }
+        dt { font-weight: bold; margin-top: 10px;}
+        table { width: 100%; margin: 15px 0; border-collapse: collapse; font-size: 0.9em; }
+        th, td { border: 1px solid #ccc; padding: 8px; text-align: left; vertical-align: top; }
+        th { background-color: #e9ecef; }
+        tr:nth-child(even) { background-color: #f8f9fa; }
+        code { background-color: #f4f4f4; padding: 2px 5px; border-radius: 4px; font-family: "Consolas", Courier, monospace; font-size: 0.9em; }
+        pre { background-color: #f8f8f8; border: 1px solid #ddd; padding: 12px; border-radius: 5px; overflow-x: auto; font-size: 0.85em; margin-top: 8px; margin-bottom: 15px; }
+        pre code { background-color: transparent; padding: 0; }
+        hr { border: 0; height: 1px; background: #ccc; margin: 30px 0; }
+        .rule-box, .seo-box { background-color: #f8f9fa; border-left: 4px solid #0056b3; padding: 15px; margin: 20px 0; }
+        @media print { 
+            body { background-color: white; }
+            .page-container { margin: 0; padding: 0; box-shadow: none; width: 100%; min-height: 0;}
+            @page { margin: 12mm 10mm; } 
+        }
+    </style>
+</head>
+<body>
+<div class="page-container">
+    <div class="header-top-container">
+        <img src="https://1drv.ms/i/c/9e9e1f5991e00f07/IQTuKfwDXz6eQZG682I84WqBASSJENKf1uHvN3nSBXphxkU?width=1024" alt="Logo da Escola" class="logo" onerror="this.onerror=null; this.src='https://placehold.co/65x65/ccc/000?text=Logo'; this.alt='Erro ao carregar logo';">
+        <div class="school-info">
+            <strong class="school-name">ESCOLA ESTADUAL PROFESSORA SEBASTIANA DE ALMEIDA E SILVA</strong>
+            <div class="address-details"><span>Rua São José, nº 30, Jaguaruçu - MG.</span> <span>CEP: 35.188-000</span> <span>Tel: (31) 3845-1209</span></div>
+        </div>
+    </div>
+    <div class="form-fields-grid">
+        <div class="form-row">
+            <div class="form-field" style="grid-column: 1 / span 3;"><strong>DISCIPLINA:</strong> <span class="value-content">Front End I</span></div>
+            <div class="form-field" style="grid-column: 4 / span 2;"><strong>PROFESSOR(A):</strong> <span class="value-content">Prentys Assis</span></div>
+        </div>
+        <div class="form-row">
+            <div class="form-field" style="grid-column: 1 / span 3;"><strong>ATIVIDADE:</strong> <span class="value-content">SEMANA 34 - O Modelo de Caixas e Estrutura Semântica</span></div>
+            <div class="form-field" style="grid-column: 4 / span 2;"><strong>DATA:</strong> <span class="value-content"><span class="fill-in">    </span>/<span class="fill-in">    </span>/<span class="fill-in">      </span></span></div>
+        </div>
+        <div class="form-row">
+            <div class="form-field" style="grid-column: 1 / span 3;"><strong>ALUNO(A):</strong> <span class="value-content"></span></div>
+            <div class="form-field" style="grid-column: 4 / span 2;"><strong>TURMA:</strong> <span class="value-content">2º Ano</span></div>
+        </div>
+    </div>
+
+    <div class="content-container">
+        <h1>O Modelo de Caixas e a Estrutura Semântica</h1>
+        <p>Para construir qualquer layout na web, desde o mais simples ao mais complexo, precisamos primeiro entender seu conceito mais fundamental: o <strong>Modelo de Caixas</strong> (ou "Box Model"). Quase todo elemento HTML em uma página é tratado como uma caixa retangular. Dominar como essas caixas funcionam e se organizam é o primeiro passo para criar páginas bem estruturadas e com significado.</p>
+        
+        <h2>1. A Anatomia de uma Caixa (Box Model)</h2>
+        <p>Imagine uma fotografia em um porta-retrato. A foto é o <strong>conteúdo</strong>. O espaço em branco entre a foto e a moldura é o <strong>padding</strong>. A moldura em si é a <strong>border</strong>. E a distância entre este porta-retrato e outros na parede é a <strong>margin</strong>. No HTML, toda caixa segue essa mesma lógica.</p>
+        
+        <div class="rule-box">
+            <p><strong>As 4 Camadas de uma Caixa:</strong></p>
+            <ul>
+                <li><strong>Content (Conteúdo):</strong> A área onde o texto e as imagens aparecem. Suas dimensões são definidas por <code>width</code> e <code>height</code>.</li>
+                <li><strong>Padding (Preenchimento):</strong> Um espaçamento interno, transparente, que fica entre o conteúdo e a borda.</li>
+                <li><strong>Border (Borda):</strong> Uma linha que envolve o conteúdo e o padding. Podemos controlar sua espessura, cor e estilo.</li>
+                <li><strong>Margin (Margem):</strong> Um espaçamento externo, transparente, que "empurra" outros elementos para longe da caixa.</li>
+            </ul>
+        </div>
+        
+        <h4>Exemplo prático:</h4>
+        <p>Veja como definimos essas propriedades no CSS para um elemento:</p>
+        <pre><code>div {
+    width: 300px; /* Largura do conteúdo */
+    height: 100px; /* Altura do conteúdo */
+    padding: 20px; /* Espaço interno de 20px em todos os lados */
+    border: 5px solid black; /* Borda preta de 5px */
+    margin: 30px; /* Espaço externo de 30px em todos os lados */
+    background-color: lightgray;
+}</code></pre>
+
+        <h2>2. O Comportamento das Caixas: Block vs. Inline</h2>
+        <p>Nem todas as caixas se comportam da mesma maneira. Elas se dividem em duas categorias principais, que definem como elas ocupam espaço e interagem com outros elementos na página.</p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Característica</th>
+                    <th>Caixas Block-level</th>
+                    <th>Caixas Inline-level</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Quebra de Linha</strong></td>
+                    <td>Sempre começa em uma nova linha.</td>
+                    <td>Não quebra a linha, permanece no fluxo do texto.</td>
+                </tr>
+                <tr>
+                    <td><strong>Ocupação de Espaço</strong></td>
+                    <td>Ocupa 100% da largura disponível do seu contêiner.</td>
+                    <td>Ocupa apenas a largura necessária para o seu conteúdo.</td>
+                </tr>
+                 <tr>
+                    <td><strong>Aplica Width e Height?</strong></td>
+                    <td>Sim, podemos definir largura e altura.</td>
+                    <td>Não, ignora as propriedades <code>width</code> e <code>height</code>.</td>
+                </tr>
+                <tr>
+                    <td><strong>Exemplos de Tags</strong></td>
+                    <td><code>&lt;div&gt;</code>, <code>&lt;h1&gt;</code>, <code>&lt;p&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;footer&gt;</code></td>
+                    <td><code>&lt;span&gt;</code>, <code>&lt;a&gt;</code>, <code>&lt;strong&gt;</code>, <code>&lt;em&gt;</code>, <code>&lt;img&gt;</code></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="seo-box">
+            <h3>Conexão com SEO: A Importância da Estrutura Semântica</h3>
+            <p>Usar as tags HTML corretas é como dar um mapa do seu site para o Google. Em vez de usar <code>&lt;div&gt;</code> para tudo, devemos usar tags que descrevem o <strong>significado</strong> do conteúdo. Isso é <strong>semântica</strong>. Um buscador entende que o conteúdo dentro de <code>&lt;nav&gt;</code> é a navegação principal, e o que está em <code>&lt;main&gt;</code> é o assunto mais importante. Uma estrutura semântica clara ajuda sua página a ser mais bem compreendida e, consequentemente, melhor classificada.</p>
+        </div>
+
+        <h2>3. Construindo com Significado: As Tags Estruturais</h2>
+        <p>O HTML5 nos oferece um conjunto de tags de bloco (block-level) para organizar as principais seções de uma página de forma semântica.</p>
+        
+        <dl>
+            <dt>&lt;header&gt;</dt>
+            <dd>Define o cabeçalho da página ou de uma seção. Geralmente contém o logo, o título principal e o menu de navegação.</dd>
+            
+            <dt>&lt;nav&gt;</dt>
+            <dd>Usada especificamente para agrupar os links de navegação principais do site.</dd>
+
+            <dt>&lt;main&gt;</dt>
+            <dd>Delimita o conteúdo <strong>principal e único</strong> da página. Só deve existir uma tag <code>&lt;main&gt;</code> por documento.</dd>
+
+            <dt>&lt;section&gt;</dt>
+            <dd>Agrupa conteúdos relacionados tematicamente, como "Sobre Nós", "Nossos Produtos", "Contato".</dd>
+            
+            <dt>&lt;article&gt;</dt>
+            <dd>Representa um conteúdo independente e completo, como um post de blog, uma notícia ou um produto em uma loja.</dd>
+
+            <dt>&lt;aside&gt;</dt>
+            <dd>Para conteúdos complementares, que não são o foco principal, como uma barra lateral com links relacionados ou uma biografia do autor.</dd>
+
+            <dt>&lt;footer&gt;</dt>
+            <dd>Define o rodapé da página ou de uma seção, contendo informações de autoria, direitos autorais e links de contato.</dd>
+        </dl>
+
+        <hr>
+        <h3>Exemplo de Estrutura Semântica Completa</h3>
+        <p>Veja como essas tags se organizam para formar o esqueleto de uma página web:</p>
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="pt-BR"&gt;
+&lt;head&gt;
+    &lt;title&gt;Meu Site Semântico&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;header&gt;
+        &lt;h1&gt;Logo da Minha Empresa&lt;/h1&gt;
+        &lt;nav&gt;
+            &lt;a href="#"&gt;Home&lt;/a&gt;
+            &lt;a href="#"&gt;Sobre&lt;/a&gt;
+            &lt;a href="#"&gt;Contato&lt;/a&gt;
+        &lt;/nav&gt;
+    &lt;/header&gt;
+
+    &lt;main&gt;
+        &lt;article&gt;
+            &lt;h2&gt;Título do Artigo Principal&lt;/h2&gt;
+            &lt;p&gt;Conteúdo do artigo...&lt;/p&gt;
+        &lt;/article&gt;
+    &lt;/main&gt;
+
+    &lt;aside&gt;
+        &lt;h3&gt;Links Relacionados&lt;/h3&gt;
+        &lt;p&gt;Conteúdo da barra lateral.&lt;/p&gt;
+    &lt;/aside&gt;
+
+    &lt;footer&gt;
+        &lt;p&gt;&copy; 2025 - Todos os direitos reservados.&lt;/p&gt;
+    &lt;/footer&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+    </div>
+</div>
+</body>
+</html>

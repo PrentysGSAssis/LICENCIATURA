@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form002</title>
+</head>
+<body>
+
+    <h1>Formulario para Usuario e Senha</h1>
+
+    <p>Neste formulario temos alguns <strong>atributos</strong> a mais para podermos utilizar um sistema de senhas.</p>
+
+    <form action="form002.html" method="post" autocomplete="on">
+        <p>
+            <label for="idusuario">Usuário: </label>
+            <input type="text" name="usuario" id="idusuario" required minlength="5" maxlength="10" size="15" placeholder="Nome do Usuário" autocomplete="username">
+        </p>
+        <p>
+            <label for="idsenha">Senha:</label>
+            <input type="password" name="senha" id="idsenha" required minlength="8" size="20" placeholder="Mínimo de 8 caracteres" autocomplete="current-password">
+        </p>
+        <p>
+            <input type="submit" value="Enviar">
+            <input type="reset" value="Limpar">
+        </p>
+    </form>
+
+    <a href="ex012.html">Voltar</a>
+    
+</body>
+</html>

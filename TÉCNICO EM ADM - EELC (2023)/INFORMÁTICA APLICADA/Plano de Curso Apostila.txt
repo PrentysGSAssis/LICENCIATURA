@@ -1,0 +1,25 @@
+Capítulo 2: Conceitos Básicos de Informática
+
+Introdução à informática
+Componentes básicos do computador (hardware e software)
+Sistemas Operacionais e suas funções
+Noções básicas de segurança da informação
+Uso adequado de dispositivos de armazenamento
+Introdução à Internet e suas aplicações
+
+Capítulo 3: Ferramentas para produção e edição de textos
+Introdução ao Microsoft Word
+Edição, formatação e impressão de documentos
+Uso de imagens e gráficos em documentos
+Criação de tabelas e listas
+Uso de modelos prontos para documentos
+Introdução ao Google Docs
+
+Capítulo 4: Ferramentas para produção e edição de planilhas eletrônicas e apresentação de slides
+Introdução ao Microsoft Excel
+Criação e edição de planilhas
+Formatação de células e fórmulas
+Uso de gráficos e tabelas dinâmicas
+Introdução ao Microsoft PowerPoint
+Criação e edição de apresentações de slides
+Inserção de imagens, gráficos e animações

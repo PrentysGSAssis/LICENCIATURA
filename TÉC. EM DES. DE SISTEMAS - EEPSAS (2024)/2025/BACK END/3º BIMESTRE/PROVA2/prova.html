@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prova Prática - Sistema de Orçamento</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #e4cf91;
+        }
+        .nav-item-active {
+            background-color: #ef4444;
+            color: white;
+            transform: translateX(4px);
+        }
+        .nav-category {
+            padding: 0.5rem 1rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #000000;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .code-block {
+            background-color: #2d3748;
+            color: #f7fafc;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            overflow-x: auto;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.875rem;
+        }
+        .output-block {
+            background-color: #4a5568;
+            color: #e2e8f0;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            overflow-x: auto;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.875rem;
+        }
+        .enunciado-block {
+            background-color: #ffffff;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            border: 1px solid #e2e8f0;
+            margin-bottom: 1.5rem;
+        }
+         .reference-block {
+            background-color: #fefce8;
+            color: #a16207;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-top: 1.5rem;
+            border: 1px solid #fef08a; 
+        }
+
+        h2{
+            color: #000000;
+
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <div class="container mx-auto max-w-7xl p-4 sm:p-6 lg:p-8">
+        <header class="mb-8 pb-4 border-b border-gray-200">
+            <h1 class="text-4xl font-bold text-gray-800">Prova Prática: Sistema de Orçamento "PC-Pronto"</h1>
+            <p class="text-lg text-gray-500 mt-2">Avaliação Final do Módulo 1 de PHP</p>
+        </header>
+
+        <div class="flex flex-col md:flex-row gap-8">
+            <aside class="md:w-1/4">
+                <div class="sticky top-8">
+                    <h2 class="text-xl font-semibold mb-4 text-gray-700">Etapas da Prova</h2>
+                    <nav id="section-nav" class="space-y-2">
+                        
+                    </nav>
+                </div>
+            </aside>
+
+            <main id="section-content-area" class="md:w-3/4 bg-white p-6 sm:p-8 rounded-lg shadow-sm min-h-[80vh]">
+                <div id="section-placeholder" class="text-center text-gray-400 flex flex-col justify-center items-center h-full">
+                    <svg class="w-24 h-24 mb-4 text-gray-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <p class="text-xl font-medium">Selecione uma proposta ao lado para começar.</p>
+                    <p class="mt-2 text-base">Leia atentamente as instruções de cada etapa.</p>
+                </div>
+            </main>
+        </div>
+
+        <footer class="mt-12 text-center text-sm text-gray-400">
+            <p>&copy; <span id="currentYear"></span> Prova Prática de Integração PhP - HTML/CSS. Prof. Prentys Assis.</p>
+        </footer>
+    </div>
+
+    <script>
+        const conteudoProva = {
+            "proposta-1": {
+                id: "proposta-1",
+                title: "Proposta 1: O Carrinho de compras*",
+                objetivo: "Calcular o subtotal de um pedido com base no preço e quantidade de um único item.",
+                enunciado: [
+                    "Crie sistema que contenha um formulário HTML.",
+                    "O formulário deve perguntar ao usuário o <strong>preço do produto</strong> e a <strong>quantidade</strong> desejada.",
+                    "Ao submeter o formulário, o script PHP deve calcular o <strong>subtotal</strong> da compra (preço x quantidade).",
+                    "Exiba um relatório formatado com o preço, a quantidade e o subtotal calculado."
+                ],
+                referencias: [
+                    "A criação de formulários e a captura de dados foram vistas nos <strong>Desafios 001, 003, 005</strong> e outros.",
+                    "A formatação de valores como moeda foi o foco do <strong>Desafio 003</strong>."
+                ],
+                saidaEsperada: `--- Orçamento PC-Pronto ---
+Produto: R$ 3.500,00 (x2)
+Subtotal: R$ 7.000,00`
+            },
+            "proposta-2": {
+                id: "proposta-2",
+                title: "Proposta 2: Cálculo de Impostos*",
+                objetivo: "Expandir o sistema para calcular o valor de um imposto sobre o subtotal da compra.",
+                enunciado: [
+                    "Evolua o código da Proposta 1.",
+                    "Sobre o <strong>subtotal</strong> da compra, a loja precisa calcular um <strong>imposto de 12,5%</strong>.",
+                    "O script deve calcular o valor do imposto e, em seguida, calcular e exibir o <strong>Total Final</strong> da compra (subtotal + imposto)."
+                ],
+                referencias: [
+                    "O cálculo de reajuste com porcentagem é o foco do <strong>Desafio 011</strong>."
+                ],
+                saidaEsperada: `--- Orçamento PC-Pronto ---
+Produto: R$ 3.500,00 (x2)
+Subtotal: R$ 7.000,00
+Imposto (12,5%): R$ 875,00
+Total Final: R$ 7.875,00`
+            },
+            "proposta-3": {
+                id: "proposta-3",
+                title: "Proposta 3: Custo do Frete*",
+                objetivo: "Adicionar um valor de frete gerado aleatoriamente ao total da compra.",
+                enunciado: [
+                    "Continue a partir do código da Proposta 2.",
+                    "A loja cobra um frete com valor variável. Para simular, o valor do frete será um <strong>número aleatório entre R$ 30,00 e R$ 150,00</strong>.",
+                    "O script deve gerar esse valor, somá-lo ao Total Final e exibir o <strong>Valor Total com Frete</strong>."
+                ],
+                referencias: [
+                    "A geração de um número aleatório é a habilidade principal do <strong>Desafio 002</strong>."
+                ],
+                saidaEsperada: `--- Orçamento PC-Pronto ---
+... (itens anteriores)
+Total Final: R$ 7.875,00
+Frete: R$ 85,40
+Valor Total com Frete: R$ 7.960,40`
+            },
+            "proposta-4": {
+                id: "proposta-4",
+                title: "Proposta 4: Pagamento Internacional",
+                objetivo: "Converter o valor total da compra para Dólares, utilizando uma cotação em tempo REAL.",
+                enunciado: [
+                    "Evolua o código da Proposta 3.",
+                    "A loja agora precisa mostrar o valor para clientes internacionais. Utilizando a API do Banco Central, o script deve buscar a <strong>cotação do dólar em tempo real</strong>.",
+                    "Após calcular o <strong>Valor Total com Frete em Reais</strong>, o programa deve exibir o valor equivalente em <strong>Dólares</strong>, formatado para o padrão americano."
+                ],
+                referencias: [
+                    "Esta é a aplicação direta da habilidade mais complexa ensinada no <strong>Desafio 004</strong>."
+                ],
+                saidaEsperada: `--- Orçamento PC-Pronto ---
+... (itens anteriores)
+Valor Total com Frete: R$ 7.960,40
+Cotação do Dólar Hoje: R$ 5,45
+Total em Dólares: US$ 1,460.62`
+            },
+            "proposta-5": {
+                id: "proposta-5",
+                title: "Proposta 5: Tempo de Entrega",
+                objetivo: "Calcular um tempo de entrega com base no CEP do cliente e convertê-lo para um formato legível (meses, semanas, dias).",
+                enunciado: [
+                    "Para finalizar, o sistema deve fornecer uma <strong>estimativa de tempo para a entrega</strong>. Adicione um campo para o <strong>CEP</strong> do cliente no formulário.",
+                    "A fórmula para o tempo de entrega é o <strong>CEP do cliente dividido por 1.000.000</strong>. O resultado será o tempo total em <strong>dias</strong>.",
+                    "O script deve calcular esse total de dias e, em seguida, convertê-lo para um formato mais legível: <strong>X meses, Y semanas e Z dias restantes</strong>. Considere que 1 mês tem 30 dias e 1 semana tem 7 dias."
+                ],
+                referencias: [
+                    "A lógica algorítmica de divisões e restos sucessivos é a habilidade central ensinada no <strong>Desafio 012 (Calculadora de Tempo)</strong> e no <strong>Desafio 013 (Caixa Eletrônico)</strong>."
+                ],
+                saidaEsperada: `(Exemplo para um CEP 35.188-000)
+(Cálculo interno: 35188000 / 1000000 = 35,188. Arredonda-se para 35 dias)
+
+--- Estimativa de Entrega ---
+... (itens anteriores)
+Valor Total com Frete: R$ 7.960,40
+
+--- Tempo Estimado para Entrega (CEP 35188000) ---
+- 1 meses
+- 0 semanas
+- 5 dias`
+            },
+            "front-end-cores": {
+                id: "front-end-cores",
+                title: "-Cores-",
+                objetivo: "Aplicar uma paleta de cores consistente e justificar a escolha da harmonia cromática.",
+                enunciado: [
+                    "A escolha das cores é fundamental para a identidade visual e a usabilidade de qualquer sistema. Cores podem guiar o usuário, criar uma atmosfera e transmitir a personalidade da marca.",
+                    "Utilizando as habilidades aprendidas no trabalho de <strong>Cores e Fontes em CSS</strong>, aplique a paleta de cores que você escolheu previamente no <strong>PADLET</strong> à página.",
+                    "Dentro do seu código HTML, ao final adicione um comentário justificando qual <strong>tipo de harmonia</strong> (monocromática, análoga, complementar, etc.) você escolheu, e o porque desta paleta."
+                ]
+            },
+            "front-end-fonte": {
+                id: "front-end-fonte",
+                title: "-Fonte-",
+                objetivo: "Aplicar uma família de fontes consistente para melhorar a legibilidade e a estética da página.",
+                enunciado: [
+                    "A tipografia é um pilar do design de interfaces. A escolha correta das fontes garante que a informação seja clara, legível e agradável de consumir, além de reforçar a identidade visual do projeto.",
+                    "Utilizando as habilidades aprendidas no trabalho de <strong>Cores e Fontes em CSS</strong>, aplique a fonte que você escolheu para o <strong>Título</strong> no restante do seu formulário e na página de resultados.",
+                     "Dentro do seu código HTML, ao final adicione um comentário justificando qual <strong>tipo de fonte</strong> (serifada, sem serifa, etc.) você escolheu e por que ela é adequada para este projeto."
+                ]
+            }
+        };
+
+        
+        const navContainer = document.getElementById('section-nav');
+        const contentArea = document.getElementById('section-content-area');
+        const placeholder = document.getElementById('section-placeholder');
+        let currentActiveButton = null;
+
+        function displaySection(sectionId) {
+            let sectionData = conteudoProva[sectionId];
+            if (!sectionData) {
+                contentArea.innerHTML = '<p class="text-red-500">Conteúdo não encontrado.</p>';
+                return;
+            }
+
+            if(placeholder) placeholder.style.display = 'none';
+            contentArea.innerHTML = ''; 
+
+            const article = document.createElement('article');
+            article.id = `section-${sectionData.id}`;
+            
+            const titleH2 = document.createElement('h2');
+            titleH2.className = "text-3xl font-bold text-gray-800 mb-6 pb-3 border-b border-gray-200";
+            titleH2.textContent = sectionData.title;
+            article.appendChild(titleH2);
+            
+            if (sectionData.objetivo) {
+                const objP = document.createElement('p');
+                objP.className = "text-gray-500 italic mb-6 text-base";
+                objP.innerHTML = `<strong>Objetivo:</strong> ${sectionData.objetivo}`;
+                article.appendChild(objP);
+            }
+
+            if(sectionData.enunciado){
+                const enunciadoDiv = document.createElement('div');
+                enunciadoDiv.className = "enunciado-block";
+                const enunciadoTitle = document.createElement('h3');
+                enunciadoTitle.className = "text-xl font-semibold text-gray-800 mb-3";
+                enunciadoTitle.textContent = "Enunciado";
+                enunciadoDiv.appendChild(enunciadoTitle);
+                sectionData.enunciado.forEach(line => {
+                    const p = document.createElement('p');
+                    p.className = "text-gray-700 mb-2";
+                    p.innerHTML = line.replace(/`([^`]+)`/g, '<code class="bg-gray-200 text-sm text-pink-600 px-1 rounded">$1</code>');
+                    enunciadoDiv.appendChild(p);
+                });
+                article.appendChild(enunciadoDiv);
+            }
+
+            if (sectionData.referencias) {
+                const refDiv = document.createElement('div');
+                refDiv.className = "reference-block";
+                const refTitle = document.createElement('h4');
+                refTitle.className = "font-semibold mb-2";
+                refTitle.textContent = "Habilidades Necessárias (Onde Aprendemos):";
+                refDiv.appendChild(refTitle);
+                sectionData.referencias.forEach(line => {
+                    const p = document.createElement('p');
+                    p.className = "text-sm";
+                    p.innerHTML = `• ${line}`;
+                    refDiv.appendChild(p);
+                });
+                article.appendChild(refDiv);
+            }
+            
+            if (sectionData.saidaEsperada) {
+                const saidaTitle = document.createElement('h3');
+                saidaTitle.className = "text-xl font-semibold text-gray-800 mb-2 mt-6";
+                saidaTitle.textContent = "Saída Esperada (Exemplo):";
+                article.appendChild(saidaTitle);
+                const outputBlockDiv = document.createElement('div');
+                outputBlockDiv.className = "output-block";
+                outputBlockDiv.innerHTML = `<pre class="whitespace-pre-wrap"><code>${sectionData.saidaEsperada.replace(/</g, "&lt;").replace(/>/g, "&gt;")}</code></pre>`;
+                article.appendChild(outputBlockDiv);
+            }
+            
+            contentArea.appendChild(article);
+        }
+
+        function setActiveButton(button) {
+            if (currentActiveButton) {
+                currentActiveButton.classList.remove('nav-item-active');
+            }
+            button.classList.add('nav-item-active');
+            currentActiveButton = button;
+        }
+        
+        const navSections = [
+            conteudoProva["proposta-1"],
+            conteudoProva["proposta-2"],
+            conteudoProva["proposta-3"],
+            conteudoProva["proposta-4"],
+            conteudoProva["proposta-5"],
+            { isCategory: true, title: "FRONT END II" },
+            conteudoProva["front-end-cores"],
+            conteudoProva["front-end-fonte"],
+        ];
+
+        navSections.forEach((section) => {
+            if (section.isCategory) {
+                const categoryDiv = document.createElement('div');
+                categoryDiv.className = 'nav-category';
+                categoryDiv.textContent = section.title;
+                navContainer.appendChild(categoryDiv);
+            } else {
+                const button = document.createElement('button');
+                button.textContent = section.title;
+                button.classList.add(
+                    'w-full', 'text-left', 'px-4', 'py-3', 'rounded-lg', 
+                    'transition-all', 'duration-200', 'ease-in-out', 
+                    'font-medium', 'text-gray-600', 'hover:bg-red-100', 'hover:text-red-600'
+                );
+                button.addEventListener('click', () => {
+                    displaySection(section.id);
+                    setActiveButton(button);
+                });
+                navContainer.appendChild(button);
+            }
+        });
+        
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
+

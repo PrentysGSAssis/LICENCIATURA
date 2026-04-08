@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEMANA 35 - Estilização de Caixas</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f0f0f0; }
+        .page-container { width: 210mm; min-height: 297mm; margin: 20px auto; padding: 15mm; box-shadow: 0 0 10px rgba(0,0,0,0.1); box-sizing: border-box; background-color: white;}
+        /* Estilos do MODELO: CABEÇALHO */
+        .header-top-container { display: flex; justify-content: center; align-items: center; border-bottom: 1px solid black; padding-bottom: 10px; margin-bottom: 10px; }
+        .logo { max-width: 65px; height: auto; margin-right: 15px; }
+        .school-info { text-align: center; padding: 0 5px; }
+        .school-info strong.school-name { display: block; margin-bottom: 4px; font-size: 1em; }
+        .school-info .address-details span { display: inline; font-size: 0.75em; margin-right: 4px; }
+        .form-fields-grid { display: grid; gap: 5px 10px; width: 100%; margin-bottom: 15px; grid-template-rows: auto auto auto; }
+        .form-row { display: grid; grid-template-columns: 3fr 2fr; gap: 10px; width: 100%; }
+        .form-field { border: 1px solid black; padding: 5px 8px; font-size: 0.8em; box-sizing: border-box; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; display: flex; align-items: center; }
+        .form-field strong { margin-right: 5px; }
+        .form-field .value-content { flex-grow: 1; }
+        .fill-in { display: inline-block; border-bottom: 1px solid black; min-width: 25px; margin: 0 2px; height: 0.8em; }
+        /* Estilos do Conteúdo Didático */
+        .content-container { padding-top: 10px; }
+        h1 { font-size: 1.6em; border-bottom: 1.5px solid #eee; padding-bottom: 7px; margin-top: 0; color: #333; }
+        h2 { font-size: 1.3em; margin-top: 25px; color: #333; border-bottom: 1px solid #f0f0f0; padding-bottom: 5px;}
+        h3 { font-size: 1.1em; margin-top: 20px; color: #0056b3; }
+        p, li, dd, dt { line-height: 1.6; font-size: 0.95em; color: #333; }
+        ul, dl { padding-left: 20px; }
+        dt { font-weight: bold; margin-top: 10px;}
+        table { width: 100%; margin: 15px 0; border-collapse: collapse; font-size: 0.9em; }
+        th, td { border: 1px solid #ccc; padding: 8px; text-align: left; vertical-align: top; }
+        th { background-color: #e9ecef; }
+        tr:nth-child(even) { background-color: #f8f9fa; }
+        code { background-color: #f4f4f4; padding: 2px 5px; border-radius: 4px; font-family: "Consolas", Courier, monospace; font-size: 0.9em; }
+        pre { background-color: #f8f8f8; border: 1px solid #ddd; padding: 12px; border-radius: 5px; overflow-x: auto; font-size: 0.85em; margin-top: 8px; margin-bottom: 15px; }
+        pre code { background-color: transparent; padding: 0; }
+        hr { border: 0; height: 1px; background: #ccc; margin: 30px 0; }
+        .rule-box, .seo-box { background-color: #f8f9fa; border-left: 4px solid #0056b3; padding: 15px; margin: 20px 0; }
+        @media print { 
+            body { background-color: white; }
+            .page-container { margin: 0; padding: 0; box-shadow: none; width: 100%; min-height: 0;}
+            @page { margin: 12mm 10mm; } 
+        }
+    </style>
+</head>
+<body>
+<div class="page-container">
+    <div class="header-top-container">
+        <img src="https://1drv.ms/i/c/9e9e1f5991e00f07/IQTuKfwDXz6eQZG682I84WqBASSJENKf1uHvN3nSBXphxkU?width=1024" alt="Logo da Escola" class="logo" onerror="this.onerror=null; this.src='https://placehold.co/65x65/ccc/000?text=Logo'; this.alt='Erro ao carregar logo';">
+        <div class="school-info">
+            <strong class="school-name">ESCOLA ESTADUAL PROFESSORA SEBASTIANA DE ALMEIDA E SILVA</strong>
+            <div class="address-details"><span>Rua São José, nº 30, Jaguaruçu - MG.</span> <span>CEP: 35.188-000</span> <span>Tel: (31) 3845-1209</span></div>
+        </div>
+    </div>
+    <div class="form-fields-grid">
+        <div class="form-row">
+            <div class="form-field" style="grid-column: 1 / span 3;"><strong>DISCIPLINA:</strong> <span class="value-content">Front End I</span></div>
+            <div class="form-field" style="grid-column: 4 / span 2;"><strong>PROFESSOR(A):</strong> <span class="value-content">Prentys Assis</span></div>
+        </div>
+        <div class="form-row">
+            <div class="form-field" style="grid-column: 1 / span 3;"><strong>ATIVIDADE:</strong> <span class="value-content">SEMANA 35 - Estilização de Caixas</span></div>
+            <div class="form-field" style="grid-column: 4 / span 2;"><strong>DATA:</strong> <span class="value-content"><span class="fill-in">22</span>/<span class="fill-in">09</span>/<span class="fill-in">2025</span></span></div>
+        </div>
+        <div class="form-row">
+            <div class="form-field" style="grid-column: 1 / span 3;"><strong>ALUNO(A):</strong> <span class="value-content"></span></div>
+            <div class="form-field" style="grid-column: 4 / span 2;"><strong>TURMA:</strong> <span class="value-content">2º Ano</span></div>
+        </div>
+    </div>
+
+    <div class="content-container">
+        <h1>Estilização de Caixas: Shorthands, Sombras e Bordas</h1>
+        <p>Agora que já entendemos a teoria do Box Model e a importância de uma estrutura semântica, vamos aprender a dar vida e profundidade aos nossos elementos. Nesta etapa, focaremos em técnicas de estilização que tornam os layouts mais agradáveis, organizados e profissionais, utilizando propriedades CSS para criar sombras e bordas decoradas.</p>
+        
+        <h2>1. Simplificando o Código: Shorthands</h2>
+        <p>Em CSS, um "shorthand" (ou "atalho") é uma propriedade que permite definir os valores de múltiplas outras propriedades de uma só vez. Isso torna nosso código mais limpo, curto e fácil de ler. Já vimos isso com a propriedade <code>border</code>, e o mesmo se aplica a <code>padding</code> e <code>margin</code>.</p>
+
+        <h3>Shorthands para Padding e Margin</h3>
+        <p>Em vez de declarar cada lado (top, right, bottom, left) individualmente, podemos usar a propriedade principal para definir todos os valores seguindo uma lógica específica, conhecida como "sentido horário".</p>
+        <div class="rule-box">
+            <p><strong>A Lógica do Relógio:</strong> A ordem dos valores em um shorthand é sempre <strong>Topo, Direita, Baixo, Esquerda</strong>.</p>
+        </div>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Valores Informados</th>
+                    <th>Como o Navegador Interpreta</th>
+                    <th>Exemplo de Uso</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>4 valores</strong></td>
+                    <td>Topo, Direita, Baixo, Esquerda.</td>
+                    <td><code>padding: 10px 20px 15px 5px;</code></td>
+                </tr>
+                <tr>
+                    <td><strong>2 valores</strong></td>
+                    <td>O 1º valor para Topo/Baixo e o 2º para Direita/Esquerda.</td>
+                    <td><code>margin: 10px 20px;</code> (10px em cima/baixo, 20px dos lados).</td>
+                </tr>
+                 <tr>
+                    <td><strong>1 valor</strong></td>
+                    <td>Aplica o mesmo valor para os 4 lados.</td>
+                    <td><code>padding: 15px;</code> (15px de preenchimento em toda a volta).</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <h4>Centralizando blocos com <code>margin</code></h4>
+        <p>Um truque muito comum e útil é usar o valor <code>auto</code> nas margens laterais de um elemento de bloco para centralizá-lo horizontalmente em seu contêiner.</p>
+        <pre><code>.caixa-central {
+    width: 80%; /* Precisa ter uma largura definida */
+    margin: 0 auto; /* 0 para margem superior/inferior e auto para as laterais */
+}</code></pre>
+
+        <h2>2. Dando Profundidade com Sombras (<code>box-shadow</code>)</h2>
+        <p>A propriedade <code>box-shadow</code> nos permite adicionar sombras a uma caixa, criando uma sensação de profundidade e fazendo com que o elemento pareça "flutuar" acima da página. Uma sombra bem utilizada pode melhorar muito a hierarquia visual do layout.</p>
+
+        <h3>Anatomia da <code>box-shadow</code></h3>
+        <p>A propriedade aceita vários valores, mas os quatro principais são:</p>
+        <div class="rule-box">
+             <ol>
+                <li><strong>Deslocamento Horizontal (h-offset):</strong> Controla a posição da sombra no eixo X. Um valor positivo a move para a direita, e um negativo para a esquerda.</li>
+                <li><strong>Deslocamento Vertical (v-offset):</strong> Controla a posição da sombra no eixo Y. Um valor positivo a move para baixo, e um negativo para cima.</li>
+                <li><strong>Raio do Desfoque (blur-radius):</strong> Define o quão "esfumaçada" a sombra será. Um valor maior cria uma sombra mais suave e espalhada. O valor <code>0</code> a torna sólida.</li>
+                <li><strong>Cor (color):</strong> A cor da sombra. É uma ótima prática usar cores com transparência (como <code>rgba(0, 0, 0, 0.2)</code>) para um efeito mais sutil.</li>
+            </ol>
+        </div>
+        
+        <h4>Exemplo de uma sombra suave:</h4>
+        <pre><code>.cartao {
+    /* h-offset | v-offset | blur-radius | color */
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.15);
+}</code></pre>
+        <p>Neste exemplo, a sombra é deslocada 2px para a direita, 4px para baixo, tem um desfoque de 8px e é preta com 15% de opacidade.</p>
+
+        <h2>3. Acabamento Profissional com Bordas Arredondadas (<code>border-radius</code>)</h2>
+        <p>Cantos retos podem parecer muito "duros" em um design. A propriedade <code>border-radius</code> é uma maneira simples e eficaz de suavizar a aparência das nossas caixas, arredondando seus vértices.</p>
+
+        <h3>Aplicando o <code>border-radius</code></h3>
+        <p>Assim como os shorthands de espaçamento, podemos fornecer de um a quatro valores para controlar o arredondamento de cada canto individualmente, também no sentido horário (começando do canto superior esquerdo).</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Valores Informados</th>
+                    <th>Como o Navegador Interpreta</th>
+                    <th>Exemplo de Uso</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>1 valor</strong></td>
+                    <td>Aplica o mesmo raio para os 4 cantos.</td>
+                    <td><code>border-radius: 10px;</code></td>
+                </tr>
+                <tr>
+                    <td><strong>2 valores</strong></td>
+                    <td>1º para superior-esquerdo/inferior-direito, 2º para superior-direito/inferior-esquerdo.</td>
+                    <td><code>border-radius: 10px 30px;</code></td>
+                </tr>
+                 <tr>
+                    <td><strong>4 valores</strong></td>
+                    <td>Superior-esquerdo, Superior-direito, Inferior-direito, Inferior-esquerdo.</td>
+                    <td><code>border-radius: 10px 20px 5px 0;</code> (canto inferior esquerdo reto).</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h4>Criando um círculo perfeito</h4>
+        <p>Para transformar um elemento quadrado em um círculo perfeito, basta usar um <code>border-radius</code> de <code>50%</code>.</p>
+        <pre><code>.avatar {
+    width: 100px;
+    height: 100px;
+    background-color: #ccc;
+    border-radius: 50%; /* Transforma o quadrado em círculo */
+}</code></pre>
+
+    </div>
+</div>
+</body>
+</html>

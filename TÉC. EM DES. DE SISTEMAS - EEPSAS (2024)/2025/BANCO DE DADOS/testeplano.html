@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plano de Aula Anual - Dinâmico</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --bg-main: #F5F5F5;
+            --primary-gray: #424242;
+            --accent-gray: #757575;
+            --text-dark: #212121;
+            --text-light: #616161;
+            --border-color: #E0E0E0;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        .nav-link.active {
+            background-color: var(--primary-gray);
+            color: white;
+        }
+        .nav-link:not(.active) {
+            color: var(--text-light);
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-slate-100 text-slate-800 h-full">
+
+    <div class="flex h-full">
+        <aside class="w-64 bg-white border-r border-slate-200 p-6 flex-col fixed h-full hidden md:flex">
+            <header class="mb-10">
+                <h1 id="course-title" class="text-xl font-bold text-slate-900">Nome da Disciplina</h1>
+                <p class="text-sm text-slate-500">3º Ano - Ensino Médio</p>
+                 <p class="text-sm font-semibold mt-2 text-slate-700">Total: <span id="total-aulas">0</span> aulas anuais</p>
+            </header>
+            <nav id="navigation" class="flex flex-col space-y-2">
+                <a href="#" data-view="home" class="nav-link flex items-center px-4 py-2 rounded-lg font-semibold">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" viewBox="0 0 20 20" fill="currentColor"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" /></svg>
+                    Início
+                </a>
+                <a href="#" data-view="bimestre-1" class="nav-link hover:bg-slate-100 hover:text-slate-900 flex items-center px-4 py-2 rounded-lg font-medium">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd" /></svg>
+                    1º Bimestre
+                </a>
+                <a href="#" data-view="bimestre-2" class="nav-link hover:bg-slate-100 hover:text-slate-900 flex items-center px-4 py-2 rounded-lg font-medium">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd" /></svg>
+                    2º Bimestre
+                </a>
+                <a href="#" data-view="bimestre-3" class="nav-link hover:bg-slate-100 hover:text-slate-900 flex items-center px-4 py-2 rounded-lg font-medium">
+                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd" /></svg>
+                    3º Bimestre
+                </a>
+                <a href="#" data-view="bimestre-4" class="nav-link hover:bg-slate-100 hover:text-slate-900 flex items-center px-4 py-2 rounded-lg font-medium">
+                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd" /></svg>
+                    4º Bimestre
+                </a>
+            </nav>
+        </aside>
+
+        <main id="main-content" class="md:ml-64 flex-1 p-4 md:p-8 overflow-y-auto">
+        </main>
+    </div>
+
+    <script>
+        /*
+         * ===================================================================================
+         * PROBLEMA 3: ESTRUTURA DE DADOS
+         * ===================================================================================
+         * O objeto courseData abaixo está pronto para receber os dados.
+         * Cole aqui o conteúdo da sua disciplina.
+         * A estrutura vazia evita que o código quebre se os dados não forem carregados.
+        */
+        const courseData = {
+    "ementa": {
+    "titulo": "Banco de Dados - Curso Técnico em Desenvolvimento de Sistemas",
+    "objetivoGeral": "Modela, implementa e mantém banco de dados.",
+    "topicos": [
+      "Conceitos e tipos de bancos de dados: hierárquico, relacional, orientado a objetos, georreferenciado, NoSQL.",
+      "Modelagem conceitual do banco de dados.",
+      "Técnicas de levantamento de dados.",
+      "Levantamento e especificação de requisitos.",
+      "Dicionário de dados.",
+      "Integridade referencial.",
+      "Arquitetura de arquivos de dados.",
+      "Teoria dos conjuntos.",
+      "Tipos de dados.",
+      "Normalização (Formas Normais).",
+      "Implantação, instalação e manutenção de Sistema Gerenciador de Banco de Dados (SGDB).",
+      "Noções de Big Data."
+    ]
+  },
+  "focoBimestres": [
+    {
+      "bimestre": "1º Bimestre (30 aulas)",
+      "justificativa": "Iniciar com a base conceitual, introduzindo os tipos de bancos de dados e as primeiras etapas de modelagem para criar um alicerce sólido para o desenvolvimento do aluno na disciplina.",
+      "conteudos": "Conceitos e tipos de bancos de dados: hierárquico, relacional, orientado a objetos, georreferenciado, NoSQL; Técnicas de levantamento de dados; Levantamento e especificação de requisitos; Dicionário de dados.",
+      "habilidades": "Identificar os diferentes tipos de Sistemas Gerenciadores de Bancos de Dados (SGBDs) e suas aplicações, e iniciar o processo de coleta e especificação de requisitos para um sistema de informação."
+    },
+    {
+      "bimestre": "2º Bimestre (28 aulas)",
+      "justificativa": "Aprofundar na modelagem e estruturação lógica dos dados, aplicando a teoria de conjuntos e as formas de normalização para garantir a integridade, a consistência e a eficiência do banco de dados.",
+      "conteudos": "Modelagem conceitual do banco de dados; Teoria dos conjuntos; Integridade referencial; Arquitetura de arquivos de dados; Normalização (Formas Normais).",
+      "habilidades": "Desenvolver a capacidade de criar modelos de dados conceituais e lógicos, aplicando as regras de normalização para projetar bancos de dados robustos e bem estruturados."
+    },
+    {
+      "bimestre": "3º Bimestre (34 aulas)",
+      "justificativa": "Mover da teoria para a prática, focando na instalação, configuração e manutenção de um SGBD real, consolidando o conhecimento adquirido nas etapas de modelagem e planejamento.",
+      "conteudos": "Implantação, instalação e manutenção de Sistema Gerenciador de Banco de Dados (SGDB); Tipos de dados específicos do SGBD.",
+      "habilidades": "Instalar, configurar e realizar a manutenção básica de um SGBD, preparando o ambiente para a criação e manipulação de bancos de dados e compreendendo os tipos de dados na prática."
+    },
+    {
+      "bimestre": "4º Bimestre (28 aulas)",
+      "justificativa": "Explorar tópicos avançados e tendências de mercado como Big Data, aplicando e revisando todo o conteúdo do ano em um projeto final que simula um cenário real de desenvolvimento.",
+      "conteudos": "Noções de Big Data; Desenvolvimento de projeto final prático.",
+      "habilidades": "Compreender o cenário atual e as tendências de Big Data e ser capaz de aplicar todos os conhecimentos de modelagem, normalização e implementação em um projeto de banco de dados do início ao fim."
+    }
+  ],
+  "planejamento": [
+    {
+      "semana": 1,
+      "data": "10/02 a 14/02",
+      "tema": "Introdução aos Bancos de Dados",
+      "objetivo": "Compreender a importância dos bancos de dados no mundo atual e os conceitos fundamentais de dados, informação e metadados.",
+      "topicos": [
+        { "dia": "Quarta-feira (1 aula)", "atividades": ["Apresentação da disciplina e do plano de ensino", "Conceitos: Dados, Informação, SGBD"] },
+        { "dia": "Sexta-feira (2 aulas)", "atividades": ["Evolução dos Bancos de Dados", "Atividade: Exemplos de SGBDs no dia a dia"] }
+      ]
+    },
+    {
+      "semana": 2,
+      "data": "17/02 a 21/02",
+      "tema": "Tipos de Bancos de Dados",
+      "objetivo": "Diferenciar os principais modelos e tipos de bancos de dados, como relacional, NoSQL, hierárquico e orientado a objetos.",
+      "topicos": [
+        { "dia": "Quarta-feira (1 aula)", "atividades": ["Modelo Relacional: Tabelas, Tuplas, Atributos"] },
+        { "dia": "Sexta-feira (2 aulas)", "atividades": ["Introdução ao NoSQL", "Comparativo: Relacional vs NoSQL"] }
+      ]
+    },
+    {
+      "semana": 3,
+      "data": "24/02 a 28/02",
+      "tema": "Técnicas de Levantamento de Dados",
+      "objetivo": "Aprender as principais técnicas para coletar informações e requisitos junto aos usuários para o desenvolvimento de um projeto.",
+      "topicos": [
+        { "dia": "Quarta-feira (1 aula)", "atividades": ["A importância do levantamento de requisitos"] },
+        { "dia": "Sexta-feira (2 aulas)", "atividades": ["Técnicas: Entrevistas e Questionários", "Dinâmica: Simulando uma entrevista"] }
+      ]
+    },
+    {
+      "semana": 4,
+      "data": "03/03 a 07/03",
+      "tema": "Recesso - Carnaval",
+      "objetivo": "Pausa letiva.",
+      "topicos": []
+    },
+    {
+      "semana": 5,
+      "data": "10/03 a 14/03",
+      "tema": "Especificação de Requisitos",
+      "objetivo": "Aprender a documentar os requisitos de software e de usuário de forma clara e estruturada.",
+      "topicos": [
+        { "dia": "Quarta-feira (1 aula)", "atividades": ["Documento de Requisitos: Estrutura e importância"] },
+        { "dia": "Sexta-feira (2 aulas)", "atividades": ["Estudo de Caso: Analisando um documento de requisitos", "Exercício: Descrevendo requisitos de um mini-sistema"] }
+      ]
+    },
+    {
+      "semana": 6,
+      "data": "17/03 a 21/03",
+      "tema": "Dicionário de Dados",
+      "objetivo": "Compreender e construir um dicionário de dados para detalhar os elementos de um banco de dados.",
+      "topicos": [
+        { "dia": "Quarta-feira (1 aula)", "atividades": ["Feriado Municipal (São José)"] },
+        { "dia": "Sexta-feira (2 aulas)", "atividades": ["Conceito e utilidade do Dicionário de Dados", "Criando um dicionário de dados passo a passo"] }
+      ]
+    },
+    {
+      "semana": 7,
+      "data": "24/03 a 29/03",
+      "tema": "Revisão e Atividade Prática",
+      "objetivo": "Consolidar os conhecimentos sobre levantamento de requisitos e dicionário de dados através de uma atividade prática.",
+      "topicos": [
+        { "dia": "Quarta-feira (1 aula)", "atividades": ["Revisão dos conceitos de requisitos e dicionário de dados"] },
+        { "dia": "Sexta-feira (2 aulas)", "atividades": ["Apresentação do trabalho do bimestre", "Início do desenvolvimento do trabalho em sala"] },
+        { "dia": "Sábado Letivo (1 aula - Horário de Quarta)", "atividades": ["Desenvolvimento do trabalho prático do 1º Bimestre"] }
+      ]
+    },
+    {
+      "semana": 8,
+      "data": "31/03 a 04/04",
+      "tema": "Introdução à Modelagem Conceitual",
+      "objetivo": "Apresentar o Modelo Entidade-Relacionamento (MER) como ferramenta para a modelagem conceitual de dados.",
+      "topicos": [
+        { "dia": "Quarta-feira (1 aula)", "atividades": ["O que é modelagem de dados?"] },
+        { "dia": "Sexta-feira (2 aulas)", "atividades": ["Conceitos do MER: Entidades, Atributos e Relacionamentos", "Primeiros diagramas"] }
+      ]
+    },
+    {
+      "semana": 9,
+      "data": "07/04 a 11/04",
+      "tema": "Atributos e Tipos de Entidades",
+      "objetivo": "Aprofundar nos tipos de atributos e na classificação de entidades no Modelo Entidade-Relacionamento.",
+      "topicos": [
+        { "dia": "Quarta-feira (1 aula)", "atividades": ["Tipos de Atributos: Simples, Composto, Monovalorado, Multivalorado"] },
+        { "dia": "Sexta-feira (2 aulas)", "atividades": ["Atributo Identificador (Chave Primária)", "Entidades Fortes e Fracas"] }
+      ]
+    },
+    {
+      "semana": 10,
+      "data": "14/04 a 18/04",
+      "tema": "Recesso - Semana Santa",
+      "objetivo": "Pausa letiva.",
+      "topicos": []
+    },
+    {
+      "semana": 11,
+      "data": "21/04 a 25/04",
+      "tema": "Finalização do 1º Bimestre",
+      "objetivo": "Finalizar as atividades e avaliações do primeiro bimestre.",
+      "topicos": [
+        { "dia": "Quarta-feira (1 aula)", "atividades": ["Tira-dúvidas para a avaliação bimestral"] },
+        { "dia": "Sexta-feira (2 aulas)", "atividades": ["Entrega e apresentação dos trabalhos", "Encerramento do bimestre"] }
+      ]
+    },
+    {
+      "semana": 12,
+      "data": "28/04 a 02/05",
+      "tema": "Cardinalidade e Participação em Relacionamentos",
+      "objetivo": "Definir a cardinalidade e a participação (opcionalidade) dos relacionamentos no MER.",
+      "topicos": [
+        { "dia": "Quarta-feira (1 aula)", "atividades": ["Cardinalidade: 1:1, 1:N, N:M"] },
+        { "dia": "Sexta-feira (2 aulas)", "atividades": ["Participação Total e Parcial", "Exercícios de fixação"] }
+      ]
+    },
+    {
+      "semana": 13,
+      "data": "05/05 a 09/05",
+      "tema": "Auto-relacionamentos e Entidades Associativas",
+      "objetivo": "Modelar relacionamentos de uma entidade com ela mesma e situações de relacionamento N:M com atributos.",
+      "topicos": [
+        { "dia": "Quarta-feira (1 aula)", "atividades": ["Modelando Auto-relacionamentos (Relacionamento Recursivo)"] },
+        { "dia": "Sexta-feira (2 aulas)", "atividades": ["Entidades Associativas", "Estudo de caso prático"] }
+      ]
+    },
+    {
+      "semana": 14,
+      "data": "12/05 a 16/05",
+      "tema": "Generalização e Especialização",
+      "objetivo": "Aprender a modelar hierarquias de herança em bancos de dados utilizando generalização e especialização.",
+      "topicos": [
+        { "dia": "Quarta-feira (1 aula)", "atividades": ["Conceitos de Generalização e Especialização"] },
+        { "dia": "Sexta-feira (2 aulas)", "atividades": ["Diagramas de Herança", "Exercícios de modelagem com herança"] }
+      ]
+    },
+    {
+      "semana": 15,
+      "data": "19/05 a 23/05",
+      "tema": "Teoria dos Conjuntos aplicada a Banco de Dados",
+      "objetivo": "Relacionar as operações da teoria dos conjuntos (união, interseção, diferença) com as consultas em bancos de dados.",
+      "topicos": [
+        { "dia": "Quarta-feira (1 aula)", "atividades": ["Revisão de Teoria dos Conjuntos"] },
+        { "dia": "Sexta-feira (2 aulas)", "atividades": ["Álgebra Relacional: Seleção e Projeção", "Exercícios teóricos"] }
+      ]
+    },
+    {
+      "semana": 16,
+      "data": "26/05 a 30/05",
+      "tema": "Introdução à Normalização",
+      "objetivo": "Compreender o conceito de anomalias de atualização e a importância da normalização para a integridade dos dados.",
+      "topicos": [
+        { "dia": "Quarta-feira (1 aula)", "atividades": ["Anomalias: Inserção, Exclusão e Alteração"] },
+        { "dia": "Sexta-feira (2 aulas)", "atividades": ["Dependência Funcional", "Conceito de Chave Candidata"] }
+      ]
+    },
+    {
+      "semana": 17,
+      "data": "02/06 a 06/06",
+      "tema": "Primeira e Segunda Forma Normal (1FN e 2FN)",
+      "objetivo": "Aprender e aplicar as regras da Primeira e Segunda Forma Normal para eliminar redundâncias de dados.",
+      "topicos": [
+        { "dia": "Quarta-feira (1 aula)", "atividades": ["Primeira Forma Normal (1FN)"] },
+        { "dia": "Sexta-feira (2 aulas)", "atividades": ["Segunda Forma Normal (2FN)", "Exercícios de normalização"] }
+      ]
+    },
+    {
+      "semana": 18,
+      "data": "09/06 a 13/06",
+      "tema": "Terceira Forma Normal (3FN) e FNBC",
+      "objetivo": "Aprender a aplicar a Terceira Forma Normal e a Forma Normal de Boyce-Codd para resolver dependências transitivas.",
+      "topicos": [
+        { "dia": "Quarta-feira (1 aula)", "atividades": ["Terceira Forma Normal (3FN)"] },
+        { "dia": "Sexta-feira (2 aulas)", "atividades": ["Forma Normal de Boyce-Codd (FNBC)", "Exercícios comparativos"] }
+      ]
+    },
+    {
+      "semana": 19,
+      "data": "16/06 a 20/06",
+      "tema": "Arquitetura de Arquivos e Integridade",
+      "objetivo": "Estudar a organização física dos dados e os mecanismos de garantia de integridade referencial.",
+      "topicos": [
+        { "dia": "Quarta-feira (1 aula)", "atividades": ["Organização de arquivos e índices"] },
+        { "dia": "Sexta-feira (2 aulas)", "atividades": ["Feriado Nacional (Corpus Christi)"] }
+      ]
+    },
+    {
+      "semana": 20,
+      "data": "23/06 a 28/06",
+      "tema": "Revisão e Atividade Prática de Modelagem",
+      "objetivo": "Aplicar os conhecimentos de modelagem e normalização em um projeto prático.",
+      "topicos": [
+        { "dia": "Quarta-feira (1 aula)", "atividades": ["Revisão de MER e Normalização"] },
+        { "dia": "Sexta-feira (2 aulas)", "atividades": ["Apresentação do trabalho do 2º Bimestre", "Desenvolvimento em sala"] },
+        { "dia": "Sábado Letivo (2 aulas - Horário de Sexta)", "atividades": ["Continuação do desenvolvimento do trabalho bimestral"] }
+      ]
+    },
+    {
+      "semana": 21,
+      "data": "30/06 a 04/07",
+      "tema": "Finalização do 2º Bimestre",
+      "objetivo": "Finalizar as atividades e avaliações do segundo bimestre.",
+      "topicos": [
+        { "dia": "Quarta-feira (1 aula)", "atividades": ["Tira-dúvidas geral"] },
+        { "dia": "Sexta-feira (2 aulas)", "atividades": ["Entrega dos trabalhos e avaliação bimestral", "Encerramento do bimestre"] }
+      ]
+    },
+    {
+      "semana": 22,
+      "data": "07/07 a 11/07",
+      "tema": "Introdução à Implementação e SGBDs",
+      "objetivo": "Apresentar os principais SGBDs de mercado e iniciar o processo de instalação de um ambiente de banco de dados.",
+      "topicos": [
+        { "dia": "Quarta-feira (1 aula)", "atividades": ["Visão geral de SGBDs: MySQL, PostgreSQL, SQL Server, Oracle"] },
+        { "dia": "Sexta-feira (2 aulas)", "atividades": ["Instalação do MySQL e MySQL Workbench", "Primeiros passos no SGBD"] }
+      ]
+    },
+    {
+      "semana": 23,
+      "data": "14/07 a 18/07",
+      "tema": "Linguagem SQL - DDL (Data Definition Language)",
+      "objetivo": "Aprender os comandos SQL para criar e gerenciar a estrutura do banco de dados.",
+      "topicos": [
+        { "dia": "Quarta-feira (1 aula)", "atividades": ["CREATE DATABASE, CREATE TABLE"] },
+        { "dia": "Sexta-feira (2 aulas)", "atividades": ["ALTER TABLE, DROP TABLE", "Tipos de Dados em SQL"] }
+      ]
+    },
+    {
+      "semana": 24,
+      "data": "21/07 a 01/08",
+      "tema": "Recesso de Inverno",
+      "objetivo": "Pausa letiva.",
+      "topicos": []
+    },
+    {
+      "semana": 25,
+      "data": "04/08 a 08/08",
+      "tema": "SQL DDL - Constraints",
+      "objetivo": "Aprender a definir restrições de integridade (chaves primárias, estrangeiras, etc.) usando SQL.",
+      "topicos": [
+        { "dia": "Quarta-feira (1 aula)", "atividades": ["Constraints: PRIMARY KEY, NOT NULL, UNIQUE"] },
+        { "dia": "Sexta-feira (2 aulas)", "atividades": ["Constraints: FOREIGN KEY, CHECK, DEFAULT", "Exercícios práticos"] }
+      ]
+    },
+    {
+      "semana": 26,
+      "data": "11/08 a 15/08",
+      "tema": "Linguagem SQL - DML (Data Manipulation Language)",
+      "objetivo": "Aprender os comandos SQL para inserir, atualizar e deletar dados das tabelas.",
+      "topicos": [
+        { "dia": "Quarta-feira (1 aula)", "atividades": ["Comando INSERT INTO"] },
+        { "dia": "Sexta-feira (2 aulas)", "atividades": ["Feriado Municipal"] }
+      ]
+    },
+    {
+      "semana": 27,
+      "data": "18/08 a 23/08",
+      "tema": "SQL DML e DQL (Data Query Language)",
+      "objetivo": "Aprofundar no DML e iniciar os estudos em consultas de dados com o comando SELECT.",
+      "topicos": [
+        { "dia": "Quarta-feira (1 aula)", "atividades": ["Comandos UPDATE e DELETE"] },
+        { "dia": "Sexta-feira (2 aulas)", "atividades": ["Introdução ao SELECT", "Cláusula WHERE para filtros"] }
+      ]
+    },
+     {
+      "semana": 28,
+      "data": "25/08 a 29/08",
+      "tema": "SQL DQL - Consultas Avançadas",
+      "objetivo": "Aprender a realizar consultas mais complexas utilizando ordenação, apelidos e operadores.",
+      "topicos": [
+        { "dia": "Quarta-feira (1 aula)", "atividades": ["ORDER BY, AS (Alias)"] },
+        { "dia": "Sexta-feira (2 aulas)", "atividades": ["Operadores Lógicos (AND, OR, NOT)", "Operadores de Comparação"] }
+      ]
+    },
+    {
+      "semana": 29,
+      "data": "01/09 a 05/09",
+      "tema": "SQL - Funções de Agregação",
+      "objetivo": "Utilizar funções de agregação para realizar cálculos sobre conjuntos de dados.",
+      "topicos": [
+        { "dia": "Quarta-feira (1 aula)", "atividades": ["Funções COUNT, SUM, AVG"] },
+        { "dia": "Sexta-feira (2 aulas)", "atividades": ["Funções MIN, MAX", "Cláusula GROUP BY"] }
+      ]
+    },
+    {
+      "semana": 30,
+      "data": "08/09 a 13/09",
+      "tema": "SQL - Junções (Joins)",
+      "objetivo": "Aprender a combinar dados de múltiplas tabelas utilizando diferentes tipos de JOINs.",
+      "topicos": [
+        { "dia": "Quarta-feira (1 aula)", "atividades": ["INNER JOIN"] },
+        { "dia": "Sexta-feira (2 aulas)", "atividades": ["LEFT JOIN, RIGHT JOIN", "Exercícios práticos de JOINs"] },
+        { "dia": "Sábado Letivo (2 aulas - Horário de Sexta)", "atividades": ["Laboratório de SQL: Resolvendo problemas com JOINs"] }
+      ]
+    },
+    {
+      "semana": 31,
+      "data": "15/09 a 19/09",
+      "tema": "SQL - Subconsultas (Subqueries)",
+      "objetivo": "Aprender a aninhar consultas para resolver problemas mais complexos.",
+      "topicos": [
+        { "dia": "Quarta-feira (1 aula)", "atividades": ["Conceito de Subquery"] },
+        { "dia": "Sexta-feira (2 aulas)", "atividades": ["Subqueries no WHERE e no FROM", "Exercícios práticos"] }
+      ]
+    },
+    {
+      "semana": 32,
+      "data": "22/09 a 26/09",
+      "tema": "Revisão e Atividade Prática de SQL",
+      "objetivo": "Consolidar todo o conhecimento de SQL em um projeto prático de criação e manipulação de um banco de dados.",
+      "topicos": [
+        { "dia": "Quarta-feira (1 aula)", "atividades": ["Revisão geral de SQL (DDL, DML, DQL)"] },
+        { "dia": "Sexta-feira (2 aulas)", "atividades": ["Apresentação do trabalho bimestral", "Início do desenvolvimento em laboratório"] }
+      ]
+    },
+    {
+      "semana": 33,
+      "data": "29/09 a 03/10",
+      "tema": "Finalização do 3º Bimestre",
+      "objetivo": "Finalizar as atividades e avaliações do terceiro bimestre.",
+      "topicos": [
+        { "dia": "Quarta-feira (1 aula)", "atividades": ["Tira-dúvidas para avaliação"] },
+        { "dia": "Sexta-feira (2 aulas)", "atividades": ["Entrega do trabalho prático e avaliação", "Encerramento do bimestre"] }
+      ]
+    },
+    {
+      "semana": 34,
+      "data": "06/10 a 10/10",
+      "tema": "Introdução ao Big Data",
+      "objetivo": "Compreender os conceitos fundamentais de Big Data, seus desafios e oportunidades.",
+      "topicos": [
+        { "dia": "Quarta-feira (1 aula)", "atividades": ["O que é Big Data? Os 5 Vs"] },
+        { "dia": "Sexta-feira (2 aulas)", "atividades": ["Desafios e Aplicações do Big Data", "Discussão sobre o mercado de dados"] }
+      ]
+    },
+    {
+      "semana": 35,
+      "data": "13/10 a 17/10",
+      "tema": "Recesso de Primavera",
+      "objetivo": "Pausa letiva.",
+      "topicos": []
+    },
+    {
+      "semana": 36,
+      "data": "20/10 a 24/10",
+      "tema": "Ecossistema de Big Data",
+      "objetivo": "Conhecer as principais ferramentas e tecnologias que compõem o ecossistema de Big Data.",
+      "topicos": [
+        { "dia": "Quarta-feira (1 aula)", "atividades": ["Introdução ao Hadoop e MapReduce"] },
+        { "dia": "Sexta-feira (2 aulas)", "atividades": ["Visão geral sobre Spark, Hive e outras ferramentas", "Vídeo e debate"] }
+      ]
+    },
+    {
+      "semana": 37,
+      "data": "27/10 a 31/10",
+      "tema": "Projeto Final - Definição do Tema",
+      "objetivo": "Iniciar o projeto final do curso, com a definição dos temas e escopo pelos grupos de alunos.",
+      "topicos": [
+        { "dia": "Quarta-feira (1 aula)", "atividades": ["Apresentação da proposta do Projeto Final"] },
+        { "dia": "Sexta-feira (2 aulas)", "atividades": ["Brainstorming de temas", "Definição do escopo e dos grupos"] }
+      ]
+    },
+    {
+      "semana": 38,
+      "data": "03/11 a 07/11",
+      "tema": "Projeto Final - Modelagem de Dados",
+      "objetivo": "Aplicar os conhecimentos do 1º e 2º bimestres para criar a modelagem do banco de dados do projeto.",
+      "topicos": [
+        { "dia": "Quarta-feira (1 aula)", "atividades": ["Orientação para a fase de modelagem"] },
+        { "dia": "Sexta-feira (2 aulas)", "atividades": ["Desenvolvimento do MER e da normalização do projeto", "Acompanhamento dos grupos"] }
+      ]
+    },
+    {
+      "semana": 39,
+      "data": "10/11 a 14/11",
+      "tema": "Projeto Final - Implementação do Banco",
+      "objetivo": "Aplicar os conhecimentos do 3º bimestre para implementar o banco de dados do projeto usando SQL.",
+      "topicos": [
+        { "dia": "Quarta-feira (1 aula)", "atividades": ["Orientação para a fase de implementação com SQL"] },
+        { "dia": "Sexta-feira (2 aulas)", "atividades": ["Criação dos scripts DDL e DML", "Acompanhamento dos grupos"] }
+      ]
+    },
+    {
+      "semana": 40,
+      "data": "17/11 a 21/11",
+      "tema": "Projeto Final - Desenvolvimento e Consultas",
+      "objetivo": "Desenvolver as consultas SQL necessárias para o sistema proposto no projeto e popular o banco de dados.",
+      "topicos": [
+        { "dia": "Quarta-feira (1 aula)", "atividades": ["Tira-dúvidas sobre consultas SQL complexas"] },
+        { "dia": "Sexta-feira (2 aulas)", "atividades": ["Desenvolvimento das consultas e povoamento do banco", "Acompanhamento dos grupos"] }
+      ]
+    },
+    {
+      "semana": 41,
+      "data": "24/11 a 28/11",
+      "tema": "Projeto Final - Preparação para Apresentação",
+      "objetivo": "Finalizar a documentação e preparar a apresentação final do projeto.",
+      "topicos": [
+        { "dia": "Quarta-feira (1 aula)", "atividades": ["Estruturando a apresentação final"] },
+        { "dia": "Sexta-feira (2 aulas)", "atividades": ["Últimos ajustes nos projetos", "Ensaios para a apresentação"] }
+      ]
+    },
+    {
+      "semana": 42,
+      "data": "01/12 a 06/12",
+      "tema": "Apresentação dos Projetos Finais",
+      "objetivo": "Apresentar os projetos finais para a turma e professor, demonstrando o conhecimento adquirido durante o ano.",
+      "topicos": [
+        { "dia": "Quarta-feira (1 aula)", "atividades": ["Apresentação do Grupo 1 e 2"] },
+        { "dia": "Sexta-feira (2 aulas)", "atividades": ["Apresentação do Grupo 3 e 4"] },
+        { "dia": "Sábado Letivo (2 aulas - Horário de Sexta)", "atividades": ["Apresentação dos grupos restantes"] }
+      ]
+    },
+    {
+      "semana": 43,
+      "data": "08/12 a 12/12",
+      "tema": "Revisão Final e Feedback",
+      "objetivo": "Realizar uma revisão geral do conteúdo do ano e discutir os resultados dos projetos.",
+      "topicos": [
+        { "dia": "Quarta-feira (1 aula)", "atividades": ["Revisão dos principais tópicos do ano"] },
+        { "dia": "Sexta-feira (2 aulas)", "atividades": ["Feriado Municipal"] }
+      ]
+    },
+    {
+      "semana": 44,
+      "data": "15/12 a 17/12",
+      "tema": "Finalização do 4º Bimestre",
+      "objetivo": "Concluir o ano letivo, fornecer feedback final aos alunos e oficializar o encerramento das atividades.",
+      "topicos": [
+        { "dia": "Quarta-feira (1 aula)", "atividades": ["Feedback individual e encerramento oficial"] },
+        { "dia": "Sexta-feira (2 aulas)", "atividades": [] }
+      ]
+    }
+  ]
+};
+
+        /**
+         * ===================================================================================
+         * SOLUÇÃO PROBLEMA 2: AGRUPAMENTO AUTOMÁTICO DE SEMANAS
+         * ===================================================================================
+         * Esta função processa o planejamento e agrupa as semanas para cada bimestre
+         * dinamicamente. Ela usa o tema "Finalização do..." como um marcador para saber
+         * onde um bimestre termina. Isso elimina a necessidade de configurar manualmente
+         * os intervalos de semanas.
+         */
+        function agruparSemanasPorBimestre() {
+            if (!courseData.planejamento || courseData.planejamento.length === 0) return;
+
+            let indiceSemanaAtual = 0;
+            courseData.focoBimestres.forEach(bimestre => {
+                bimestre.planejamento = [];
+                while (indiceSemanaAtual < courseData.planejamento.length) {
+                    const semana = courseData.planejamento[indiceSemanaAtual];
+                    bimestre.planejamento.push(semana);
+                    indiceSemanaAtual++;
+                    if (semana.tema && semana.tema.includes('Finalização do')) {
+                        break;
+                    }
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainContent = document.getElementById('main-content');
+            const navigation = document.getElementById('navigation');
+
+            // Pré-processa os dados para agrupar as semanas automaticamente
+            agruparSemanasPorBimestre();
+
+            const setActiveLink = (view) => {
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.classList.remove('active');
+                    if (link.dataset.view === view) {
+                        link.classList.add('active');
+                    }
+                });
+            };
+            
+            const updateHeader = () => {
+                document.getElementById('course-title').textContent = courseData.ementa.titulo.split('-')[0].trim();
+                
+                const totalAulas = courseData.focoBimestres.reduce((acc, bimestre) => {
+                    const match = bimestre.bimestre.match(/\((\d+)\s+aulas\)/);
+                    return acc + (match ? parseInt(match[1], 10) : 0);
+                }, 0);
+
+                document.getElementById('total-aulas').textContent = totalAulas;
+            };
+
+            /**
+             * ===================================================================================
+             * SOLUÇÃO PROBLEMA 1: RENDERIZAÇÃO DA PÁGINA INICIAL
+             * ===================================================================================
+             * Esta função foi atualizada para ler as chaves 'justificativa', 'conteudos' e
+             * 'habilidades' do objeto 'focoBimestres', em vez da antiga chave 'foco'.
+             */
+            const renderHome = () => {
+                mainContent.innerHTML = `
+                    <div class="space-y-12">
+                        <div>
+                            <h2 class="text-3xl font-bold border-b border-slate-300 pb-3 mb-4 text-slate-900">${courseData.ementa.titulo}</h2>
+                            <p class="text-slate-600 mb-4 text-lg">${courseData.ementa.objetivoGeral}</p>
+                            <div class="mt-6 bg-white p-6 rounded-xl border border-slate-200">
+                                <h3 class="font-bold text-lg text-slate-800 mb-3">Tópicos da Ementa:</h3>
+                                <ul class="list-disc list-inside grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2 text-slate-700">
+                                    ${courseData.ementa.topicos.map(item => `<li>${item}</li>`).join('')}
+                                </ul>
+                            </div>
+                        </div>
+                        <div>
+                            <h2 class="text-3xl font-bold border-b border-slate-300 pb-3 mb-6 text-slate-900">Foco de Cada Bimestre</h2>
+                            <div class="space-y-6">
+                                ${courseData.focoBimestres.map(b => `
+                                    <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm transition hover:shadow-md hover:border-slate-300">
+                                        <h3 class="font-bold text-lg text-slate-900">${b.bimestre}</h3>
+                                        <div class="mt-4 space-y-4">
+                                            <div>
+                                                <h4 class="font-semibold text-slate-800">BREVE JUSTIFICATIVA</h4>
+                                                <p class="text-slate-600 mt-1">${b.justificativa || 'Não definido'}</p>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-semibold text-slate-800">CONTEÚDOS</h4>
+                                                <p class="text-slate-600 mt-1">${b.conteudos || 'Não definido'}</p>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-semibold text-slate-800">HABILIDADES COGNITIVAS</h4>
+                                                <p class="text-slate-600 mt-1">${b.habilidades || 'Não definido'}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </div>
+                `;
+                mainContent.scrollTop = 0;
+                setActiveLink('home');
+            };
+
+            /**
+             * ===================================================================================
+             * SOLUÇÃO PROBLEMA 2: RENDERIZAÇÃO AUTOMÁTICA DOS BIMESTRES
+             * ===================================================================================
+             * Esta função agora acessa diretamente as semanas pré-agrupadas pela função
+             * 'agruparSemanasPorBimestre', eliminando a necessidade da constante manual
+             * 'bimestreRanges'.
+             */
+            const renderBimestre = (bimestreNum) => {
+                const bimestreData = courseData.focoBimestres[bimestreNum - 1];
+                if (!bimestreData) {
+                    mainContent.innerHTML = `<p>Dados para o ${bimestreNum}º Bimestre não encontrados.</p>`;
+                    return;
+                }
+                
+                const semanasDoBimestre = bimestreData.planejamento || [];
+                
+                mainContent.innerHTML = `
+                    <h2 class="text-3xl font-bold border-b border-slate-300 pb-3 mb-6 text-slate-900">${bimestreData.bimestre} - Planejamento Semanal</h2>
+                    <div class="space-y-8">
+                        ${semanasDoBimestre.map(week => `
+                            <div class="semana-box bg-white p-6 rounded-xl border border-slate-200 shadow-sm transition hover:shadow-md hover:border-slate-300">
+                                <header class="semana-header flex justify-between items-start border-b border-slate-200 pb-4 mb-4">
+                                    <div class="flex-1">
+                                      <h3 class="font-bold text-lg text-slate-900">SEMANA ${week.semana.toString().padStart(2, '0')}</h3>
+                                      <span class="text-sm font-semibold text-slate-500">${week.data}</span>
+                                    </div>
+                                    <button class="copy-btn bg-slate-600 hover:bg-slate-700 text-white font-bold py-2 px-4 rounded-lg flex items-center ml-4 shrink-0">
+                                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
+                                      Copiar
+                                    </button>
+                                </header>
+                                <div class="semana-content">
+                                    <p class="mb-4"><strong class="font-semibold text-slate-800">Tema:</strong> <span class="text-slate-600">${week.tema}</span></p>
+                                    <p class="mb-4"><strong class="font-semibold text-slate-800">Objetivo:</strong> <span class="text-slate-600">${week.objetivo}</span></p>
+                                    <div>
+                                        <strong class="font-semibold text-slate-800">Tópicos:</strong>
+                                        <div class="mt-2 space-y-3">
+                                            ${(week.topicos || []).map(aula => `
+                                                <div>
+                                                    <p class="font-semibold text-slate-700">${aula.dia}:</p>
+                                                    <ul class="list-disc list-inside ml-4 text-slate-600">
+                                                        ${(aula.atividades || []).map(atividade => `<li>${atividade}</li>`).join('')}
+                                                    </ul>
+                                                </div>
+                                            `).join('')}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+                mainContent.scrollTop = 0;
+                setActiveLink(`bimestre-${bimestreNum}`);
+                addCopyFunctionality();
+            };
+            
+            function addCopyFunctionality() {
+                document.querySelectorAll('.copy-btn').forEach(button => {
+                    button.addEventListener('click', (e) => {
+                        const semanaBox = e.target.closest('.semana-box');
+                        let textToCopy = '';
+                        
+                        const title = semanaBox.querySelector('h3').innerText;
+                        const date = semanaBox.querySelector('span.text-slate-500').innerText;
+                        textToCopy += `${title} (${date})\n\n`;
+
+                        const contentNode = semanaBox.querySelector('.semana-content');
+                        const tema = contentNode.querySelector('p:nth-of-type(1)').innerText;
+                        const objetivo = contentNode.querySelector('p:nth-of-type(2)').innerText;
+                        const topicos = contentNode.querySelector('div:last-of-type').innerText;
+                        
+                        textToCopy += `${tema}\n\n${objetivo}\n\n${topicos}`;
+                        
+                        try {
+                            navigator.clipboard.writeText(textToCopy).then(() => {
+                               const originalHTML = button.innerHTML;
+                               button.innerHTML = 'Copiado!';
+                               setTimeout(() => { button.innerHTML = originalHTML }, 2000);
+                            });
+                        } catch (err) {
+                            console.error('Erro ao copiar: ', err);
+                        }
+                    });
+                });
+            }
+
+            navigation.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetLink = e.target.closest('.nav-link');
+                if (!targetLink) return;
+                const view = targetLink.dataset.view;
+                
+                if (view === 'home') {
+                    renderHome();
+                } else if (view.startsWith('bimestre-')) {
+                    const bimestreNum = parseInt(view.split('-')[1]);
+                    renderBimestre(bimestreNum);
+                }
+            });
+
+            // Renderização inicial
+            updateHeader();
+            renderHome();
+        });
+    </script>
+</body>
+</html>

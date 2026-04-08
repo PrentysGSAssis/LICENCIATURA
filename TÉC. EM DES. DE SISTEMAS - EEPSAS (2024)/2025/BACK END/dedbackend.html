@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plano Anual - Desenvolvimento Back End</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #E8F5E9; /* Verde muito claro */
+            --primary-green: #388E3C; /* Verde primário */
+            --accent-green: #81C784; /* Verde de destaque */
+            --text-dark: #1B5E20; /* Verde escuro para texto */
+            --text-light: #2E7D32; /* Verde mais claro para texto */
+            --border-color: #C8E6C9; /* Verde bem claro para bordas */
+        }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-main); color: var(--text-dark); }
+        .nav-link {
+            transition: all 0.3s;
+            border-left: 4px solid transparent;
+            color: var(--text-light);
+        }
+        .nav-link.active {
+            border-left-color: var(--primary-green);
+            background-color: #FFFFFF;
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+        .semana-box {
+            background-color: white;
+            border: 1px solid var(--border-color);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .semana-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .semana-header h3 { font-size: 1.25rem; font-weight: 600; color: var(--text-dark); }
+        .copy-btn {
+            background-color: var(--accent-green);
+            color: white;
+            font-size: 0.875rem;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .copy-btn:hover { background-color: var(--primary-green); }
+        .semana-content strong { color: var(--primary-green); }
+        .semana-content ul { list-style-type: '» '; padding-left: 1.25rem; margin-top: 0.5rem; }
+        .semana-content li { margin-bottom: 0.5rem; }
+    </style>
+</head>
+<body class="p-4 sm:p-6 lg:p-8">
+
+    <header class="text-center mb-10">
+        <h1 class="text-4xl font-bold" style="color: var(--text-dark);">Plano Anual de Aulas 2025</h1>
+        <p class="text-xl mt-2" style="color: var(--text-light);">Desenvolvimento Back End - 3º Ano</p>
+        <p class="text-lg font-semibold mt-1" style="color: var(--text-dark);">(Total: 96 aulas anuais)</p>
+    </header>
+
+    <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-10">
+        <!-- Menu Lateral Fixo -->
+        <aside class="lg:w-1/4">
+            <div class="sticky top-8">
+                <h2 class="text-xl font-semibold mb-4" style="color: var(--text-dark);">Navegação</h2>
+                <nav id="bimestre-nav" class="flex flex-col space-y-2">
+                    <a href="#bimestre-1" class="nav-link active p-4 rounded-r-lg">1º Bimestre</a>
+                    <a href="#bimestre-2" class="nav-link p-4 rounded-r-lg">2º Bimestre</a>
+                    <a href="#bimestre-3" class="nav-link p-4 rounded-r-lg">3º Bimestre</a>
+                    <a href="#bimestre-4" class="nav-link p-4 rounded-r-lg">4º Bimestre</a>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- Conteúdo Principal -->
+        <main class="lg:w-3/4">
+            <!-- 1º BIMESTRE -->
+            <section id="bimestre-1" class="bimestre-section">
+                <h2 class="text-3xl font-bold mb-6 pb-2 border-b-2" style="border-color: var(--primary-green);">1º Bimestre (27 aulas)</h2>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 1 (06/02, 07/02)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Introdução ao Desenvolvimento Back-End.<br><strong>Objetivo:</strong> Compreender a arquitetura cliente-servidor e o papel do back-end em aplicações web.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">06/02 (Quinta-feira):</strong><ul class="mt-1"><li>Apresentação da disciplina. Arquitetura cliente-servidor.</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">07/02 (Sexta-feira - 2 aulas):</strong><ul class="mt-1"><li>Protocolo HTTP (requests/responses, métodos, status codes).</li><li>O que é uma API? Diferenças entre REST e SOAP.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 2 (13/02, 14/02)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Ambiente de Desenvolvimento Node.js.<br><strong>Objetivo:</strong> Configurar o ambiente de desenvolvimento e entender o ecossistema Node.js.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">13/02 (Quinta-feira):</strong><ul class="mt-1"><li>Instalação do Node.js e NPM. O que é o NPM?</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">14/02 (Sexta-feira - 2 aulas):</strong><ul class="mt-1"><li>Iniciando um projeto (`npm init`). Estrutura do `package.json`.</li><li>Módulos CommonJS (`require`/`module.exports`).</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 3 (20/02, 21/02)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Introdução ao Framework Express.js.<br><strong>Objetivo:</strong> Aprender a criar um servidor web e definir rotas básicas com Express.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">20/02 (Quinta-feira):</strong><ul class="mt-1"><li>Instalando o Express. Criando o primeiro servidor "Hello World".</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">21/02 (Sexta-feira - 2 aulas):</strong><ul class="mt-1"><li>Definindo rotas com métodos HTTP (`app.get`, `app.post`).</li><li>Enviando respostas para o cliente (`res.send`, `res.json`).</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 4 (27/02, 28/02)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Rotas, Requisições e Respostas.<br><strong>Objetivo:</strong> Aprofundar o manuseio de requisições, capturando parâmetros e dados.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">27/02 (Quinta-feira):</strong><ul class="mt-1"><li>Capturando Route Params (`req.params`) e Query Strings (`req.query`).</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">28/02 (Sexta-feira - 2 aulas):</strong><ul class="mt-1"><li>Middleware `express.json()`.</li><li>Capturando dados do corpo da requisição (`req.body`) em rotas POST/PUT.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 5 (06/03, 07/03)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Padrão REST e Construção de APIs.<br><strong>Objetivo:</strong> Entender os princípios REST para a construção de APIs consistentes.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">06/03 (Quinta-feira):</strong><ul class="mt-1"><li>Princípios REST (Recursos, Verbos HTTP, Stateless).</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">07/03 (Sexta-feira - 2 aulas):</strong><ul class="mt-1"><li>Testando APIs com Postman/Insomnia.</li><li>Atividade: Estruturando os endpoints de uma API RESTful para um recurso (ex: Produtos).</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 6 (13/03, 14/03)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Middlewares em Express.<br><strong>Objetivo:</strong> Compreender o conceito de middlewares para modularizar o tratamento de requisições.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">13/03 (Quinta-feira):</strong><ul class="mt-1"><li>O que são middlewares? A função `next()`.</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">14/03 (Sexta-feira - 2 aulas):</strong><ul class="mt-1"><li>Criando middlewares globais e específicos para rotas.</li><li>Exemplo prático: criando um middleware de log de requisições.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 7 (20/03, 21/03)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Organização e Estrutura de Projetos.<br><strong>Objetivo:</strong> Aprender a organizar o código de um projeto back-end de forma escalável.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">20/03 (Quinta-feira):</strong><ul class="mt-1"><li>Padrão MVC (Model-View-Controller) adaptado para APIs.</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">21/03 (Sexta-feira - 2 aulas):</strong><ul class="mt-1"><li>Refatorando o projeto: separando rotas (`routes.js`).</li><li>Separando controladores (`controllers.js`) da lógica das rotas.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 8 (27/03, 29/03 - Sábado Letivo)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Introdução à Persistência de Dados.<br><strong>Objetivo:</strong> Conectar a aplicação Node.js a um banco de dados relacional.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">27/03 (Quinta-feira):</strong><ul class="mt-1"><li>Revisão de conceitos de Banco de Dados e SQL.</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">29/03 (Sábado - Horário de Quinta):</strong><ul class="mt-1"><li>Conectando ao MySQL/PostgreSQL com um driver (`mysql2`/`pg`).</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 9 (03/04, 04/04)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> CRUD com Banco de Dados.<br><strong>Objetivo:</strong> Implementar as operações básicas (Create, Read, Update, Delete) em uma API.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">03/04 (Quinta-feira):</strong><ul class="mt-1"><li>Implementando as rotas de Leitura (Read - `SELECT`).</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">04/04 (Sexta-feira - 2 aulas):</strong><ul class="mt-1"><li>Implementando a rota de Criação (`INSERT`).</li><li>Implementando as rotas de Atualização e Deleção (`UPDATE`, `DELETE`).</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 10 (10/04, 11/04)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Revisão e Atividades Avaliativas - 1º Bimestre.<br><strong>Objetivo:</strong> Consolidar os conhecimentos na criação de uma API RESTful com persistência de dados.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">10/04 (Quinta-feira):</strong><ul class="mt-1"><li>Revisão geral dos tópicos do bimestre. Tira-dúvidas.</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">11/04 (Sexta-feira - 2 aulas):</strong><ul class="mt-1"><li>Avaliação prática: desenvolver uma API CRUD completa para um recurso.</li></ul></div></div></div></div>
+            </section>
+            
+            <!-- 2º BIMESTRE -->
+            <section id="bimestre-2" class="bimestre-section pt-10">
+                <h2 class="text-3xl font-bold mb-6 pb-2 border-b-2" style="border-color: var(--primary-green);">2º Bimestre (22 aulas)</h2>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 11 (02/05)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> JavaScript Assíncrono.<br><strong>Objetivo:</strong> Compreender a natureza assíncrona do Node.js e aprender a lidar com operações de I/O.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">02/05 (Sexta-feira - 2 aulas):</strong><ul class="mt-1"><li>Callbacks e o problema do "Callback Hell".</li><li>Introdução a Promises como solução.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 12 (08/05, 09/05)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Promises e Async/Await.<br><strong>Objetivo:</strong> Utilizar Promises e a sintaxe Async/Await para escrever código assíncrono limpo.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">08/05 (Quinta-feira):</strong><ul class="mt-1"><li>Promises: `.then()`, `.catch()`, `.finally()`.</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">09/05 (Sexta-feira - 2 aulas):</strong><ul class="mt-1"><li>Sintaxe `async/await` para simplificar o código.</li><li>Tratamento de erros com `try/catch` em blocos `async`.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 13 (15/05, 16/05)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Prevenção de SQL Injection.<br><strong>Objetivo:</strong> Entender a vulnerabilidade de SQL Injection e preveni-la com consultas parametrizadas.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">15/05 (Quinta-feira):</strong><ul class="mt-1"><li>O que é SQL Injection? Exemplos práticos de ataques.</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">16/05 (Sexta-feira - 2 aulas):</strong><ul class="mt-1"><li>Consultas parametrizadas (Prepared Statements).</li><li>Atividade: Refatorando o CRUD para torná-lo seguro contra injeção de SQL.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 14 (22/05, 23/05)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Variáveis de Ambiente.<br><strong>Objetivo:</strong> Aprender a gerenciar configurações e segredos da aplicação de forma segura.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">22/05 (Quinta-feira):</strong><ul class="mt-1"><li>Problema de "hardcoding" de senhas e configurações no código.</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">23/05 (Sexta-feira - 2 aulas):</strong><ul class="mt-1"><li>Uso de arquivos `.env` para armazenar variáveis de ambiente.</li><li>Implementação com a biblioteca `dotenv`.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 15 (05/06, 06/06) - Prova Parcial</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Avaliação Parcial.<br><strong>Objetivo:</strong> Avaliar a aplicação de código assíncrono e seguro na construção de APIs.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">05/06 (Quinta-feira):</strong><ul class="mt-1"><li>Aplicação de avaliação prática no laboratório.</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">06/06 (Sexta-feira - 2 aulas):</strong><ul class="mt-1"><li>Continuação da avaliação, correção e feedback.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 16 (12/06, 13/06)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Autenticação e Sessões.<br><strong>Objetivo:</strong> Compreender os mecanismos de autenticação e gerenciamento de estado.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">12/06 (Quinta-feira):</strong><ul class="mt-1"><li>Autenticação vs. Autorização.</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">13/06 (Sexta-feira - 2 aulas):</strong><ul class="mt-1"><li>Gerenciamento de estado com Sessões e Cookies.</li><li>Implementando um sistema de login básico com a biblioteca `express-session`.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 17 (26/06, 28/06 - Sábado Letivo) - Prova Global</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Avaliação Global e Revisão Final.<br><strong>Objetivo:</strong> Avaliar o conhecimento do bimestre e revisar para recuperação.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">26/06 (Quinta-feira):</strong><ul class="mt-1"><li>Aplicação da Prova Global do 2º Bimestre.</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">28/06 (Sábado - Horário de Sexta - 2 aulas):</strong><ul class="mt-1"><li>Correção e feedback da prova.</li><li>Preparação para a semana de recuperação.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 18 (03/07, 04/07) - Recuperação</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Semana de Recuperação Parcial.<br><strong>Objetivo:</strong> Oferecer nova oportunidade de aprendizado e avaliação.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">03/07 (Quinta-feira):</strong><ul class="mt-1"><li>Aula de reforço com foco em JavaScript assíncrono e CRUD seguro.</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">04/07 (Sexta-feira - 2 aulas):</strong><ul class="mt-1"><li>Aplicação de atividades/prova de recuperação. Atendimento individualizado.</li></ul></div></div></div></div>
+            </section>
+            
+            <!-- 3º BIMESTRE -->
+            <section id="bimestre-3" class="bimestre-section pt-10">
+                <h2 class="text-3xl font-bold mb-6 pb-2 border-b-2" style="border-color: var(--primary-green);">3º Bimestre (23 aulas)</h2>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 19 (07/08, 08/08)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Criptografia de Senhas.<br><strong>Objetivo:</strong> Aprender a armazenar senhas de usuários de forma segura no banco de dados.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">07/08 (Quinta-feira):</strong><ul class="mt-1"><li>Por que não se deve armazenar senhas em texto puro? Hashing vs. Criptografia.</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">08/08 (Sexta-feira - 2 aulas):</strong><ul class="mt-1"><li>Introdução à biblioteca `bcrypt`.</li><li>Atividade: gerar hashes de senhas e comparar senhas no login.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 20 (14/08)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Autenticação Baseada em Token (JWT).<br><strong>Objetivo:</strong> Implementar um sistema de autenticação stateless utilizando JSON Web Tokens.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">14/08 (Quinta-feira):</strong><ul class="mt-1"><li>O que é JWT? Estrutura de um token (Header, Payload, Signature).</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 21 (21/08, 22/08, 23/08 - Sábado Letivo)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Implementação de JWT.<br><strong>Objetivo:</strong> Gerar, enviar e validar tokens JWT em uma API.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">21/08 (Quinta-feira):</strong><ul class="mt-1"><li>Uso da biblioteca `jsonwebtoken` para criar e assinar tokens.</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">22/08 (Sexta-feira - 2 aulas):</strong><ul class="mt-1"><li>Verificação do token em requisições.</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">23/08 (Sábado - Horário de Quinta):</strong><ul class="mt-1"><li>Criando um middleware para proteger rotas.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 22 (28/08, 29/08)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Upload de Arquivos.<br><strong>Objetivo:</strong> Aprender a receber e processar arquivos enviados pelo cliente.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">28/08 (Quinta-feira):</strong><ul class="mt-1"><li>Lidando com requisições `multipart/form-data`.</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">29/08 (Sexta-feira - 2 aulas):</strong><ul class="mt-1"><li>Introdução à biblioteca `multer` para gerenciar o upload de arquivos.</li><li>Atividade prática: upload de imagem de perfil de usuário.</li></ul></div></div></div></div>
+                 <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 23 (04/09, 05/09)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> APIs Web e Comunicação Externa.<br><strong>Objetivo:</strong> Compreender como o back-end pode consumir serviços de outras APIs.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">04/09 (Quinta-feira):</strong><ul class="mt-1"><li>Padrões de APIs externas. Foco em REST.</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">05/09 (Sexta-feira - 2 aulas):</strong><ul class="mt-1"><li>Consumindo APIs de terceiros com `axios` ou `node-fetch`.</li><li>Exemplo: buscar dados de uma API pública (ex: CEP, clima).</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 24 (11/09, 13/09 - Sábado Letivo)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Revisão e Atividades Avaliativas.<br><strong>Objetivo:</strong> Consolidar o aprendizado sobre autenticação, segurança e comunicação.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">11/09 (Quinta-feira):</strong><ul class="mt-1"><li>Revisão geral dos tópicos do bimestre. Tira-dúvidas.</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">13/09 (Sábado - Horário de Sexta - 2 aulas):</strong><ul class="mt-1"><li>Prova prática: implementar autenticação JWT em uma API CRUD.</li></ul></div></div></div></div>
+            </section>
+
+            <!-- 4º BIMESTRE -->
+            <section id="bimestre-4" class="bimestre-section pt-10">
+                <h2 class="text-3xl font-bold mb-6 pb-2 border-b-2" style="border-color: var(--primary-green);">4º Bimestre (24 aulas)</h2>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 25 (23/10, 24/10)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Introdução a Testes de Software.<br><strong>Objetivo:</strong> Compreender a importância dos testes e os diferentes tipos.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">23/10 (Quinta-feira):</strong><ul class="mt-1"><li>Por que testar? Pirâmide de testes (unitário, integração, E2E).</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">24/10 (Sexta-feira - 2 aulas):</strong><ul class="mt-1"><li>Introdução ao framework de testes Jest.</li><li>Configurando o Jest em um projeto Node.js.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 26 (30/10, 31/10)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Testes Unitários.<br><strong>Objetivo:</strong> Aprender a escrever testes para pequenas unidades de código (funções).<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">30/10 (Quinta-feira):</strong><ul class="mt-1"><li>Escrevendo o primeiro teste com `describe`, `it`, `expect`.</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">31/10 (Sexta-feira - 2 aulas):</strong><ul class="mt-1"><li>Matchers do Jest (`toBe`, `toEqual`, `toBeTruthy`, etc.).</li><li>Testando funções puras do projeto.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 27 (06/11, 07/11)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Testes de Integração para APIs.<br><strong>Objetivo:</strong> Aprender a testar os endpoints da API, simulando requisições HTTP.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">06/11 (Quinta-feira):</strong><ul class="mt-1"><li>Configurando o ambiente para testes de API com `supertest`.</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">07/11 (Sexta-feira - 2 aulas):</strong><ul class="mt-1"><li>Escrevendo testes para rotas GET e POST.</li><li>Escrevendo testes para rotas PUT e DELETE, validando status codes e retornos.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 28 (13/11, 14/11)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Implantação (Deploy) de Aplicações.<br><strong>Objetivo:</strong> Entender os conceitos básicos para publicar uma aplicação na internet.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">13/11 (Quinta-feira):</strong><ul class="mt-1"><li>O que é deploy? Conceitos de PaaS (Platform as a Service).</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">14/11 (Sexta-feira - 2 aulas):</strong><ul class="mt-1"><li>Preparando a aplicação para o deploy (scripts, porta).</li><li>Demonstração de deploy em uma plataforma como Railway, Render ou Vercel.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 29 (21/11)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Definição do Projeto Final.<br><strong>Objetivo:</strong> Estruturar o projeto final que integrará todos os conceitos do ano.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">21/11 (Sexta-feira - 2 aulas):</strong><ul class="mt-1"><li>Apresentação da proposta do projeto.</li><li>Formação dos grupos e brainstorming inicial da arquitetura.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 30 (27/11, 28/11)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Desenvolvimento do Projeto Final.<br><strong>Objetivo:</strong> Desenvolver o projeto final com a mentoria do professor.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">27/11 (Quinta-feira):</strong><ul class="mt-1"><li>Desenvolvimento assistido do projeto no laboratório.</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">28/11 (Sexta-feira - 2 aulas):</strong><ul class="mt-1"><li>Tira-dúvidas e ajustes na arquitetura e implementação dos projetos.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 31 (04/12, 06/12 - Sábado Letivo)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Finalização e Apresentação do Projeto.<br><strong>Objetivo:</strong> Concluir e apresentar o projeto, demonstrando o domínio das tecnologias.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">04/12 (Quinta-feira):</strong><ul class="mt-1"><li>Últimos ajustes e preparação para a apresentação final.</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">06/12 (Sábado - Horário de Sexta - 2 aulas):</strong><ul class="mt-1"><li>Apresentação dos projetos finais para a turma.</li><li>Avaliação do projeto e encerramento da disciplina.</li></ul></div></div></div></div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('.bimestre-section');
+            const copyButtons = document.querySelectorAll('.copy-btn');
+            
+            const observer = new IntersectionObserver(entries => {
+                let intersectingSectionId = null;
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        intersectingSectionId = entry.target.id;
+                    }
+                });
+
+                if (intersectingSectionId) {
+                     navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href').substring(1) === intersectingSectionId) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            }, { rootMargin: "-40% 0px -60% 0px" });
+
+            sections.forEach(section => observer.observe(section));
+
+            copyButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const semanaBox = button.closest('.semana-box');
+                    const title = semanaBox.querySelector('.week-title').innerText;
+                    const contentNode = semanaBox.querySelector('.semana-content').cloneNode(true);
+                    
+                    contentNode.querySelectorAll('ul').forEach(ul => {
+                        ul.querySelectorAll('li').forEach(li => {
+                            li.textContent = `- ${li.textContent}`;
+                        });
+                    });
+
+                    const content = contentNode.innerText;
+                    const fullText = `${title}\n\n${content}`;
+
+                    navigator.clipboard.writeText(fullText).then(() => {
+                        const originalText = button.innerText;
+                        button.innerText = 'Copiado!';
+                        button.style.backgroundColor = '#4CAF50';
+                        button.style.color = 'white';
+                        setTimeout(() => {
+                            button.innerText = originalText;
+                            button.style.backgroundColor = '';
+                            button.style.color = '';
+                        }, 2000);
+                    }).catch(err => {
+                        console.error('Falha ao copiar:', err);
+                        alert('Falha ao copiar o texto.');
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

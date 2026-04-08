@@ -1,0 +1,77 @@
+@charset "UTF-8";
+body {
+    font-family: 'Times New Roman', Times, serif;
+    background-color: rgb(114, 68, 36);
+
+}
+
+
+header {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: lightgray;
+    padding: 10px;
+    margin: 10px;
+
+}
+
+/* meu uninco h1 é no header por isso essa regra global, mas se eu usar outro h1 em outro lugar seria melhor mudar essa regra abaixo*/
+h1 {
+    text-align: center;
+}
+
+#assuntos {
+    background-color: lightgrey;
+}
+nav {
+    background-color: rgb(109, 109, 109);
+    padding: 3px;
+    font-weight: bold;
+ 
+
+}
+nav > a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    margin-right: .5em;
+
+}
+nav > a:hover {
+    text-decoration: underline;
+}
+main {
+    background-color: lightgray;
+    padding: 15px;
+    margin: 15px;
+    border-radius: 15px 0px;
+}
+article {
+    background-color: lightgray;
+
+}
+article > aside {
+    background-color: rgb(134, 134, 134);
+}
+footer {
+    background-color: lightgray;
+    text-align: center;
+    margin: 1px;
+    padding: 4px;
+}
+
+footer > p {
+    margin: 0px;
+}
+
+/* sombra aplicada globalmente somente aonde deve existir */
+header, main {
+    box-shadow: 5px 3px 7px 1px rgba(0, 0, 0, 0.5);
+}
+
+div#bola {
+    height: 100px;
+    width: 100px;
+    margin: 10px;
+    background-color: wheat;
+    border-radius: 50%;
+}

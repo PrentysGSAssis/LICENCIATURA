@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semana 17: A Instalação do Windows – Do Boot à Primeira Tela</title>
+    <style>
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #212529;
+        }
+        .container {
+            width: 85%;
+            max-width: 900px;
+            margin: 25px auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #007bff;
+            text-align: center;
+            border-bottom: 3px solid #007bff;
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+        }
+        h2 {
+            color: #17a2b8;
+            margin-top: 35px;
+            border-bottom: 1px solid #dee2e6;
+            padding-bottom: 8px;
+        }
+        h3 {
+            color: #28a745;
+            margin-top: 25px;
+        }
+        p, li {
+            text-align: justify;
+            margin-bottom: 12px;
+            font-size: 1.05em;
+        }
+        ul, ol {
+            margin-left: 25px;
+        }
+        code {
+            background-color: #e9ecef;
+            padding: 3px 6px;
+            border-radius: 5px;
+            font-family: Consolas, "Courier New", monospace;
+            color: #c7254e;
+        }
+        .path-example {
+            background-color: #f0f0f0;
+            border-left: 4px solid #17a2b8;
+            padding: 10px 15px;
+            margin: 15px 0;
+            font-style: italic;
+        }
+        .important-note {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            border-left-width: 5px;
+            border-left-color: #ffc107;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+        .important-note strong {
+            color: #856404;
+        }
+        .warning {
+            color: #dc3545;
+            font-weight: bold;
+        }
+        .screenshot-placeholder {
+            display: block;
+            width: 80%;
+            max-width: 450px; /* Reduzido para telas menores */
+            height: auto;
+            margin: 20px auto;
+            border: 2px dashed #ced4da;
+            padding: 25px;
+            text-align: center;
+            background-color: #f8f9fa;
+            color: #6c757d;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Semana 17: A Instalação do Windows – Do Boot à Primeira Tela</h1>
+
+        <h2>Introdução: O Começo de Tudo</h2>
+        <p>Olá, turma! Nesta semana, daremos um passo crucial na nossa jornada de domínio do Windows: vamos entender como se inicia o processo de instalação do sistema operacional. Instalar o Windows "do zero" (também chamado de instalação limpa) é uma habilidade fundamental para técnicos e usuários avançados, permitindo resolver problemas graves, otimizar o desempenho ou simplesmente começar com um sistema "fresco". Hoje, focaremos nas etapas que antecedem a cópia dos arquivos para o disco.</p>
+        <p class="important-note"><strong>Atenção:</strong> Esta semana coincide com a aplicação de provas parciais. O conteúdo teórico é essencial para a compreensão, e a prática em máquinas virtuais será adaptada conforme o tempo disponível.</p>
+
+        <h2>1. O Que Precisamos Antes de Começar? (Pré-requisitos)</h2>
+        <p>Antes de pensar em formatar um computador e instalar o Windows, precisamos de alguns itens e informações:</p>
+        <ul>
+            <li><strong>Arquivo ISO do Windows:</strong> Um arquivo ISO é uma imagem de disco, como uma cópia digital exata de um DVD de instalação. Você pode baixar o arquivo ISO oficial do Windows diretamente do site da Microsoft. Ele contém todos os arquivos necessários para a instalação.</li>
+            <li><strong>Licença do Windows (Chave do Produto - Product Key):</strong> Para usar o Windows legalmente, você precisa de uma licença. A chave do produto é um código de 25 caracteres que ativa sua cópia do Windows. Em muitos computadores de marca (notebooks, desktops), a chave já vem embutida no firmware (UEFI/BIOS) ou em um adesivo. Se estiver montando um PC ou reinstalando, precisará da chave que adquiriu. <span class="warning">É possível instalar o Windows sem inserir a chave inicialmente e ativá-lo depois.</span></li>
+            <li><strong>Requisitos Mínimos de Hardware:</strong> Cada versão do Windows tem requisitos mínimos de processador, memória RAM, espaço em disco e placa gráfica. É importante verificar se o computador atende a esses requisitos para garantir um bom funcionamento.</li>
+            <li><strong>Mídia de Instalação (Pendrive):</strong> O método mais comum hoje é usar um pendrive USB. Precisaremos de um pendrive com capacidade suficiente (geralmente 8GB ou mais) que será formatado (apagado) durante o processo de criação da mídia.</li>
+        </ul>
+
+        <h2>2. Criando a Mídia de Instalação Bootável</h2>
+        <p>Com o arquivo ISO em mãos, precisamos transferi-lo para o pendrive de uma forma especial que o torne "bootável", ou seja, que permita ao computador iniciar diretamente por ele.</p>
+        <ul>
+            <li><strong>Media Creation Tool (Ferramenta de Criação de Mídia da Microsoft):</strong> É a ferramenta oficial e mais recomendada pela Microsoft para baixar o Windows e criar um pendrive de instalação diretamente. Ela guia o usuário por todo o processo.</li>
+            <li><strong>Outras Ferramentas (Ex: Rufus):</strong> Existem softwares de terceiros, como o Rufus, que são populares para criar mídias bootáveis a partir de arquivos ISO. Eles oferecem mais opções de personalização, mas exigem um pouco mais de atenção.</li>
+        </ul>
+        <p><span class="warning">Lembre-se: Ao criar a mídia de instalação, o pendrive será formatado e todos os dados nele serão perdidos!</span></p>
+        <div class="screenshot-placeholder">[Imagem de exemplo: Tela do Media Creation Tool ou Rufus]</div>
+
+        <h2>3. BIOS/UEFI: A Chave da Ignição do Computador</h2>
+        <p>Antes que o Windows (ou qualquer sistema operacional) possa carregar, um software fundamental entra em ação assim que você liga o computador: o firmware da placa-mãe.</p>
+        <ul>
+            <li><strong>BIOS (Basic Input/Output System):</strong> É o firmware mais antigo, presente em computadores mais velhos. Possui uma interface baseada em texto, controlada pelo teclado.</li>
+            <li><strong>UEFI (Unified Extensible Firmware Interface):</strong> É o sucessor moderno da BIOS, presente na maioria dos computadores atuais. Oferece uma interface gráfica mais amigável (muitas vezes com suporte a mouse), inicialização mais rápida e recursos de segurança aprimorados, como o "Secure Boot".</li>
+        </ul>
+        <p>A principal função da BIOS/UEFI é realizar um auto-teste inicial do hardware (POST - Power-On Self-Test), verificar os dispositivos conectados e, em seguida, carregar o sistema operacional a partir de uma unidade de armazenamento definida.</p>
+        <p><strong>Como Acessar a BIOS/UEFI?</strong></p>
+        <p>Para acessar a tela de configuração da BIOS/UEFI, você precisa pressionar uma tecla específica logo após ligar o computador, antes que o logo do Windows apareça. As teclas mais comuns são:</p>
+        <ul>
+            <li><code>DEL</code> (Delete)</li>
+            <li><code>F2</code></li>
+            <li><code>F1</code></li>
+            <li><code>F10</code></li>
+            <li><code>F12</code></li>
+            <li><code>ESC</code> (Escape)</li>
+        </ul>
+        <p>A tecla correta varia conforme o fabricante da placa-mãe ou do computador. Geralmente, uma mensagem rápida aparece na tela indicando qual tecla pressionar (ex: "Press DEL to enter Setup").</p>
+        <div class="screenshot-placeholder">[Imagem de exemplo: Tela de uma BIOS/UEFI (menu principal)]</div>
+
+        <h2>4. Definindo a Ordem de Boot (Prioridade de Inicialização)</h2>
+        <p>Uma vez dentro da BIOS/UEFI, uma das configurações mais importantes para a instalação do Windows é a <strong>ordem de boot</strong> (ou "Boot Priority", "Boot Sequence"). Essa configuração diz ao computador qual dispositivo ele deve tentar iniciar primeiro, depois o segundo, e assim por diante.</p>
+        <p>Para instalar o Windows a partir do nosso pendrive, precisamos garantir que o "Dispositivo USB" ou "Removable Device" esteja listado como a primeira opção na ordem de boot, antes do disco rígido (HDD/SSD) interno do computador.</p>
+        <p>Essa opção geralmente se encontra em abas chamadas "Boot", "Startup" ou "Advanced BIOS Features". Após alterar a ordem, é crucial <strong>salvar as alterações e sair</strong> da configuração da BIOS/UEFI (geralmente com a tecla <code>F10</code> ou uma opção no menu "Exit"). O computador irá reiniciar.</p>
+
+        <h2>5. As Primeiras Telas da Instalação do Windows</h2>
+        <p>Se a ordem de boot estiver correta e o pendrive de instalação estiver conectado, após o reinício, você deverá ver uma mensagem como "Pressione qualquer tecla para iniciar do CD ou DVD..." (mesmo que seja um USB) ou o instalador do Windows carregará diretamente.</p>
+        <div class="screenshot-placeholder">[Imagem de exemplo: Tela inicial do instalador do Windows com seleção de idioma]</div>
+        <ol>
+            <li><strong>Idioma, Formato de Hora e Teclado:</strong> A primeira tela interativa pedirá para você selecionar o "Idioma a instalar", "Formato de hora e moeda" e "Teclado ou método de entrada". Para nós no Brasil, geralmente será:
+                <ul>
+                    <li>Idioma a instalar: Português (Brasil)</li>
+                    <li>Formato de hora e moeda: Português (Brasil – ABNT)</li>
+                    <li>Teclado ou método de entrada: Português (Brasil – ABNT2) - verifique o layout do seu teclado.</li>
+                </ul>
+                Clique em "Avançar".
+            </li>
+            <li><strong>Instalar Agora:</strong> Na próxima tela, clique no botão grande "Instalar agora".</li>
+            <li><strong>Chave do Produto (Product Key):</strong> Pode surgir uma tela pedindo a chave do produto do Windows.
+                <ul>
+                    <li>Se você tiver a chave, pode digitá-la.</li>
+                    <li>Se não tiver no momento, ou se a chave estiver embutida no firmware (comum em notebooks), você pode clicar em "Não tenho a chave do produto". A instalação continuará, e você poderá ativar o Windows depois.</li>
+                </ul>
+            </li>
+            <li><strong>Seleção da Edição do Windows:</strong> Se o seu arquivo ISO ou mídia de instalação contiver múltiplas edições do Windows (como Home, Pro, Education), uma tela aparecerá para você escolher qual edição deseja instalar. Escolha a que corresponde à sua licença.</li>
+            <li><strong>Termos de Licença:</strong> Leia (ou finja que leu 😉) os termos de licença do software. Marque a caixa "Aceito os termos da licença" e clique em "Avançar".</li>
+            <li><strong>Tipo de Instalação:</strong> Esta é uma tela crucial! Você verá duas opções:
+                <ul>
+                    <li><strong>Atualização: Instalar o Windows e manter arquivos, configurações e aplicativos.</strong> Esta opção só está disponível se você estiver executando o instalador a partir de uma versão anterior do Windows já funcional e serve para atualizar o sistema.</li>
+                    <li><strong>Personalizada: Instalar apenas o Windows (avançado).</strong> <span class="warning">Esta é a opção que geralmente escolhemos para uma instalação limpa.</span> Ela permite que você gerencie as partições do disco rígido, formate-as e escolha exatamente onde o Windows será instalado. É sobre esta opção que focaremos na próxima etapa do nosso aprendizado.</li>
+                </ul>
+                <div class="screenshot-placeholder">[Imagem de exemplo: Tela de "Que tipo de instalação você deseja?"]</div>
+                Selecione "Personalizada".
+            </li>
+        </ol>
+
+        <h2>Próximos Passos</h2>
+        <p>Após selecionar a instalação "Personalizada", a próxima tela que aparecerá será "Onde você deseja instalar o Windows?". Esta tela é onde o Gerenciamento de Disco que aprendemos na semana passada se torna vital, pois é aqui que vamos selecionar, criar ou formatar a partição para o novo sistema. Mas isso é assunto para a nossa próxima aula!</p>
+        <p>Por hoje, o objetivo é que vocês compreendam bem todos esses passos preparatórios. Eles são a base para uma instalação bem-sucedida do Windows.</p>
+
+    </div>
+</body>
+</html>

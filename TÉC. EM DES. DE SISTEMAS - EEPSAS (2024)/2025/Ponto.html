@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelo Semanal - Livro de Ponto</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        th, td {
+            border: 1px solid #e2e8f0; /* slate-200 */
+            padding: 8px;
+            text-align: center; /* Centralizar texto para melhor visualização dos cabeçalhos */
+            font-size: 0.875rem; /* text-sm */
+            vertical-align: middle; /* Alinhar verticalmente ao meio */
+        }
+        th {
+            font-weight: 600; /* font-semibold */
+        }
+        .assinatura {
+            height: 50px; /* Espaço para assinatura */
+            min-width: 100px; /* Largura mínima para assinatura */
+        }
+        caption {
+            font-size: 1.25rem; /* text-xl */
+            font-weight: 700; /* font-bold */
+            margin-bottom: 1rem; /* mb-4 */
+            text-align: center;
+        }
+        .table-container {
+            max-width: 100%;
+            overflow-x: auto;
+            margin: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 1300px; /* Largura original com colunas de MI */
+        }
+        
+        /* Cores para as seções */
+        .admin-header-group { background-color: #7dd3fc; /* sky-300 */ color: #0c4a6e; /* sky-800 */ font-weight: bold; }
+        .admin-header { background-color: #bae6fd; /* sky-200 */ color: #075985; /* sky-700 */ }
+        .admin-cell { background-color: #f0f9ff; /* sky-50 */ }
+
+        .turma-header-group { background-color: #6ee7b7; /* emerald-300 */ color: #065f46; /* emerald-800 */ font-weight: bold; }
+        .turma-header { background-color: #a7f3d0; /* emerald-200 */ color: #047857; /* emerald-700 */ }
+        .turma-cell { background-color: #ecfdf5; /* emerald-50 */ }
+        /* Classe para destacar a célula específica da aula que é MI */
+        .turma-cell-mi-aula { background-color: #d1fae5; /* emerald-100 */ font-weight: 500; }
+
+
+        .modulo-header-group { background-color: #fcd34d; /* amber-300 */ color: #92400e; /* amber-800 */ font-weight: bold; }
+        .modulo-header { background-color: #fde68a; /* amber-200 */ color: #b45309; /* amber-700 */ }
+        .modulo-cell { background-color: #fffbeb; /* amber-50 */ }
+
+        .text-left-content td, 
+        .text-left-content .turma-cell, 
+        .text-left-content .admin-cell, 
+        .text-left-content .modulo-cell,
+        .text-left-content .turma-cell-mi-aula {
+            text-align: left; /* Alinhar conteúdo das células de dados à esquerda */
+        }
+        .text-left-content .assinatura {
+             text-align: center; /* Assinatura pode permanecer centralizada */
+        }
+        .multi-line-time { /* Usado para Quinta-Feira entrada/saída */
+            line-height: 1.5; 
+        }
+    </style>
+</head>
+<body class="bg-gray-50 p-4">
+
+    <div class="table-container bg-white shadow-md rounded-lg p-6">
+        <table class="min-w-full divide-y divide-gray-200">
+            <caption>Livro de Ponto Semanal - Professor(a)</caption>
+            <thead class="bg-gray-50">
+                <tr>
+                    <th colspan="3" class="admin-header-group px-6 py-3 text-xs font-medium uppercase tracking-wider">ADMINISTRATIVO</th>
+                    <th colspan="7" class="turma-header-group px-6 py-3 text-xs font-medium uppercase tracking-wider">TURMA</th>
+                    <th colspan="2" class="modulo-header-group px-6 py-3 text-xs font-medium uppercase tracking-wider">MÓDULO INDIVIDUAL</th>
+                </tr>
+                <tr>
+                    <th class="admin-header px-6 py-3 text-xs font-medium uppercase tracking-wider">DIA</th>
+                    <th class="admin-header px-6 py-3 text-xs font-medium uppercase tracking-wider">HORÁRIO DE ENTRADA</th>
+                    <th class="admin-header px-6 py-3 text-xs font-medium uppercase tracking-wider">ASSINATURA</th>
+                    <th class="turma-header px-6 py-3 text-xs font-medium uppercase tracking-wider">1ª AULA</th>
+                    <th class="turma-header px-6 py-3 text-xs font-medium uppercase tracking-wider">2ª AULA</th>
+                    <th class="turma-header px-6 py-3 text-xs font-medium uppercase tracking-wider">3ª AULA</th>
+                    <th class="turma-header px-6 py-3 text-xs font-medium uppercase tracking-wider">4ª AULA</th>
+                    <th class="turma-header px-6 py-3 text-xs font-medium uppercase tracking-wider">5ª AULA</th>
+                    <th class="turma-header px-6 py-3 text-xs font-medium uppercase tracking-wider">6ª AULA</th>
+                    <th class="turma-header px-6 py-3 text-xs font-medium uppercase tracking-wider">HORÁRIO SAÍDA</th>
+                    <th class="modulo-header px-6 py-3 text-xs font-medium uppercase tracking-wider">M.I. ENTRADA</th>
+                    <th class="modulo-header px-6 py-3 text-xs font-medium uppercase tracking-wider">M.I. SAÍDA</th>
+                </tr>
+            </thead>
+            <tbody class="bg-white divide-y divide-gray-200 text-left-content">
+                <tr>
+                    <td class="px-6 py-4 whitespace-nowrap admin-cell">SEGUNDA-FEIRA</td>
+                    <td class="px-6 py-4 whitespace-nowrap admin-cell">FOLGA</td>
+                    <td class="px-6 py-4 whitespace-nowrap admin-cell assinatura"></td>
+                    <td class="px-6 py-4 whitespace-nowrap turma-cell">FOLGA</td>
+                    <td class="px-6 py-4 whitespace-nowrap turma-cell"></td>
+                    <td class="px-6 py-4 whitespace-nowrap turma-cell"></td>
+                    <td class="px-6 py-4 whitespace-nowrap turma-cell"></td>
+                    <td class="px-6 py-4 whitespace-nowrap turma-cell"></td>
+                    <td class="px-6 py-4 whitespace-nowrap turma-cell"></td>
+                    <td class="px-6 py-4 whitespace-nowrap turma-cell">FOLGA</td>
+                    <td class="px-6 py-4 whitespace-nowrap modulo-cell"></td>
+                    <td class="px-6 py-4 whitespace-nowrap modulo-cell"></td>
+                </tr>
+                <tr>
+                    <td class="px-6 py-4 whitespace-nowrap admin-cell">TERÇA-FEIRA</td>
+                    <td class="px-6 py-4 whitespace-nowrap admin-cell">12:50</td>
+                    <td class="px-6 py-4 whitespace-nowrap admin-cell assinatura"></td>
+                    <td class="px-6 py-4 whitespace-nowrap turma-cell">3º</td>
+                    <td class="px-6 py-4 whitespace-nowrap turma-cell-mi-aula">MI</td>
+                    <td class="px-6 py-4 whitespace-nowrap turma-cell">3º</td>
+                    <td class="px-6 py-4 whitespace-nowrap turma-cell">2º</td>
+                    <td class="px-6 py-4 whitespace-nowrap turma-cell"></td>
+                    <td class="px-6 py-4 whitespace-nowrap turma-cell"></td>
+                    <td class="px-6 py-4 whitespace-nowrap turma-cell">16:25</td>
+                    <td class="px-6 py-4 whitespace-nowrap modulo-cell">13:40</td>
+                    <td class="px-6 py-4 whitespace-nowrap modulo-cell">14:30</td>
+                </tr>
+                <tr>
+                    <td class="px-6 py-4 whitespace-nowrap admin-cell">QUARTA-FEIRA</td>
+                    <td class="px-6 py-4 whitespace-nowrap admin-cell">07:00</td>
+                    <td class="px-6 py-4 whitespace-nowrap admin-cell assinatura"></td>
+                    <td class="px-6 py-4 whitespace-nowrap turma-cell">2º</td>
+                    <td class="px-6 py-4 whitespace-nowrap turma-cell-mi-aula">MI</td>
+                    <td class="px-6 py-4 whitespace-nowrap turma-cell-mi-aula">MI</td>
+                    <td class="px-6 py-4 whitespace-nowrap turma-cell">2º</td>
+                    <td class="px-6 py-4 whitespace-nowrap turma-cell"></td>
+                    <td class="px-6 py-4 whitespace-nowrap turma-cell"></td>
+                    <td class="px-6 py-4 whitespace-nowrap turma-cell">10:35</td>
+                    <td class="px-6 py-4 whitespace-nowrap modulo-cell">07:50</td>
+                    <td class="px-6 py-4 whitespace-nowrap modulo-cell">09:30</td>
+                </tr>
+                <tr>
+                    <td class="px-6 py-4 whitespace-nowrap admin-cell">QUINTA-FEIRA</td>
+                    <td class="px-6 py-4 whitespace-nowrap admin-cell multi-line-time">
+                        08:40<br>12:50
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap admin-cell assinatura"></td>
+                    <td class="px-6 py-4 whitespace-nowrap turma-cell">3º</td>
+                    <td class="px-6 py-4 whitespace-nowrap turma-cell">3º</td>
+                    <td class="px-6 py-4 whitespace-nowrap turma-cell">2º</td>
+                    <td class="px-6 py-4 whitespace-nowrap turma-cell">3º</td>
+                    <td class="px-6 py-4 whitespace-nowrap turma-cell"></td>
+                    <td class="px-6 py-4 whitespace-nowrap turma-cell"></td>
+                    <td class="px-6 py-4 whitespace-nowrap turma-cell multi-line-time">
+                        11:25<br>13:40
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap modulo-cell">---</td> 
+                    <td class="px-6 py-4 whitespace-nowrap modulo-cell">---</td>
+                </tr>
+                <tr>
+                    <td class="px-6 py-4 whitespace-nowrap admin-cell" rowspan="2">SEXTA-FEIRA</td>
+                    <td class="px-6 py-4 whitespace-nowrap admin-cell">07:00</td> <td class="px-6 py-4 whitespace-nowrap admin-cell assinatura"></td> <td class="px-6 py-4 whitespace-nowrap turma-cell">2º</td>   <td class="px-6 py-4 whitespace-nowrap turma-cell-mi-aula">MI</td>   <td class="px-6 py-4 whitespace-nowrap turma-cell">2º</td>   <td class="px-6 py-4 whitespace-nowrap turma-cell">2º</td>   <td class="px-6 py-4 whitespace-nowrap turma-cell">---</td>
+                    <td class="px-6 py-4 whitespace-nowrap turma-cell">---</td>
+                    <td class="px-6 py-4 whitespace-nowrap turma-cell">11:25</td> <td class="px-6 py-4 whitespace-nowrap modulo-cell">08:40</td> <td class="px-6 py-4 whitespace-nowrap modulo-cell">09:30</td> </tr>
+                <tr>
+                    <td class="px-6 py-4 whitespace-nowrap admin-cell">12:50</td> <td class="px-6 py-4 whitespace-nowrap admin-cell assinatura"></td> <td class="px-6 py-4 whitespace-nowrap turma-cell">3º</td>   <td class="px-6 py-4 whitespace-nowrap turma-cell">3º</td>   <td class="px-6 py-4 whitespace-nowrap turma-cell">2º</td>   <td class="px-6 py-4 whitespace-nowrap turma-cell">3º</td>   <td class="px-6 py-4 whitespace-nowrap turma-cell">---</td>
+                    <td class="px-6 py-4 whitespace-nowrap turma-cell">---</td>
+                    <td class="px-6 py-4 whitespace-nowrap turma-cell">15:35</td> <td class="px-6 py-4 whitespace-nowrap modulo-cell">---</td> <td class="px-6 py-4 whitespace-nowrap modulo-cell">---</td>
+                </tr>
+                <tr>
+                    <td class="px-6 py-4 whitespace-nowrap admin-cell"></td>
+                    <td class="px-6 py-4 whitespace-nowrap admin-cell"></td>
+                    <td class="px-6 py-4 whitespace-nowrap admin-cell assinatura"></td>
+                    <td class="px-6 py-4 whitespace-nowrap turma-cell"></td>
+                    <td class="px-6 py-4 whitespace-nowrap turma-cell"></td>
+                    <td class="px-6 py-4 whitespace-nowrap turma-cell"></td>
+                    <td class="px-6 py-4 whitespace-nowrap turma-cell"></td>
+                    <td class="px-6 py-4 whitespace-nowrap turma-cell"></td>
+                    <td class="px-6 py-4 whitespace-nowrap turma-cell"></td>
+                    <td class="px-6 py-4 whitespace-nowrap turma-cell"></td>
+                    <td class="px-6 py-4 whitespace-nowrap modulo-cell"></td>
+                    <td class="px-6 py-4 whitespace-nowrap modulo-cell"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <footer class="text-center text-sm text-gray-500 mt-8">
+        <p>Este é um modelo padrão. Ajuste conforme necessário para semanas com horários especiais ou sábados letivos.</p>
+        <p>Lembre-se de preencher o campo "ASSINATURA" diariamente.</p>
+        <p>O preenchimento das aulas indica a TURMA (Ex: 2º para 2º Ano, 3º para 3º Ano) ou Módulo Individual (MI). Células de MI na turma são destacadas.</p>
+        <p>Horários de entrada/saída refletem os turnos. Sexta-feira é dividida em duas linhas, onde cada coluna de aula representa um par de atividades do dia (linha 1 = ímpar, linha 2 = par).</p>
+    </footer>
+
+</body>
+</html>

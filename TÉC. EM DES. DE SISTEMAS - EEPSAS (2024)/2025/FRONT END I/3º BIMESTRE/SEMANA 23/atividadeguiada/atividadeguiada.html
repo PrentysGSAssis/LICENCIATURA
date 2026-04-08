@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade Guiada</title>
+
+
+    <link rel="stylesheet" href="style.css">
+
+
+    <style>
+
+        h1{
+
+            font-size: 72px;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    Mover para Cima:
+
+    <a href="pag.html">página02</a>
+
+    <h1 id="paragrafo" style="background-color: blue;"; >TITULO</h1>
+
+    <ul>
+        <li>Se a tela tiver no máximo 750px de largura, carregue a foto pequena</li>
+        <li>Se a tela tiver no máximo 1050px de largura, carregue a foto média</li>
+        <li>Para todas as outras telas (maiores), carregue a foto grande</li>
+    </ul>
+
+    <picture>
+    <!-- Se a tela tiver no máximo 750px de largura, carregue a foto pequena -->
+    <source media="(max-width: 750px)" srcset="foto-p.png" type="image/png">
+    <!-- Se a tela tiver no máximo 1050px de largura, carregue a foto média -->
+    <source media="(max-width: 1050px)" srcset="foto-m.png" type="image/png">
+    <!-- Para todas as outras telas (maiores), carregue a foto grande -->
+    <img src="foto-g.png" alt="A imagem flexível funciona">
+    </picture>
+
+    <h1>Uma musica dentro do nosso site</h1>
+
+    <p>Esta musica pode se baixada diretamente da internet, e vários formatos podem ser criados utilizando o Audacity</p>
+        
+    <audio controls preload="metadata">
+
+    <source src="audio.mp3" type="audio/mpeg">
+    <source src="audio.ogg" type="audio/ogg">
+    <source src="audio.wav" type="audio/wav">
+    <p>Seu navegador não suporta áudio. <a href="midia/musica.mp3">Clique aqui para baixar o áudio</a>.</p>
+
+    </audio>
+
+    <h1>Um vídeo carregado do YT ou do Vimeo</h1>
+
+    <h3>Video do Youtube</h3>
+    <p>Cuidado com Direitos autorais, muitas vezes a reprodução por terceiros, no caso, a incorporação não é permitida. Para isso temos a hospedagem local do vídeo, mas não entraremos nesse assunto</p>
+
+
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/UhEluMa3cCQ?si=pniyGnlgrT83Ybgu" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+    <h3>Vídeo do Vimeo</h3>
+    <iframe title="vimeo-player" src="https://player.vimeo.com/video/1035359933?h=b269bbc208" width="640" height="360" frameborder="0"    allowfullscreen></iframe>
+
+
+</body>
+</html>

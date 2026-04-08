@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dossiê Wick - Atividade de Escrita e Desenvolvimento</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Special+Elite&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #c5a059;
+            --blood: #8b0000;
+        }
+        body {
+            background-color: #0a0a0a;
+            color: #e5e5e5;
+            font-family: 'Inter', sans-serif;
+        }
+        .cinzel { font-family: 'Cinzel', serif; }
+        .typewriter { font-family: 'Special Elite', cursive; }
+        .gold-border { border-color: var(--gold); }
+        .gold-text { color: var(--gold); }
+        .card {
+            background: linear-gradient(145deg, #121212, #1a1a1a);
+            border-left: 4px solid var(--gold);
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(197, 160, 89, 0.1);
+        }
+        .status-badge {
+            background-color: var(--blood);
+            color: white;
+            padding: 2px 8px;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-10">
+
+    <!-- Header -->
+    <header class="max-w-5xl mx-auto mb-12 border-b gold-border pb-8 text-center">
+        <h1 class="cinzel text-4xl md:text-6xl gold-text mb-2">Dossiê de Campo: Sistema Wick</h1>
+        <p class="typewriter text-xl opacity-80 uppercase tracking-widest text-red-700">Confidencial - Apenas para Membros da Alta Cúpula</p>
+        <div class="mt-6 flex justify-center gap-4 text-sm opacity-60">
+            <span>UNIDADE: EE Profª Sebastiana de Almeida e Silva</span>
+            <span>|</span>
+            <span>CURSO: Desenv. de Sistemas</span>
+            <span>|</span>
+            <span>ANO: 2026</span>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto grid grid-cols-1 gap-8">
+
+        <!-- Briefing 1 -->
+        <section class="card p-6 md:p-8 rounded-r-lg shadow-xl">
+            <div class="flex justify-between items-start mb-4">
+                <h2 class="cinzel text-2xl gold-text">1. O LOG DE SEGURANÇA (ADMIN DE SISTEMAS)</h2>
+                <span class="status-badge">Nível Técnico</span>
+            </div>
+            <p class="mb-4"><strong>Contexto:</strong> John Wick está no hotel. Um grupo hacker russo tenta invadir a rede do Continental para obter o número do quarto dele e burlar a segurança física.</p>
+            <p class="mb-4"><strong>Tarefa:</strong> Escrever o Log de Incidente (Relatório Pós-Crise). Você deve documentar as camadas de defesa que impediram o vazamento de dados.</p>
+            
+            <div class="bg-black bg-opacity-30 p-4 rounded mb-4 border border-gray-800">
+                <p class="text-sm font-bold gold-text mb-2">Sugestões de Escrita:</p>
+                <ul class="text-sm list-disc ml-5 space-y-1">
+                    <li>Use timestamps precisos (ex: 02:44:12 GMT-4).</li>
+                    <li>Descreva ataques de Brute Force ou Injeção de Código contra o Firewall do hotel.</li>
+                    <li>Opção A: Escreva como um técnico exausto que quase perdeu o emprego.</li>
+                    <li>Opção B: Escreva como um protocolo automatizado de IA que "eliminou" a ameaça digital.</li>
+                </ul>
+                <p class="text-sm font-bold gold-text mt-4 mb-2">Simulação HTML posterior:</p>
+                <p class="text-xs italic opacity-70">Criar uma página simulando um Terminal Linux com comandos `ssh`, `grep` e mensagens de "ACCESS DENIED" estilizadas.</p>
+            </div>
+            
+            <p class="typewriter text-sm opacity-90 border-t border-gray-700 pt-4 italic">
+                "Tentativa de quebra de hash SHA-256 detectada no nó 04. Protocolo 'Stay on Site' ativado. Nenhuma informação sobre o Sr. Wick saiu do ambiente local. O atacante foi localizado e o Gerente Winston já despachou a equipe de campo para o IP físico detectado."
+            </p>
+        </section>
+
+        <!-- Briefing 2 -->
+        <section class="card p-6 md:p-8 rounded-r-lg shadow-xl" style="border-left-color: #8b0000;">
+            <div class="flex justify-between items-start mb-4">
+                <h2 class="cinzel text-2xl gold-text">2. RELATÓRIO DO LIXEIRO (CLEANER)</h2>
+                <span class="status-badge">Operacional</span>
+            </div>
+            <p class="mb-4"><strong>Contexto:</strong> Você é responsável pela manutenção invisível. John Wick limpou o "Red Circle", e você tem 20 minutos para deixar o lugar impecável para a festa de amanhã.</p>
+            <p class="mb-4"><strong>Tarefa:</strong> Escrever um Guia de Procedimento ou Diário de Campo. Detalhe a contagem de itens removidos e a logística de descarte.</p>
+            
+            <div class="bg-black bg-opacity-30 p-4 rounded mb-4 border border-gray-800">
+                <p class="text-sm font-bold gold-text mb-2">Sugestões de Escrita:</p>
+                <ul class="text-sm list-disc ml-5 space-y-1">
+                    <li>Faça inventário: número de estojos de munição, armas recuperadas e "entregas" para o necrotério.</li>
+                    <li>Opção A: Enfoque na frieza profissional — "apenas mais um dia de trabalho".</li>
+                    <li>Opção B: Enfoque no medo — você viu o que ele fez com um lápis e está apavorado.</li>
+                    <li>Opção C: Crie um "Manual de Boas Práticas de Limpeza Biológica" para novos recrutas.</li>
+                </ul>
+                <p class="text-sm font-bold gold-text mt-4 mb-2">Simulação HTML posterior:</p>
+                <p class="text-xs italic opacity-70">Página de ERP/Gestão de Estoque com status de "Limpo", "Em Processo" e botões para "Solicitar Incinerador".</p>
+            </div>
+            
+            <p class="typewriter text-sm opacity-90 border-t border-gray-700 pt-4 italic">
+                "Chegamos às 04:00. O alvo Tarasov não facilitou as coisas. Foram necessários 12 sacos de transporte e uma lavagem industrial de alta pressão para remover o rastro de sangue da pista de dança. Eficiência de Wick: 100%. Nível de resíduos: Alto."
+            </p>
+        </section>
+
+        <!-- Briefing 3 -->
+        <section class="card p-6 md:p-8 rounded-r-lg shadow-xl">
+            <div class="flex justify-between items-start mb-4">
+                <h2 class="cinzel text-2xl gold-text">3. O MEMORANDO DA CENTRAL (OPERATOR)</h2>
+                <span class="status-badge">Administrativo</span>
+            </div>
+            <p class="mb-4"><strong>Contexto:</strong> A Alta Cúpula decidiu. John Wick quebrou as regras. O contrato global de $7 milhões foi aberto.</p>
+            <p class="mb-4"><strong>Tarefa:</strong> Redigir a "Ordem de Serviço" formal que será transmitida via telex para o mundo todo.</p>
+            
+            <div class="bg-black bg-opacity-30 p-4 rounded mb-4 border border-gray-800">
+                <p class="text-sm font-bold gold-text mb-2">Sugestões de Escrita:</p>
+                <ul class="text-sm list-disc ml-5 space-y-1">
+                    <li>Linguagem burocrática máxima. Evite palavras como "matar", use "terminar privilégios".</li>
+                    <li>Enumere as restrições: proibido usar serviços do hotel, proibido receber ajuda.</li>
+                    <li>Opção A: Escreva como uma lei marcial.</li>
+                    <li>Opção B: Escreva o script que a operadora de telemarketing deve ler ao telefone.</li>
+                </ul>
+                <p class="text-sm font-bold gold-text mt-4 mb-2">Simulação HTML posterior:</p>
+                <p class="text-xs italic opacity-70">Landing Page de um sistema de "Bounty Hunters" com contagem regressiva e foto do Wick em sépia.</p>
+            </div>
+            
+            <p class="typewriter text-sm opacity-90 border-t border-gray-700 pt-4 italic">
+                "Atenção a todos os associados. Protocolo Excommunicado iniciado para Jardani Jovonovich. Recompensa: $7.000.000.00. Todos os canais de apoio estão fechados. O Continental não é mais solo sagrado para este indivíduo. Que as regras sejam seguidas."
+            </p>
+        </section>
+
+        <!-- Briefing 4 -->
+        <section class="card p-6 md:p-8 rounded-r-lg shadow-xl">
+            <div class="flex justify-between items-start mb-4">
+                <h2 class="cinzel text-2xl gold-text">4. O POST DO CIVIL (DEPOIMENTO)</h2>
+                <span class="status-badge">Narrativo / Informal</span>
+            </div>
+            <p class="mb-4"><strong>Contexto:</strong> Você estava no Red Circle. Sobreviveu por sorte. Ninguém acredita na sua história.</p>
+            <p class="mb-4"><strong>Tarefa:</strong> Escrever um post de fórum (estilo Reddit/4chan) ou um depoimento para um "Caderno de Depoimentos" da polícia.</p>
+            
+            <div class="bg-black bg-opacity-30 p-4 rounded mb-4 border border-gray-800">
+                <p class="text-sm font-bold gold-text mb-2">Sugestões de Escrita:</p>
+                <ul class="text-sm list-disc ml-5 space-y-1">
+                    <li>Use gírias de internet e teorias da conspiração.</li>
+                    <li>Foque no movimento: "Ele não parecia humano, parecia um bot de videogame".</li>
+                    <li>Opção A: Post anônimo cheio de medo e avisos de "fuja da cidade".</li>
+                    <li>Opção B: E-mail para um amigo contando a loucura que foi a noite.</li>
+                    <li>Opção C: Entrevista gravada transcrita (com interrupções e gaguejos).</li>
+                </ul>
+                <p class="text-sm font-bold gold-text mt-4 mb-2">Simulação HTML posterior:</p>
+                <p class="text-xs italic opacity-70">Interface de Fórum de Discussão antigo ou uma página de "Caderno Digital" com anotações de margem.</p>
+            </div>
+            
+            <p class="typewriter text-sm opacity-90 border-t border-gray-700 pt-4 italic">
+                "Cara, eu juro que ele não errou um tiro. Os seguranças eram armários de 2 metros e ele passava por eles como se fossem hologramas. Ele olhou pra mim e eu achei que ia morrer, mas ele só recarregou a arma e seguiu em frente. Ele é o Bicho-Papão, mano."
+            </p>
+        </section>
+
+        <!-- Briefing 5 -->
+        <section class="card p-6 md:p-8 rounded-r-lg shadow-xl">
+            <div class="flex justify-between items-start mb-4">
+                <h2 class="cinzel text-2xl gold-text">5. MANUAL DO CONCIERGE (PROTOCOLO)</h2>
+                <span class="status-badge">Instrucional</span>
+            </div>
+            <p class="mb-4"><strong>Contexto:</strong> O hotel é seguro, mas as pessoas esquecem as etiquetas. Você precisa educar os novos hóspedes.</p>
+            <p class="mb-4"><strong>Tarefa:</strong> Criar o "Guia de Hospitalidade Continental". Um manual de conduta ética para assassinos.</p>
+            
+            <div class="bg-black bg-opacity-30 p-4 rounded mb-4 border border-gray-800">
+                <p class="text-sm font-bold gold-text mb-2">Sugestões de Escrita:</p>
+                <ul class="text-sm list-disc ml-5 space-y-1">
+                    <li>Misture cortesia com ameaça de morte (Passivo-Agressividade).</li>
+                    <li>Explique os serviços: Sommelier de Armas, Alfaiate Blindado e Reservas de Jantar.</li>
+                    <li>Opção A: Um panfleto de recepção de luxo.</li>
+                    <li>Opção B: Um FAQ (Perguntas Frequentes) — "O que acontece se eu atirar em alguém no lobby?".</li>
+                </ul>
+                <p class="text-sm font-bold gold-text mt-4 mb-2">Simulação HTML posterior:</p>
+                <p class="text-xs italic opacity-70">Site oficial de hotelaria de luxo com botões de "Serviços de Quarto" e galeria de imagens das "suítes".</p>
+            </div>
+            
+            <p class="typewriter text-sm opacity-90 border-t border-gray-700 pt-4 italic">
+                "Seja bem-vindo ao Continental. Por favor, lembre-se: nenhum negócio é permitido em solo sagrado. Caso deseje um terno novo ou uma degustação de armamentos alemães, consulte o Concierge. Desejamos uma estadia... silenciosa."
+            </p>
+        </section>
+
+        <!-- Briefing 6 -->
+        <section class="card p-6 md:p-8 rounded-r-lg shadow-xl">
+            <div class="flex justify-between items-start mb-4">
+                <h2 class="cinzel text-2xl gold-text">6. ANÁLISE DE DADOS (ALTA CÚPULA)</h2>
+                <span class="status-badge">Analítica / Business</span>
+            </div>
+            <p class="mb-4"><strong>Contexto:</strong> A guerra custa caro. Você é o auditor que precisa justificar os gastos da organização para deter um só homem.</p>
+            <p class="mb-4"><strong>Tarefa:</strong> Escrever um relatório de Análise SWOT (Forças, Fraquezas, Oportunidades, Ameaças) sobre o "Fator John Wick".</p>
+            
+            <div class="bg-black bg-opacity-30 p-4 rounded mb-4 border border-gray-800">
+                <p class="text-sm font-bold gold-text mb-2">Sugestões de Escrita:</p>
+                <ul class="text-sm list-disc ml-5 space-y-1">
+                    <li>Use jargão de negócios: "Retorno sobre investimento", "Contenção de danos", "Quebra de paradigma".</li>
+                    <li>Estime a probabilidade de sobrevivência de Iosef Tarasov em porcentagem.</li>
+                    <li>Opção A: Relatório formal para um conselho de diretores malignos.</li>
+                    <li>Opção B: Uma apresentação de slides (texto em bullet points) para convencer a Alta Cúpula a recuar.</li>
+                </ul>
+                <p class="text-sm font-bold gold-text mt-4 mb-2">Simulação HTML posterior:</p>
+                <p class="text-xs italic opacity-70">Dashboard de análise de dados com tabelas dinâmicas, gráficos de barra e KPIs de eficiência criminal.</p>
+            </div>
+            
+            <p class="typewriter text-sm opacity-90 border-t border-gray-700 pt-4 italic">
+                "Ponto de Ameaça: Crítico. John Wick não é um assassino comum; ele é uma força da natureza que desequilibra nosso ecossistema financeiro. Recomendo o provisionamento de $10 milhões para indenizações colaterais e a contratação imediata de forças externas, visto que as internas falharam em 85% dos cenários simulados."
+            </p>
+        </section>
+
+    </main>
+
+    <footer class="mt-16 text-center opacity-40 text-xs">
+        &copy; 2026 Continental Systems | Jaguaraçu-MG | Desenvolvido por Gemini
+    </footer>
+
+</body>
+</html>

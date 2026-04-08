@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto de Férias - Simulador de Batalha v3</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f7f4; /* Warm Neutral Background */
+        }
+        .code-block {
+            background-color: #2d3748; /* Tailwind gray-800 */
+            color: #f7fafc; /* Tailwind gray-100 */
+            padding: 1rem;
+            border-radius: 0.5rem; /* rounded-lg */
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            overflow-x: auto;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.875rem; /* text-sm */
+        }
+        .enunciado-block {
+            background-color: #ffffff;
+            padding: 1.5rem;
+            border-radius: 0.5rem; /* rounded-lg */
+            border: 1px solid #e2e8f0; /* Tailwind gray-200 */
+            margin-bottom: 1.5rem;
+        }
+        .enunciado-block ol {
+            list-style-type: decimal;
+            padding-left: 1.5rem;
+        }
+        .enunciado-block li {
+            margin-bottom: 1rem;
+        }
+        .texto-apoio-block {
+            background-color: #f0f9ff; /* Tailwind sky-50 */
+            border-left: 4px solid #38bdf8; /* Tailwind sky-400 */
+            padding: 1rem 1.5rem;
+            margin-bottom: 2rem;
+            border-radius: 0.25rem;
+        }
+        .texto-apoio-block code {
+            background-color: #e0f2fe;
+            color: #0c4a6e;
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+        .toggle-code-btn {
+            background-color: #e5e7eb;
+            color: #374151;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            margin-left: 0.5rem;
+            transition: background-color 0.2s;
+            cursor: pointer;
+        }
+        .toggle-code-btn:hover {
+            background-color: #d1d5db;
+        }
+        .hidden-code {
+            background-color: #f9fafb;
+            border: 1px dashed #d1d5db;
+            padding: 0.5rem;
+            margin-top: 0.5rem;
+            border-radius: 0.375rem;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <div class="container mx-auto max-w-4xl p-4 sm:p-6 lg:p-8">
+        <header class="mb-8 pb-4 text-center">
+            <h1 class="text-4xl font-bold text-gray-800">Projeto de Férias</h1>
+            <p class="text-lg text-gray-500 mt-2">Simulador de Batalha com Lógica Avançada</p>
+        </header>
+
+        <main>
+            <!-- Texto de Apoio -->
+<section id="texto-apoio" class="mb-10">
+<h2 class="text-2xl font-bold text-gray-700 mb-4">Revisão Rápida: Conceitos Essenciais</h2>
+                <div class="texto-apoio-block">
+                    <p class="text-gray-700">Olá, Programador! Para esta versão final do projeto, vamos integrar todas as ferramentas que aprendemos, incluindo a capacidade de tomar decisões complexas.</p>
+                    <ul class="list-disc list-inside mt-4 space-y-2">
+                        <li><strong>Estrutura Básica, Variáveis e Constantes:</strong> O uso de <code>inteiro</code>, <code>real</code>, <code>cadeia</code>, <code>logico</code> e <code>const</code> continua sendo a base de tudo.</li>
+                        <li><strong>Entrada e Saída:</strong> Os comandos <code>escreva()</code> e <code>leia()</code> serão usados para tornar o programa interativo.</li>
+                        <li><strong>Operadores Aritméticos:</strong> Você precisará de <code>+</code>, <code>-</code>, <code>*</code> e <code>/</code> para os cálculos de dano.</li>
+                        <li><strong>Operadores Relacionais e Lógicos:</strong> Esta é a parte crucial! Você combinará operadores como "maior ou igual a" com os operadores lógicos <code>e</code> e <code>ou</code> para criar as regras do jogo.</li>
+                        <li><strong>Estruturas Condicionais:</strong> Use <code>se</code>, <code>senao se</code> e <code>senao</code> para que o programa execute ações diferentes com base nas regras que você criar.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Visão Geral e Enunciado -->
+            <section id="enunciado-projeto">
+                <h2 class="text-2xl font-bold text-gray-700 mb-4">Visão Geral e Enunciado do Projeto (v3.0)</h2>
+                <div class="enunciado-block">
+                    <p class="mb-4"><strong>Visão Geral:</strong> Seu desafio é criar um simulador de rodada de combate que verifique requisitos de personagem mais complexos. O programa decidirá se um ataque pode ser feito e, se puder, calculará o dano e o resultado da batalha com base em regras diferentes.</p>
+                    
+                    <p class="mb-6 bg-yellow-100 border-l-4 border-yellow-500 text-yellow-800 p-4 rounded">
+                        <strong>⚠️ Importante:</strong> Lembre-se de criar **seus próprios nomes para as variáveis**. O objetivo é que você crie um código que **você** entenda facilmente.
+                    </p>
+
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Passo a Passo do Projeto:</h3>
+                    <ol>
+                        <li>
+                            <strong>Parte 1: Definindo os Atributos e Requisitos</strong>
+                            <p>Defina as constantes do Monstro (Nome: "Cyclops", Vida: 260, Fator de Defesa: 1.1) e as constantes para os requisitos da arma (Level Normal: 20, Skill Normal: 30, Magic Level de Mago: 15). Depois, declare todas as variáveis que você precisará para os dados do Herói e para os cálculos.</p>
+                            <button class="toggle-code-btn" data-target="code1">Mostrar Código da Etapa 1</button>
+                            <div id="code1" class="hidden-code hidden"><pre><code>// Constantes do Monstro
+const cadeia NOME_MONSTRO = "Cyclops"
+const inteiro VIDA_INICIAL_MONSTRO = 260
+const real FATOR_DEFESA_MONSTRO = 1.1
+
+// Constantes de Requisitos
+const inteiro REQUISITO_LEVEL_NORMAL = 20
+const inteiro REQUISITO_SKILL_NORMAL = 30
+const inteiro REQUISITO_ML_MAGO = 15
+
+// Variáveis do Herói e de Controle
+cadeia nomeDoPersonagem
+inteiro levelDoPersonagem, skillDeAtaque, magicLevelDoPersonagem
+caracter vocacaoDoPersonagem // 'K', 'P', 'M'
+real danoBaseDaArma
+logico podeEquiparArma</code></pre></div>
+                        </li>
+                        <li>
+                            <strong>Parte 2: Coletando os Dados do Herói</strong>
+                            <p>Peça ao usuário para digitar o nome, level, skill de ataque, vocação (um único caracter: 'K' para Knight, 'P' para Paladin, 'M' para Mago), magic level e o dano base da arma.</p>
+                            <button class="toggle-code-btn" data-target="code2">Mostrar Código da Etapa 2</button>
+                            <div id="code2" class="hidden-code hidden"><pre><code>escreva("--- Simulador de Batalha v3.0: Lógica Avançada ---\n\n")
+escreva("Digite o nome do seu Herói: ")
+leia(nomeDoPersonagem)
+
+escreva("Digite o level de ", nomeDoPersonagem, ": ")
+leia(levelDoPersonagem)
+
+escreva("Digite a skill de ataque (ex: Sword) de ", nomeDoPersonagem, ": ")
+leia(skillDeAtaque)
+
+escreva("Digite sua vocação ('K'night, 'P'aladin, 'M'ago): ")
+leia(vocacaoDoPersonagem)
+
+escreva("Digite seu Magic Level: ")
+leia(magicLevelDoPersonagem)
+
+escreva("Digite o dano base da sua arma: ")
+leia(danoBaseDaArma)</code></pre></div>
+                        </li>
+                        <li>
+                            <strong>Parte 3: Verificação de Requisitos com Lógica Complexa</strong>
+                            <p>A regra para usar a arma é: o herói precisa atender aos requisitos normais (level e skill) **OU** ser um Mago com o magic level mínimo. Crie uma expressão lógica que verifique esta condição e use uma estrutura `se...senao` para controlar o fluxo do programa.</p>
+                            <button class="toggle-code-btn" data-target="code3">Mostrar Código da Etapa 3</button>
+                            <div id="code3" class="hidden-code hidden"><pre><code>logico atendeRequisitoNormal = (levelDoPersonagem >= REQUISITO_LEVEL_NORMAL e skillDeAtaque >= REQUISITO_SKILL_NORMAL)
+logico atendeRequisitoMago = (vocacaoDoPersonagem == 'M' e magicLevelDoPersonagem > REQUISITO_ML_MAGO)
+
+podeEquiparArma = (atendeRequisitoNormal ou atendeRequisitoMago)
+
+se (podeEquiparArma) {
+    // O código das próximas etapas vai aqui...
+} senao {
+    escreva("\n--- ATAQUE FALHOU! ---\n")
+    escreva("Você não atende aos requisitos para usar esta arma.\n")
+}</code></pre></div>
+                        </li>
+                        <li>
+                            <strong>Parte 4: Calculando o Dano (Dentro do `se` principal)</strong>
+                            <p>Se o herói puder equipar a arma, calcule o dano. Verifique se o dano é crítico (maior que 100) e, se for, aplique um bônus de 20%.</p>
+                            <button class="toggle-code-btn" data-target="code4">Mostrar Código da Etapa 4</button>
+                            <div id="code4" class="hidden-code hidden"><pre><code>escreva("\n--> Requisitos atendidos! Iniciando ataque...\n")
+
+real danoBrutoDoHeroi = danoBaseDaArma + (skillDeAtaque * 0.5) + (levelDoPersonagem * 0.2)
+			
+se (danoBrutoDoHeroi > 100.0) {
+    escreva("--> GOLPE CRÍTICO! Dano aumentado em 20%!\n")
+    danoBrutoDoHeroi = danoBrutoDoHeroi * 1.20
+}
+
+real danoFinalNoMonstro = danoBrutoDoHeroi / FATOR_DEFESA_MONSTRO
+real vidaAtualizadaDoMonstro = VIDA_INICIAL_MONSTRO - danoFinalNoMonstro</code></pre></div>
+                        </li>
+                        <li>
+                            <strong>Parte 5: Exibindo o Relatório da Rodada (Dentro do `se` principal)</strong>
+                            <p>Mostre um relatório com os cálculos do ataque e use `se...senao` para exibir se o monstro foi derrotado ou se sobreviveu.</p>
+                            <button class="toggle-code-btn" data-target="code5">Mostrar Código da Etapa 5</button>
+                            <div id="code5" class="hidden-code hidden"><pre><code>escreva("\n--- RELATÓRIO DA RODADA DE COMBATE ---\n")
+escreva("Dano Bruto do Ataque (com bônus, se houver): ", danoBrutoDoHeroi, "\n")
+escreva("Dano final no ", NOME_MONSTRO, " (após defesa): ", danoFinalNoMonstro, "\n")
+escreva("--------------------------------------------------\n")
+
+se (vidaAtualizadaDoMonstro <= 0.0) {
+    escreva("RESULTADO: O ", NOME_MONSTRO, " foi derrotado!\n")
+} senao {
+    escreva("RESULTADO: O ", NOME_MONSTRO, " sobreviveu com ", vidaAtualizadaDoMonstro, " de vida.\n")
+}
+escreva("--------------------------------------------------\n")</code></pre></div>
+                        </li>
+                    </ol>
+                </div>
+            </section>
+
+            <!-- Gabarito -->
+            <section id="gabarito" class="mt-10">
+                 <h2 class="text-2xl font-bold text-gray-700 mb-4">Gabarito (Solução Completa)</h2>
+                 <p class="text-gray-600 mb-4">Tente resolver o projeto sozinho antes de consultar a solução! O gabarito é uma ferramenta de apoio para tirar dúvidas ou comparar sua lógica.</p>
+                 <button id="toggle-gabarito-btn" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg transition duration-150 ease-in-out mb-2 shadow">
+                    Mostrar Gabarito do Código
+                </button>
+                <div id="gabarito-content" class="code-block hidden">
+                    <pre><code>
+programa
+{
+	// --- Parte 1: Definindo os Atributos e Requisitos ---
+	const cadeia NOME_MONSTRO = "Cyclops"
+	const inteiro VIDA_INICIAL_MONSTRO = 260
+	const real FATOR_DEFESA_MONSTRO = 1.1
+	const inteiro REQUISITO_LEVEL_NORMAL = 20
+	const inteiro REQUISITO_SKILL_NORMAL = 30
+	const inteiro REQUISITO_ML_MAGO = 15
+
+	cadeia nomeDoPersonagem
+	inteiro levelDoPersonagem, skillDeAtaque, magicLevelDoPersonagem
+	caracter vocacaoDoPersonagem // 'K', 'P', 'M'
+	real danoBaseDaArma
+	logico podeEquiparArma
+
+	funcao inicio()
+	{
+		// --- Parte 2: Coletando os Dados do Herói ---
+		escreva("--- Simulador de Batalha v3.0: Lógica Avançada ---\n\n")
+		escreva("Digite o nome do seu Herói: ")
+		leia(nomeDoPersonagem)
+		
+		escreva("Digite o level de ", nomeDoPersonagem, ": ")
+		leia(levelDoPersonagem)
+		
+		escreva("Digite a skill de ataque (ex: Sword) de ", nomeDoPersonagem, ": ")
+		leia(skillDeAtaque)
+
+		escreva("Digite sua vocação ('K'night, 'P'aladin, 'M'ago): ")
+		leia(vocacaoDoPersonagem)
+
+		escreva("Digite seu Magic Level: ")
+		leia(magicLevelDoPersonagem)
+		
+		escreva("Digite o dano base da sua arma: ")
+		leia(danoBaseDaArma)
+
+		// --- Parte 3: Verificação de Requisitos com Lógica Complexa ---
+		logico atendeRequisitoNormal = (levelDoPersonagem >= REQUISITO_LEVEL_NORMAL e skillDeAtaque >= REQUISITO_SKILL_NORMAL)
+		logico atendeRequisitoMago = (vocacaoDoPersonagem == 'M' e magicLevelDoPersonagem > REQUISITO_ML_MAGO)
+
+		podeEquiparArma = (atendeRequisitoNormal ou atendeRequisitoMago)
+
+		se (podeEquiparArma) {
+			// --- Parte 4: Calculando o Dano ---
+			escreva("\n--> Requisitos atendidos! Iniciando ataque...\n")
+
+			real danoBrutoDoHeroi = danoBaseDaArma + (skillDeAtaque * 0.5) + (levelDoPersonagem * 0.2)
+			
+			se (danoBrutoDoHeroi > 100.0) {
+				escreva("--> GOLPE CRÍTICO! Dano aumentado em 20%!\n")
+				danoBrutoDoHeroi = danoBrutoDoHeroi * 1.20
+			}
+
+			real danoFinalNoMonstro = danoBrutoDoHeroi / FATOR_DEFESA_MONSTRO
+			real vidaAtualizadaDoMonstro = VIDA_INICIAL_MONSTRO - danoFinalNoMonstro
+
+			// --- Parte 5: Exibindo o Relatório ---
+			escreva("\n--- RELATÓRIO DA RODADA DE COMBATE ---\n")
+			escreva("Dano Bruto do Ataque (com bônus, se houver): ", danoBrutoDoHeroi, "\n")
+			escreva("Dano final no ", NOME_MONSTRO, " (após defesa): ", danoFinalNoMonstro, "\n")
+			escreva("--------------------------------------------------\n")
+
+			se (vidaAtualizadaDoMonstro <= 0.0) {
+				escreva("RESULTADO: O ", NOME_MONSTRO, " foi derrotado!\n")
+			} senao {
+				escreva("RESULTADO: O ", NOME_MONSTRO, " sobreviveu com ", vidaAtualizadaDoMonstro, " de vida.\n")
+			}
+			escreva("--------------------------------------------------\n")
+
+		} senao {
+			escreva("\n--- ATAQUE FALHOU! ---\n")
+			escreva("Você não atende aos requisitos para usar esta arma.\n")
+			escreva("(Requisito Normal: Lvl ", REQUISITO_LEVEL_NORMAL, " e Skill ", REQUISITO_SKILL_NORMAL, ")\n")
+			escreva("(Requisito Alternativo: Ser Mago com ML > ", REQUISITO_ML_MAGO, ")\n")
+		}
+	}
+}
+                    </code></pre>
+                </div>
+            </section>
+        </main>
+
+        <footer class="mt-12 text-center text-sm text-gray-400">
+            <p>&copy; <span id="currentYear"></span> Plataforma de Revisão de Algoritmos. Bom trabalho e boas férias!</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Lógica para o botão principal do gabarito
+            const toggleButton = document.getElementById('toggle-gabarito-btn');
+            const gabaritoContent = document.getElementById('gabarito-content');
+            
+            if (toggleButton && gabaritoContent) {
+                toggleButton.addEventListener('click', () => {
+                    const isHidden = gabaritoContent.classList.toggle('hidden');
+                    toggleButton.textContent = isHidden ? 'Mostrar Gabarito do Código' : 'Esconder Gabarito do Código';
+                });
+            }
+
+            // Lógica para os botões de toggle dentro do enunciado
+            const enunciadoButtons = document.querySelectorAll('.toggle-code-btn');
+            enunciadoButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const targetId = this.getAttribute('data-target');
+                    const targetElement = document.getElementById(targetId);
+                    if (targetElement) {
+                        const isHidden = targetElement.classList.toggle('hidden');
+                        if (this.textContent.includes('Mostrar')) {
+                            this.textContent = this.textContent.replace('Mostrar', 'Esconder');
+                        } else {
+                            this.textContent = this.textContent.replace('Esconder', 'Mostrar');
+                        }
+                    }
+                });
+            });
+            
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+        });
+    </script>
+</body>
+</html>

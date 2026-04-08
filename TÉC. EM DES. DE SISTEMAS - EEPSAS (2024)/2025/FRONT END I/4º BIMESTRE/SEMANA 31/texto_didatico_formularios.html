@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulários em HTML: Estrutura, Tipos e Boas Práticas</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f0f0f0; }
+        .page-container { width: 210mm; min-height: 297mm; margin: 20px auto; padding: 15mm; box-shadow: 0 0 10px rgba(0,0,0,0.1); box-sizing: border-box; background-color: white;}
+        /* Estilos do MODELO: CABEÇALHO */
+        .header-top-container { display: flex; justify-content: center; align-items: center; border-bottom: 1px solid black; padding-bottom: 10px; margin-bottom: 10px; }
+        .logo { max-width: 65px; height: auto; margin-right: 15px; }
+        .school-info { text-align: center; padding: 0 5px; }
+        .school-info strong.school-name { display: block; margin-bottom: 4px; font-size: 1em; }
+        .school-info .address-details span { display: inline; font-size: 0.75em; margin-right: 4px; }
+        .form-fields-grid { display: grid; gap: 5px 10px; width: 100%; margin-bottom: 15px; grid-template-rows: auto auto auto; }
+        .form-row { display: grid; grid-template-columns: 3fr 2fr; gap: 10px; width: 100%; }
+        .form-field { border: 1px solid black; padding: 5px 8px; font-size: 0.8em; box-sizing: border-box; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; display: flex; align-items: center; }
+        .form-field strong { margin-right: 5px; }
+        .form-field .value-content { flex-grow: 1; }
+        .fill-in { display: inline-block; border-bottom: 1px solid black; min-width: 25px; margin: 0 2px; height: 0.8em; }
+        /* Estilos do Conteúdo Didático */
+        .content-container { padding-top: 10px; }
+        h1 { font-size: 1.6em; border-bottom: 1.5px solid #eee; padding-bottom: 7px; margin-top: 0; color: #333; }
+        h2 { font-size: 1.3em; margin-top: 25px; color: #333; border-bottom: 1px solid #f0f0f0; padding-bottom: 5px;}
+        h3 { font-size: 1.1em; margin-top: 20px; color: #0056b3; }
+        p, li { line-height: 1.6; font-size: 0.95em; color: #333; }
+        ul { padding-left: 20px; }
+        code { background-color: #f4f4f4; padding: 2px 5px; border-radius: 4px; font-family: "Consolas", Courier, monospace; font-size: 0.9em; }
+        pre { background-color: #f8f8f8; border: 1px solid #ddd; padding: 12px; border-radius: 5px; overflow-x: auto; font-size: 0.85em; margin-top: 8px; margin-bottom: 15px; }
+        pre code { background-color: transparent; padding: 0; }
+        hr { border: 0; height: 1px; background: #ccc; margin: 30px 0; }
+        @media print { 
+            body { background-color: white; }
+            .page-container { margin: 0; padding: 0; box-shadow: none; width: 100%; min-height: 0;}
+            @page { margin: 12mm 10mm; } 
+        }
+    </style>
+</head>
+<body>
+<div class="page-container">
+    <div class="header-top-container">
+        <img src="https://1drv.ms/i/c/9e9e1f5991e00f07/IQTuKfwDXz6eQZG682I84WqBASSJENKf1uHvN3nSBXphxkU?width=1024" alt="Logo da Escola" class="logo" onerror="this.onerror=null; this.src='https://placehold.co/65x65/ccc/000?text=Logo'; this.alt='Erro ao carregar logo';">
+        <div class="school-info">
+            <strong class="school-name">ESCOLA ESTADUAL PROFESSORA SEBASTIANA DE ALMEIDA E SILVA</strong>
+            <div class="address-details"><span>Rua São José, nº 30, Jaguaruçu - MG.</span> <span>CEP: 35.188-000</span> <span>Tel: (31) 3845-1209</span></div>
+        </div>
+    </div>
+    <div class="form-fields-grid">
+        <div class="form-row">
+            <div class="form-field" style="grid-column: 1 / span 3;"><strong>DISCIPLINA:</strong> <span class="value-content">Front End I</span></div>
+            <div class="form-field" style="grid-column: 4 / span 2;"><strong>PROFESSOR(A):</strong> <span class="value-content">Prentys Assis</span></div>
+        </div>
+        <div class="form-row">
+            <div class="form-field" style="grid-column: 1 / span 3;"><strong>ATIVIDADE:</strong> <span class="value-content">Formulários em HTML: Estrutura, Tipos e Boas Práticas</span></div>
+            <div class="form-field" style="grid-column: 4 / span 2;"><strong>DATA:</strong> <span class="value-content"><span class="fill-in">    </span>/<span class="fill-in">    </span>/<span class="fill-in">     </span></span></div>
+        </div>
+        <div class="form-row">
+            <div class="form-field" style="grid-column: 1 / span 3;"><strong>ALUNO(A):</strong> <span class="value-content"></span></div>
+            <div class="form-field" style="grid-column: 4 / span 2;"><strong>TURMA:</strong> <span class="value-content">2º Ano</span></div>
+        </div>
+    </div>
+
+    <div class="content-container">
+        <h1>FORMULÁRIOS EM HTML</h1>
+        <p>Os formulários são a principal forma de interação entre usuário e aplicação web. Eles permitem a coleta de dados que podem ser enviados a um servidor para processamento, como em cadastros, logins, pesquisas e muito mais.</p>
+
+        <h2>1. A Estrutura Básica de um Formulário</h2>
+        <p>Um formulário HTML começa com a tag <code>&lt;form&gt;</code> e normalmente possui ao menos dois atributos importantes:</p>
+        <ul>
+            <li><code>action</code>: endereço (URL) para onde os dados serão enviados.</li>
+            <li><code>method</code>: método HTTP usado para o envio (GET ou POST).</li>
+        </ul>
+        <pre><code>&lt;form action="/envia" method="post"&gt;
+  &lt;label for="nome"&gt;Nome: &lt;/label&gt;
+  &lt;input type="text" id="nome" name="nome" required&gt;
+  
+  &lt;button type="submit"&gt;Enviar&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+        <p>Os formulários são a ponte entre o navegador e o servidor: eles organizam dados em pares <code>name/value</code> que serão processados pela aplicação no backend. Para buscas ou filtros, <code>GET</code> é conveniente por deixar os parâmetros visíveis na URL. Para cadastros ou atualizações que alteram dados no servidor, <code>POST</code> é o método mais apropriado e seguro.</p>
+
+        <h2>2. Labels e Acessibilidade</h2>
+        <p>A tag <code>&lt;label&gt;</code> conecta texto descritivo a um campo de formulário através do atributo <code>for</code>, que deve corresponder ao <code>id</code> do campo. Isso melhora a acessibilidade, permitindo que leitores de tela identifiquem os campos e que usuários cliquem no texto para focar no input correspondente.</p>
+        <pre><code>&lt;label for="email"&gt;E-mail&lt;/label&gt;
+&lt;input type="email" id="email" name="email" placeholder="seu@exemplo.com"&gt;</code></pre>
+        <p>O uso de <code>placeholder</code> é útil como dica, mas ele desaparece quando o usuário começa a digitar. Por isso, ele nunca deve substituir uma <code>&lt;label&gt;</code> como única forma de identificação do campo.</p>
+
+        <h2>3. Caixas de Texto e Senha</h2>
+        <p>Os campos de entrada de texto mais comuns são:</p>
+        <ul>
+            <li><code>type="text"</code>: Para texto livre.</li>
+            <li><code>type="password"</code>: Oculta o texto digitado, ideal para senhas.</li>
+        </ul>
+        <p>Atributos como <code>maxlength</code> e <code>minlength</code> controlam o tamanho do texto inserido.</p>
+        <pre><code>&lt;label for="usuario"&gt;Usuário&lt;/label&gt;
+&lt;input type="text" id="usuario" name="usuario" maxlength="30" required&gt;
+
+&lt;label for="senha"&gt;Senha&lt;/label&gt;
+&lt;input type="password" id="senha" name="senha" minlength="6" required&gt;</code></pre>
+        <p>Para senhas, considere oferecer um botão para revelar/ocultar o conteúdo. Validações no navegador ajudam na experiência, mas a validação no servidor é indispensável para a segurança.</p>
+
+        <h2>4. Tipos Numéricos e Datas</h2>
+        <p>O HTML5 introduziu vários tipos de <code>input</code> que melhoram a usabilidade, especialmente em dispositivos móveis, ao exibirem teclados e controles nativos apropriados.</p>
+        <ul>
+            <li><code>number</code>: Para números, com atributos <code>min</code>, <code>max</code> e <code>step</code>.</li>
+            <li><code>range</code>: Controle deslizante (slider).</li>
+            <li><code>date</code>, <code>time</code>, <code>month</code>, <code>week</code>, <code>datetime-local</code>: Seletores de data e hora.</li>
+        </ul>
+        <pre><code>&lt;label for="idade"&gt;Idade&lt;/label&gt;
+&lt;input type="number" id="idade" name="idade" min="0" max="120"&gt;
+
+&lt;label for="data"&gt;Data de nascimento&lt;/label&gt;
+&lt;input type="date" id="data" name="nascimento"&gt;</code></pre>
+        <p>A aparência desses controles pode variar entre navegadores, então use textos e placeholders para comunicar restrições importantes. O <code>input type="date"</code> retorna uma string no formato AAAA-MM-DD.</p>
+
+        <h2>5. Telefone e E-mail</h2>
+        <p>Utilizar tipos semânticos ajuda na validação automática do navegador e no preenchimento automático.</p>
+        <ul>
+            <li><code>type="email"</code>: Valida o formato básico de um e-mail (presença do @ e domínio).</li>
+            <li><code>type="tel"</code>: Indica a intenção de um número de telefone, otimizando o teclado em dispositivos móveis.</li>
+        </ul>
+        <pre><code>&lt;label for="email"&gt;E-mail&lt;/label&gt;
+&lt;input type="email" id="email" name="email" required&gt;
+
+&lt;label for="tel"&gt;Telefone&lt;/label&gt;
+&lt;input type="tel" id="tel" name="telefone" placeholder="(99) 99999-9999"&gt;</code></pre>
+        <p>O <code>type="tel"</code> não possui uma validação estrita por padrão. Para forçar formatos específicos, combine-o com o atributo <code>pattern</code> ou utilize máscaras via JavaScript.</p>
+        
+        <h2>6. Checkbox e Radio</h2>
+        <p>Esses tipos são usados para seleções:</p>
+        <ul>
+            <li><code>checkbox</code>: Permite múltiplas seleções independentes.</li>
+            <li><code>radio</code>: Permite apenas uma escolha dentro de um grupo com o mesmo atributo <code>name</code>.</li>
+        </ul>
+        <pre><code>&lt;fieldset&gt;
+  &lt;legend&gt;Quais linguagens você conhece?&lt;/legend&gt;
+  &lt;label&gt;&lt;input type="checkbox" name="linguagens" value="html"&gt; HTML&lt;/label&gt;
+  &lt;label&gt;&lt;input type="checkbox" name="linguagens" value="css"&gt; CSS&lt;/label&gt;
+  &lt;label&gt;&lt;input type="checkbox" name="linguagens" value="js"&gt; JavaScript&lt;/label&gt;
+&lt;/fieldset&gt;
+
+&lt;fieldset&gt;
+  &lt;legend&gt;Você já programou antes?&lt;/legend&gt;
+  &lt;label&gt;&lt;input type="radio" name="experiencia" value="sim"&gt; Sim&lt;/label&gt;
+  &lt;label&gt;&lt;input type="radio" name="experiencia" value="nao"&gt; Não&lt;/label&gt;
+&lt;/fieldset&gt;</code></pre>
+        <p>Agrupar campos relacionados com <code>&lt;fieldset&gt;</code> e <code>&lt;legend&gt;</code> melhora a semântica e a acessibilidade do formulário.</p>
+
+        <h2>7. Select, Datalist e Textarea</h2>
+        <ul>
+            <li><code>&lt;select&gt;</code>: Cria um menu suspenso (dropdown) com uma lista de <code>&lt;option&gt;</code>.</li>
+            <li><code>&lt;datalist&gt;</code>: Fornece sugestões de autopreenchimento para um <code>&lt;input&gt;</code>, permitindo que o usuário digite um valor diferente.</li>
+            <li><code>&lt;textarea&gt;</code>: Cria um campo de texto de múltiplas linhas.</li>
+        </ul>
+        <pre><code>&lt;label for="pais"&gt;País&lt;/label&gt;
+&lt;select id="pais" name="pais"&gt;
+  &lt;option value="br"&gt;Brasil&lt;/option&gt;
+  &lt;option value="pt"&gt;Portugal&lt;/option&gt;
+&lt;/select&gt;
+
+&lt;label for="cidade"&gt;Cidade (sugestões)&lt;/label&gt;
+&lt;input list="cidades" id="cidade" name="cidade"&gt;
+&lt;datalist id="cidades"&gt;
+  &lt;option value="São Paulo"&gt;
+  &lt;option value="Rio de Janeiro"&gt;
+&lt;/datalist&gt;
+
+&lt;label for="msg"&gt;Mensagem&lt;/label&gt;
+&lt;textarea id="msg" name="mensagem" rows="6" placeholder="Escreva sua mensagem..."&gt;&lt;/textarea&gt;</code></pre>
+        
+        <h2>8. Upload de Arquivos e Enctype</h2>
+        <p>Para permitir que os usuários enviem arquivos, use <code>&lt;input type="file"&gt;</code> e configure o atributo <code>enctype</code> do formulário como <code>"multipart/form-data"</code>.</p>
+        <pre><code>&lt;form action="/upload" method="post" enctype="multipart/form-data"&gt;
+  &lt;label for="arquivo"&gt;Escolha um arquivo&lt;/label&gt;
+  &lt;input type="file" id="arquivo" name="arquivo"&gt;
+  &lt;button type="submit"&gt;Enviar&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+        <p>Sempre valide o tipo e o tamanho dos arquivos no lado do servidor por segurança. O atributo <code>accept</code> no input (ex: <code>accept="image/*"</code>) pode ser usado para sugerir os tipos de arquivo permitidos.</p>
+
+        <h2>9. Botões e Tipos de Button</h2>
+        <p>A tag <code>&lt;button&gt;</code> é mais flexível que <code>&lt;input type="button"&gt;</code>, pois pode conter HTML. Seus tipos principais são:</p>
+        <ul>
+            <li><code>type="submit"</code> (padrão): Envia os dados do formulário.</li>
+            <li><code>type="reset"</code>: Limpa todos os campos do formulário para seus valores iniciais.</li>
+            <li><code>type="button"</code>: Botão genérico, sem ação padrão, geralmente controlado por JavaScript.</li>
+        </ul>
+        <p>Evite usar <code>type="reset"</code> em formulários importantes, pois os usuários podem clicar acidentalmente e perder os dados digitados.</p>
+
+        <h2>10. Validação e Atributos Importantes</h2>
+        <p>O HTML oferece atributos para validação no lado do cliente, fornecendo feedback imediato ao usuário.</p>
+        <ul>
+            <li><code>required</code>: Torna o campo obrigatório.</li>
+            <li><code>pattern</code>: Valida o valor do campo contra uma expressão regular (regex).</li>
+            <li><code>min</code>, <code>max</code>, <code>step</code>: Para campos numéricos e de data.</li>
+            <li><code>readonly</code>, <code>disabled</code>: Para controlar a interação com o campo.</li>
+        </ul>
+        <pre><code>&lt;label for="cpf"&gt;CPF&lt;/label&gt;
+&lt;input type="text" id="cpf" name="cpf" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" placeholder="000.000.000-00" required&gt;</code></pre>
+        <p>Lembre-se: a validação no cliente (navegador) melhora a experiência, mas a validação no servidor é essencial para a segurança e integridade dos dados.</p>
+
+        <h2>11. Boas Práticas</h2>
+        <ul>
+            <li>Sempre use o atributo <code>name</code> em todos os campos que precisam ser enviados ao servidor.</li>
+            <li>Prefira sempre usar <code>&lt;label&gt;</code> para melhorar a acessibilidade.</li>
+            <li>Agrupe controles relacionados em <code>&lt;fieldset&gt;</code>.</li>
+            <li>Evite usar <code>placeholder</code> como a única forma de instrução.</li>
+            <li>Teste seus formulários em dispositivos móveis para garantir uma boa experiência de usuário.</li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

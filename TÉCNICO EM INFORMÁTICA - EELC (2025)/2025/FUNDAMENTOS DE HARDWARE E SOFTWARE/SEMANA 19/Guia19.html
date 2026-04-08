@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto: Laboratório à Prova de Caos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-purple: #8e44ad;
+            --secondary-purple: #9b59b6;
+            --light-purple: #e9d5ff;
+            --bg-color: #f5f3f7;
+            --text-color: #4a4a4a;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .main-container {
+            display: flex;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            gap: 30px;
+        }
+
+        /* --- Barra de Navegação Lateral --- */
+        aside {
+            width: 25%;
+            min-width: 220px;
+        }
+        
+        .sticky-nav {
+            position: sticky;
+            top: 20px;
+        }
+
+        .sticky-nav h2 {
+            font-size: 1.5em;
+            font-weight: 600;
+            color: var(--primary-purple);
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--light-purple);
+        }
+
+        .sticky-nav nav button {
+            display: block;
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 8px;
+            text-align: left;
+            font-size: 1em;
+            font-weight: 500;
+            color: var(--primary-purple);
+            background-color: var(--white);
+            border: 1px solid var(--light-purple);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .sticky-nav nav button:hover {
+            background-color: var(--light-purple);
+            color: #6a1b9a;
+            transform: translateX(5px);
+        }
+
+        .sticky-nav nav button.active {
+            background-color: var(--primary-purple);
+            color: var(--white);
+            border-color: var(--primary-purple);
+            transform: translateX(5px);
+            box-shadow: 0 4px 10px rgba(142, 68, 173, 0.2);
+        }
+
+        /* --- Área de Conteúdo Principal --- */
+        main {
+            width: 75%;
+        }
+
+        header {
+            text-align: center;
+            padding-bottom: 20px;
+            border-bottom: 3px solid var(--primary-purple);
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: var(--primary-purple);
+            font-weight: 700;
+        }
+
+        h2.content-title {
+            font-size: 1.8em;
+            color: var(--secondary-purple);
+            font-weight: 600;
+            border-bottom: 2px solid var(--light-purple);
+            padding-bottom: 10px;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            font-size: 1.3em;
+            color: var(--primary-purple);
+            font-weight: 600;
+            margin-top: 25px;
+        }
+
+        .step-section {
+            background-color: var(--white);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--light-purple);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            display: none; /* Seções são ocultas por padrão */
+        }
+        
+        .step-section.active {
+            display: block; /* A seção ativa é exibida */
+        }
+
+        ul, ol {
+            padding-left: 25px;
+        }
+
+        li {
+            margin-bottom: 12px;
+        }
+        
+        .important-note {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            border-left-width: 5px;
+            border-left-color: #ffc107;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+
+        .warning {
+            color: #c0392b;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .main-container {
+                flex-direction: column;
+            }
+            aside, main {
+                width: 100%;
+            }
+            .sticky-nav {
+                position: static;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <aside>
+            <div class="sticky-nav">
+                <h2>Navegação do Projeto</h2>
+                <nav id="section-nav">
+                    <button onclick="showSection('menu1', this)" class="active">1. Console Personalizado</button>
+                    <button onclick="showSection('menu2', this)">2. Restrições de Personalização</button>
+                    <button onclick="showSection('menu3', this)">3. Controle e Bloqueio</button>
+                    <button onclick="showSection('menu4', this)">4. Entrega do Projeto</button>
+                </nav>
+            </div>
+        </aside>
+
+        <main>
+            <header>
+                <h1>Projeto Prático: Laboratório à Prova de Caos</h1>
+                <p>Configurando um ambiente Windows seguro para uso público</p>
+            </header>
+
+            <div class="step-section active" id="menu1">
+                <h2 class="content-title">1. Criando Diretivas de Controle de Grupo Personalizadas</h2>
+                <p><strong>Foco:</strong> Nesta etapa inicial, vamos criar uma ferramenta de gerenciamento personalizada. Isso garante que as políticas que definirmos para os usuários afetem <span class="warning">apenas as contas padrão (como <code>SEEMG</code>)</span> e não a sua conta de Administrador.</p>
+                
+                <h3>1.1 - Criando um Console de Gerenciamento (MMC) para Usuários Padrão</h3>
+                <ol>
+                    <li>Pressione as teclas <code>Win + R</code>, digite <code>mmc</code> e pressione Enter. Isso abre o Console de Gerenciamento da Microsoft.</li>
+                    <li>No menu superior, clique em <strong>Arquivo</strong> > <strong>Adicionar/Remover Snap-in...</strong></li>
+                    <li>Na lista de snap-ins disponíveis, selecione <strong>Editor de Objeto de Diretiva de Grupo</strong> e clique em <strong>Adicionar ></strong>.</li>
+                    <li>Uma nova janela ("Assistente de Diretiva de Grupo") aparecerá. Clique no botão <strong>Procurar...</strong>.</li>
+                    <li>Na nova janela, vá para a aba <strong>Usuários</strong>.</li>
+                    <li>Selecione o grupo <strong>Não Administradores</strong> (Non-Administrators). Este grupo inclui todas as contas que não são administradores, como a <code>SEEMG</code>.</li>
+                    <li>Clique em <strong>OK</strong>, depois em <strong>Concluir</strong> e, finalmente, em <strong>OK</strong> na janela de snap-ins.</li>
+                    <li>Agora você tem um console de políticas focado. Para não ter que repetir esse processo, vá em <strong>Arquivo</strong> > <strong>Salvar como...</strong> e salve o arquivo na sua Área de Trabalho com o nome <code>Politicas_Usuario_Seemg.msc</code>.</li>
+                    <li><span class="warning">A partir de agora, sempre que este guia mencionar "Abra seu console personalizado", você deve abrir o arquivo <code>Politicas_Usuario_Seemg.msc</code> que você acabou de criar!</span></li>
+                </ol>
+            </div>
+
+            <div class="step-section" id="menu2">
+                <h2 class="content-title">2. Restrições de Personalização</h2>
+                <p><strong>Foco:</strong> Aplicar políticas para bloquear a personalização da interface pelo usuário <code>SEEMG</code>, mantendo um ambiente padronizado.</p>
+
+                <h3>2.1 - Definir e Bloquear Papel de Parede</h3>
+                <ol>
+                    <li><span class="warning">Preparação:</span> Primeiro, como Administrador, crie uma pasta <code>C:\Wallpaper</code> e coloque uma imagem dentro dela (ex: `logo_escola.jpg`). Esta pasta é acessível a todos os usuários.</li>
+                    <li>Abra seu console <code>Politicas_Usuario_Seemg.msc</code>.</li>
+                    <li>Navegue até <strong>Configuração do Usuário</strong> > <strong>Modelos Administrativos</strong> > <strong>Área de Trabalho</strong> > <strong>Área de Trabalho</strong>.</li>
+                    <li>Habilite a política <strong>"Papel de parede da área de trabalho"</strong>. No campo "Nome do papel de parede", insira o caminho completo da imagem (ex: <code>C:\Wallpaper\logo_escola.jpg</code>).</li>
+                    <li>Agora, navegue para <strong>Configuração do Usuário</strong> > <strong>Modelos Administrativos</strong> > <strong>Painel de Controle</strong> > <strong>Personalização</strong>.</li>
+                    <li>Habilite a política <strong>"Impedir alteração do papel de parede"</strong>.</li>
+                </ol>
+                
+                <h3>2.2 - Restringir Temas e Ocultar Ícones</h3>
+                 <ol>
+                    <li>Na mesma seção de <strong>Personalização</strong> do passo anterior, habilite a política <strong>"Impedir a alteração do tema"</strong>.</li>
+                    <li>Navegue para <strong>Configuração do Usuário</strong> > <strong>Modelos Administrativos</strong> > <strong>Área de Trabalho</strong>.</li>
+                    <li>Habilite a política <strong>"Ocultar e desabilitar todos os itens na área de trabalho"</strong>.</li>
+                </ol>
+                
+                <h3>2.3 - Limpar o Menu Iniciar</h3>
+                 <ol>
+                    <li>Navegue até <strong>Configuração do Usuário</strong> > <strong>Modelos Administrativos</strong> > <strong>Menu Iniciar e Barra de Tarefas</strong>.</li>
+                    <li>Habilite a política <strong>"Remover o menu Executar do menu Iniciar"</strong>.</li>
+                </ol>
+            </div>
+
+            <div class="step-section" id="menu3">
+                <h2 class="content-title">3. Controle e Bloqueio do Sistema</h2>
+                <p><strong>Foco:</strong> Implementar restrições de segurança que impeçam a alteração de configurações críticas, a instalação de softwares e o acesso indevido a arquivos.</p>
+                
+                <h3>3.1 - Bloqueio de Acesso e Instalação</h3>
+                <ol>
+                    <li>Abra seu console <code>Politicas_Usuario_Seemg.msc</code> e navegue até <strong>Configuração do Usuário</strong> > <strong>Modelos Administrativos</strong> > <strong>Painel de Controle</strong>. Habilite a política <strong>"Proibir acesso ao Painel de Controle e às configurações do computador"</strong>.</li>
+                    <li>No mesmo local, clique na subpasta <strong>Adicionar ou remover programas</strong>. Habilite a política <strong>"Remover Adicionar ou Remover Programas"</strong>. Isso impede que o usuário desinstale programas ou veja a lista de softwares instalados.</li>
+                </ol>
+
+                <h3>3.2 - Restringir Unidades e Executáveis</h3>
+                <ol>
+                    <li>Em seu console <code>Politicas_Usuario_Seemg.msc</code>, vá para <strong>Configuração do Usuário</strong> > <strong>Modelos Administrativos</strong> > <strong>Componentes do Windows</strong> > <strong>Explorador de Arquivos</strong>. Habilite a política <strong>"Ocultar estas unidades especificadas em Meu Computador"</strong> e selecione <strong>"Restringir unidades A, B e C"</strong>.</li>
+                    <li>Na mesma seção, habilite a política <strong>"Impedir acesso a unidades de Meu Computador"</strong> e selecione a mesma combinação <strong>"Restringir unidades A, B e C"</strong>. Isso impede que o usuário acesse o drive C: mesmo digitando o caminho na barra de endereço.</li>
+                    <li>Para impedir a execução do Prompt de Comando (CMD), navegue até <strong>Configuração do Usuário</strong> > <strong>Modelos Administrativos</strong> > <strong>Sistema</strong>. Habilite a política <strong>"Impedir acesso ao prompt de comando"</strong>.</li>
+                </ol>
+            </div>
+            
+            <div class="step-section" id="menu4">
+                <h2 class="content-title">4. Entrega do Projeto e Avaliação</h2>
+                <p>Para concluir o projeto, você deverá produzir uma apresentação técnica que servirá como um manual para justificar e documentar as configurações de segurança aplicadas no laboratório.</p>
+                
+                <h3>4.1 - Teste e Verificação Prática</h3>
+                <p>Antes de iniciar sua apresentação, é crucial verificar se todas as políticas estão funcionando. Faça logoff da sua conta de Administrador e faça login com o usuário <strong>SEEMG</strong>.</p>
+                <p>Tente executar as seguintes ações e anote o que acontece (mensagens de erro, comportamento do sistema):</p>
+                <ul>
+                    <li>Tentar abrir as Configurações ou o Painel de Controle.</li>
+                    <li>Tentar alterar o papel de parede.</li>
+                    <li>Verificar se os ícones da área de trabalho estão ocultos.</li>
+                    <li>Tentar acessar a unidade C: pelo Explorador de Arquivos.</li>
+                    <li>Tentar abrir o Prompt de Comando (cmd.exe).</li>
+                    <li>Procurar pelo menu "Executar".</li>
+                </ul>
+                <p>Documente esses testes com prints de tela para incluir em sua apresentação.</p>
+
+                <h3>4.2 - Estrutura da Apresentação</h3>
+                <p>Prepare uma apresentação de slides (sugestão: utilize o <strong>Canva</strong> ou o PowerPoint). Cada política implementada deve ser um ou mais slides.</p>
+                <p><strong>Para cada política, seu slide deve conter:</strong></p>
+                <ul>
+                    <li><strong>Título:</strong> O nome da restrição (ex: "Bloqueio do Papel de Parede").</li>
+                    <li><strong>Print de Tela:</strong> Uma captura de tela da janela do Editor de Política de Grupo mostrando a política que você habilitou.</li>
+                    <li><strong>Nome da Política:</strong> Escreva o nome exato da política configurada.</li>
+                    <li><strong>O que esta alteração faz?</strong> Uma breve explicação técnica do resultado da habilitação desta política.</li>
+                    <li><strong>Por que é importante?</strong> Uma justificativa de como essa restrição resolve um problema específico do cenário "Laboratório à Prova de Caos".</li>
+                </ul>
+
+                <h3>4.3 - Slide Final: Reflexão</h3>
+                <p>No último slide da sua apresentação, escreva uma breve reflexão respondendo às seguintes perguntas:</p>
+                <ul>
+                    <li>Qual a importância de um administrador de sistemas saber utilizar políticas de grupo em um ambiente escolar ou corporativo?</li>
+                    <li>Qual foi a maior dificuldade que você encontrou ao aplicar estas políticas?</li>
+                    <li>Como o uso do console personalizado (<code>.msc</code>) para "Não Administradores" foi crucial para o sucesso da tarefa?</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function showSection(sectionId, buttonElement) {
+            // Esconde todas as seções
+            const sections = document.querySelectorAll('.step-section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Remove a classe 'active' de todos os botões
+            const buttons = document.querySelectorAll('#section-nav button');
+            buttons.forEach(button => {
+                button.classList.remove('active');
+            });
+
+            // Mostra a seção clicada
+            const activeSection = document.getElementById(sectionId);
+            if (activeSection) {
+                activeSection.classList.add('active');
+            }
+
+            // Adiciona a classe 'active' ao botão clicado
+            if (buttonElement) {
+                buttonElement.classList.add('active');
+            }
+        }
+
+        // Garante que a primeira seção seja exibida ao carregar a página
+        document.addEventListener('DOMContentLoaded', () => {
+            showSection('menu1', document.querySelector('#section-nav button'));
+        });
+    </script>
+</body>
+</html>

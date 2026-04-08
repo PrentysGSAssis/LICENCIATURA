@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividades de Matemática - Reforço</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: white;
+            color: #1a1a1a;
+        }
+
+        @media print {
+            .no-print { display: none; }
+            body { padding: 0; margin: 0; }
+            .container-main { max-width: 100%; border: none; padding: 0; }
+            .section-block { page-break-inside: avoid; }
+            /* Garante que o cabeçalho não fique sozinho */
+            header { page-break-after: avoid; }
+        }
+
+        .math-font {
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .math-problem {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .vertical-sum {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: flex-end;
+            font-size: 1.4rem;
+            line-height: 1;
+            border-bottom: 2px solid #000;
+            padding-bottom: 2px;
+            min-width: 45px;
+        }
+
+        .section-block {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px dashed #e5e7eb;
+        }
+
+        .number-label {
+            font-size: 0.65rem;
+            color: #9ca3af;
+            width: 20px;
+        }
+    </style>
+</head>
+<body class="p-6 md:p-12">
+
+    <div class="max-w-4xl mx-auto container-main">
+        <!-- CABEÇALHO -->
+        <header class="text-center mb-8">
+            <h1 class="text-xl font-light tracking-[0.3em] uppercase border-b-2 border-black inline-block pb-1">Matemática</h1>
+            <p class="text-[10px] text-gray-400 mt-3 uppercase tracking-widest font-semibold">Exercícios de Fixação e Raciocínio Lógico</p>
+        </header>
+
+        <!-- BLOCO 1: ADIÇÃO -->
+        <section class="section-block !border-t-0 !mt-0">
+            <h2 class="text-sm font-bold mb-2 uppercase tracking-wide">1. Hora de Calcular</h2>
+            <p class="text-xs text-gray-600 mb-6 leading-relaxed italic">
+                Atenção, pequeno matemático! Leia os números e monte as continhas. Lembre-se da regra importante: comece sempre pelas unidades. Se o resultado for maior que 9, a dezena deve "pegar o elevador" e subir para a próxima coluna!
+            </p>
+            
+            <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-4 math-font">
+                <!-- 20 Questões de Adição Normal -->
+                <div class="math-problem"><span class="number-label">01.</span><div class="vertical-sum"><span>25</span><span>+ 16</span></div></div>
+                <div class="math-problem"><span class="number-label">02.</span><div class="vertical-sum"><span>37</span><span>+ 24</span></div></div>
+                <div class="math-problem"><span class="number-label">03.</span><div class="vertical-sum"><span>48</span><span>+ 33</span></div></div>
+                <div class="math-problem"><span class="number-label">04.</span><div class="vertical-sum"><span>19</span><span>+ 19</span></div></div>
+                <div class="math-problem"><span class="number-label">05.</span><div class="vertical-sum"><span>56</span><span>+ 27</span></div></div>
+                <div class="math-problem"><span class="number-label">06.</span><div class="vertical-sum"><span>64</span><span>+ 18</span></div></div>
+                <div class="math-problem"><span class="number-label">07.</span><div class="vertical-sum"><span>29</span><span>+ 35</span></div></div>
+                <div class="math-problem"><span class="number-label">08.</span><div class="vertical-sum"><span>43</span><span>+ 47</span></div></div>
+                <div class="math-problem"><span class="number-label">09.</span><div class="vertical-sum"><span>38</span><span>+ 52</span></div></div>
+                <div class="math-problem"><span class="number-label">10.</span><div class="vertical-sum"><span>17</span><span>+ 76</span></div></div>
+                <div class="math-problem"><span class="number-label">11.</span><div class="vertical-sum"><span>22</span><span>+ 39</span></div></div>
+                <div class="math-problem"><span class="number-label">12.</span><div class="vertical-sum"><span>45</span><span>+ 46</span></div></div>
+                <div class="math-problem"><span class="number-label">13.</span><div class="vertical-sum"><span>58</span><span>+ 14</span></div></div>
+                <div class="math-problem"><span class="number-label">14.</span><div class="vertical-sum"><span>63</span><span>+ 29</span></div></div>
+                <div class="math-problem"><span class="number-label">15.</span><div class="vertical-sum"><span>77</span><span>+ 15</span></div></div>
+                <div class="math-problem"><span class="number-label">16.</span><div class="vertical-sum"><span>85</span><span>+ 15</span></div></div>
+                <div class="math-problem"><span class="number-label">17.</span><div class="vertical-sum"><span>49</span><span>+ 22</span></div></div>
+                <div class="math-problem"><span class="number-label">18.</span><div class="vertical-sum"><span>67</span><span>+ 14</span></div></div>
+                <div class="math-problem"><span class="number-label">19.</span><div class="vertical-sum"><span>38</span><span>+ 38</span></div></div>
+                <div class="math-problem"><span class="number-label">20.</span><div class="vertical-sum"><span>26</span><span>+ 55</span></div></div>
+            </div>
+
+            <!-- DESAFIO (10 questões agora) -->
+            <h3 class="text-[10px] font-bold text-gray-400 mt-8 mb-4 uppercase tracking-[0.2em] text-center italic">Desafio: Somando Três Números</h3>
+            <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-4 math-font">
+                <div class="math-problem"><span class="number-label">21.</span><div class="vertical-sum"><span>9</span><span>8</span><span>+ 5</span></div></div>
+                <div class="math-problem"><span class="number-label">22.</span><div class="vertical-sum"><span>15</span><span>15</span><span>+ 12</span></div></div>
+                <div class="math-problem"><span class="number-label">23.</span><div class="vertical-sum"><span>28</span><span>12</span><span>+ 10</span></div></div>
+                <div class="math-problem"><span class="number-label">24.</span><div class="vertical-sum"><span>33</span><span>27</span><span>+ 11</span></div></div>
+                <div class="math-problem"><span class="number-label">25.</span><div class="vertical-sum"><span>18</span><span>18</span><span>+ 14</span></div></div>
+                <div class="math-problem"><span class="number-label">26.</span><div class="vertical-sum"><span>22</span><span>18</span><span>+ 15</span></div></div>
+                <div class="math-problem"><span class="number-label">27.</span><div class="vertical-sum"><span>9</span><span>9</span><span>+ 9</span></div></div>
+                <div class="math-problem"><span class="number-label">28.</span><div class="vertical-sum"><span>14</span><span>14</span><span>+ 14</span></div></div>
+                <div class="math-problem"><span class="number-label">29.</span><div class="vertical-sum"><span>25</span><span>25</span><span>+ 25</span></div></div>
+                <div class="math-problem"><span class="number-label">30.</span><div class="vertical-sum"><span>40</span><span>30</span><span>+ 20</span></div></div>
+            </div>
+        </section>
+
+        <!-- BLOCO 2: ANTECESSOR E SUCESSOR (20 Questões) -->
+        <section class="section-block">
+            <h2 class="text-sm font-bold mb-2 uppercase tracking-wide">2. Quem são os vizinhos?</h2>
+            <p class="text-xs text-gray-600 mb-6 leading-relaxed italic">
+                Os números nunca estão sozinhos! Observe o número que está no meio e descubra quem mora logo antes dele (o antecessor) e quem mora logo depois (o sucessor). Escreva com capricho!
+            </p>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+                <div class="border-b border-gray-200 py-1 text-center">__ ← <b>15</b> → __</div>
+                <div class="border-b border-gray-200 py-1 text-center">__ ← <b>29</b> → __</div>
+                <div class="border-b border-gray-200 py-1 text-center">__ ← <b>40</b> → __</div>
+                <div class="border-b border-gray-200 py-1 text-center">__ ← <b>51</b> → __</div>
+                <div class="border-b border-gray-200 py-1 text-center">__ ← <b>68</b> → __</div>
+                <div class="border-b border-gray-200 py-1 text-center">__ ← <b>09</b> → __</div>
+                <div class="border-b border-gray-200 py-1 text-center">__ ← <b>33</b> → __</div>
+                <div class="border-b border-gray-200 py-1 text-center">__ ← <b>87</b> → __</div>
+                <div class="border-b border-gray-200 py-1 text-center">__ ← <b>98</b> → __</div>
+                <div class="border-b border-gray-200 py-1 text-center">__ ← <b>20</b> → __</div>
+                <div class="border-b border-gray-200 py-1 text-center">__ ← <b>75</b> → __</div>
+                <div class="border-b border-gray-200 py-1 text-center">__ ← <b>100</b> → __</div>
+                <div class="border-b border-gray-200 py-1 text-center">__ ← <b>04</b> → __</div>
+                <div class="border-b border-gray-200 py-1 text-center">__ ← <b>62</b> → __</div>
+                <div class="border-b border-gray-200 py-1 text-center">__ ← <b>88</b> → __</div>
+                <div class="border-b border-gray-200 py-1 text-center">__ ← <b>11</b> → __</div>
+                <div class="border-b border-gray-200 py-1 text-center">__ ← <b>59</b> → __</div>
+                <div class="border-b border-gray-200 py-1 text-center">__ ← <b>43</b> → __</div>
+                <div class="border-b border-gray-200 py-1 text-center">__ ← <b>19</b> → __</div>
+                <div class="border-b border-gray-200 py-1 text-center">__ ← <b>30</b> → __</div>
+            </div>
+        </section>
+
+        <!-- BLOCO 3: MAIOR E MENOR (20 Questões) -->
+        <section class="section-block">
+            <h2 class="text-sm font-bold mb-2 uppercase tracking-wide">3. Comparando e Descobrindo</h2>
+            <p class="text-xs text-gray-600 mb-6 leading-relaxed italic">
+                Qual número é maior? Use o sinal de <b> > </b> para o maior, <b> < </b> para o menor ou <b> = </b> se eles forem iguais. Dica: a "boca do jacaré" sempre quer comer o número maior!
+            </p>
+            <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-4 text-sm font-mono">
+                <div class="flex justify-center gap-2 border-b pb-1"><span>15</span><span class="text-gray-300">_</span><span>25</span></div>
+                <div class="flex justify-center gap-2 border-b pb-1"><span>34</span><span class="text-gray-300">_</span><span>12</span></div>
+                <div class="flex justify-center gap-2 border-b pb-1"><span>50</span><span class="text-gray-300">_</span><span>50</span></div>
+                <div class="flex justify-center gap-2 border-b pb-1"><span>89</span><span class="text-gray-300">_</span><span>98</span></div>
+                <div class="flex justify-center gap-2 border-b pb-1"><span>72</span><span class="text-gray-300">_</span><span>27</span></div>
+                <div class="flex justify-center gap-2 border-b pb-1"><span>10</span><span class="text-gray-300">_</span><span>05</span></div>
+                <div class="flex justify-center gap-2 border-b pb-1"><span>44</span><span class="text-gray-300">_</span><span>66</span></div>
+                <div class="flex justify-center gap-2 border-b pb-1"><span>21</span><span class="text-gray-300">_</span><span>12</span></div>
+                <div class="flex justify-center gap-2 border-b pb-1"><span>99</span><span class="text-gray-300">_</span><span>90</span></div>
+                <div class="flex justify-center gap-2 border-b pb-1"><span>03</span><span class="text-gray-300">_</span><span>13</span></div>
+                <div class="flex justify-center gap-2 border-b pb-1"><span>100</span><span class="text-gray-300">_</span><span>99</span></div>
+                <div class="flex justify-center gap-2 border-b pb-1"><span>14</span><span class="text-gray-300">_</span><span>41</span></div>
+                <div class="flex justify-center gap-2 border-b pb-1"><span>05</span><span class="text-gray-300">_</span><span>05</span></div>
+                <div class="flex justify-center gap-2 border-b pb-1"><span>80</span><span class="text-gray-300">_</span><span>08</span></div>
+                <div class="flex justify-center gap-2 border-b pb-1"><span>33</span><span class="text-gray-300">_</span><span>23</span></div>
+                <div class="flex justify-center gap-2 border-b pb-1"><span>67</span><span class="text-gray-300">_</span><span>76</span></div>
+                <div class="flex justify-center gap-2 border-b pb-1"><span>02</span><span class="text-gray-300">_</span><span>20</span></div>
+                <div class="flex justify-center gap-2 border-b pb-1"><span>45</span><span class="text-gray-300">_</span><span>45</span></div>
+                <div class="flex justify-center gap-2 border-b pb-1"><span>18</span><span class="text-gray-300">_</span><span>08</span></div>
+                <div class="flex justify-center gap-2 border-b pb-1"><span>91</span><span class="text-gray-300">_</span><span>19</span></div>
+            </div>
+        </section>
+
+        <footer class="mt-12 pt-4 border-t text-center text-gray-400 text-[9px] no-print">
+            <p>Educação Fundamental • Matemática Básica • Bons estudos!</p>
+        </footer>
+    </div>
+
+</body>
+</html>

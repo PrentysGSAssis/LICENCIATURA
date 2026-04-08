@@ -1,0 +1,63 @@
+/* Paleta Café Aurora
+   Marrom: #6F4E37 - ligado diretamente ao café, transmite robustez, aconchego e confiança. Serve como cor principal no cabeçalho e rodapé para dar identidade forte.
+
+   Bege: #F5F5DC - fundo neutro, leve e acolhedor. Equilibra o marrom e mantém boa legibilidade. Remete a espuma de café com leite, reforçando o tema.
+
+   Laranja: #E67E22 - cor de destaque, transmite energia, vitalidade e calor. Usada em títulos e botões para chamar atenção e estimular a ação.
+
+   Creme: #FFF8F0 - suaviza o visual, evita poluição visual e passa sensação de conforto. Funciona bem como cor base de fundo.
+
+   Cinza-escuro: #333 - cor de texto com alto contraste no fundo claro, garantindo leitura fácil e moderna.
+*/
+
+body {
+  background-color: #FFF8F0;
+  color: #333;
+}
+
+header {
+    background-color:#a77755;  
+    color: #F5F5DC ;
+    text-align: center;
+
+}
+
+ul{
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  gap: 15px;
+  padding-right: 20px;
+  justify-content: space-between;
+}
+
+nav a {
+  color: #F5F5DC;
+}
+
+nav a:hover {
+  color: #E67E22;
+}
+
+
+section h2 {
+  color: #6F4E37;
+
+}
+
+button {
+  background-color: #E67E22;
+  color: #fff;
+  border-radius: 8px;
+}
+button:hover {
+  background-color: #cf6510;
+}
+
+footer {
+  background-color: #6F4E37;
+  color: #F5F5DC;
+  text-align: center;
+  padding: 15px;
+  font-size: 0.9rem;
+}

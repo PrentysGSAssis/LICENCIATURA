@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Ordem de Serviço 001/2025 - MID</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #e9ecef;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 40px;
+        }
+
+        .document-container {
+            width: 210mm; /* A4 width */
+            min-height: 297mm; /* A4 height */
+            background-color: #ffffff;
+            padding: 2.5cm;
+            box-sizing: border-box;
+            box-shadow: 0 0 15px rgba(0,0,0,0.15);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            border-bottom: 2px solid #004085;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+        }
+
+        .logo {
+            font-size: 50px;
+            color: #004085;
+            margin-right: 20px;
+        }
+
+        .ministry-title h1 {
+            margin: 0;
+            font-size: 1.8em;
+            color: #004085;
+            font-weight: 700;
+        }
+
+        .ministry-title p {
+            margin: 0;
+            font-size: 1em;
+            color: #555;
+        }
+
+        .document-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .document-title h2 {
+            margin: 0;
+            font-size: 1.4em;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+
+        .metadata p {
+            margin: 5px 0;
+            font-size: 1em;
+        }
+        
+        .metadata strong {
+            display: inline-block;
+            width: 80px;
+        }
+
+        .section h4 {
+            font-size: 1.2em;
+            color: #004085;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 5px;
+        }
+        
+        .section h5 {
+            font-size: 1.1em;
+            color: #333;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .section p, .section ul {
+            text-align: justify;
+        }
+
+        .section ul {
+            padding-left: 20px;
+            list-style-type: disc;
+        }
+
+        .section li {
+            margin-bottom: 8px;
+        }
+        
+        .closing {
+            margin-top: 50px;
+            text-align: center;
+        }
+        
+        .signature-line {
+            width: 300px;
+            border-top: 1px solid #333;
+            margin: 0 auto 5px auto;
+        }
+        
+        .closing p {
+            margin: 0;
+            padding: 0;
+            font-size: 1em;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            border-top: 1px solid #e0e0e0;
+            padding-top: 15px;
+            font-size: 0.8em;
+            color: #777;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="document-container">
+        <div class="header">
+            <div class="logo">&#9873;</div> <!-- Simple anchor/gov icon -->
+            <div class="ministry-title">
+                <h1>Ministério da Inovação Digital</h1>
+                <p>Governo Federal</p>
+            </div>
+        </div>
+
+        <div class="document-title">
+            <h2>Ordem de Serviço 001/2025</h2>
+        </div>
+
+        <div class="metadata">
+            <p><strong>De:</strong><span>Secretaria de Tecnologia e Inovação</span></p>
+            <p><strong>Para:</strong><span>Consultoria de Análise de Dados (Sua Equipe)</span></p>
+            <p><strong>Data:</strong><span>10 de Junho de 2025</span></p>
+            <p><strong>Assunto:</strong><span>Análise Diagnóstica e Plano de Ação Estratégico para a Plataforma "Conecta Cidadão"</span></p>
+        </div>
+
+        <div class="section">
+            <h4>1. Contextualização e Objetivo</h4>
+            <p>
+                A plataforma "Conecta Cidadão", lançada há 90 dias, é uma iniciativa estratégica deste Ministério. No entanto, temos observado um volume insustentável de incidentes técnicos e baixa satisfação dos usuários. Atualmente, nossas equipes de suporte e desenvolvimento estão sobrecarregadas, atuando de forma reativa e sem um foco claro sobre quais são os problemas mais impactantes.
+            </p>
+            <p>
+                Esta Ordem de Serviço formaliza a contratação de sua consultoria para realizar uma análise estatística completa do log de incidentes dos últimos três meses. O objetivo é transformar os dados brutos em inteligência acionável, culminando em uma apresentação estratégica que guiará as ações de melhoria da nossa equipe técnica.
+            </p>
+        </div>
+        
+        <div class="section">
+            <h4>2. Requisitos da Apresentação Estratégica para o MID</h4>
+            <p>
+                Sua equipe deverá preparar e apresentar um relatório final para a diretoria do Ministério. A apresentação deve ser clara, objetiva e baseada nos dados do log de incidentes fornecido. O relatório deve conter os quatro pilares de análise a seguir:
+            </p>
+
+            <h5>I. Análise Descritiva Quantitativa</h5>
+            <p>Uma análise aprofundada das características gerais dos incidentes. Esta seção deve conter:</p>
+            <ul>
+                <li>Um estudo completo das medidas de tendência central (<strong>média, mediana e moda</strong>) e de dispersão (<strong>amplitude e variância</strong>) para o "Tempo de Resolução" total dos incidentes.</li>
+                <li>Uma análise específica do <strong>tempo médio de resolução para CADA tipo de problema</strong>, mostrando qual categoria de incidente mais consome horas de trabalho da nossa equipe.</li>
+                <li>Gráficos e tabelas de apoio que sua equipe julgar relevantes para ilustrar os achados.</li>
+            </ul>
+
+            <h5>II. Análise de Prioridades</h5>
+            <p>Uma análise que deixe claro para a diretoria onde está o foco do problema e onde os recursos devem ser alocados. Esta seção deve conter:</p>
+            <ul>
+                <li>Uma identificação visual e quantitativa dos <strong>"poucos vitais"</strong> – os principais problemas que causam a maioria dos incidentes na plataforma, conforme o Princípio de Pareto.</li>
+            </ul>
+
+            <h5>III. Análise de Causa Raiz</h5>
+            <p>Uma investigação sobre as origens do principal problema identificado. Esta seção deve conter:</p>
+            <ul>
+                <li>Uma explicação visual e estruturada das <strong>causas raiz mais prováveis</strong> para o problema prioritário que sua equipe identificou na análise anterior.</li>
+            </ul>
+
+            <h5>IV. Plano de Ação Estratégico</h5>
+            <p>Com base em todas as análises anteriores, sua equipe deve propor um plano de ação com recomendações claras e acionáveis, dividido em:</p>
+            <ul>
+                <li><strong>Ações de Curto Prazo (Contenção):</strong> Medidas imediatas para aliviar os sintomas mais críticos.</li>
+                <li><strong>Ações de Médio Prazo (Correção):</strong> Ações para corrigir as causas raiz dos problemas.</li>
+                <li><strong>Ações de Longo Prazo (Prevenção):</strong> Estratégias para evitar que os problemas recorram e para promover a melhoria contínua da plataforma.</li>
+            </ul>
+        </div>
+        
+        <div class="closing">
+            <p>Aguardamos a apresentação de sua consultoria, que será fundamental para as próximas decisões estratégicas do Ministério.</p>
+            <br><br><br>
+            <div class="signature-line"></div>
+            <p><strong>Diretoria de Tecnologia e Inovação</strong></p>
+            <p>Ministério da Inovação Digital (MID)</p>
+        </div>
+
+        <div class="footer">
+            <p>Ministério da Inovação Digital - Esplanada dos Ministérios, Bloco Z, 1º Andar - Brasília/DF - CEP: 70000-000</p>
+        </div>
+    </div>
+</body>
+</html>

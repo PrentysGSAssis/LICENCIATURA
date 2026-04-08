@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semana 30 - Aprofundando em Laços</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f7f4;
+        }
+        .nav-item-active {
+            background-color: #60a5fa;
+            color: white;
+            transform: translateX(4px);
+        }
+        .code-block {
+            background-color: #2d3748;
+            color: #f7fafc;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            overflow-x: auto;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.875rem;
+        }
+        .output-block {
+            background-color: #4a5568;
+            color: #e2e8f0;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            overflow-x: auto;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.875rem;
+        }
+        .enunciado-block, .questions-block {
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            border: 1px solid #e2e8f0;
+            margin-bottom: 1.5rem;
+        }
+        .gabarito-answers-block {
+            background-color: #ebf8ff;
+            color: #000000;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-top: 1rem;
+            border: 1px solid #bee3f8;
+        }
+        .texto-didatico-content h3 { font-size: 1.3em; margin-top: 22px; margin-bottom: 12px; color: #ff0000; font-weight: 600; }
+        .texto-didatico-content p, .texto-didatico-content li { line-height: 1.6; font-size: 0.95em; color: #444; margin-bottom: 12px;}
+        .texto-didatico-content code { 
+            font-family: "Roboto Mono", monospace; 
+            font-size: 0.9em; 
+            color: #ffffff; /* Dark gray for code */
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <div class="container mx-auto max-w-7xl p-4 sm:p-6 lg:p-8">
+        <header class="mb-8 pb-4 border-b border-gray-200">
+            <h1 class="text-4xl font-bold text-gray-800">Semana 30: Aprofundando em Laços</h1>
+            <p class="text-lg text-gray-500 mt-2">Dominando o `enquanto` com Acumuladores e Contadores</p>
+        </header>
+
+        <div class="flex flex-col md:flex-row gap-8">
+            <aside class="md:w-1/4">
+                <div class="sticky top-8">
+                    <h2 class="text-xl font-semibold mb-4 text-gray-700">Conteúdo da Aula</h2>
+                    <nav id="section-nav" class="space-y-2">
+                    </nav>
+                </div>
+            </aside>
+
+            <main id="section-content-area" class="md:w-3/4 bg-white p-6 sm:p-8 rounded-lg shadow-sm min-h-[80vh]">
+                <div id="section-placeholder" class="text-center text-gray-400 flex flex-col justify-center items-center h-full">
+                    <svg class="w-24 h-24 mb-4 text-gray-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l-4 4m0 0l-4-4m4 4V4M7 7h10M7 12h4m1.5 0h.01M7 17h4m1.5 0h.01" />
+                    </svg>
+                    <p class="text-xl font-medium">Selecione uma seção ao lado para começar.</p>
+                </div>
+            </main>
+        </div>
+
+        <footer class="mt-12 text-center text-sm text-gray-400">
+            <p>&copy; <span id="currentYear"></span> Plataforma de Revisão de Algoritmos. Desenvolvido para fins didáticos.</p>
+        </footer>
+    </div>
+
+    <script>
+        const semana30Conteudo = {
+            textoDidatico: {
+                id: "texto-didatico",
+                title: "Texto Didático",
+                subtitle: "As Ferramentas do Laço: Contadores e Acumuladores",
+                content: `
+                    <div class="texto-didatico-content">
+                        <p>Olá, futuros mestres dos laços! Na semana passada, aprendemos a fazer o computador repetir tarefas com o <code>enquanto</code>. Agora, vamos aprender a extrair informações úteis dessas repetições. Para isso, usamos duas ferramentas essenciais: os <strong>contadores</strong> e os <strong>acumuladores</strong>.</p>
+                        
+                        <h3>1. Contadores: Quantas vezes algo aconteceu?</h3>
+                        <p>Um contador é uma variável, geralmente do tipo <code>inteiro</code>, que serve para... contar! A cada vez que um evento de nosso interesse ocorre dentro do laço, nós incrementamos (somamos 1) a essa variável.</p>
+                        <p><strong>Analogia:</strong> Imagine o porteiro de uma festa com um contador manual. A cada pessoa que entra, ele aperta o botão. No final, ele sabe exatamente quantas pessoas entraram. A variável contadora é o seu contador manual.</p>
+                        <p><strong>Estrutura básica:</strong></p>
+                        <div class="code-block"><pre><code>inteiro contador = 0\n\nenquanto (condicao) {\n    // ...código...\n    se (evento_de_interesse_ocorreu) {\n        contador = contador + 1\n    }\n}</code></pre></div>
+                        
+                        <h3>Exemplo Prático: Contando Números Pares</h3>
+                        <p>Vamos criar um programa que lê 5 números e conta quantos deles são pares.</p>
+                        <div class="code-block"><pre><code>programa {\n    funcao inicio() {\n        inteiro contador_geral = 1\n        inteiro contador_pares = 0\n        inteiro numero_lido\n\n        enquanto (contador_geral <= 5) {\n            escreva("Digite o ", contador_geral, "º número: ")\n            leia(numero_lido)\n\n            se (numero_lido % 2 == 0) {\n                contador_pares = contador_pares + 1\n            }\n            contador_geral = contador_geral + 1\n        }\n        escreva("Você digitou ", contador_pares, " números pares.")\n    }\n}</code></pre></div>
+
+
+                        <h3>2. Acumuladores: Qual o total de algo?</h3>
+                        <p>Um acumulador é uma variável que "acumula" ou "soma" valores ao longo das repetições do laço. Diferente do contador que sempre soma 1, o acumulador soma um valor variável a cada iteração.</p>
+                        <p><strong>Analogia:</strong> Pense no seu cofrinho de moedas. A cada dia, você coloca uma quantia diferente de moedas lá dentro. O valor total no cofrinho é o seu acumulador. Ele está sempre somando o valor atual com o novo valor que você adiciona.</p>
+                        <p><strong>Estrutura básica:</strong></p>
+                        <div class="code-block"><pre><code>real soma_total = 0.0\n\nenquanto (condicao) {\n    real valor_lido\n    leia(valor_lido)\n    soma_total = soma_total + valor_lido\n}</code></pre></div>
+
+                        <h3>Exemplo Prático: Somando Compras</h3>
+                        <p>Vamos criar um programa que simula um caixa de supermercado, somando o preço dos produtos até que o usuário digite 0.</p>
+                        <div class="code-block"><pre><code>programa {\n    funcao inicio() {\n        real preco_produto = 0.0\n        real total_compra = 0.0\n\n        escreva("Digite o preço do produto (ou 0 para finalizar): ")\n        leia(preco_produto)\n\n        enquanto (preco_produto != 0.0) {\n            total_compra = total_compra + preco_produto\n            escreva("Subtotal: R$ ", total_compra, "\\n")\n            \n            escreva("Digite o preço do próximo produto: ")\n            leia(preco_produto)\n        }\n        escreva("Total da compra: R$ ", total_compra)\n    }\n}</code></pre></div>
+                        
+                        <p class="mt-4"><strong>Importante:</strong> Tanto contadores quanto acumuladores <strong>devem ser inicializados com 0</strong> antes do início do laço para garantir que a contagem ou a soma comece do ponto certo.</p>
+                    </div>
+                `
+            },
+            atividadeGuiada: {
+                id: "atividade-guiada",
+                title: "Atividade Guiada",
+                subtitle: "Analisador de Hunt (Tibia)",
+                objetivo: "Praticar o uso de `enquanto` combinado com um contador e um acumulador para processar dados inseridos pelo usuário.",
+                enunciado: [
+                    "Crie um programa que funcione como um analisador de uma caçada (hunt).",
+                    "1. O programa deve solicitar que o usuário digite o valor de GP (gold pieces) de cada monstro derrotado, um por vez.",
+                    "2. O laço deve continuar pedindo valores até que o usuário digite `0`, que será a condição de parada.",
+                    "3. Ao final, o programa deve exibir:",
+                    "   - Quantos monstros foram derrotados (usando um contador).",
+                    "   - O total de GP arrecadado na caçada (usando um acumulador)."
+                ],
+                saidaEsperada: `--- Analisador de Hunt ---\nDigite o GP do monstro (ou 0 para parar):\n> 15\n> 50\n> 22\n> 0\n\n--- Relatório Final ---\nMonstros derrotados: 3\nTotal de GP arrecadado: 87`,
+                gabarito: `programa
+{
+    funcao inicio()
+    {
+        inteiro gp_monstro
+        inteiro total_monstros = 0
+        inteiro total_gp = 0
+
+        escreva("--- Analisador de Hunt ---\\n")
+        escreva("Digite o GP do monstro (ou 0 para parar):\\n")
+
+        escreva("> ")
+        leia(gp_monstro)
+
+        enquanto (gp_monstro != 0) {
+            total_gp = total_gp + gp_monstro  // Acumula o GP
+            total_monstros = total_monstros + 1 // Conta o monstro
+
+            escreva("> ")
+            leia(gp_monstro)
+        }
+
+        escreva("\\n--- Relatório Final ---\\n")
+        escreva("Monstros derrotados: ", total_monstros, "\\n")
+        escreva("Total de GP arrecadado: ", total_gp, "\\n")
+    }
+}`
+            },
+            atividadesReforco: [
+                {
+                    id: "reforco-cod018",
+                    title: "Reforço (cod018): Somatório",
+                    enunciado: ["Crie um programa que leia 7 números inteiros e, no final, mostre o somatório entre eles. Use um contador para controlar o laço `enquanto`."],
+                    saidaEsperada: "Digite o 1º valor: 5\nDigite o 2º valor: 8\n...\nO somatório de todos os valores foi 42",
+                    gabarito: `// O gabarito para esta atividade de reforço foi removido.`
+                },
+                {
+                    id: "reforco-cod019",
+                    title: "Reforço (cod019): Contagem de Pares e Ímpares",
+                    enunciado: ["Crie um programa que leia 6 números inteiros e no final mostre quantos deles são pares e quantos são ímpares."],
+                    saidaEsperada: "Digite um valor: 9\nDigite um valor: 2\n...\nTotal de Pares: 3\nTotal de Ímpares: 3",
+                    gabarito: `// O gabarito para esta atividade de reforço foi removido.`
+                },
+                {
+                    id: "reforco-cod020",
+                    title: "Reforço (cod020): Verificador do Maior Valor",
+                    enunciado: ["Faça um programa que leia o preço de 5 produtos. No final, mostre qual foi o maior preço digitado."],
+                    saidaEsperada: "Preço do produto 1: 10.50\nPreço do produto 2: 25.00\n...\nO maior preço digitado foi R$ 50.00",
+                    gabarito: `// O gabarito para esta atividade de reforço foi removido.`
+                }
+            ],
+            interpretacaoCodigo: {
+                id: "interpretacao-codigo",
+                title: "Interpretação de Código",
+                code: `programa
+{
+    funcao inicio()
+    {
+        inteiro numero = 0
+        inteiro soma_positivos = 0
+        inteiro cont_pares = 0
+
+        enquanto (numero >= 0) {
+            escreva("Digite um número (negativo para sair): ")
+            leia(numero)
+
+            se (numero > 0) {
+                soma_positivos = soma_positivos + numero
+                se (numero % 2 == 0) {
+                    cont_pares = cont_pares + 1
+                }
+            }
+        }
+
+        escreva("Soma dos positivos: ", soma_positivos, "\\n")
+        escreva("Quantidade de pares: ", cont_pares, "\\n")
+    }
+}`,
+                questions: [
+                    "Qual o papel da variável `soma_positivos` no algoritmo?",
+                    "Qual é a condição que faz o laço `enquanto` parar de executar?",
+                    "Se o usuário digitar a sequência: `10`, `5`, `8`, `-1`, qual será a saída final do programa?"
+                ]
+            },
+            entrega: {
+                id: "entrega",
+                title: "Entrega08: Sistema de Tasks (Tibia)",
+                objetivo: "Aplicar o conceito de laço controlado por contador para simular a conclusão de uma tarefa de jogo.",
+                enunciado: [
+                    "No Tibia, algumas tarefas (tasks) exigem que você derrote uma certa quantidade de monstros. Crie um programa que simule essa tarefa.",
+                    "1. Primeiro, o programa deve perguntar ao usuário quantos monstros são necessários para completar a task (ex: 50). Armazene este valor.",
+                    "2. Em seguida, usando um laço `enquanto`, o programa deve simular a caçada. A cada repetição, ele deve exibir uma mensagem como `\"Monstro X de Y derrotado!\"`, onde X é o monstro atual e Y é o total da task.",
+                    "3. O laço deve parar exatamente quando o número de monstros derrotados for igual ao total da task.",
+                    "4. No final, exiba a mensagem: `\"Parabéns, você completou a task!\"`"
+                ],
+                saidaEsperada: `Quantos monstros para a task? 3\n\nMonstro 1 de 3 derrotado!\nMonstro 2 de 3 derrotado!\nMonstro 3 de 3 derrotado!\n\nParabéns, você completou a task!`,
+                gabarito: `// A atividade de entrega não possui gabarito. Tente resolver com base no que aprendeu!`
+            }
+        };
+
+        const navContainer = document.getElementById('section-nav');
+        const contentArea = document.getElementById('section-content-area');
+        const placeholder = document.getElementById('section-placeholder');
+        let currentActiveButton = null;
+
+        function displaySection(sectionId) {
+            let sectionData;
+            let sectionType = 'default';
+
+            const navMap = {
+                "texto-didatico": { data: semana30Conteudo.textoDidatico, type: 'textoDidatico' },
+                "atividade-guiada": { data: semana30Conteudo.atividadeGuiada, type: 'atividade' },
+                "reforco-cod018": { data: semana30Conteudo.atividadesReforco[0], type: 'atividade' },
+                "reforco-cod019": { data: semana30Conteudo.atividadesReforco[1], type: 'atividade' },
+                "reforco-cod020": { data: semana30Conteudo.atividadesReforco[2], type: 'atividade' },
+                "interpretacao-codigo": { data: semana30Conteudo.interpretacaoCodigo, type: 'interpretacao' },
+                "entrega": { data: semana30Conteudo.entrega, type: 'atividade' }
+            };
+            
+            const selected = navMap[sectionId];
+            if (!selected) return;
+            
+            sectionData = selected.data;
+            sectionType = selected.type;
+
+            if(placeholder) placeholder.style.display = 'none';
+            contentArea.innerHTML = ''; 
+
+            const article = document.createElement('article');
+            article.id = `section-${sectionData.id}`;
+            
+            const titleText = sectionData.subtitle ? `${sectionData.title}: ${sectionData.subtitle}` : sectionData.title;
+            const titleH2 = document.createElement('h2');
+            titleH2.className = "text-3xl font-bold text-gray-800 mb-6 pb-3 border-b border-gray-200";
+            titleH2.textContent = titleText;
+            article.appendChild(titleH2);
+            
+            if (sectionType === 'textoDidatico') {
+                const divContent = document.createElement('div');
+                divContent.innerHTML = sectionData.content;
+                article.appendChild(divContent);
+            } else {
+                if (sectionData.objetivo) {
+                    const objP = document.createElement('p');
+                    objP.className = "text-gray-500 italic mb-6 text-base";
+                    objP.innerHTML = `<strong>Objetivo:</strong> ${sectionData.objetivo}`;
+                    article.appendChild(objP);
+                }
+
+                if(sectionData.enunciado){
+                    const enunciadoDiv = document.createElement('div');
+                    enunciadoDiv.className = "enunciado-block";
+                    const enunciadoTitle = document.createElement('h3');
+                    enunciadoTitle.className = "text-xl font-semibold text-gray-800 mb-3";
+                    enunciadoTitle.textContent = "Enunciado";
+                    enunciadoDiv.appendChild(enunciadoTitle);
+                    sectionData.enunciado.forEach(line => {
+                        const p = document.createElement('p');
+                        p.className = "text-gray-700 mb-2";
+                        p.innerHTML = line.replace(/`([^`]+)`/g, '<code class="bg-gray-200 text-sm text-pink-600 px-1 rounded">$1</code>');
+                        enunciadoDiv.appendChild(p);
+                    });
+                    article.appendChild(enunciadoDiv);
+                }
+                
+                if (sectionData.questions) {
+                    const questionsDiv = document.createElement('div');
+                    questionsDiv.className = "questions-block";
+                    const qTitle = document.createElement('h3');
+                    qTitle.className = "text-xl font-semibold text-gray-800 mb-3";
+                    qTitle.textContent = "Responda:";
+                    questionsDiv.appendChild(qTitle);
+                    const qOl = document.createElement('ol');
+                    qOl.className = "list-decimal list-inside space-y-2";
+                    sectionData.questions.forEach(q => {
+                        const qLi = document.createElement('li');
+                        qLi.className = "text-gray-700";
+                        qLi.innerHTML = q.replace(/`([^`]+)`/g, '<code class="bg-gray-200 text-sm text-pink-600 px-1 rounded">$1</code>');
+                        qOl.appendChild(qLi);
+                    });
+                    questionsDiv.appendChild(qOl);
+                    article.appendChild(questionsDiv);
+                }
+                
+                if (sectionData.code) {
+                    const codeTitle = document.createElement('h3');
+                    codeTitle.className = "text-xl font-semibold text-gray-800 mb-2 mt-4";
+                    codeTitle.textContent = "Analise o código abaixo:";
+                    article.appendChild(codeTitle);
+                    const codeBlockDiv = document.createElement('div');
+                    codeBlockDiv.className = "code-block";
+                    codeBlockDiv.innerHTML = `<pre><code>${sectionData.code.replace(/</g, "&lt;").replace(/>/g, "&gt;")}</code></pre>`;
+                    article.appendChild(codeBlockDiv);
+                }
+
+                if (sectionData.saidaEsperada) {
+                    const saidaTitle = document.createElement('h3');
+                    saidaTitle.className = "text-xl font-semibold text-gray-800 mb-2 mt-6";
+                    saidaTitle.textContent = "Saída Esperada (Exemplo):";
+                    article.appendChild(saidaTitle);
+                    const outputBlockDiv = document.createElement('div');
+                    outputBlockDiv.className = "output-block";
+                    outputBlockDiv.innerHTML = `<pre><code>${sectionData.saidaEsperada.replace(/</g, "&lt;").replace(/>/g, "&gt;")}</code></pre>`;
+                    article.appendChild(outputBlockDiv);
+                }
+
+                const hasGabaritoCode = sectionData.gabarito && !sectionData.gabarito.startsWith("//");
+                const hasGabaritoAnswers = sectionData.gabaritoAnswers && sectionData.gabaritoAnswers.length > 0;
+
+                if (hasGabaritoCode || hasGabaritoAnswers) {
+                    const gabaritoContainer = document.createElement('div');
+                    gabaritoContainer.className = "mt-6";
+                    const toggleButton = document.createElement('button');
+                    toggleButton.className = "bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg transition duration-150 ease-in-out mb-2 shadow";
+                    
+                    const gabaritoContent = document.createElement('div');
+                    gabaritoContent.id = `gabarito-content-${sectionData.id}`;
+                    gabaritoContent.classList.add('hidden');
+
+                    if (hasGabaritoAnswers) {
+                        toggleButton.textContent = "Mostrar Respostas das Questões";
+                        gabaritoContent.classList.add('gabarito-answers-block');
+                        let answersHtml = '<h4 class="font-semibold mb-2">Respostas:</h4><ol class="list-decimal list-inside">';
+                        sectionData.gabaritoAnswers.forEach(ans => {
+                            answersHtml += `<li>${ans.replace(/`([^`]+)`/g, '<code class="bg-gray-200 text-sm text-pink-600 px-1 rounded">$1</code>')}</li>`;
+                        });
+                        answersHtml += '</ol>';
+                        gabaritoContent.innerHTML = answersHtml;
+                    } else if (hasGabaritoCode) {
+                        toggleButton.textContent = "Mostrar Gabarito do Código";
+                        gabaritoContent.classList.add('code-block');
+                        gabaritoContent.innerHTML = `<pre><code>${sectionData.gabarito.replace(/</g, "&lt;").replace(/>/g, "&gt;")}</code></pre>`;
+                    }
+                    gabaritoContainer.appendChild(toggleButton);
+                    gabaritoContainer.appendChild(gabaritoContent);
+                    article.appendChild(gabaritoContainer);
+                    toggleButton.addEventListener('click', () => {
+                        const isHidden = gabaritoContent.classList.toggle('hidden');
+                        toggleButton.textContent = isHidden ? 
+                            (hasGabaritoAnswers ? "Mostrar Respostas" : "Mostrar Gabarito") :
+                            (hasGabaritoAnswers ? "Esconder Respostas" : "Esconder Gabarito");
+                    });
+                }
+            }
+            contentArea.appendChild(article);
+        }
+
+        function setActiveButton(button) {
+            if (currentActiveButton) {
+                currentActiveButton.classList.remove('nav-item-active');
+            }
+            button.classList.add('nav-item-active');
+            currentActiveButton = button;
+        }
+        
+        const navSections = [
+            semana30Conteudo.textoDidatico,
+            semana30Conteudo.atividadeGuiada,
+            ...semana30Conteudo.atividadesReforco,
+            semana30Conteudo.interpretacaoCodigo,
+            semana30Conteudo.entrega
+        ];
+
+        navSections.forEach((section) => {
+            const button = document.createElement('button');
+            button.textContent = section.title;
+            button.classList.add('w-full', 'text-left', 'px-4', 'py-3', 'rounded-lg', 'transition-all', 'duration-200', 'ease-in-out', 'font-medium', 'text-gray-600', 'hover:bg-blue-100', 'hover:text-blue-600');
+            button.addEventListener('click', () => {
+                displaySection(section.id);
+                setActiveButton(button);
+            });
+            navContainer.appendChild(button);
+        });
+        
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
+

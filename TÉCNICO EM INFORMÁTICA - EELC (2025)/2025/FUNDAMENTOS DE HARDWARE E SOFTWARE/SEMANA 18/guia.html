@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia de Configuração Pós-Formatação do Windows</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-purple: #8e44ad;
+            --secondary-purple: #9b59b6;
+            --light-purple: #e9d5ff;
+            --bg-color: #f5f3f7;
+            --text-color: #4a4a4a;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .main-container {
+            display: flex;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            gap: 30px;
+        }
+
+        /* --- Barra de Navegação Lateral --- */
+        aside {
+            width: 25%;
+            min-width: 220px;
+        }
+        
+        .sticky-nav {
+            position: sticky;
+            top: 20px;
+        }
+
+        .sticky-nav h2 {
+            font-size: 1.5em;
+            font-weight: 600;
+            color: var(--primary-purple);
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--light-purple);
+        }
+
+        .sticky-nav nav button {
+            display: block;
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 8px;
+            text-align: left;
+            font-size: 1em;
+            font-weight: 500;
+            color: var(--primary-purple);
+            background-color: var(--white);
+            border: 1px solid var(--light-purple);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .sticky-nav nav button:hover {
+            background-color: var(--light-purple);
+            color: #6a1b9a;
+            transform: translateX(5px);
+        }
+
+        .sticky-nav nav button.active {
+            background-color: var(--primary-purple);
+            color: var(--white);
+            border-color: var(--primary-purple);
+            transform: translateX(5px);
+            box-shadow: 0 4px 10px rgba(142, 68, 173, 0.2);
+        }
+
+        /* --- Área de Conteúdo Principal --- */
+        main {
+            width: 75%;
+        }
+
+        header {
+            text-align: center;
+            padding-bottom: 20px;
+            border-bottom: 3px solid var(--primary-purple);
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: var(--primary-purple);
+            font-weight: 700;
+        }
+
+        h2.content-title {
+            font-size: 1.8em;
+            color: var(--secondary-purple);
+            font-weight: 600;
+            border-bottom: 2px solid var(--light-purple);
+            padding-bottom: 10px;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            font-size: 1.3em;
+            color: var(--primary-purple);
+            font-weight: 600;
+            margin-top: 25px;
+        }
+
+        .step-section {
+            background-color: var(--white);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--light-purple);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            display: none; /* Seções são ocultas por padrão */
+        }
+        
+        .step-section.active {
+            display: block; /* A seção ativa é exibida */
+        }
+
+        ul, ol {
+            padding-left: 25px;
+        }
+
+        li {
+            margin-bottom: 12px;
+        }
+
+        code {
+            background-color: var(--light-purple);
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace;
+            color: #6a1b9a;
+        }
+
+        .warning {
+            color: #c0392b;
+            font-weight: bold;
+        }
+        
+        .analysis-box {
+            background-color: #fdf8ff;
+            border-left: 4px solid var(--secondary-purple);
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 4px;
+        }
+
+        .final-questions {
+            background-color: #fdf8ff;
+            border: 1px solid #dcc0ec;
+            padding: 25px;
+            border-radius: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .main-container {
+                flex-direction: column;
+            }
+            aside, main {
+                width: 100%;
+            }
+            .sticky-nav {
+                position: static;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <aside>
+            <div class="sticky-nav">
+                <h2>Navegação</h2>
+                <nav id="section-nav">
+                    <button onclick="showSection('secao1', this)" class="active">1. Usuários (Avançado)</button>
+                    <button onclick="showSection('secao2', this)">2. Personalização</button>
+                    <button onclick="showSection('secao3', this)">3. Segurança e Updates</button>
+                    <button onclick="showSection('secao4', this)">4. Verificação de Serviços</button>
+                    <button onclick="showSection('secao5', this)">5. Contas Online</button>
+                    <button onclick="showSection('secao6', this)">6. Organização de Pastas</button>
+                    <button onclick="showSection('secao7', this)">7. Perguntas Finais</button>
+                </nav>
+            </div>
+        </aside>
+
+        <main>
+            <header>
+                <h1>Guia de Configuração Pós-Formatação</h1>
+                <p>Passo a passo para preparar seu ambiente de trabalho no Windows</p>
+            </header>
+
+            <div class="step-section active" id="secao1">
+                <h2 class="content-title">Seção 1: Ajustes de Usuários (Método Avançado)</h2>
+                <p>Vamos configurar as contas de usuário utilizando ferramentas mais técnicas para nos acostumarmos com os atalhos de gerenciamento do Windows.</p>
+                
+                <h3>1.1 - Garantir que sua Conta de Aluno seja Administrador</h3>
+                <ol>
+                    <li>Pressione as teclas <code>Win + R</code> para abrir a caixa "Executar".</li>
+                    <li>Digite <code>control userpasswords2</code> e clique em <strong>OK</strong>.</li>
+                    <li>Na janela que abrir, selecione seu usuário na lista e clique em <strong>Propriedades</strong>.</li>
+                    <li>Vá para a aba <strong>"Associação de Grupo"</strong> e confirme se a opção <strong>"Administrador"</strong> está marcada. Se não estiver, selecione-a e clique em OK.</li>
+                </ol>
+
+                <h3>1.2 - Criar o Usuário "SEEMG" via Gerenciador de Usuários</h3>
+                <ol>
+                    <li>Na mesma janela do passo anterior (<code>control userpasswords2</code>), vá para a aba <strong>Avançado</strong>.</li>
+                    <li>Na seção "Gerenciamento avançado de usuários", clique no botão <strong>Avançado</strong>. Isso abrirá a ferramenta "Usuários e Grupos Locais" (<code>lusrmgr.msc</code>).</li>
+                    <li>No painel esquerdo, clique na pasta <strong>Usuários</strong>. Você verá a lista de todos os usuários locais da máquina.</li>
+                    <li>No painel direito, clique com o botão direito em uma área vazia e selecione <strong>Novo Usuário...</strong></li>
+                    <li>Preencha a janela de criação de usuário com os seguintes dados:
+                        <ul>
+                            <li>Nome de usuário: <code>SEEMG</code></li>
+                            <li>Senha: <code>seemg</code></li>
+                            <li>Confirmar senha: <code>seemg</code></li>
+                        </ul>
+                    </li>
+                    <li><span class="warning">Desmarque</span> a opção "O usuário deve alterar a senha no próximo logon".</li>
+                    <li><span class="warning">Marque</span> a opção "A senha nunca expira".</li>
+                    <li>Clique em <strong>Criar</strong> e depois em <strong>Fechar</strong>. O usuário <code>SEEMG</code> aparecerá na lista e, por padrão, já pertencerá ao grupo "Usuários", que não possui privilégios de administrador.</li>
+                </ol>
+            </div>
+
+            <div class="step-section" id="secao2">
+                <h2 class="content-title">Seção 2: Personalização do Ambiente de Trabalho</h2>
+                <p>Agora vamos deixar a área de trabalho do seu jeito, com os ícones que você mais usa e um papel de parede de sua escolha.</p>
+                
+                <h3>2.1 - Escolher Ícones da Área de Trabalho</h3>
+                <ol>
+                    <li>Clique com o botão direito em um espaço vazio da Área de Trabalho e selecione <strong>Personalizar</strong>.</li>
+                    <li>No menu à esquerda, clique em <strong>Temas</strong>.</li>
+                    <li>No lado direito, role para baixo e encontre o link <strong>Configurações de ícones da área de trabalho</strong>. Clique nele.</li>
+                    <li>Na nova janela, marque as caixas dos ícones que você deseja exibir (ex: Computador, Arquivos do Usuário, Rede, Painel de Controle).</li>
+                    <li>Clique em <strong>Aplicar</strong> e depois em <strong>OK</strong>.</li>
+                </ol>
+
+                <h3>2.2 - Alterar o Papel de Parede</h3>
+                <ol>
+                    <li>Volte para a tela de <strong>Personalização</strong> (clique direito na Área de Trabalho > Personalizar).</li>
+                    <li>Na seção <strong>Tela de Fundo</strong>, você pode escolher uma imagem fornecida pelo Windows, uma cor sólida, ou clicar em <strong>Procurar</strong> para usar uma imagem sua (você pode baixar uma da internet primeiro, se desejar).</li>
+                    <li>Escolha a imagem e o ajuste de sua preferência (Preencher, Ajustar, Estender, etc.).</li>
+                </ol>
+            </div>
+
+            <div class="step-section" id="secao3">
+                <h2 class="content-title">Seção 3: Segurança e Atualizações do Sistema</h2>
+                <p>Com o sistema recém-instalado, é crucial criar um ponto de segurança e garantir que todas as atualizações estejam em dia.</p>
+                
+                <h3>3.1 - Criar um Ponto de Restauração</h3>
+                <p>Um Ponto de Restauração é um "snapshot" do estado atual do seu sistema. Se algo der errado no futuro, você pode "voltar no tempo" para este ponto.</p>
+                <ol>
+                    <li>Na barra de pesquisa do menu Iniciar, digite <strong>"Criar ponto de restauração"</strong> e clique na opção correspondente.</li>
+                    <li>Na janela de Propriedades do Sistema, na aba "Proteção do Sistema", verifique se a proteção está <strong>Ativada</strong> para a sua unidade C:. Se não estiver, selecione a unidade, clique em "Configurar...", marque "Ativar a proteção do sistema" e clique em OK.</li>
+                    <li>Com a unidade C: selecionada, clique no botão <strong>Criar...</strong></li>
+                    <li>Dê um nome descritivo ao ponto de restauração, como <code>Configuração Inicial Pós-Formatação - [Seu Nome]</code>.</li>
+                    <li>Clique em <strong>Criar</strong> e aguarde o processo terminar.</li>
+                </ol>
+
+                <h3>3.2 - Atualizar o Windows (Windows Update)</h3>
+                <p class="warning">Este processo pode ser demorado e exigir várias reinicializações.</p>
+                <ol>
+                    <li>Vá para <strong>Configurações</strong> > <strong>Atualização e Segurança</strong> > <strong>Windows Update</strong>.</li>
+                    <li>Clique em <strong>Verificar se há atualizações</strong>. O Windows começará a procurar, baixar e instalar as atualizações obrigatórias.</li>
+                    <li>Abaixo do botão principal, você pode ver um link para <strong>"Exibir atualizações opcionais"</strong>. Clique nele e instale também as atualizações de drivers e outras que aparecerem.</li>
+                    <li>Siga as instruções na tela, reiniciando o computador sempre que for solicitado.</li>
+                    <li><span class="warning">Repita o processo de verificação</span> várias vezes até que o Windows Update informe "Você está atualizado". Continue fazendo isso até que o sistema ofereça a atualização para o Windows 11 (se a máquina for compatível).</li>
+                </ol>
+            </div>
+            
+            <div class="step-section" id="secao4">
+                <h2 class="content-title">Seção 4: Verificação de Serviços e Inicialização</h2>
+                <p>Vamos usar uma ferramenta poderosa, a Configuração do Sistema, para verificar quais serviços e programas estão sendo executados com o Windows.</p>
+                <h3>4.1 - Analisando com o `msconfig`</h3>
+                 <ol>
+                    <li>Pressione as teclas <code>Win + R</code> para abrir a caixa "Executar".</li>
+                    <li>Digite <code>msconfig</code> e clique em <strong>OK</strong> para abrir a janela "Configuração do Sistema".</li>
+                    <li>Vá para a aba <strong>Serviços</strong>. Marque a caixa <strong>"Ocultar todos os serviços Microsoft"</strong> na parte inferior. A lista que resta mostra os serviços de programas que você instalou (neste momento, devem ser poucos ou nenhuns).</li>
+                    <li>Agora, vá para a aba <strong>Inicialização de Programas</strong> e clique em <strong>"Abrir Gerenciador de Tarefas"</strong>. Esta é a mesma tela que já conhecemos para gerenciar os programas que iniciam com o sistema, mostrando como as ferramentas do Windows são integradas.</li>
+                    <li>Você pode fechar as janelas do Gerenciador de Tarefas e da Configuração do Sistema.</li>
+                </ol>
+                <div class="analysis-box">
+                    <strong>Análise Crítica:</strong> Mesmo em um sistema recém-instalado, é crucial entender o que está sendo executado. Analise com cuidado a lista de serviços de terceiros (não-Microsoft) e os programas na inicialização. Com o tempo, essa lista crescerá com a instalação de novos softwares. Saber identificar programas legítimos (como drivers de vídeo, antivírus) de programas desnecessários ou suspeitos é uma habilidade chave para manter o computador rápido e seguro.
+                </div>
+            </div>
+
+            <div class="step-section" id="secao5">
+                <h2 class="content-title">Seção 5: Configuração de Contas Online e Navegadores</h2>
+                <p>Vamos integrar suas contas da Microsoft e Google ao sistema e aos navegadores para sincronizar seus dados e facilitar o acesso aos serviços em nuvem.</p>
+
+                <h3>5.1 - Logar nos Navegadores</h3>
+                <ol>
+                    <li><strong>Microsoft Edge:</strong> Abra o Edge. Ele provavelmente solicitará que você faça login. Use sua <strong>Conta da Microsoft</strong> e permita a sincronização de dados.</li>
+                    <li><strong>Google Chrome:</strong> Se o Chrome não estiver instalado, baixe-o usando o Edge. Após a instalação, abra o Chrome, clique no ícone de perfil no canto superior direito e faça login com sua <strong>Conta do Google</strong>. Ative a sincronização.</li>
+                </ol>
+                
+                <h3>5.2 - Logar no Windows e OneDrive</h3>
+                <ol>
+                    <li>Vá para <strong>Configurações</strong> > <strong>Contas</strong> > <strong>Suas informações</strong>.</li>
+                    <li>Clique em <strong>"Entrar com uma conta da Microsoft"</strong> e siga as instruções para conectar sua conta ao seu perfil de usuário no Windows. Isso integrará vários serviços.</li>
+                    <li>Na barra de tarefas, procure pelo ícone de nuvem do <strong>OneDrive</strong>. Clique nele e faça login com sua <strong>Conta da Microsoft</strong> para configurar a sincronização de arquivos.</li>
+                </ol>
+                
+                <h3>5.3 - Logar no Google Drive</h3>
+                <ol>
+                    <li>Abra o Google Chrome (ou o navegador de sua preferência).</li>
+                    <li>Acesse o site: <code>drive.google.com</code>.</li>
+                    <li>Se já estiver logado no navegador, o acesso será direto. Caso contrário, faça login com sua <strong>Conta do Google</strong>.</li>
+                    <li>(Opcional) Você pode baixar e instalar o aplicativo "Google Drive para desktop" para sincronizar seus arquivos com o Explorador de Arquivos, de forma similar ao OneDrive.</li>
+                </ol>
+            </div>
+
+            <div class="step-section" id="secao6">
+                <h2 class="content-title">Seção 6: Organização de Pastas para o Curso</h2>
+                <p>Para finalizar, vamos criar uma estrutura de pastas organizada para guardar todos os materiais e projetos do seu curso.</p>
+
+                <ol>
+                    <li>Abra o <strong>Explorador de Arquivos</strong> (<code>Win + E</code>) e navegue até a sua pasta <strong>Documentos</strong>.</li>
+                    <li>Clique com o botão direito em um espaço vazio, vá em <strong>Novo</strong> > <strong>Pasta</strong>. Nomeie esta nova pasta como <code>CURSO DE INFORMÁTICA - 2025</code>.</li>
+                    <li>Abra a pasta recém-criada.</li>
+                    <li>Dentro da pasta <code>CURSO DE INFORMÁTICA - 2025</code>, crie as seguintes seis subpastas:
+                        <ul>
+                            <li><code>Sistemas Operacionais - SOs</code></li>
+                            <li><code>Redes de Computadores - RC</code></li>
+                            <li><code>Linguagem de Programação - LP</code></li>
+                            <li><code>Segurança de Sistemas - SS</code></li>
+                            <li><code>Desenvolvimento Web - DW</code></li>
+                            <li><code>Manutenção de Computadores - MC</code></li>
+                        </ul>
+                    </li>
+                </ol>
+                <p>Pronto! Seu ambiente de trabalho está configurado, atualizado, seguro e organizado!</p>
+            </div>
+
+            <div class="step-section final-questions" id="secao7">
+                <h2 class="content-title">Perguntas de Verificação e Fixação</h2>
+                <p>Responda às seguintes perguntas em seu caderno para garantir que todos os passos foram concluídos corretamente e para aprofundar seu aprendizado.</p>
+                
+                <h3>Parte 1: Verificação Direta</h3>
+                <ol>
+                    <li>Acesse o Gerenciador de Usuários Locais (`lusrmgr.msc`). Qual é o tipo da sua conta de usuário (Administrador ou Padrão)? Qual o nome exato da segunda conta que você criou?</li>
+                    <li>Navegue até a sua Área de Trabalho, tire uma foto (com o celular) e descreva quais ícones de sistema você escolheu para exibir.</li>
+                    <li>Qual foi o nome exato que você deu ao seu Ponto de Restauração?</li>
+                    <li>Navegue até o Windows Update. Qual foi a última atualização instalada com sucesso (escreva o nome ou o código KB)?</li>
+                    <li>Tire um print da sua pasta <code>Documentos</code> mostrando a pasta <code>CURSO DE INFORMÁTICA - 2025</code> e as seis subpastas criadas dentro dela.</li>
+                </ol>
+
+                <h3>Parte 2: Exploração de Conceitos</h3>
+                <ol start="6">
+                    <li>Você usou comandos como <code>control userpasswords2</code>, <code>lusrmgr.msc</code> e <code>msconfig</code> na caixa "Executar" (<code>Win + R</code>). Qual a principal vantagem de usar esses comandos diretos em vez de navegar por múltiplos menus no aplicativo "Configurações"?</li>
+                    <li>Ao usar o <code>msconfig</code> na aba 'Serviços', por que a ação de 'Ocultar todos os serviços Microsoft' é o primeiro passo recomendado para a análise? O que poderia acontecer se você desativasse um serviço essencial da Microsoft por engano?</li>
+                    <li>Na aba 'Inicialização de Programas' (dentro do Gerenciador de Tarefas), qual é o impacto no desempenho do computador quando muitos programas estão habilitados para iniciar automaticamente? Dê um exemplo de um programa que seria útil iniciar com o Windows e outro que seria desnecessário.</li>
+                    <li>Pense no Ponto de Restauração que você criou. Se você instalasse um programa novo e ele causasse problemas no sistema, como o Ponto de Restauração poderia ajudar? Ele salvaria seus arquivos pessoais (como trabalhos e fotos) caso seu disco falhasse? Explique.</li>
+                    <li>Reflita sobre a estrutura de pastas que você criou para o curso. Por que manter uma organização de arquivos consistente é uma habilidade importante para um futuro profissional de informática, especialmente ao trabalhar em equipe?</li>
+                </ol>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function showSection(sectionId, buttonElement) {
+            // Esconde todas as seções
+            const sections = document.querySelectorAll('.step-section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Remove a classe 'active' de todos os botões
+            const buttons = document.querySelectorAll('#section-nav button');
+            buttons.forEach(button => {
+                button.classList.remove('active');
+            });
+
+            // Mostra a seção clicada
+            const activeSection = document.getElementById(sectionId);
+            if (activeSection) {
+                activeSection.classList.add('active');
+            }
+
+            // Adiciona a classe 'active' ao botão clicado
+            if (buttonElement) {
+                buttonElement.classList.add('active');
+            }
+        }
+
+        // Garante que a primeira seção seja exibida ao carregar a página
+        document.addEventListener('DOMContentLoaded', () => {
+            showSection('secao1', document.querySelector('#section-nav button'));
+        });
+    </script>
+</body>
+</html>

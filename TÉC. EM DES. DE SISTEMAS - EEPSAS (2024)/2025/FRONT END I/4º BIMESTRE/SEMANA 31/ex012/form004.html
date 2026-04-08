@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form003</title>
+</head>
+<body>
+
+    <h1>Formulario com Controle para envios externos de dados</h1>
+
+    <form action="form004.html" method="get" autocomplete="on">
+        <!--área do formulário-->
+        <fieldset>
+            <legend>Dados Pessoais</legend>
+            <p>
+                <label for="idnome">Nome: </label>
+                <input type="text" name="nome" id="idnome" minlength="5" maxlength="20" required>
+            </p>
+        </fieldset>
+        <fieldset>
+            <legend>Contato</legend>
+            <p>
+                <label for="idemail">Email: </label>
+                <input type="email" name="email" id="idemail" required autocomplete="email">
+            </p>
+            <p>
+                <label for="idfone">Telefone: </label>
+                <input type="tel" name="fone" id="idfone" autocomplete="tel" required pattern="^\(\d{2}\)-\d{4,5}.\d{4,5}$" placeholder="(xx)-xxxx.xxxx">
+                </p>
+        </fieldset>
+            <!--área dos botões de envio-->
+            <p>
+                <input type="submit" value="Enviar">
+                <input type="reset" value="Limpar">
+            </p>
+    </form>
+
+    <a href="ex012.html">Voltar</a>
+    
+</body>
+</html>

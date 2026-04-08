@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEMANA 33 - Seletores Avançados e Estrutura de Página</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f0f0f0; }
+        .page-container { width: 210mm; min-height: 297mm; margin: 20px auto; padding: 15mm; box-shadow: 0 0 10px rgba(0,0,0,0.1); box-sizing: border-box; background-color: white;}
+        /* Estilos do MODELO: CABEÇALHO */
+        .header-top-container { display: flex; justify-content: center; align-items: center; border-bottom: 1px solid black; padding-bottom: 10px; margin-bottom: 10px; }
+        .logo { max-width: 65px; height: auto; margin-right: 15px; }
+        .school-info { text-align: center; padding: 0 5px; }
+        .school-info strong.school-name { display: block; margin-bottom: 4px; font-size: 1em; }
+        .school-info .address-details span { display: inline; font-size: 0.75em; margin-right: 4px; }
+        .form-fields-grid { display: grid; gap: 5px 10px; width: 100%; margin-bottom: 15px; grid-template-rows: auto auto auto; }
+        .form-row { display: grid; grid-template-columns: 3fr 2fr; gap: 10px; width: 100%; }
+        .form-field { border: 1px solid black; padding: 5px 8px; font-size: 0.8em; box-sizing: border-box; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; display: flex; align-items: center; }
+        .form-field strong { margin-right: 5px; }
+        .form-field .value-content { flex-grow: 1; }
+        .fill-in { display: inline-block; border-bottom: 1px solid black; min-width: 25px; margin: 0 2px; height: 0.8em; }
+        /* Estilos do Conteúdo Didático */
+        .content-container { padding-top: 10px; }
+        h1 { font-size: 1.6em; border-bottom: 1.5px solid #eee; padding-bottom: 7px; margin-top: 0; color: #333; }
+        h2 { font-size: 1.3em; margin-top: 25px; color: #333; border-bottom: 1px solid #f0f0f0; padding-bottom: 5px;}
+        h3 { font-size: 1.1em; margin-top: 20px; color: #0056b3; }
+        p, li, dd, dt { line-height: 1.6; font-size: 0.95em; color: #333; }
+        ul, dl { padding-left: 20px; }
+        dt { font-weight: bold; margin-top: 10px;}
+        table { width: 100%; margin: 15px 0; border-collapse: collapse; font-size: 0.9em; }
+        th, td { border: 1px solid #ccc; padding: 8px; text-align: left; vertical-align: top; }
+        th { background-color: #e9ecef; }
+        tr:nth-child(even) { background-color: #f8f9fa; }
+        code { background-color: #f4f4f4; padding: 2px 5px; border-radius: 4px; font-family: "Consolas", Courier, monospace; font-size: 0.9em; }
+        pre { background-color: #f8f8f8; border: 1px solid #ddd; padding: 12px; border-radius: 5px; overflow-x: auto; font-size: 0.85em; margin-top: 8px; margin-bottom: 15px; }
+        pre code { background-color: transparent; padding: 0; }
+        hr { border: 0; height: 1px; background: #ccc; margin: 30px 0; }
+        .rule-box, .seo-box { background-color: #f8f9fa; border-left: 4px solid #0056b3; padding: 15px; margin: 20px 0; }
+        @media print { 
+            body { background-color: white; }
+            .page-container { margin: 0; padding: 0; box-shadow: none; width: 100%; min-height: 0;}
+            @page { margin: 12mm 10mm; } 
+        }
+    </style>
+</head>
+<body>
+<div class="page-container">
+    <div class="header-top-container">
+        <img src="https://1drv.ms/i/c/9e9e1f5991e00f07/IQTuKfwDXz6eQZG682I84WqBASSJENKf1uHvN3nSBXphxkU?width=1024" alt="Logo da Escola" class="logo" onerror="this.onerror=null; this.src='https://placehold.co/65x65/ccc/000?text=Logo'; this.alt='Erro ao carregar logo';">
+        <div class="school-info">
+            <strong class="school-name">ESCOLA ESTADUAL PROFESSORA SEBASTIANA DE ALMEIDA E SILVA</strong>
+            <div class="address-details"><span>Rua São José, nº 30, Jaguaruçu - MG.</span> <span>CEP: 35.188-000</span> <span>Tel: (31) 3845-1209</span></div>
+        </div>
+    </div>
+    <div class="form-fields-grid">
+        <div class="form-row">
+            <div class="form-field" style="grid-column: 1 / span 3;"><strong>DISCIPLINA:</strong> <span class="value-content">Front End I</span></div>
+            <div class="form-field" style="grid-column: 4 / span 2;"><strong>PROFESSOR(A):</strong> <span class="value-content">Prentys Assis</span></div>
+        </div>
+        <div class="form-row">
+            <div class="form-field" style="grid-column: 1 / span 3;"><strong>ATIVIDADE:</strong> <span class="value-content">SEMANA 33 - Seletores Avançados e Estrutura de Página</span></div>
+            <div class="form-field" style="grid-column: 4 / span 2;"><strong>DATA:</strong> <span class="value-content"><span class="fill-in">13</span>/<span class="fill-in">09</span>/<span class="fill-in">2025</span></span></div>
+        </div>
+        <div class="form-row">
+            <div class="form-field" style="grid-column: 1 / span 3;"><strong>ALUNO(A):</strong> <span class="value-content"></span></div>
+            <div class="form-field" style="grid-column: 4 / span 2;"><strong>TURMA:</strong> <span class="value-content">2º Ano</span></div>
+        </div>
+    </div>
+
+    <div class="content-container">
+        <h1>Seletores Avançados e Estrutura de Página</h1>
+        <p>Até agora, aprendemos a construir a estrutura de nossas páginas com HTML e a aplicar estilos gerais às tags. Nesta semana, vamos dar um passo fundamental para criar sites mais profissionais, organizados e eficientes. Vamos aprender a "mirar" com precisão em qualquer elemento que desejarmos, usando os <strong>seletores personalizados <code>id</code> e <code>class</code></strong>. Mais do que apenas uma ferramenta de estilo, veremos como essa organização estrutural é crucial para a <strong>otimização para mecanismos de busca (SEO)</strong>.</p>
+        
+        <h2>1. Seletores Personalizados: A Arte de Mirar com Precisão</h2>
+        <p>Imagine que você precisa pintar apenas uma parede de uma sala de vermelho, e as outras de branco. Usar um seletor de tag como <code>div { background-color: red; }</code> seria como usar um rolo de pintura gigante e pintar tudo de vermelho. Precisamos de ferramentas mais precisas. É aqui que entram o <code>id</code> e a <code>class</code>.</p>
+
+        <h3>O Atributo <code>id</code>: O Identificador Único</h3>
+        <p>O atributo <code>id</code> é como o CPF de um elemento HTML. Ele serve para dar um nome <strong>único e exclusivo</strong> a um elemento dentro da página. Nenhuma outra tag no mesmo documento pode ter o mesmo <code>id</code>.</p>
+        <div class="rule-box">
+            <p><strong>Regra de Ouro:</strong> Um <code>id</code> deve ser usado apenas <strong>uma vez por página</strong>. Ele é perfeito para identificar seções estruturais principais, como o cabeçalho, o conteúdo principal, a barra lateral e o rodapé.</p>
+        </div>
+        
+        <h4>Como usar o <code>id</code>:</h4>
+        <p>No HTML, você o declara diretamente na tag:</p>
+        <pre><code>&lt;div id="cabecalho"&gt;...&lt;/div&gt;</code></pre>
+        <p>No CSS, você o seleciona usando o símbolo de cerquilha (<code>#</code>):</p>
+        <pre><code>#cabecalho { background-color: #333; color: white; }</code></pre>
+
+        <h3>O Atributo <code>class</code>: O Agrupador de Estilos</h3>
+        <p>Se o <code>id</code> é um CPF, a <code>class</code> é como um sobrenome de família. Vários elementos podem compartilhar a mesma classe, permitindo que você aplique um conjunto de estilos a todos eles de uma só vez. É a ferramenta ideal para componentes reutilizáveis.</p>
+        
+        <h4>Como usar a <code>class</code>:</h4>
+        <p>No HTML, você declara a classe:</p>
+        <pre><code>&lt;h2 class="titulo-destaque"&gt;Seção 1&lt;/h2&gt;
+&lt;h3 class="titulo-destaque"&gt;Subseção 1.1&lt;/h3&gt;</code></pre>
+        <p>No CSS, você seleciona a classe usando um ponto final (<code>.</code>):</p>
+        <pre><code>.titulo-destaque { color: #2980b9; }</code></pre>
+
+        <div class="seo-box">
+            <h3>Conexão com SEO: Estrutura e Semântica</h3>
+            <p>Mecanismos de busca como o Google analisam a estrutura do seu HTML para entender a hierarquia e a importância do conteúdo. Ao usar um <code>id="principal"</code> na sua seção de conteúdo mais importante, você está sinalizando para o buscador: "<strong>Ei, o conteúdo realmente relevante desta página está aqui!</strong>". Da mesma forma, ao agrupar tópicos relacionados com uma <code>class="produto"</code>, você ajuda a criar um contexto semântico que torna sua página mais compreensível e, consequentemente, melhor classificada nos resultados de busca.</p>
+        </div>
+
+        <h2>2. Adicionando Interatividade com Pseudo-classes</h2>
+        <p>Agora que sabemos como selecionar elementos, podemos ir além e estilizá-los com base em seu <strong>estado</strong> ou <strong>interação</strong> com o usuário. Para isso, usamos as <strong>pseudo-classes</strong>, que são palavras-chave adicionadas a um seletor, sempre precedidas por dois pontos (<code>:</code>).</p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Pseudo-classe</th>
+                    <th>O que faz?</th>
+                    <th>Exemplo de Uso Genérico</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>:hover</code></td>
+                    <td>Aplica um estilo quando o cursor do mouse está <strong>sobre</strong> um elemento.</td>
+                    <td><code>a:hover { text-decoration: underline; }</code> (Sublinha links ao passar o mouse).</td>
+                </tr>
+                <tr>
+                    <td><code>:active</code></td>
+                    <td>Aplica um estilo no momento exato em que um elemento está sendo <strong>clicado</strong>.</td>
+                    <td><code>button:active { background-color: black; }</code> (Muda o fundo de um botão no instante do clique).</td>
+                </tr>
+                <tr>
+                    <td><code>:focus</code></td>
+                    <td>Aplica um estilo a um elemento que recebeu <strong>foco</strong> (por clique ou navegação via teclado). Essencial para acessibilidade.</td>
+                    <td><code>input:focus { outline: 2px solid blue; }</code> (Cria uma borda de destaque para indicar qual campo está selecionado).</td>
+                </tr>
+                 <tr>
+                    <td><code>:nth-child(n)</code></td>
+                    <td>Seleciona elementos com base em sua posição. Use <code>even</code> para pares e <code>odd</code> para ímpares.</td>
+                    <td><code>tr:nth-child(even) { background-color: #f2f2f2; }</code> (Cria um efeito "zebrado" em linhas de uma tabela).</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>3. Detalhes Profissionais com Pseudo-elementos</h2>
+        <p>Os <strong>pseudo-elementos</strong> nos dão um poder ainda mais refinado. Com eles, podemos estilizar uma <strong>parte específica</strong> de um elemento ou até mesmo inserir conteúdo que não existe no HTML, apenas para fins decorativos. Eles são precedidos por dois-pontos duplos (<code>::</code>).</p>
+
+         <table>
+            <thead>
+                <tr>
+                    <th>Pseudo-elemento</th>
+                    <th>O que faz?</th>
+                    <th>Exemplo de Uso Genérico</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>::before</code></td>
+                    <td>Insere conteúdo <strong>antes</strong> do conteúdo de um elemento.</td>
+                    <td><code>li::before { content: '&#10148; '; }</code> (Adiciona uma seta antes de cada item de lista).</td>
+                </tr>
+                <tr>
+                    <td><code>::after</code></td>
+                    <td>Insere conteúdo <strong>depois</strong> do conteúdo de um elemento.</td>
+                    <td><code>a[target="_blank"]::after { content: ' &#8599;'; }</code> (Adiciona um ícone de "link externo" depois de links que abrem em nova aba).</td>
+                </tr>
+                <tr>
+                    <td><code>::first-letter</code></td>
+                    <td>Estiliza a <strong>primeira letra</strong> de um bloco de texto.</td>
+                    <td><code>p::first-letter { font-size: 2em; font-weight: bold; }</code> (Cria um efeito de letra capitular).</td>
+                </tr>
+                 <tr>
+                    <td><code>::selection</code></td>
+                    <td>Aplica um estilo ao texto que é <strong>selecionado</strong> (destacado) pelo usuário.</td>
+                    <td><code>::selection { background-color: #ffc107; color: black; }</code> (Muda a cor de fundo do texto selecionado).</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <hr>
+        <h2>Glossário de Termos Técnicos</h2>
+        <dl>
+            <dt>HTML (HyperText Markup Language)</dt>
+            <dd>A linguagem de marcação padrão para criar páginas e aplicações web. É o "esqueleto" de um site.</dd>
+            
+            <dt>CSS (Cascading Style Sheets)</dt>
+            <dd>A linguagem utilizada para descrever a apresentação e o estilo de um documento escrito em HTML. Controla cores, fontes, espaçamentos e layouts.</dd>
+
+            <dt>Seletor</dt>
+            <dd>Uma expressão em CSS que define a qual(is) elemento(s) uma regra de estilo será aplicada.</dd>
+
+            <dt>Atributo</dt>
+            <dd>Informação adicional fornecida a uma tag HTML, como <code>id="exemplo"</code> ou <code>class="destaque"</code>.</dd>
+
+            <dt>ID (Identificador)</dt>
+            <dd>Um atributo que identifica um único elemento na página. Seu seletor em CSS é a cerquilha (<code>#</code>).</dd>
+
+            <dt>Classe (Class)</dt>
+            <dd>Um atributo que pode ser aplicado a múltiplos elementos para agrupá-los sob um mesmo estilo. Seu seletor em CSS é o ponto (<code>.</code>).</dd>
+            
+            <dt>Semântica</dt>
+            <dd>No contexto do HTML, refere-se ao uso de tags que descrevem o significado do conteúdo, não apenas sua aparência.</dd>
+
+            <dt>SEO (Search Engine Optimization)</dt>
+            <dd>Conjunto de técnicas para otimizar um site, visando melhorar seu posicionamento nos resultados de mecanismos de busca.</dd>
+            
+            <dt>Pseudo-classe</dt>
+            <dd>Uma palavra-chave adicionada a um seletor para especificar um estado especial do elemento, como <code>:hover</code>.</dd>
+
+            <dt>Pseudo-elemento</dt>
+            <dd>Uma palavra-chave adicionada a um seletor para estilizar uma parte específica de um elemento, como <code>::first-letter</code>.</dd>
+        </dl>
+    </div>
+</div>
+</body>
+</html>

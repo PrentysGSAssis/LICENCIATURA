@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semana 14 - Fundamentos do PHP, Ambiente e VS Code</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 0; 
+            line-height: 1.45; 
+            color: #333; 
+            font-size: 10pt; 
+            background-color: #f4f4f4;
+        }
+        .page-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .sticky-header-wrapper {
+            position: -webkit-sticky; /* Para compatibilidade com Safari */
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: #fff; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+        }
+
+        .header-top-container { display: flex; justify-content: center; align-items: center; border-bottom: 1px solid black; padding-bottom: 8px; margin: 15px 20px 10px 20px; width: auto; }
+        .logo { max-width: 65px; height: auto; margin-right: 15px; }
+        .school-info { text-align: center; padding: 0 8px; }
+        .school-info strong { display: block; margin-bottom: 3px; font-size: 0.9em; }
+        .school-info .address-details span { display: inline; font-size: 0.75em; margin-right: 4px; }
+        .school-info .address-details span:last-child { margin-right: 0; }
+        .form-fields-container { display: grid; grid-template-columns: repeat(6, 1fr); gap: 5px 10px; width: auto; margin: 0 20px 10px 20px; }
+        .form-field { border: 1px solid black; padding: 5px; font-size: 0.8em; }
+        .disciplina-field { grid-column: span 4; }
+        .professor-field { grid-column: span 2; }
+        .atividade-field { grid-column: span 4; }
+        .data-field { grid-column: span 1; }
+        .turma-field { grid-column: span 1; }
+        .full-width { grid-column: 1 / -1; }
+        .fill-in { display: inline-block; border-bottom: 1px solid black; min-width: 20px; margin: 0 1px; padding: 0 1px; line-height: 1; }
+        .fill-in.date-year { min-width: 35px; }
+        
+        .texto-didatico-main-content { padding: 5px 20px 15px 20px; margin-top: 5px; }
+        .texto-didatico-main-content h1 { color: #2c3e50; border-bottom: 1px solid #3498db; padding-bottom: 6px; margin-top: 0; font-size: 16px; text-align: center; margin-bottom: 12px; }
+        .texto-didatico-main-content h2 { color: #2980b9; margin-top: 15px; margin-bottom: 6px; font-size: 13px; border-bottom: 1px dotted #A9A9A9; padding-bottom:3px; }
+        .texto-didatico-main-content h3.sub-chapter { color: #2c3e50; margin-top: 12px; margin-bottom: 5px; font-size: 11.5px; font-weight: bold; }
+        .texto-didatico-main-content p { margin-top: 0; margin-bottom: 10px; text-align: justify; font-size: 0.95em; line-height: 1.35; }
+        .texto-didatico-main-content ul { margin-left: 15px; padding-left: 15px; margin-bottom: 10px; font-size: 0.95em; line-height: 1.35;}
+        .texto-didatico-main-content li { margin-bottom: 4px; }
+        .texto-didatico-main-content h3 { color: #16a085; margin-top: 18px; margin-bottom: 6px; font-size: 12px; border-bottom: 1px solid #ddd; padding-bottom: 2px; }
+        .texto-didatico-main-content .glossary-item { margin-bottom: 5px; font-size: 0.9em; line-height: 1.3; }
+        .texto-didatico-main-content .glossary-citation { font-size: 0.75em; color: #7f8c8d; display: block; margin-top: 1px; }
+        .texto-didatico-main-content .references p { font-size: 0.85em; margin-bottom: 3px; line-height: 1.3; }
+        .texto-didatico-main-content pre { background-color: #f0f0f0; border: 1px solid #ccc; padding: 8px; border-radius: 3px; font-family: 'Courier New', Courier, monospace; font-size:0.9em; overflow-x: auto; margin-bottom: 12px; white-space: pre-wrap; word-wrap: break-word;}
+        .texto-didatico-main-content code { font-family: 'Courier New', Courier, monospace; font-size: 0.95em;}
+
+        .content-section { padding: 15px 20px; margin-bottom: 10px; border-bottom: 1px solid #eee; }
+        .content-section:last-child { border-bottom: none; }
+        .content-section h2 { color: #2c3e50; font-size: 18px; margin-top: 0; margin-bottom: 15px; border-bottom: 2px solid #3498db; padding-bottom: 8px; }
+        .question-block { background-color: #f9f9f9; border: 1px solid #e0e0e0; border-left: 4px solid #3498db; padding: 12px; margin-bottom: 12px; border-radius: 4px; }
+        .question-block p, .question-block ul { margin-bottom: 8px; font-size: 0.95em; }
+        .question-block ul { list-style-position: inside; padding-left: 0;}
+        .question-block li { margin-bottom: 4px; }
+
+        .toggle-button { background-color: #3498db; color: white; border: none; padding: 8px 12px; text-align: center; text-decoration: none; display: inline-block; font-size: 0.85em; margin-top: 8px; cursor: pointer; border-radius: 4px; transition: background-color 0.3s ease; }
+        .toggle-button:hover { background-color: #2980b9; }
+        .hidden-content { display: none; margin-top: 10px; padding: 10px; background-color: #eaf2f8; border: 1px solid #bdc3c7; border-radius: 4px; font-size: 0.9em; }
+        .hidden-content p { margin-bottom: 5px; }
+        
+        .main-nav { background-color: #2c3e50; padding: 10px 0; text-align: center; margin-bottom: 0; }
+        .main-nav a { color: white; padding: 10px 15px; text-decoration: none; font-size: 0.9em; margin: 0 5px; border-radius: 3px; }
+        .main-nav a:hover { background-color: #34495e; }
+
+    </style>
+</head>
+<body>
+<div class="page-container">
+    <div class="sticky-header-wrapper">
+        <div class="header-top-container">
+            <img src="https://1drv.ms/i/c/9e9e1f5991e00f07/IQTuKfwDXz6eQZG682I84WqBASSJENKf1uHvN3nSBXphxkU?width=1024" alt="Logo da Escola" class="logo" onerror="this.onerror=null; this.src='https://placehold.co/80x80/ccc/000?text=Logo'; this.alt='Erro ao carregar logo';">
+            <div class="school-info">
+                <strong style="font-size:1em;">ESCOLA ESTADUAL PROFESSORA SEBASTIANA DE ALMEIDA E SILVA</strong>
+                <div class="address-details">
+                    <span>Rua São José, nº 30, Jaguaruçu - MG.</span>
+                    <span>CEP: 35.188-000</span>
+                    <span>Tel: (31) 3845-1209</span>
+                </div>
+            </div>
+        </div>
+        <div class="form-fields-container">
+            <div class="form-field disciplina-field"><strong>DISCIPLINA:</strong> Desenvolvimento Back-End</div>
+            <div class="form-field professor-field"><strong>PROFESSOR(A):</strong> Prentys Assis</div>
+            <div class="form-field atividade-field"><strong>ATIVIDADE:</strong> Semana 14 - Fundamentos do PHP, Ambiente e VS Code</div>
+            <div class="form-field data-field"><strong>DATA:</strong> <span class="fill-in"> </span>/<span class="fill-in"> </span>/<span class="fill-in date-year"> </span></div>
+            <div class="form-field turma-field"><strong>TURMA:</strong> <span class="fill-in">3</span> º ano</div>
+            <div class="form-field full-width"><strong>ALUNO(A):</strong></div>
+        </div>
+        <div class="main-nav">
+            <a href="#texto-didatico">Texto Didático</a>
+            <a href="#questoes-reforco">Questões de Reforço</a>
+            <a href="#atividade-pratica">Atividade Prática</a>
+        </div>
+    </div> 
+
+    <div id="texto-didatico" class="content-section">
+        <div class="texto-didatico-main-content">
+            <h1 style="color: #2c3e50; border-bottom: 1px solid #3498db; padding-bottom: 6px; margin-top: 0; font-size: 16px; text-align: center; margin-bottom: 12px;">Desvendando o PHP: Funcionamento, Aplicações e Preparando seu Ambiente Otimizado</h1>
+            <p style="margin-top: 0; margin-bottom: 10px; text-align: justify; font-size: 0.95em; line-height: 1.35;">
+                Bem-vindos a mais uma etapa crucial em nossa jornada pelo desenvolvimento back-end! Nesta semana, nosso foco se volta para o PHP, uma linguagem que, apesar de veterana, continua sendo uma das espinhas dorsais da web dinâmica. O objetivo deste material é fornecer a vocês uma compreensão sólida de como o PHP opera nos bastidores da internet, onde ele realmente brilha em termos de aplicação, e o que é necessário para montarmos nosso próprio "laboratório" de desenvolvimento, incluindo a otimização do nosso editor de código. A ideia é que este texto sirva como um mapa conceitual, alinhado à metodologia de cursos práticos online, incentivando a autonomia de vocês na busca e experimentação com as tecnologias que apresentaremos.
+            </p>
+    
+            <h2 style="color: #2980b9; margin-top: 15px; margin-bottom: 6px; font-size: 13px; border-bottom: 1px dotted #A9A9A9; padding-bottom:3px;">Capítulo 1: A Mágica do Server-Side: Como o PHP Constrói a Web que Você Vê</h2>
+            <p style="margin-top: 0; margin-bottom: 10px; text-align: justify; font-size: 0.95em; line-height: 1.35;">
+                Quando você acessa um site, uma complexa interação ocorre entre seu computador (o cliente) e o computador onde o site está hospedado (o servidor). As tecnologias **Client-Side**<sup>1</sup>, como HTML, CSS e JavaScript, são baixadas e executadas diretamente no seu navegador. Elas cuidam da aparência, do layout e da interatividade imediata da página. Por outro lado, tecnologias **Server-Side**<sup>2</sup>, como o PHP, rodam no servidor web. É lá que a "mágica" acontece: o PHP processa informações, acessa bancos de dados, executa lógicas de negócio e, crucialmente, gera o conteúdo HTML que será enviado ao seu navegador para ser exibido.
+            </p>
+            <p style="margin-top: 0; margin-bottom: 10px; text-align: justify; font-size: 0.95em; line-height: 1.35;">
+                Imagine o seguinte fluxo: 1. Você digita uma URL no navegador. 2. O navegador envia uma requisição HTTP<sup>3</sup> para o servidor. 3. Se a página solicitada for um script PHP, o servidor web (como o Apache<sup>4</sup>) ativa o interpretador PHP. 4. O interpretador PHP executa o script, que pode, por exemplo, buscar dados em um banco de dados ou processar informações de um formulário. 5. O script PHP gera uma saída, geralmente em formato HTML. 6. O servidor web envia essa saída HTML de volta para o seu navegador. 7. Seu navegador renderiza o HTML recebido, exibindo a página dinâmica. Essa capacidade de processamento no servidor é o que permite a personalização de conteúdo, interações com bancos de dados e a criação de aplicações web complexas.
+            </p>
+            <p style="margin-top: 0; margin-bottom: 10px; text-align: justify; font-size: 0.95em; line-height: 1.35;">
+                Nesse contexto, surgem os papéis no desenvolvimento web: o desenvolvedor **Front-end** foca nas tecnologias client-side, cuidando da interface e experiência do usuário. O desenvolvedor **Back-end** trabalha com as tecnologias server-side, como o PHP, gerenciando a lógica da aplicação, bancos de dados e APIs. Já o desenvolvedor **Full-Stack** possui habilidades em ambas as áreas. O PHP é uma entre várias tecnologias server-side, convivendo com Node.js (JavaScript), Python (com Django/Flask), Java (com JSP/Spring), Ruby (com Rails), entre outras, cada uma com suas particularidades e ecossistemas.
+            </p>
+    
+            <h2 style="color: #2980b9; margin-top: 15px; margin-bottom: 6px; font-size: 13px; border-bottom: 1px dotted #A9A9A9; padding-bottom:3px;">Capítulo 2: PHP - A Ferramenta Certa para o Trabalho Certo</h2>
+            <p style="margin-top: 0; margin-bottom: 10px; text-align: justify; font-size: 0.95em; line-height: 1.35;">
+                Nenhuma linguagem de programação é uma solução universal para todos os problemas – são como ferramentas em uma caixa, cada uma com sua especialidade. O PHP, nesse sentido, é como uma parafusadeira elétrica potente e versátil para o universo da web. Ele foi projetado e otimizado para o desenvolvimento de aplicações web e brilha intensamente nessa área. É a linguagem por trás de uma vasta quantidade de sites dinâmicos, desde blogs pessoais e portais de notícias (muitos rodando em WordPress, que é feito em PHP) até robustas lojas online (como aquelas construídas com Magento ou WooCommerce) e complexos sistemas de gerenciamento de aprendizado (EAD).
+            </p>
+            <p style="margin-top: 0; margin-bottom: 10px; text-align: justify; font-size: 0.95em; line-height: 1.35;">
+                No entanto, tentar usar o PHP para tarefas muito distantes de seu propósito original, como o desenvolvimento de aplicações desktop complexas com interfaces gráficas ricas ou jogos com gráficos 3D intensivos, seria como tentar usar a parafusadeira para martelar um prego: talvez funcione com muito esforço, mas não é o ideal e existem ferramentas mais adequadas. A realidade do desenvolvimento de software, especialmente em grandes empresas ou projetos, envolve frequentemente o uso de múltiplas linguagens e tecnologias, cada uma desempenhando o papel para o qual é mais otimizada, e se comunicando através de APIs.
+            </p>
+    
+            <h2 style="color: #2980b9; margin-top: 15px; margin-bottom: 6px; font-size: 13px; border-bottom: 1px dotted #A9A9A9; padding-bottom:3px;">Capítulo 3: Preparando seu Laboratório PHP: Ambiente Local e Editor Otimizado</h2>
+            <p style="margin-top: 0; margin-bottom: 10px; text-align: justify; font-size: 0.95em; line-height: 1.35;">
+                Para começar a programar em PHP, não basta apenas um editor de texto. Como vimos, o PHP é processado no servidor. Portanto, para desenvolver e testar seus scripts PHP, você precisa simular esse ambiente de servidor em seu próprio computador. Isso é o que chamamos de "ambiente de desenvolvimento local".
+            </p>
+            <h3 class="sub-chapter">Os Pilares do Desenvolvimento PHP Local</h3>
+            <p style="margin-top: 0; margin-bottom: 10px; text-align: justify; font-size: 0.95em; line-height: 1.35;">
+                Os componentes essenciais de um ambiente de desenvolvimento PHP local são:
+                <ul style="margin-left: 15px; padding-left: 15px; margin-bottom: 10px; font-size: 0.95em; line-height: 1.35;">
+                    <li style="margin-bottom: 4px;"><strong>Servidor HTTP:</strong> Um software como o Apache, que recebe as requisições do seu navegador e entrega as páginas.</li>
+                    <li style="margin-bottom: 4px;"><strong>Interpretador PHP:</strong> O "cérebro" que lê, entende e executa seus scripts PHP.</li>
+                    <li style="margin-bottom: 4px;"><strong>Sistema de Gerenciamento de Banco de Dados (SGBD):</strong> Onde seus dados serão armazenados. MySQL ou seu fork MariaDB são populares com PHP.</li>
+                    <li style="margin-bottom: 4px;">E, claro, suas ferramentas de cliente: um **Navegador Web** para visualizar o resultado e um bom **Editor de Código** para escrever seus scripts.</li>
+                </ul>
+            </p>
+            <h3 class="sub-chapter">Facilitando a Montagem: XAMPP e Organização</h3>
+            <p style="margin-top: 0; margin-bottom: 10px; text-align: justify; font-size: 0.95em; line-height: 1.35;">
+                Configurar cada um desses componentes individualmente pode ser um desafio. Pacotes como o **XAMPP**<sup>5</sup> (que significa Cross-Platform, Apache, MariaDB, PHP, Perl) simplificam isso, instalando tudo de forma integrada. Após instalar o XAMPP, a pasta principal para seus projetos web será a `htdocs`, localizada dentro do diretório de instalação do XAMPP (ex: `C:\xampp\htdocs` no Windows). É uma boa prática criar subpastas dentro de `htdocs` para cada projeto ou curso (ex: `htdocs\cursoPHP\aula01`). Para acessar seus scripts, você usará `http://localhost/nomeDaPasta/seuScript.php` no navegador.
+            </p>
+             <pre style="background-color: #f0f0f0; border: 1px solid #ccc; padding: 8px; border-radius: 3px; font-family: 'Courier New', Courier, monospace; font-size:0.9em; overflow-x: auto; margin-bottom: 12px; white-space: pre-wrap; word-wrap: break-word;"><code>// Exemplo de estrutura de pastas:
+// C:/xampp/htdocs/cursoPHP/ex000/index.php
+
+// Acesso no navegador:
+// http://localhost/cursoPHP/ex000/index.php</code></pre>
+            <h3 class="sub-chapter">Otimizando seu Editor: Visual Studio Code (VS Code)</h3>
+            <p style="margin-top: 0; margin-bottom: 10px; text-align: justify; font-size: 0.95em; line-height: 1.35;">
+                Um bom editor de código agiliza muito o desenvolvimento. O Visual Studio Code (VS Code) é uma excelente opção gratuita e popular. Após instalá-lo, abrir a pasta do seu projeto (ex: `htdocs\cursoPHP`) no VS Code permite gerenciar todos os seus arquivos. Algumas configurações úteis incluem:
+                <ul style="margin-left: 15px; padding-left: 15px; margin-bottom: 10px; font-size: 0.95em; line-height: 1.35;">
+                    <li style="margin-bottom: 4px;"><strong>Auto Save (Salvamento Automático):</strong> Para evitar perdas acidentais de trabalho.</li>
+                    <li style="margin-bottom: 4px;"><strong>Word Wrap (Quebra Automática de Linha):</strong> Facilita a leitura de linhas de código longas.</li>
+                    <li style="margin-bottom: 4px;"><strong>Ajuste do Tamanho da Fonte:</strong> Para conforto visual.</li>
+                </ul>
+                Além disso, o VS Code possui um vasto sistema de **extensões**<sup>6</sup> que podem adicionar funcionalidades específicas para PHP, como autocompletar código (IntelliSense), formatação de código e snippets (trechos de código prontos), tornando seu trabalho mais produtivo. A instalação de um pacote de idioma para Português (Brasil) também pode ser útil para quem prefere a interface traduzida.
+            </p>
+    
+            <h3 style="color: #16a085; margin-top: 18px; margin-bottom: 6px; font-size: 12px; border-bottom: 1px solid #ddd; padding-bottom: 2px;">Glossário</h3>
+            <p class="glossary-item" style="margin-bottom: 5px; font-size: 0.9em; line-height: 1.3;">
+                <strong style="color: #2c3e50;">1. Client-Side:</strong> Tecnologias executadas no navegador do usuário (ex: HTML, CSS, JavaScript).
+                <span class="glossary-citation" style="font-size: 0.75em; color: #7f8c8d; display: block; margin-top: 1px;"><em>(Definição baseada no texto. Para aprofundamento, consultar BROWN, 2020; ALVES, 2015.)</em></span>
+            </p>
+            <p class="glossary-item" style="margin-bottom: 5px; font-size: 0.9em; line-height: 1.3;">
+                <strong style="color: #2c3e50;">2. Server-Side:</strong> Tecnologias executadas no servidor web (ex: PHP, Python, Node.js).
+                <span class="glossary-citation" style="font-size: 0.75em; color: #7f8c8d; display: block; margin-top: 1px;"><em>(Definição baseada no texto. Para aprofundamento, consultar BROWN, 2020; ALVES, 2015.)</em></span>
+            </p>
+            <p class="glossary-item" style="margin-bottom: 5px; font-size: 0.9em; line-height: 1.3;">
+                <strong style="color: #2c3e50;">3. HTTP (Hypertext Transfer Protocol):</strong> Protocolo para transferência de dados na web.
+                <span class="glossary-citation" style="font-size: 0.75em; color: #7f8c8d; display: block; margin-top: 1px;"><em>(Definição baseada no texto. Para aprofundamento, consultar BROWN, 2020; ALVES, 2015.)</em></span>
+            </p>
+            <p class="glossary-item" style="margin-bottom: 5px; font-size: 0.9em; line-height: 1.3;">
+                <strong style="color: #2c3e50;">4. Apache:</strong> Popular software de servidor web HTTP de código aberto.
+                <span class="glossary-citation" style="font-size: 0.75em; color: #7f8c8d; display: block; margin-top: 1px;"><em>(Definição baseada no texto. Para aprofundamento, consultar BROWN, 2020; ALVES, 2015.)</em></span>
+            </p>
+            <p class="glossary-item" style="margin-bottom: 5px; font-size: 0.9em; line-height: 1.3;">
+                <strong style="color: #2c3e50;">5. XAMPP:</strong> Pacote que facilita a instalação de um ambiente de servidor local (Apache, MariaDB, PHP, Perl).
+                <span class="glossary-citation" style="font-size: 0.75em; color: #7f8c8d; display: block; margin-top: 1px;"><em>(Definição baseada no texto. Para aprofundamento, consultar BROWN, 2020; ALVES, 2015.)</em></span>
+            </p>
+            <p class="glossary-item" style="margin-bottom: 5px; font-size: 0.9em; line-height: 1.3;">
+                <strong style="color: #2c3e50;">6. Extensões (VS Code):</strong> Pequenos programas que adicionam funcionalidades ao editor, como autocompletar código ou traduzir a interface.
+                <span class="glossary-citation" style="font-size: 0.75em; color: #7f8c8d; display: block; margin-top: 1px;"><em>(Definição baseada no texto. Para aprofundamento, consultar BROWN, 2020; ALVES, 2015.)</em></span>
+            </p>
+    
+            <div class="references" style="margin-top: 18px;">
+                <p style="font-size:0.8em; margin-bottom: 2px; color: #34495e; line-height: 1.25;"><strong>Material Complementar Sugerido:</strong> Para um guia visual da instalação do XAMPP no Windows e configuração/extensões do VS Code, consulte os vídeos "Configurando Ambiente PHP no Windows (Prático)" (<code>https://www.youtube.com/watch?v=0Y9OZ0vc1SU</code>), "Configurando Pastas e VS Code para PHP" (<code>https://youtu.be/kKDbH6aKg48?si=c_3ExiKHqb2B8vtb</code>) e "Melhores Extensões VS Code para PHP" (<code>https://youtu.be/fsD5NF03MPc?si=fnesPLV3WsNteIMP</code>) do Curso em Video.</p>
+                <h3 style="color: #16a085; margin-top: 10px; margin-bottom: 4px; font-size: 12px; border-bottom: 1px solid #ddd; padding-bottom: 2px;">Referências Bibliográficas</h3>
+                <p style="font-size: 0.85em; margin-bottom: 3px; color: #333; line-height: 1.3;">
+                    BROWN, E. (2020). <em>Programação web com Node e Express: Beneficiando-se da Stack JavaScript</em>. 1ª edição. Novatec Editora.
+                </p>
+                <p style="font-size: 0.85em; margin-bottom: 3px; color: #333; line-height: 1.3;">
+                    ALVES, W. P. (2015). <em>Java para web: Desenvolvimento de aplicações</em>. 1ª edição. Editora Érica.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div id="questoes-reforco" class="content-section">
+        <h2>Questões de Reforço (Caderno)</h2>
+        <p><strong>Instrução:</strong> Para as questões de múltipla escolha, além de selecionar a alternativa correta, escreva uma breve justificativa para sua escolha.</p>
+        <div class="question-block">
+            <p><strong>Questão 01 (Múltipla Escolha):</strong> Qual das seguintes afirmações descreve mais precisamente a diferença fundamental no fluxo de processamento entre um script Client-Side (como JavaScript puro para manipulação de DOM) e um script Server-Side (como PHP) em uma aplicação web?</p>
+            <ul>
+                <li>a) Ambos são processados no servidor, mas o Client-Side é enviado criptografado, enquanto o Server-Side é enviado como texto plano para o navegador.</li>
+                <li>b) O Client-Side é compilado no servidor e enviado como um executável para o navegador, enquanto o Server-Side é interpretado linha por linha no navegador.</li>
+                <li>c) O Client-Side é baixado e executado inteiramente no navegador do usuário após o carregamento da página, enquanto o Server-Side é executado no servidor web, que então envia o resultado (geralmente HTML) para o navegador.</li>
+                <li>d) O Server-Side é responsável apenas por buscar dados estáticos do servidor, e toda a lógica dinâmica é obrigatoriamente implementada no Client-Side para melhor performance.</li>
+                <li>e) Scripts Client-Side não podem interagir com o usuário, essa função é exclusiva do Server-Side; o Server-Side, por sua vez, não pode gerar HTML.</li>
+            </ul>
+            <button class="toggle-button" onclick="toggleVisibility('qr14_1_feedback')">Ver Feedback</button>
+            <div id="qr14_1_feedback" class="hidden-content">
+                <p><strong>Feedback:</strong> Pense sobre onde cada tipo de código (o que o usuário vê no "Exibir Código Fonte" vs. o que realmente faz o site funcionar por trás) é executado. Qual deles precisa de um "intérprete" no servidor e qual roda diretamente na máquina do usuário? A alternativa correta destaca essa distinção fundamental no local de processamento e no que é entregue ao navegador.</p>
+            </div>
+        </div>
+        <div class="question-block">
+            <p><strong>Questão 02 (Múltipla Escolha):</strong> Um desenvolvedor está construindo uma plataforma de e-commerce complexa. Considerando as especialidades das linguagens, o PHP seria uma escolha inadequada para qual dos seguintes cenários hipotéticos, exigindo uma ferramenta mais especializada?</p>
+             <ul>
+                <li>a) Desenvolver a interface pública da loja virtual, permitindo que os clientes naveguem pelos produtos, adicionem itens ao carrinho e finalizem a compra.</li>
+                <li>b) Criar o sistema de back-end que gerencia o catálogo de produtos, processa os pedidos e se integra com um gateway de pagamento seguro.</li>
+                <li>c) Desenvolver um motor gráfico 3D de alta performance para permitir que os usuários visualizem os produtos em realidade aumentada diretamente no navegador.</li>
+                <li>d) Construir o painel administrativo onde os funcionários da loja podem adicionar novos produtos, atualizar estoques e visualizar relatórios de vendas.</li>
+                <li>e) Implementar um sistema de blog integrado à loja para publicação de conteúdo e marketing.</li>
+            </ul>
+            <button class="toggle-button" onclick="toggleVisibility('qr14_2_feedback')">Ver Feedback</button>
+            <div id="qr14_2_feedback" class="hidden-content">
+                <p><strong>Feedback:</strong> O PHP é muito versátil para desenvolvimento web, incluindo a criação de interfaces, lógica de back-end e painéis administrativos. No entanto, tarefas que exigem processamento gráfico intensivo e interações 3D em tempo real no navegador geralmente se beneficiam de tecnologias e linguagens otimizadas para o client-side e para gráficos, como JavaScript com bibliotecas especializadas (WebGL, Three.js).</p>
+            </div>
+        </div>
+        <div class="question-block">
+            <p><strong>Questão 03 (Aberta – Definição de Conceito):</strong> Explique, com suas palavras, por que um desenvolvedor PHP precisa de um "ambiente de servidor local" (como o XAMPP) em seu computador para desenvolver e testar suas aplicações, em vez de simplesmente abrir os arquivos `.php` diretamente em um navegador web como faria com um arquivo HTML.</p>
+            <button class="toggle-button" onclick="toggleVisibility('qr14_3_feedback')">Ver Feedback</button>
+            <div id="qr14_3_feedback" class="hidden-content">
+                <p><strong>Feedback para Reflexão:</strong> Lembre-se que o código PHP precisa ser *interpretado* e *executado* para gerar o HTML que o navegador entende. O navegador, por si só, não "fala PHP". Qual componente do ambiente local realiza essa interpretação? O que aconteceria se você tentasse abrir um arquivo `.php` como se fosse um `.html` comum?</p>
+            </div>
+        </div>
+        <div class="question-block">
+            <p><strong>Questão 04 (Aberta – Entendimento e Interpretação de Contexto):</strong> Um colega está confuso sobre os termos "Front-end" e "Back-end". Utilizando a analogia de um restaurante, explique para ele:</p>
+            <p>a) O que representaria o "Front-end" no restaurante e quais seriam as "tecnologias" ou "profissionais" associados a ele?</p>
+            <p>b) O que representaria o "Back-end" no restaurante e quais seriam as "tecnologias" ou "profissionais" associados a ele?</p>
+            <p>c) Como o PHP se encaixaria nessa analogia do restaurante?</p>
+            <button class="toggle-button" onclick="toggleVisibility('qr14_4_feedback')">Ver Feedback</button>
+            <div id="qr14_4_feedback" class="hidden-content">
+                <p><strong>Feedback para Reflexão:</strong></p>
+                <p><strong>Para (a) e (b):</strong> Pense nas partes do restaurante com as quais o cliente tem contato direto (o que ele vê, toca, interage) versus as partes que operam nos bastidores para que tudo funcione (cozinha, estoque, gestão). Quais profissionais e "ferramentas" ou "sistemas" estariam em cada uma dessas áreas?</p>
+                <p><strong>Para (c):</strong> Se o PHP é uma linguagem de back-end, em qual parte da operação do restaurante (cozinha ou salão) ele estaria atuando? Qual seria seu papel principal no processamento dos "pedidos" dos clientes e na preparação da "refeição" (a página web final)?</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="atividade-pratica" class="content-section">
+        <h2>Atividade Prática: Configurando o Laboratório PHP Completo</h2>
+        <div class="question-block">
+            <p><strong>Título da Atividade:</strong> Configurando o Laboratório PHP Completo: XAMPP, Pastas de Projeto e VS Code Otimizado</p>
+            <p><strong>Objetivo:</strong></p>
+            <ul>
+                <li>Instalar e configurar um ambiente de desenvolvimento PHP local (XAMPP).</li>
+                <li>Organizar a estrutura de pastas para projetos PHP.</li>
+                <li>Configurar o editor Visual Studio Code com definições básicas e instalar extensões essenciais para PHP.</li>
+                <li>Verificar o funcionamento do servidor local e do interpretador PHP.</li>
+            </ul>
+            <p><strong>Instruções (a serem realizadas com acompanhamento):</strong></p>
+            <ol>
+                <li><strong>Download e Instalação do XAMPP:</strong>
+                    <ul>
+                        <li>Acesse o site oficial do <a href="https://www.apachefriends.org" target="_blank" rel="noopener noreferrer">Apache Friends</a> e baixe a versão mais recente do XAMPP para seu sistema operacional.</li>
+                        <li>Execute o instalador, seguindo as instruções. Certifique-se de que Apache, MySQL e PHP estão selecionados para instalação.</li>
+                    </ul>
+                </li>
+                <li><strong>Iniciando e Testando o XAMPP:</strong>
+                    <ul>
+                        <li>Abra o Painel de Controle do XAMPP.</li>
+                        <li>Inicie o módulo "Apache".</li>
+                        <li>No navegador, acesse <code>http://localhost</code> ou <code>http://127.0.0.1</code> para verificar se a página de boas-vindas do XAMPP aparece.</li>
+                    </ul>
+                </li>
+                <li><strong>Organizando Pastas do Projeto:</strong>
+                    <ul>
+                        <li>Dentro da pasta <code>htdocs</code> do XAMPP (ex: <code>C:\xampp\htdocs</code>), crie uma pasta principal para seus projetos do curso (ex: <code>cursoPHP</code>).</li>
+                        <li>Dentro de <code>cursoPHP</code>, crie uma subpasta para o primeiro exercício (ex: <code>ex000</code>).</li>
+                    </ul>
+                </li>
+                 <li><strong>Configurando o Visual Studio Code (VS Code):</strong>
+                    <ul>
+                        <li>Se ainda não o fez, baixe e instale o VS Code de <a href="https://code.visualstudio.com" target="_blank" rel="noopener noreferrer">code.visualstudio.com</a>.</li>
+                        <li>Abra o VS Code e, através do menu "Arquivo" (ou "File"), selecione "Abrir Pasta..." (ou "Open Folder...") e navegue até a pasta do seu projeto criada anteriormente (ex: <code>C:\xampp\htdocs\cursoPHP</code>).</li>
+                        <li>Ajuste as seguintes configurações (geralmente acessíveis por "Arquivo" > "Preferências" > "Configurações" ou Ctrl+, / Cmd+,):
+                            <ul>
+                                <li>Procure por "<strong>Auto Save</strong>" e selecione uma opção como "afterDelay".</li>
+                                <li>Procure por "<strong>Word Wrap</strong>" e selecione "on".</li>
+                                <li>Ajuste o "<strong>Font Size</strong>" (Tamanho da Fonte) ou "<strong>Zoom Level</strong>" para seu conforto visual.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Instalação de Extensões Essenciais:</strong>
+                            <ul>
+                                <li>No menu lateral do VS Code, clique no ícone de Extensões (geralmente 4 quadrados, um se separando).</li>
+                                <li>Na barra de busca de extensões, procure e instale as seguintes:
+                                    <ul>
+                                        <li><code>Portuguese (Brazil) Language Pack for Visual Studio Code</code> (da Microsoft, para traduzir a interface, opcional).</li>
+                                        <li><code>PHP Intelephense</code> (de Ben Mewburn, para autocompletar código PHP, análise e outras ajudas).</li>
+                                        <li><code>PHP Snippets</code> (de Al Sheddadi ou similar, para trechos de código PHP pré-definidos).</li>
+                                         <li><code>Format HTML in PHP</code> para melhorar formatação HTML dentro de arquivos PHP).</li>
+                                    </ul>
+                                </li>
+                                <li>Após instalar extensões que alteram a interface (como o pacote de idioma), o VS Code pode pedir para ser reiniciado.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><strong>Primeiro Teste com PHP no Ambiente Configurado:</strong>
+                    <ul>
+                        <li>No VS Code, dentro da pasta do seu projeto (ex: <code>ex000</code>), crie um novo arquivo chamado <code>index.php</code>.</li>
+                        <li>Digite o seguinte código PHP: <code>&lt;?php echo "&lt;h1&gt;Olá, Mundo PHP! Meu ambiente está funcionando!&lt;/h1&gt;"; phpinfo(); ?&gt;</code></li>
+                        <li>Salve o arquivo.</li>
+                        <li>No navegador, acesse o caminho correspondente (ex: <code>http://localhost/cursoPHP/ex000/index.php</code>). Você deverá ver a mensagem "Olá, Mundo PHP!" e, abaixo, a página de informações do PHP.</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+    </div>
+
+</div> <script>
+    function toggleVisibility(elementId) {
+        const element = document.getElementById(elementId);
+        if (element) {
+            if (element.style.display === "none" || element.style.display === "") {
+                element.style.display = "block";
+            } else {
+                element.style.display = "none";
+            }
+        }
+    }
+</script>
+</body>
+</html>

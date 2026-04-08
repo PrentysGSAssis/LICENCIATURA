@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Texto Didático: PHP - Uma Jornada Prática do Zero à Web Moderna</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; line-height: 1.45; color: #333; font-size: 10pt; } /* Reduzido line-height e font-size base */
+        .header-top-container { display: flex; justify-content: center; align-items: center; border-bottom: 1px solid black; padding-bottom: 8px; margin: 15px 20px 10px 20px; width: auto; }
+        .logo { max-width: 65px; height: auto; margin-right: 15px; } /* Reduzido logo */
+        .school-info { text-align: center; padding: 0 8px; }
+        .school-info strong { display: block; margin-bottom: 3px; font-size: 0.9em; } /* Reduzido font-size e margin */
+        .school-info .address-details span { display: inline; font-size: 0.75em; margin-right: 4px; } /* Reduzido font-size */
+        .school-info .address-details span:last-child { margin-right: 0; }
+        .form-fields-container { display: grid; grid-template-columns: repeat(6, 1fr); gap: 5px 10px; /* Reduzido gap */ width: auto; margin: 0 20px 10px 20px; }
+        .form-field { border: 1px solid black; padding: 5px; /* Reduzido padding */ font-size: 0.8em; /* Reduzido font-size */ }
+        .disciplina-field { grid-column: span 4; }
+        .professor-field { grid-column: span 2; }
+        .atividade-field { grid-column: span 4; }
+        .data-field { grid-column: span 1; }
+        .turma-field { grid-column: span 1; }
+        .full-width { grid-column: 1 / -1; }
+        .fill-in { display: inline-block; border-bottom: 1px solid black; min-width: 20px; margin: 0 1px; padding: 0 1px; line-height: 1; }
+        .fill-in.date-year { min-width: 35px; }
+        .texto-didatico-main-content { padding: 5px 20px 15px 20px; /* Ajustado padding */ margin-top: 5px; }
+        h1 { color: #2c3e50; border-bottom: 1px solid #3498db; padding-bottom: 6px; margin-top: 0; font-size: 16px; text-align: center; margin-bottom: 12px; } /* Reduzido font-size e espaçamentos */
+        h2 { color: #2980b9; margin-top: 15px; margin-bottom: 6px; font-size: 13px; border-bottom: 1px dotted #A9A9A9; padding-bottom:3px; } /* Reduzido font-size e espaçamentos */
+        p { margin-top: 0; margin-bottom: 10px; text-align: justify; font-size: 0.95em; line-height: 1.35; } /* Ajustado font-size e line-height */
+        ul { margin-left: 15px; padding-left: 15px; margin-bottom: 10px; font-size: 0.95em; line-height: 1.35;}
+        li { margin-bottom: 4px; }
+        h3 { color: #16a085; margin-top: 18px; margin-bottom: 6px; font-size: 12px; border-bottom: 1px solid #ddd; padding-bottom: 2px; } /* Reduzido font-size e espaçamentos */
+        .glossary-item { margin-bottom: 5px; font-size: 0.9em; line-height: 1.3; } /* Ajustado font-size e line-height */
+        .glossary-citation { font-size: 0.75em; color: #7f8c8d; display: block; margin-top: 1px; }
+        .references p { font-size: 0.85em; margin-bottom: 3px; line-height: 1.3; }
+    </style>
+</head>
+<body>
+
+    <div class="header-top-container">
+        <img src="https://1drv.ms/i/c/9e9e1f5991e00f07/IQTuKfwDXz6eQZG682I84WqBASSJENKf1uHvN3nSBXphxkU?width=1024" alt="Logo da Escola" class="logo" onerror="this.onerror=null; this.src='https://placehold.co/80x80/ccc/000?text=Logo'; this.alt='Erro ao carregar logo';">
+        <div class="school-info">
+            <strong style="font-size:1em;">ESCOLA ESTADUAL PROFESSORA SEBASTIANA DE ALMEIDA E SILVA</strong>
+            <div class="address-details">
+                <span>Rua São José, nº 30, Jaguaruçu - MG.</span>
+                <span>CEP: 35.188-000</span>
+                <span>Tel: (31) 3845-1209</span>
+            </div>
+        </div>
+    </div>
+    <div class="form-fields-container">
+        <div class="form-field disciplina-field"><strong>DISCIPLINA:</strong> Desenvolvimento Back-End</div>
+        <div class="form-field professor-field"><strong>PROFESSOR(A):</strong> Prentys Assis</div>
+        <div class="form-field atividade-field"><strong>ATIVIDADE:</strong> PHP - Uma Jornada Prática do Zero à Web Moderna</div>
+        <div class="form-field data-field"><strong>DATA:</strong> <span class="fill-in">&nbsp;</span>/<span class="fill-in">&nbsp;</span>/<span class="fill-in date-year">&nbsp;</span></div>
+        <div class="form-field turma-field"><strong>TURMA:</strong> <span class="fill-in">3</span> º ano</div>
+        <div class="form-field full-width"><strong>ALUNO(A):</strong></div>
+    </div>
+    <div class="texto-didatico-main-content">
+        <h1 style="color: #2c3e50; border-bottom: 1px solid #3498db; padding-bottom: 6px; margin-top: 0; font-size: 16px; text-align: center; margin-bottom: 12px;">PHP: Uma Jornada Prática do Zero à Web Moderna</h1>
+        
+        <p style="margin-top: 0; margin-bottom: 10px; text-align: justify; font-size: 0.95em; line-height: 1.35;">
+            Iniciamos esta semana uma exploração fundamental no desenvolvimento back-end: a linguagem PHP. O objetivo aqui não é apenas apresentar mais uma tecnologia, mas sim utilizar a estrutura e didática de um curso online prático, como o "Curso de PHP Moderno" do Curso em Video, como um veículo para desenvolvermos juntos uma habilidade crucial: a capacidade de aprender de forma autônoma e independente através das vastas plataformas digitais disponíveis, como o YouTube. Este material funcionará como um guia inicial, um ponto de partida teórico que servirá de base para nossas discussões e, futuramente, para que vocês mesmos desbravem novos conhecimentos.
+        </p>
+
+        <h2 style="color: #2980b9; margin-top: 15px; margin-bottom: 6px; font-size: 13px; border-bottom: 1px dotted #A9A9A9; padding-bottom:3px;">Capítulo 1: Boas-vindas ao PHP Moderno - Fundamentos para o Estudo Autônomo</h2>
+        <p style="margin-top: 0; margin-bottom: 10px; text-align: justify; font-size: 0.95em; line-height: 1.35;">
+            PHP, a sigla recursiva para "PHP: Hypertext Preprocessor"<sup>1</sup>, é uma linguagem de script open-source robusta e amplamente adotada, projetada primariamente para o desenvolvimento web do lado do servidor. Sua popularidade se deve à sua flexibilidade, vasta comunidade e à capacidade de ser embutida diretamente em código HTML, facilitando a criação de páginas e aplicações web dinâmicas. De simples sites a complexos sistemas de gerenciamento de conteúdo e plataformas de e-commerce, o PHP continua sendo uma escolha relevante e poderosa no ecossistema da internet.
+        </p>
+        <p style="margin-top: 0; margin-bottom: 10px; text-align: justify; font-size: 0.95em; line-height: 1.35;">
+            Para quem se aventura no PHP, especialmente através de cursos online práticos, é fundamental compreender alguns conceitos básicos que formam o alicerce da linguagem. Isso inclui entender como o PHP opera (scripts processados no servidor antes de enviar o resultado ao navegador), a importância de um ambiente de desenvolvimento local (com ferramentas como XAMPP ou Laragon) para testar seus códigos, a sintaxe fundamental (como as tags `&lt;?php ... ?&gt;` que delimitam o código PHP), os comandos para exibir dados (como `echo`), o uso de variáveis para armazenar e manipular informações, os diversos tipos de dados (textos, números, arrays, etc.) e os operadores para realizar comparações e cálculos. Uma base sólida em lógica de programação é um excelente ponto de partida, e qualquer familiaridade com HTML e CSS enriquecerá a compreensão de como o PHP se integra para construir a web.
+        </p>
+
+        <h2 style="color: #2980b9; margin-top: 15px; margin-bottom: 6px; font-size: 13px; border-bottom: 1px dotted #A9A9A9; padding-bottom:3px;">Capítulo 2: A Fascinante História do PHP e Sua Comunidade Vibrante</h2>
+        <p style="margin-top: 0; margin-bottom: 10px; text-align: justify; font-size: 0.95em; line-height: 1.35;">
+            A história do PHP é um testemunho da evolução colaborativa no mundo do software. Tudo começou de forma despretensiosa em 1994, quando Rasmus Lerdorf<sup>2</sup>, um programador dinamarquês-canadense, criou um conjunto de scripts CGI<sup>3</sup> (Common Gateway Interface) escritos em Perl. Seu objetivo inicial era simples: manter sua página pessoal online, o que levou ao nome "Personal Home Page Tools" (PHP Tools). Essas ferramentas permitiam, por exemplo, rastrear quem visitava seu currículo online.
+        </p>
+        <p style="margin-top: 0; margin-bottom: 10px; text-align: justify; font-size: 0.95em; line-height: 1.35;">
+            Reconhecendo o potencial de suas ferramentas, Lerdorf liberou o código-fonte em 1995, um marco que deu origem ao PHP/FI (Personal Home Page/Forms Interpreter), já reescrito em C. Esta versão inicial permitia aos usuários construir aplicações web simples e dinâmicas. A grande virada ocorreu em 1997, quando dois desenvolvedores israelenses, Andi Gutmans e Zeev Suraski, perceberam que o PHP/FI, embora útil, precisava de um motor de interpretação (parser) mais potente para aplicações mais complexas, como o projeto de e-commerce em que trabalhavam para a universidade. Eles se uniram a Lerdorf e reescreveram o núcleo da linguagem, culminando no lançamento do PHP 3 em 1998. Foi nessa época que o acrônimo PHP ganhou seu significado recursivo atual: "PHP: Hypertext Preprocessor". O PHP 3 ofereceu melhor desempenho, extensibilidade aprimorada e um suporte mais consistente à orientação a objetos, o que impulsionou significativamente sua popularidade.
+        </p>
+        <p style="margin-top: 0; margin-bottom: 10px; text-align: justify; font-size: 0.95em; line-height: 1.35;">
+            A dupla Gutmans e Suraski não parou por aí. Eles continuaram a refinar o motor da linguagem, criando o que se tornaria conhecido como Zend Engine<sup>4</sup>. Em 1999, fundaram a Zend Technologies, empresa que se tornou central para o desenvolvimento e o ecossistema profissional do PHP. O PHP 4, lançado em 2000, foi a primeira versão impulsionada pela Zend Engine, trazendo melhorias notáveis de performance e confiabilidade. Alguns anos depois, o PHP 5 (2004) representou um salto de maturidade, consolidando o modelo de Orientação a Objetos na linguagem, de forma muito mais robusta e comparável a outras linguagens como Java, e introduzindo extensões importantes como o PDO para acesso a bancos de dados.
+        </p>
+        <p style="margin-top: 0; margin-bottom: 10px; text-align: justify; font-size: 0.95em; line-height: 1.35;">
+            A evolução do PHP é uma constante. O PHP 7 (a partir de 2015) marcou uma nova era com otimizações drásticas de performance (Zend Engine 3), tipagem escalar e de retorno, e o operador de coalescência nula, entre outros. Mais recentemente, o PHP 8 (a partir de 2020) continuou essa modernização com recursos como Union Types, Named Arguments, Atributos e o inovador compilador JIT (Just-In-Time), solidificando o PHP como uma linguagem performática e rica em funcionalidades para os desafios da web contemporânea.
+        </p>
+        <p style="margin-top: 0; margin-bottom: 10px; text-align: justify; font-size: 0.95em; line-height: 1.35;">
+            Paralelamente a essa evolução técnica, floresceu uma vibrante comunidade global. Um dos símbolos mais queridos dessa comunidade é o "elePHPant"<sup>5</sup>, o mascote oficial do PHP. Criado em 1998 pelo artista francês Vincent Pontier, o design surgiu da observação de que as letras "PHP", vistas de lado, lembravam a silhueta de um elefante. O mascote, geralmente azul e com o logo do PHP em sua lateral, representa a força, a confiabilidade e a sabedoria associadas aos elefantes, além de simbolizar a natureza colaborativa e amigável da comunidade open-source que sustenta e impulsiona a linguagem. A existência e popularidade do elePHPant, materializado em pelúcias e diversas artes, é um testemunho do forte senso de identidade e pertencimento entre os desenvolvedores PHP.
+        </p>
+
+        <h3 style="color: #16a085; margin-top: 18px; margin-bottom: 6px; font-size: 12px; border-bottom: 1px solid #ddd; padding-bottom: 2px;">Glossário</h3>
+        <p class="glossary-item" style="margin-bottom: 5px; font-size: 0.9em; line-height: 1.3;">
+            <strong style="color: #2c3e50;">1. PHP (PHP: Hypertext Preprocessor):</strong> Linguagem de script open-source de servidor, fundamental para o desenvolvimento web dinâmico.
+            <span class="glossary-citation" style="font-size: 0.75em; color: #7f8c8d; display: block; margin-top: 1px;"><em>(Definição baseada no texto. Para aprofundamento, consultar BROWN, 2020; ALVES, 2015.)</em></span>
+        </p>
+        <p class="glossary-item" style="margin-bottom: 5px; font-size: 0.9em; line-height: 1.3;">
+            <strong style="color: #2c3e50;">2. CGI (Common Gateway Interface):</strong> Um padrão que permite a servidores web interagir com programas externos (scripts), crucial para as primeiras aplicações web dinâmicas.
+            <span class="glossary-citation" style="font-size: 0.75em; color: #7f8c8d; display: block; margin-top: 1px;"><em>(Definição baseada no texto. Para aprofundamento, consultar BROWN, 2020; ALVES, 2015.)</em></span>
+        </p>
+        <p class="glossary-item" style="margin-bottom: 5px; font-size: 0.9em; line-height: 1.3;">
+            <strong style="color: #2c3e50;">3. Rasmus Lerdorf:</strong> O criador original do PHP, responsável pelas "Personal Home Page Tools" que deram origem à linguagem.
+            <span class="glossary-citation" style="font-size: 0.75em; color: #7f8c8d; display: block; margin-top: 1px;"><em>(Definição baseada no texto. Para aprofundamento, consultar BROWN, 2020; ALVES, 2015.)</em></span>
+        </p>
+        <p class="glossary-item" style="margin-bottom: 5px; font-size: 0.9em; line-height: 1.3;">
+            <strong style="color: #2c3e50;">4. Zend Engine:</strong> O motor de script open-source que forma o núcleo interpretador e executor do PHP, desenvolvido por Andi Gutmans e Zeev Suraski.
+            <span class="glossary-citation" style="font-size: 0.75em; color: #7f8c8d; display: block; margin-top: 1px;"><em>(Definição baseada no texto. Para aprofundamento, consultar BROWN, 2020; ALVES, 2015.)</em></span>
+        </p>
+        <p class="glossary-item" style="margin-bottom: 5px; font-size: 0.9em; line-height: 1.3;">
+            <strong style="color: #2c3e50;">5. elePHPant:</strong> O mascote oficial da linguagem PHP, um elefante azul que simboliza a comunidade e a robustez da linguagem.
+            <span class="glossary-citation" style="font-size: 0.75em; color: #7f8c8d; display: block; margin-top: 1px;"><em>(Definição baseada no texto. Para aprofundamento, consultar BROWN, 2020; ALVES, 2015.)</em></span>
+        </p>
+
+        <div class="references" style="margin-top: 18px;">
+            <p style="font-size:0.8em; margin-bottom: 2px; color: #34495e; line-height: 1.25;"><strong>Material Complementar Sugerido:</strong> Para aprofundar, assista "Esse curso de PHP serve pra mim?" e "Lista TOP 6 livros de PHP" (@CursoemVideo); consulte sempre php.net.</p>
+            <h3 style="color: #16a085; margin-top: 10px; margin-bottom: 4px; font-size: 12px; border-bottom: 1px solid #ddd; padding-bottom: 2px;">Referências Bibliográficas</h3>
+            <p style="font-size: 0.85em; margin-bottom: 3px; color: #333; line-height: 1.3;">
+                BROWN, E. (2020). <em>Programação web com Node e Express: Beneficiando-se da Stack JavaScript</em>. 1ª edição. Novatec Editora.
+            </p>
+            <p style="font-size: 0.85em; margin-bottom: 3px; color: #333; line-height: 1.3;">
+                ALVES, W. P. (2015). <em>Java para web: Desenvolvimento de aplicações</em>. 1ª edição. Editora Érica.
+            </p>
+        </div>
+    </div>
+    </body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plano Anual - Desenvolvimento Front-end I</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #E3F2FD; /* Azul muito claro */
+            --primary-blue: #1976D2; /* Azul primário */
+            --accent-blue: #64B5F6; /* Azul de destaque */
+            --text-dark: #0D47A1; /* Azul escuro para texto */
+            --text-light: #1565C0; /* Azul mais claro para texto */
+            --border-color: #BBDEFB; /* Azul bem claro para bordas */
+        }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-main); color: var(--text-dark); }
+        .nav-link {
+            transition: all 0.3s;
+            border-left: 4px solid transparent;
+            color: var(--text-light);
+        }
+        .nav-link.active {
+            border-left-color: var(--primary-blue);
+            background-color: #FFFFFF;
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+        .semana-box {
+            background-color: white;
+            border: 1px solid var(--border-color);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .semana-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .semana-header h3 { font-size: 1.25rem; font-weight: 600; color: var(--text-dark); }
+        .copy-btn {
+            background-color: var(--accent-blue);
+            color: white;
+            font-size: 0.875rem;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .copy-btn:hover { background-color: var(--primary-blue); }
+        .semana-content strong { color: var(--primary-blue); }
+        .semana-content ul { list-style-type: '» '; padding-left: 1.25rem; margin-top: 0.5rem; }
+        .semana-content li { margin-bottom: 0.5rem; }
+    </style>
+</head>
+<body class="p-4 sm:p-6 lg:p-8">
+
+    <header class="text-center mb-10">
+        <h1 class="text-4xl font-bold" style="color: var(--text-dark);">Plano Anual de Aulas 2025</h1>
+        <p class="text-xl mt-2" style="color: var(--text-light);">Desenvolvimento Front-end I - 2º Ano</p>
+        <p class="text-lg font-semibold mt-1" style="color: var(--text-dark);">(Total: 73 aulas anuais)</p>
+    </header>
+
+    <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-10">
+        <aside class="lg:w-1/4">
+            <div class="sticky top-8">
+                <h2 class="text-xl font-semibold mb-4" style="color: var(--text-dark);">Navegação</h2>
+                <nav id="bimestre-nav" class="flex flex-col space-y-2">
+                    <a href="#bimestre-1" class="nav-link active p-4 rounded-r-lg">1º Bimestre</a>
+                    <a href="#bimestre-2" class="nav-link p-4 rounded-r-lg">2º Bimestre</a>
+                    <a href="#bimestre-3" class="nav-link p-4 rounded-r-lg">3º Bimestre</a>
+                    <a href="#bimestre-4" class="nav-link p-4 rounded-r-lg">4º Bimestre</a>
+                </nav>
+            </div>
+        </aside>
+
+        <main class="lg:w-3/4">
+            <section id="bimestre-1" class="bimestre-section">
+                <h2 class="text-3xl font-bold mb-6 pb-2 border-b-2" style="border-color: var(--primary-blue);">1º Bimestre (18 aulas)</h2>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 1 (04/02, 06/02)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Introdução ao Desenvolvimento Web e HTML.<br><strong>Objetivo:</strong> Entender o que é front-end e a estrutura básica de um documento HTML.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">04/02 (Terça-feira):</strong><ul class="mt-1"><li>Apresentação. Front-end vs. Back-end. O que é HTML?</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">06/02 (Quinta-feira):</strong><ul class="mt-1"><li>Estrutura de um documento HTML: `DOCTYPE`, `html`, `head`, `body`.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 2 (11/02, 13/02)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Elementos Essenciais do HTML.<br><strong>Objetivo:</strong> Utilizar tags para formatação de texto e elementos do cabeçalho.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">11/02 (Terça-feira):</strong><ul class="mt-1"><li>Elementos do `head`: `title`, `meta` (charset, viewport), `link`.</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">13/02 (Quinta-feira):</strong><ul class="mt-1"><li>Formatação de texto: Títulos (`h1`-`h6`), parágrafos (`p`), `strong`, `em`, `br`, `hr`.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 3 (18/02, 20/02)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Listas e Links.<br><strong>Objetivo:</strong> Aprender a criar listas e navegação entre páginas com hiperlinks.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">18/02 (Terça-feira):</strong><ul class="mt-1"><li>Listas não ordenadas (`ul`, `li`) e ordenadas (`ol`, `li`).</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">20/02 (Quinta-feira):</strong><ul class="mt-1"><li>Tag `<a>` e seus atributos (`href`, `target`). Links internos, externos e âncoras.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 4 (25/02, 27/02)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Imagens e Multimídia.<br><strong>Objetivo:</strong> Inserir imagens e entender como incorporar outros tipos de mídia.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">25/02 (Terça-feira):</strong><ul class="mt-1"><li>Tag `<img>` e seus atributos (`src`, `alt`, `width`, `height`).</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">27/02 (Quinta-feira):</strong><ul class="mt-1"><li>Introdução aos elementos `<audio>` e `<video>`.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 5 (11/03, 13/03)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> HTML Semântico.<br><strong>Objetivo:</strong> Utilizar tags do HTML5 para dar significado e estrutura à página.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">11/03 (Terça-feira):</strong><ul class="mt-1"><li>O que é semântica web? Importância para SEO e acessibilidade.</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">13/03 (Quinta-feira):</strong><ul class="mt-1"><li>Elementos estruturais: `<header>`, `<footer>`, `<nav>`, `<main>`, `<article>`, `<section>`.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 6 (18/03, 20/03)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Introdução ao CSS.<br><strong>Objetivo:</strong> Entender o que é CSS e as diferentes formas de aplicá-lo ao HTML.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">18/03 (Terça-feira):</strong><ul class="mt-1"><li>O que é Cascading Style Sheets? Separação de conteúdo e apresentação.</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">20/03 (Quinta-feira):</strong><ul class="mt-1"><li>Formas de aplicar CSS: inline, interno (`<style>`) e externo (`<link>`).</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 7 (25/03, 27/03)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Seletores e Propriedades de Texto.<br><strong>Objetivo:</strong> Aprender a selecionar elementos HTML para estilizar textos.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">25/03 (Terça-feira):</strong><ul class="mt-1"><li>Seletores básicos: tipo (tag), classe (`.`) e ID (`#`).</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">27/03 (Quinta-feira):</strong><ul class="mt-1"><li>Propriedades de texto: `color`, `font-family`, `font-size`, `font-weight`, `text-align`.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 8 (01/04, 03/04)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Cores e Box Model.<br><strong>Objetivo:</strong> Aprender a trabalhar com cores e compreender o modelo de caixa.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">01/04 (Terça-feira):</strong><ul class="mt-1"><li>Formatos de cores (hexadecimal, RGB). Propriedade `background-color`.</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">03/04 (Quinta-feira):</strong><ul class="mt-1"><li>O conceito do Box Model: conteúdo, padding, border e margin.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 9 (08/04, 10/04)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Atividade Avaliativa - 1º Bimestre.<br><strong>Objetivo:</strong> Avaliar a capacidade de criar uma página HTML estruturada e aplicar estilos básicos.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">08/04 (Terça-feira):</strong><ul class="mt-1"><li>Instruções e início da avaliação prática: criar uma página de perfil pessoal.</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">10/04 (Quinta-feira):</strong><ul class="mt-1"><li>Finalização e entrega da avaliação.</li></ul></div></div></div></div>
+            </section>
+            
+            <section id="bimestre-2" class="bimestre-section pt-10">
+                <h2 class="text-3xl font-bold mb-6 pb-2 border-b-2" style="border-color: var(--primary-blue);">2º Bimestre (18 aulas)</h2>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 10 (29/04)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Box Model na Prática.<br><strong>Objetivo:</strong> Aplicar as propriedades do Box Model para construir layouts simples.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">29/04 (Terça-feira com Horário de Quinta):</strong><ul class="mt-1"><li>Propriedades `width`, `height`, `padding`, `border`, `margin`.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 11 (06/05, 08/05)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Unidades de Medida em CSS.<br><strong>Objetivo:</strong> Conhecer e aplicar diferentes unidades de medida para criar designs flexíveis.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">06/05 (Terça-feira):</strong><ul class="mt-1"><li>Unidades absolutas (`px`) vs. relativas (`%`, `em`, `rem`).</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">08/05 (Quinta-feira):</strong><ul class="mt-1"><li>Unidades de viewport (`vw`, `vh`). Atividade prática de dimensionamento.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 12 (13/05, 15/05)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Tabelas HTML.<br><strong>Objetivo:</strong> Aprender a estruturar e estilizar dados tabulares de forma semântica.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">13/05 (Terça-feira):</strong><ul class="mt-1"><li>Estrutura: `<table>`, `<tr>`, `<td>`, `<th>`. Agrupamento: `<thead>`, `<tbody>`.</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">15/05 (Quinta-feira):</strong><ul class="mt-1"><li>Atributos `colspan` e `rowspan`. Estilização básica de tabelas.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 13 (20/05, 22/05)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Formulários HTML.<br><strong>Objetivo:</strong> Construir formulários para interação com o usuário.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">20/05 (Terça-feira):</strong><ul class="mt-1"><li>Estrutura: `<form>`, `<label>`, `<input>`, `<button>`.</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">22/05 (Quinta-feira):</strong><ul class="mt-1"><li>Tipos de input (`text`, `password`, `email`, `checkbox`, `radio`). Elementos `<textarea>` e `<select>`.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 14 (03/06, 05/06) - Prova Parcial</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Avaliação Parcial.<br><strong>Objetivo:</strong> Avaliar a aplicação do Box Model e estilização de elementos e formulários.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">03/06 (Terça-feira):</strong><ul class="mt-1"><li>Aplicação de avaliação prática no laboratório.</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">05/06 (Quinta-feira):</strong><ul class="mt-1"><li>Finalização da avaliação, correção e feedback.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 15 (10/06, 12/06)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Posicionamento em CSS.<br><strong>Objetivo:</strong> Aprender a controlar a posição dos elementos na página.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">10/06 (Terça-feira):</strong><ul class="mt-1"><li>Propriedade `position`: `static` e `relative`.</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">12/06 (Quinta-feira):</strong><ul class="mt-1"><li>Propriedade `position`: `absolute`, `fixed`. Propriedades `top`, `left`, etc.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 16 (17/06, 24/06)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Float e Display.<br><strong>Objetivo:</strong> Utilizar técnicas de layout e aprofundar o uso da propriedade display.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">17/06 (Terça-feira):</strong><ul class="mt-1"><li>Propriedade `float` para alinhamento. Propriedade `clear`.</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">24/06 (Terça-feira):</strong><ul class="mt-1"><li>Propriedade `display`: `block`, `inline`, `inline-block`, `none`.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 17 (26/06, 01/07) - Prova Global</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Avaliação Global e Revisão Final.<br><strong>Objetivo:</strong> Avaliar o conhecimento do bimestre e revisar para recuperação.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">26/06 (Quinta-feira):</strong><ul class="mt-1"><li>Prova Global: construir layout de uma página com posicionamento.</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">01/07 (Terça-feira):</strong><ul class="mt-1"><li>Correção e feedback. Preparação para a recuperação.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 18 (03/07) - Recuperação</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Semana de Recuperação Parcial.<br><strong>Objetivo:</strong> Oferecer nova oportunidade de aprendizado e avaliação.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">03/07 (Quinta-feira):</strong><ul class="mt-1"><li>Aplicação de atividades/prova de recuperação. Atendimento individualizado.</li></ul></div></div></div></div>
+            </section>
+            
+            <section id="bimestre-3" class="bimestre-section pt-10">
+                <h2 class="text-3xl font-bold mb-6 pb-2 border-b-2" style="border-color: var(--primary-blue);">3º Bimestre (22 aulas)</h2>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 19 (05/08, 07/08)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Layout Flexbox - Parte 1.<br><strong>Objetivo:</strong> Introduzir o Flexbox para criar layouts unidimensionais de forma eficiente.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">05/08 (Terça-feira):</strong><ul class="mt-1"><li>O que é Flexbox? `display: flex`. Propriedades do container: `flex-direction`.</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">07/08 (Quinta-feira):</strong><ul class="mt-1"><li>Propriedades de alinhamento do container: `justify-content`, `align-items`.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 20 (12/08, 14/08)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Layout Flexbox - Parte 2.<br><strong>Objetivo:</strong> Aprofundar o uso de Flexbox com propriedades de container e itens.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">12/08 (Terça-feira):</strong><ul class="mt-1"><li>Propriedades do container: `flex-wrap`, `align-content`.</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">14/08 (Quinta-feira):</strong><ul class="mt-1"><li>Propriedades dos itens: `flex-grow`, `flex-shrink`, `flex-basis`, `order`.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 21 (19/08, 21/08, 23/08)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Layout Grid - Parte 1.<br><strong>Objetivo:</strong> Introduzir o CSS Grid para a criação de layouts bidimensionais complexos.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">19/08 (Terça-feira):</strong><ul class="mt-1"><li>O que é CSS Grid? `display: grid`.</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">21/08 (Quinta-feira):</strong><ul class="mt-1"><li>Definindo colunas e linhas: `grid-template-columns`, `grid-template-rows`.</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">23/08 (Sábado - Horário de Quinta):</strong><ul class="mt-1"><li>Espaçamento com `grid-gap` (`gap`). Atividade prática.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 22 (26/08, 28/08)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Layout Grid - Parte 2.<br><strong>Objetivo:</strong> Aprofundar o uso de Grid, posicionando itens na grade.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">26/08 (Terça-feira):</strong><ul class="mt-1"><li>Posicionando itens com `grid-column-start`, `grid-column-end`, etc.</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">28/08 (Quinta-feira):</strong><ul class="mt-1"><li>Sintaxe abreviada: `grid-column` e `grid-row`.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 23 (02/09, 04/09)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Design Responsivo com Flexbox e Grid.<br><strong>Objetivo:</strong> Combinar Flexbox, Grid e Media Queries para criar layouts responsivos.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">02/09 (Terça-feira):</strong><ul class="mt-1"><li>Estratégias para alterar Flexbox em diferentes breakpoints.</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">04/09 (Quinta-feira):</strong><ul class="mt-1"><li>Refatorando um layout de Grid para se adaptar a telas menores.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 24 (09/09, 11/09)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Revisão e Avaliação.<br><strong>Objetivo:</strong> Consolidar o aprendizado sobre Flexbox e Grid.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">09/09 (Terça-feira):</strong><ul class="mt-1"><li>Revisão geral e tira-dúvidas.</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">11/09 (Quinta-feira):</strong><ul class="mt-1"><li>Prova prática: construir um site responsivo usando Flexbox e Grid.</li></ul></div></div></div></div>
+            </section>
+
+            <section id="bimestre-4" class="bimestre-section pt-10">
+                <h2 class="text-3xl font-bold mb-6 pb-2 border-b-2" style="border-color: var(--primary-blue);">4º Bimestre (15 aulas)</h2>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 25 (21/10, 23/10)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Seletores Avançados e Efeitos CSS.<br><strong>Objetivo:</strong> Aumentar o poder dos seletores e adicionar refinamento visual.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">21/10 (Terça-feira):</strong><ul class="mt-1"><li>Combinadores e Pseudo-classes (`:hover`, `:nth-child`).</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">23/10 (Quinta-feira):</strong><ul class="mt-1"><li>Efeitos: `box-shadow`, `text-shadow`, `transition`.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 26 (30/10)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Acessibilidade na Web (A11Y).<br><strong>Objetivo:</strong> Compreender a importância de construir sites acessíveis a todos.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">30/10 (Quinta-feira):</strong><ul class="mt-1"><li>Práticas básicas: uso de `alt`, semântica, contraste de cores.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 27 (04/11, 06/11)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Otimização e Boas Práticas.<br><strong>Objetivo:</strong> Conhecer técnicas para melhorar o desempenho e a manutenção de sites.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">04/11 (Terça-feira):</strong><ul class="mt-1"><li>Compatibilidade entre navegadores (Cross-browser).</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">06/11 (Quinta-feira):</strong><ul class="mt-1"><li>Otimização de imagens e minificação de CSS.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 28 (11/11, 13/11)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Frameworks CSS: Introdução ao Tailwind CSS.<br><strong>Objetivo:</strong> Compreender o conceito de utility-first e agilizar o desenvolvimento.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">11/11 (Terça-feira):</strong><ul class="mt-1"><li>O que é um framework CSS? Utility-first vs. Component-based.</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">13/11 (Quinta-feira):</strong><ul class="mt-1"><li>Configuração do Tailwind e refatoração de um componente HTML.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 29 (18/11, 25/11)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Definição e Desenvolvimento do Projeto Final.<br><strong>Objetivo:</strong> Estruturar e iniciar o projeto que integrará todos os conceitos do ano.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">18/11 (Terça-feira):</strong><ul class="mt-1"><li>Proposta do projeto: construir um website estático responsivo.</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">25/11 (Terça-feira):</strong><ul class="mt-1"><li>Desenvolvimento assistido do projeto no laboratório.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 30 (02/12, 04/12)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Finalização e Apresentação do Projeto.<br><strong>Objetivo:</strong> Concluir e apresentar o website, demonstrando o domínio das tecnologias.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">02/12 (Terça-feira):</strong><ul class="mt-1"><li>Últimos ajustes e preparação para a apresentação final.</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">04/12 (Quinta-feira):</strong><ul class="mt-1"><li>Apresentação dos projetos finais. Avaliação e encerramento da disciplina.</li></ul></div></div></div></div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('.bimestre-section');
+            const copyButtons = document.querySelectorAll('.copy-btn');
+
+            function updateActiveLinkOnScroll() {
+                let currentSectionId = '';
+                const fromTop = window.scrollY + 100;
+
+                sections.forEach(section => {
+                    if (section.offsetTop <= fromTop && (section.offsetTop + section.offsetHeight) > fromTop) {
+                        currentSectionId = section.id;
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${currentSectionId}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', updateActiveLinkOnScroll);
+            updateActiveLinkOnScroll(); 
+
+            copyButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const semanaBox = button.closest('.semana-box');
+                    const title = semanaBox.querySelector('.week-title').innerText;
+                    const contentNode = semanaBox.querySelector('.semana-content').cloneNode(true);
+                    
+                    contentNode.querySelectorAll('ul').forEach(ul => {
+                        ul.querySelectorAll('li').forEach(li => {
+                            li.textContent = `- ${li.textContent}`;
+                        });
+                    });
+
+                    const content = contentNode.innerText;
+                    const fullText = `${title}\n\n${content}`;
+
+                    navigator.clipboard.writeText(fullText).then(() => {
+                        const originalText = button.innerText;
+                        button.innerText = 'Copiado!';
+                        button.style.backgroundColor = '#4CAF50';
+                        button.style.color = 'white';
+                        setTimeout(() => {
+                            button.innerText = originalText;
+                            button.style.backgroundColor = '';
+                            button.style.color = '';
+                        }, 2000);
+                    }).catch(err => {
+                        console.error('Falha ao copiar:', err);
+                        const originalText = button.innerText;
+                        button.innerText = 'Falhou!';
+                        button.style.backgroundColor = '#F44336';
+                        button.style.color = 'white';
+                        setTimeout(() => {
+                            button.innerText = originalText;
+                            button.style.backgroundColor = '';
+                            button.style.color = '';
+                        }, 2000);
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

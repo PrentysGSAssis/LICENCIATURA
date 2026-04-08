@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto de Formatura - 3º Ano Técnico em Desenvolvimento de Sistemas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Estilos personalizados para melhorar a aparência */
+        .card {
+            @apply bg-white shadow-xl rounded-lg p-6 transition-all duration-300 hover:shadow-2xl;
+        }
+        .card-title {
+            @apply text-2xl font-bold text-indigo-700 mb-3;
+        }
+        .section-title {
+            @apply text-3xl font-bold text-gray-800 mb-8 text-center;
+        }
+        .team-leader {
+            @apply font-semibold text-indigo-600;
+        }
+        .commission-member {
+            @apply font-semibold text-purple-600;
+        }
+         .nav-link {
+            @apply px-4 py-2 text-sm font-medium text-gray-700 hover:text-indigo-600 hover:bg-indigo-50 rounded-md transition-colors;
+        }
+        .hero-section {
+            @apply bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-20 px-4 text-center rounded-lg shadow-lg;
+        }
+        .btn {
+            @apply px-6 py-3 bg-yellow-400 text-indigo-700 font-semibold rounded-lg shadow-md hover:bg-yellow-300 transition-colors duration-300;
+        }
+        /* Animação sutil para os cards */
+        .card:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-700">
+
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex flex-wrap items-center justify-between">
+            <div class="text-2xl font-bold text-indigo-700">
+                <a href="#">Projeto Formatura 3º Ano</a>
+            </div>
+            <button id="nav-toggle" class="md:hidden text-gray-700 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+            <div id="nav-content" class="w-full md:flex md:items-center md:w-auto hidden md:block">
+                <ul class="md:flex md:space-x-2">
+                    <li><a href="#introducao" class="nav-link">Introdução</a></li>
+                    <li><a href="#turma" class="nav-link">A Turma</a></li>
+                    <li><a href="#comissao" class="nav-link">Comissão</a></li>
+                    <li><a href="#equipes" class="nav-link">Equipes</a></li>
+                    <li><a href="#justificativa" class="nav-link">Justificativa Pedagógica</a></li>
+                    <li><a href="#financeiro" class="nav-link">Gestão Financeira</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+
+        <section class="hero-section mb-16" id="home">
+            <h1 class="text-5xl font-bold mb-4">Projeto de Formatura Empreendedora 2025</h1>
+            <p class="text-xl mb-8">Alunos do 3º Ano do Curso Técnico em Desenvolvimento de Sistemas da E.E. Professora Sebastiana de Almeida e Silva</p>
+            <p class="text-lg">Unindo conhecimento técnico, habilidades socioemocionais e empreendedorismo para celebrar uma grande conquista e impulsionar o futuro profissional.</p>
+        </section>
+
+        <section id="introducao" class="mb-16 scroll-mt-20">
+            <h2 class="section-title">Proposta do Projeto e Contextualização</h2>
+            <div class="card">
+                <p class="mb-4">Este documento apresenta o Projeto de Formatura Empreendedora, uma iniciativa pedagógica desenvolvida para os alunos do 3º ano do Ensino Médio em Tempo Integral (EMTI) da Escola Estadual Professora Sebastiana de Almeida e Silva, integrado ao Curso Técnico em Desenvolvimento de Sistemas.</p>
+                <p class="mb-4">A proposta central é capacitar os estudantes a arrecadarem fundos para a sua formatura de maneira autônoma e significativa. Para tal, eles aplicarão os conhecimentos técnicos e as competências desenvolvidas ao longo de sua formação para criar e gerenciar produtos e serviços reais. Este enfoque prático visa não apenas viabilizar a celebração, mas também promover o empreendedorismo, a autonomia, a responsabilidade e a aplicação concreta do aprendizado, utilizando a formatura como um poderoso elemento motivador para o engajamento e a dedicação aos estudos.</p>
+                <p>O projeto será conduzido ao longo do ano letivo de 2025, com encontros semanais dedicados de aproximadamente 1 hora e 30 minutos, permitindo um acompanhamento contínuo e aprofundado das atividades.</p>
+            </div>
+        </section>
+
+        <section id="turma" class="mb-16 scroll-mt-20">
+            <h2 class="section-title">Perfil da Turma do 3º Ano</h2>
+            <div class="card">
+                <p class="mb-4">A turma do 3º ano é composta por 21 alunos (13 moças e 8 rapazes), com idades entre 16 e 18 anos. Trata-se de um grupo heterogêneo em termos de ritmo de aprendizagem – uma realidade comum em contextos de vulnerabilidade socioeconômica. No entanto, destacam-se pelo forte engajamento, dedicação e participação ativa nas atividades propostas.</p>
+                <p>Embora a estimativa inicial aponte para uma compreensão média de 40% dos conteúdos teóricos, o projeto visa justamente elevar esse índice através da experimentação prática, do trabalho colaborativo e da conexão dos saberes com objetivos palpáveis. Acreditamos no potencial de cada aluno e na capacidade do projeto de despertar talentos e consolidar aprendizados.</p>
+            </div>
+        </section>
+
+        <section id="comissao" class="mb-16 scroll-mt-20">
+            <h2 class="section-title">Estrutura Organizacional: A Comissão de Formatura</h2>
+            <div class="card">
+                <p class="mb-4">A gestão do projeto é liderada por uma Comissão de Formatura, eleita democraticamente pelos próprios alunos. Esta comissão funciona como um núcleo estratégico, responsável por coordenar as equipes, mediar discussões, tomar decisões e garantir a coesão e o progresso das atividades. Suas deliberações, pautadas no diálogo e no consenso, representam a voz da turma.</p>
+                <ul class="list-disc list-inside space-y-2">
+                    <li><strong>Líder da Turma e da Comissão (CEO):</strong> <span class="commission-member">Ramon de Paula Silva Junior</span> (Equipe Promoções Online) - Coordenação geral e representação da turma.</li>
+                    <li><strong>Vice-Líder da Comissão e Líder da Equipe Promoções Online:</strong> <span class="commission-member">Miguel Lopes de Oliveira Silva</span> (Equipe Promoções Online) - Suporte à liderança e gerência técnica das promoções digitais.</li>
+                    <li><strong>Secretária da Comissão e Líder da Equipe de Vendas:</strong> <span class="commission-member">Ana Beatriz Fagundes de Souza</span> (Equipe Vendinha) - Responsável pela gestão administrativa, financeira (registros, pagamentos), documentação (atas) e comunicação oficial.</li>
+                    <li><strong>Componente da Comissão e Líder da Equipe de Eventos:</strong> <span class="commission-member">Esther Kamilly Soares Fonseca</span> (Equipe Eventos) - Gerenciamento das ações de eventos e relações públicas.</li>
+                    <li><strong>Componente da Comissão e Líder da Equipe de Serviços:</strong> <span class="commission-member">Richard Ferreira César</span> (Equipe Serviços) - Coordenação das atividades de prestação de serviços técnicos.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="equipes" class="mb-16 scroll-mt-20">
+            <h2 class="section-title">Nossas Equipes em Ação: Detalhamento das Frentes de Trabalho</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+
+                <div class="card">
+                    <h3 class="card-title">🛒 Equipe de Vendas (Vendinha)</h3>
+                    <p class="mb-3">Esta equipe é responsável pela concepção, produção e comercialização de produtos diversos. A atuação abrange desde uma "bomboniere móvel" em pontos estratégicos da cidade até o fornecimento de produtos de maior valor agregado para o comércio local. O principal desafio técnico-pedagógico é o desenvolvimento de um Sistema de Gestão Empresarial (ERP) simplificado para otimizar o controle de estoque, compras, vendas e produção.</p>
+                    <p class="mb-2"><strong>Líder da Equipe:</strong> <span class="team-leader">Ana Beatriz Fagundes de Souza</span></p>
+                    <p class="mb-1"><strong>Frentes de Atuação (1º Bimestre em diante):</strong></p>
+                    <ul class="list-disc list-inside text-sm mb-3">
+                        <li>Operacionalização da bomboniere em Jaguaraçu (Segundas, Quartas, Sextas) e no Bairro Lagoa do Pau (Terças, Quintas).</li>
+                        <li>Início do desenvolvimento do sistema ERP (aplicando conceitos de Desenvolvimento de Software).</li>
+                        <li>Gestão financeira e logística com uso de planilhas, atas de reunião e controle de caixa.</li>
+                    </ul>
+                    <p class="mb-2"><strong>Membros:</strong></p>
+                    <ul class="list-disc list-inside text-sm">
+                        <li>ALEX JUNIOR MORAIS ANDRADE (H, 16)</li>
+                        <li>ANA BEATRIZ FAGUNDES DE SOUZA (M, 16)</li>
+                        <li>EMILLY SAWANNA JOSINO DOS SANTOS (M, 17)</li>
+                        <li>JEAN PABLO GONÇALVES DE ABREU (H, 16)</li>
+                        <li>LARISSA APARECIDA VIEIRA (M, 17)</li>
+                        <li>LAURA DA SILVA NASCIMENTO (M, 17)</li>
+                        <li>PÂMELA BARROS ARAÚJO (M, 16)</li>
+                        <li>SHARA HAWANNY HARTCOPFF MARTINS (M, 17)</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">🛠️ Equipe de Serviços</h3>
+                    <p class="mb-3">Com foco na aplicação prática de conhecimentos técnicos consolidados ao longo do curso, esta equipe presta serviços na área de informática para a comunidade escolar e local. O objetivo é gerar renda e, simultaneamente, oferecer soluções úteis, engajando especialmente alunos com perfil mais voltado à execução e resolução de problemas práticos.</p>
+                    <p class="mb-2"><strong>Líder da Equipe:</strong> <span class="team-leader">Richard Ferreira César</span></p>
+                     <p class="mb-1"><strong>Frentes de Atuação (1º Bimestre em diante):</strong></p>
+                    <ul class="list-disc list-inside text-sm mb-3">
+                        <li>Capacitação e prestação de serviços de manutenção de computadores (software e hardware).</li>
+                        <li>Montagem, desmontagem e configuração de equipamentos audiovisuais (som, datashow).</li>
+                        <li>Suporte em gerenciamento básico de redes e instalação de programas.</li>
+                        <li>Prospecção de oportunidades de freelancing em plataformas online e para clientes locais.</li>
+                    </ul>
+                    <p class="mb-2"><strong>Membros:</strong></p>
+                    <ul class="list-disc list-inside text-sm">
+                        <li>RICHARD FERREIRA CÉSAR (H, 18)</li>
+                        <li>VICTOR GABRIEL MARCELINO DA SILVA (H, 17)</li>
+                        <li>KEVEN LUCAS RODRIGUES SOARES (H, 17)</li>
+                        <li>ELVIS ASSIS FERREIRA (H, 17)</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">🎉 Equipe de Eventos</h3>
+                    <p class="mb-3">Atuando como o elo vital entre a turma, a escola e a comunidade, esta equipe é responsável pela prospecção de oportunidades, planejamento logístico, divulgação e relações públicas do projeto. Seu trabalho é fundamental para viabilizar as ações das demais equipes e maximizar o alcance das iniciativas.</p>
+                    <p class="mb-2"><strong>Líder da Equipe:</strong> <span class="team-leader">Esther Kamilly Soares Fonseca</span></p>
+                    <p class="mb-1"><strong>Frentes de Atuação (1º Bimestre em diante):</strong></p>
+                    <ul class="list-disc list-inside text-sm mb-3">
+                        <li>Coordenação e acompanhamento das necessidades logísticas das outras equipes.</li>
+                        <li>Registro fotográfico, textual e audiovisual das atividades para documentação e divulgação.</li>
+                        <li>Mapeamento de eventos comunitários (festas juninas, religiosas, municipais) para inserção de barracas ou outras formas de participação da turma.</li>
+                        <li>Organização de "Pedágios Solidários", incluindo identificação de pontos estratégicos e datas.</li>
+                        <li>Interface de comunicação oficial com comércios, igrejas, prefeitura e outros parceiros.</li>
+                    </ul>
+                    <p class="mb-2"><strong>Membros:</strong></p>
+                    <ul class="list-disc list-inside text-sm">
+                        <li>ESTHER KAMILLY SOARES FONSECA (M, 17)</li>
+                        <li>GABRIELLI PEREIRA DA CRUZ ANDRADE (M, 17)</li>
+                        <li>JUAN PABLO OLIVEIRA GONSAGA (H, 18)</li>
+                        <li>TAINA GONÇALVES DE AMORIM (M, 16)</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">💻 Equipe de Promoções Online</h3>
+                    <p class="mb-3">Formada por alunos com maior afinidade e conhecimento em Desenvolvimento Web (Front-End II e Back-End), esta equipe tem como principal atribuição a criação, o desenvolvimento e a gestão de uma plataforma online para a realização de bolões, rifas e outras promoções digitais. O trabalho envolve desde a concepção da interface até a implementação da lógica de negócios no servidor.</p>
+                    <p class="mb-2"><strong>Líder da Equipe:</strong> <span class="team-leader">Miguel Lopes de Oliveira Silva</span></p>
+                    <p class="mb-1"><strong>Frentes de Atuação (1º Bimestre em diante):</strong></p>
+                    <ul class="list-disc list-inside text-sm mb-3">
+                        <li>Planejamento e execução de bolões para campeonatos esportivos (Brasileirão, Champions League).</li>
+                        <li>Criação de rifas temáticas para datas comemorativas (Dia dos Namorados, Dia das Mães, Dia dos Pais, etc.).</li>
+                        <li>Desenvolvimento e manutenção contínua do website para gerenciamento das promoções, incluindo cadastro de participantes, controle de pagamentos e sorteios.</li>
+                    </ul>
+                    <p class="mb-2"><strong>Membros:</strong></p>
+                    <ul class="list-disc list-inside text-sm">
+                        <li>THALLES EDUARDO SOARES MIRANDA (H, 17)</li>
+                        <li>RAMON DE PAULA SILVA JUNIOR (H, 17)</li>
+                        <li>MIGUEL LOPES DE OLIVEIRA SILVA (H, 17)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="justificativa" class="mb-16 scroll-mt-20">
+            <h2 class="section-title">Justificativa Pedagógica e Interdisciplinaridade</h2>
+            <div class="card">
+                <p class="mb-4">O Projeto de Formatura Empreendedora transcende a simples arrecadação de fundos, configurando-se como uma rica <strong>plataforma de aprendizagem ativa, contextualizada e interdisciplinar</strong>. Ele permite que os alunos mobilizem e integrem conhecimentos e competências adquiridos não apenas nas disciplinas técnicas do 3º ano, mas em toda a sua trajetória no Ensino Médio e no Curso Técnico.</p>
+                
+                <div class="mb-6">
+                    <h4 class="text-xl font-semibold text-indigo-600 mb-2">Alinhamento com Componentes Técnicos do 3º Ano:</h4>
+                    <ul class="list-disc list-inside ml-4 space-y-1 text-sm">
+                        <li><strong>Desenvolvimento Front-End II:</strong> Aplicado pela equipe de <strong>Promoções Online</strong> na criação de interfaces interativas e responsivas para a plataforma de rifas e bolões (JavaScript, APIs, frameworks). A equipe de <strong>Eventos</strong> também se beneficia ao compreender estratégias de divulgação digital eficazes.</li>
+                        <li><strong>Desenvolvimento Back-End:</strong> Essencial para a equipe de <strong>Promoções Online</strong> (desenvolvimento de APIs RESTful, lógica de servidor, gerenciamento de sessões, persistência de dados das promoções em banco de dados) e para a equipe de <strong>Vendas</strong> (na modelagem e implementação da lógica de servidor e banco de dados para o sistema ERP).</li>
+                        <li><strong>Desenvolvimento de Software:</strong> Pilar para a equipe de <strong>Vendas</strong> no desenvolvimento do ERP, aplicando conceitos de programação orientada a objetos (modelagem de classes como `Produto`, `Venda`, `Cliente`; uso de herança, polimorfismo) para construir um sistema de gestão funcional. A equipe de <strong>Serviços</strong> também aplica fundamentos de lógica e algoritmos em suas atividades de manutenção e solução de problemas.</li>
+                    </ul>
+                </div>
+
+                <div class="mb-6">
+                    <h4 class="text-xl font-semibold text-indigo-600 mb-2">Desenvolvimento de Competências Essenciais (Soft Skills) e Integração Curricular:</h4>
+                    <p class="mb-2">Além da aplicação técnica, o projeto é um campo fértil para o desenvolvimento de competências socioemocionais e habilidades transversais, cruciais para a vida e para o mercado de trabalho:</p>
+                    <ul class="list-disc list-inside ml-4 space-y-1 text-sm">
+                        <li><strong>Comunicação e Oratória:</strong> Nas apresentações de ideias, negociações com clientes e fornecedores (Vendas, Eventos, Serviços), e na divulgação das ações.</li>
+                        <li><strong>Trabalho em Equipe e Colaboração:</strong> Essencial em todas as equipes para o planejamento, execução e superação de desafios.</li>
+                        <li><strong>Liderança e Proatividade:</strong> Exercidas pela Comissão de Formatura e pelos líderes de equipe, mas incentivadas em todos os membros.</li>
+                        <li><strong>Resolução de Problemas e Pensamento Crítico:</strong> Ao enfrentar imprevistos, otimizar processos (ERP, site de promoções) ou diagnosticar falhas (Serviços).</li>
+                        <li><strong>Planejamento e Organização:</strong> No gerenciamento de tarefas, prazos, recursos e na logística das atividades (todas as equipes).</li>
+                        <li><strong>Empreendedorismo e Visão de Negócios:</strong> Ao identificar oportunidades, calcular custos, precificar produtos/serviços e buscar a sustentabilidade financeira das iniciativas.</li>
+                        <li><strong>Literacia Financeira:</strong> No controle de caixa, fluxo de receitas e despesas, e na gestão dos recursos para a formatura.</li>
+                        <li><strong>Ética e Responsabilidade:</strong> Na condução transparente das promoções, na prestação de serviços de qualidade e na gestão dos fundos da turma.</li>
+                    </ul>
+                    <p class="mt-3">Este projeto também promove a <strong>integração com outros componentes curriculares</strong>, tanto da base técnica de anos anteriores (como Banco de Dados e Algoritmos para o ERP e o site de promoções; Redes de Computadores para a equipe de Serviços) quanto da formação geral (Língua Portuguesa na elaboração de textos de divulgação e atas; Matemática no controle financeiro e precificação; Artes na criação de identidades visuais para os produtos e promoções; Geografia e História na compreensão do mercado local e eventos culturais). Dessa forma, os alunos vivenciam a aplicação integrada do conhecimento, simulando um ambiente profissional e preparando-se de forma mais completa para os desafios futuros.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="financeiro" class="mb-16 scroll-mt-20">
+            <h2 class="section-title">Gestão Financeira e Transparência</h2>
+            <div class="card">
+                <p>A totalidade da renda arrecadada por meio das atividades das equipes de Vendas, Serviços, Eventos e Promoções Online é integralmente destinada ao fundo de formatura da turma. Para garantir a transparência e a segurança na gestão dos recursos, os valores são depositados e administrados em uma conta poupança específica da turma, sob supervisão da Comissão de Formatura e do professor orientador.</p>
+                <p class="mt-2">Os pagamentos referentes aos produtos e serviços oferecidos pelas equipes podem ser realizados em espécie ou via PIX, direcionados para a referida conta da turma. Prestações de contas periódicas serão realizadas para toda a turma.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-indigo-800 text-indigo-100 py-8 text-center">
+        <p>&copy; 2025 - Escola Estadual Professora Sebastiana de Almeida e Silva.</p>
+        <p>Projeto de Formatura Empreendedora do 3º Ano - Técnico em Desenvolvimento de Sistemas.</p>
+        <p>Jaguaraçu, MG</p>
+    </footer>
+
+    <script>
+        // Script para o menu responsivo (mobile)
+        const navToggle = document.getElementById('nav-toggle');
+        const navContent = document.getElementById('nav-content');
+        const navLinks = navContent.querySelectorAll('a');
+
+        if (navToggle && navContent) {
+            navToggle.addEventListener('click', function() {
+                navContent.classList.toggle('hidden');
+            });
+        }
+        
+        // Fecha o menu ao clicar em um link (para mobile)
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth < 768) { // md breakpoint in Tailwind
+                    navContent.classList.add('hidden');
+                }
+            });
+        });
+
+        // Smooth scroll para âncoras
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

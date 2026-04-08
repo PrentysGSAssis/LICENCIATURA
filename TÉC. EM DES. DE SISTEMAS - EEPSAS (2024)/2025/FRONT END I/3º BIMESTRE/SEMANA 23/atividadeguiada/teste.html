@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <picture>
+        <!-- Se a tela tiver no máximo 750px de largura, carregue a foto pequena -->
+        <source media="(max-width: 750px)" srcset="foto-p" type="image/png">
+        <!-- Se a tela tiver no máximo 1050px de largura, carregue a foto média -->
+        <source media="(max-width: 1050px)" srcset="foto-m.png" type="image/png">
+        <!-- Para todas as outras telas (maiores), carregue a foto grande -->
+        <img src="foto-g.png" alt="A imagem flexível funciona">
+    </picture>
+
+
+</body>
+</html>

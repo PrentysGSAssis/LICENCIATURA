@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio Briefing - Semana 21: Podcast Dev Viajante</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; }
+        .page-container { width: 210mm; min-height: 200mm; padding: 15mm; box-shadow: 0 0 12px rgba(0,0,0,0.15); box-sizing: border-box; background-color: white; margin-top:20px; margin-bottom:20px;}
+        /* Estilos do MODELO: CABEÇALHO */
+        .header-top-container { display: flex; justify-content: center; align-items: center; border-bottom: 1px solid black; padding-bottom: 10px; margin-bottom: 20px; }
+        .logo { max-width: 60px; height: auto; margin-right: 15px; }
+        .school-info { text-align: center; padding: 0 5px; }
+        .school-info strong.school-name { display: block; margin-bottom: 4px; font-size: 0.9em; }
+        .school-info .address-details span { display: inline; font-size: 0.7em; margin-right: 4px; }
+        .form-fields-grid { display: grid; gap: 4px 8px; width: 100%; margin-bottom: 20px; grid-template-rows: auto auto auto; }
+        .form-row { display: grid; grid-template-columns: 3fr 2fr; gap: 8px; width: 100%; }
+        .form-field { border: 1px solid black; padding: 4px 6px; font-size: 0.75em; box-sizing: border-box; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; display: flex; align-items: center; background-color: #f9f9f9; }
+        .form-field strong { margin-right: 5px; white-space: nowrap; }
+        .form-field .value-content { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex-grow: 1; }
+        /* Estilos para o conteúdo do desafio */
+        .challenge-content { margin-top: 20px; }
+        .challenge-content h1, .challenge-content h2, .challenge-content h3 { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #2c3e50; }
+        .challenge-content h1.main-challenge-title { font-size: 1.6em; text-align: center; margin-bottom: 20px; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
+        .email-simulation { border: 1px solid #ccc; border-radius: 8px; background-color: #fdfdfd; padding: 20px; box-shadow: inset 0 1px 3px rgba(0,0,0,0.05); }
+        .email-header { border-bottom: 1px solid #e0e0e0; padding-bottom: 10px; margin-bottom: 15px; font-size: 0.9em; color: #555; }
+        .email-header div { margin-bottom: 4px; }
+        .email-header strong { color: #333; }
+        .email-body { line-height: 1.7; font-size: 0.95em; color: #34495e; }
+        .email-body h3 { font-size: 1.1em; color: #2980b9; margin-top: 20px; margin-bottom: 10px; }
+        .email-body ol { padding-left: 25px; }
+        .email-body li { margin-bottom: 8px; }
+        .email-signature { margin-top: 25px; font-style: italic; color: #7f8c8d; }
+        @media print {
+            body { background-color: white; }
+            .page-container { margin: 0; padding: 10mm; box-shadow: none; width: 100%; min-height: auto; }
+            @page { margin: 10mm; }
+        }
+    </style>
+</head>
+<body>
+<div class="page-container">
+    <div class="header-top-container">
+        <img src="https://1drv.ms/i/c/9e9e1f5991e00f07/IQTuKfwDXz6eQZG682I84WqBASSJENKf1uHvN3nSBXphxkU?width=1024" alt="Logo da Escola" class="logo" onerror="this.onerror=null; this.src='https://placehold.co/60x60/ccc/000?text=Logo'; this.alt='Erro ao carregar logo';">
+        <div class="school-info">
+            <strong class="school-name">ESCOLA ESTADUAL PROFESSORA SEBASTIANA DE ALMEIDA E SILVA</strong>
+            <div class="address-details">
+                <span>Rua São José, nº 30, Jaguaruçu - MG.</span>
+                <span>CEP: 35.188-000</span>
+                <span>Tel: (31) 3845-1209</span>
+            </div>
+        </div>
+    </div>
+    <div class="form-fields-grid">
+        <div class="form-row">
+            <div class="form-field" style="grid-column: 1 / span 3;"><strong>DISCIPLINA:</strong> <span class="value-content">Front End I</span></div>
+            <div class="form-field" style="grid-column: 4 / span 2;"><strong>PROFESSOR(A):</strong> <span class="value-content">Prentys Assis</span></div>
+        </div>
+        <div class="form-row">
+            <div class="form-field" style="grid-column: 1 / span 3;"><strong>ATIVIDADE:</strong> <span class="value-content">SEMANA 21 - Desafio: Landing Page de Podcast</span></div>
+            <div class="form-field" style="grid-column: 4 / span 2;"><strong>DATA:</strong> <span class="value-content"></span></div>
+        </div>
+        <div class="form-row">
+            <div class="form-field" style="grid-column: 1 / span 3;"><strong>ALUNO(A):</strong> <span class="value-content"></span></div>
+            <div class="form-field" style="grid-column: 4 / span 2;"><strong>TURMA:</strong> <span class="value-content">2º Ano</span></div>
+        </div>
+    </div>
+    <div class="challenge-content">
+        <h1 class="main-challenge-title">🎧 Missão Front End: Landing Page "Podcast Dev Viajante" ✈️</h1>
+
+        <div class="email-simulation">
+            <div class="email-header">
+                <div><strong>De:</strong> Equipe de Lançamento - Estúdio Sonora Digital</div>
+                <div><strong>Para:</strong> Equipe Sebastiana</div>
+                <div><strong>Assunto:</strong> Desenvolvimento da Página de Lançamento para o Podcast "Dev Viajante"</div>
+            </div>
+            <div class="email-body">
+                <p>Prezada Equipe,</p>
+                <p>O Estúdio Sonora Digital está lançando nosso novo podcast, o "Dev Viajante", focado em histórias de desenvolvedores que trabalham remotamente enquanto viajam pelo mundo. Precisamos de uma página de apresentação (landing page) para o episódio piloto, e gostaríamos de contar com o talento de vocês.</p>
+                <p>A ideia é criar uma página única que seja imersiva e funcional. Queremos que os visitantes sintam a atmosfera de viagem e tecnologia.</p>
+                <h3>O que imaginamos para a página:</h3>
+                <ul>
+                    <li><strong>Uma estrutura clara:</strong> Um título principal para o podcast, uma imagem de destaque, e depois seções bem definidas para "Sobre o Episódio", "Tópicos Abordados" e "Ouça Agora".</li>
+                    <li><strong>Texto de impacto:</strong> Um parágrafo de introdução que dê <strong>muita importância</strong> ao nome do nosso primeiro convidado e uma ênfase especial ao *destino* da viagem dele.</li>
+                    <li><strong>Conteúdo organizado:</strong> Gostaríamos que os principais tópicos discutidos no episódio fossem apresentados em uma lista numerada, para ficar claro e fácil de seguir.</li>
+                    <li><strong>Experiência multimídia:</strong> Esta é a parte mais importante. Precisamos que a página contenha:
+                        <ul>
+                            <li>Um player de áudio para que o visitante possa ouvir o episódio piloto diretamente na página.</li>
+                            <li>Nosso vídeo de bastidores, que está no YouTube, deve ser incorporado na página.</li>
+                            <li>Queremos que a imagem principal da página seja inteligente: que mostre uma foto deitada em telas grandes (computadores) e uma foto em pé em telas pequenas (celulares).</li>
+                        </ul>
+                    </li>
+                    <li><strong>Navegação e Downloads:</strong> Seria ótimo ter um menu simples no topo que permita ao usuário "pular" para as diferentes seções da página. E, no final, um link para que a imprensa possa baixar nosso "Media Kit" (um arquivo .zip).</li>
+                    <li><strong>Identidade Visual:</strong> O pequeno ícone do nosso podcast precisa aparecer na aba do navegador.</li>
+                </ul>
+                <p>Contamos com a criatividade de vocês para montar uma página que seja ao mesmo tempo informativa e inspiradora, utilizando todos os recursos que vocês dominam para construir páginas web.</p>
+                <div class="email-signature">
+                    <p>Atenciosamente,</p>
+                    <p>Equipe Sonora Digital</p>
+                </div>
+            </div>
+        </div>
+        
+        <hr style="margin: 30px 0;">
+
+        <div>
+            <h3>💡 Prompt para IA Geradora de Vídeo (Esboço Visual):</h3>
+            <p>
+                <small>"Crie um vídeo promocional curto para uma landing page de podcast. Início: Logo animado 'Dev Viajante' com um avião de papel se transformando em um cursor de mouse. Scroll suave: Título 'Episódio Piloto: Codando de Bali'. Imagem principal da página aparece com efeito de zoom lento. Player de áudio minimalista aparece. Seção 'Tópicos Abordados' com itens de lista aparecendo um a um. Janela de vídeo do YouTube é incorporada com animação. Galeria de fotos responsiva é mostrada, alternando entre layout de desktop e mobile para demonstrar a troca de imagens. Botão 'Baixar Media Kit' é destacado. Fim com logo e redes sociais. Trilha sonora ambiente com toques de teclado e sons de natureza."</small>
+            </p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

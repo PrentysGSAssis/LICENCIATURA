@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DESAFIO: Cardápio Digital - Cantinho do Código Café</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .page-container {
+            width: 210mm;
+            min-height: 297mm; 
+            margin: 20px auto;
+            padding: 15mm;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            box-sizing: border-box;
+        }
+        /* Estilos do MODELO: CABEÇALHO (Aplicados diretamente no topo da "folha" do desafio) */
+        .header-top-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 1px solid black;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+        .logo {
+            max-width: 65px;
+            height: auto;
+            margin-right: 15px;
+        }
+        .school-info {
+            text-align: center;
+            padding: 0 5px;
+        }
+        .school-info strong.school-name {
+            display: block;
+            margin-bottom: 4px;
+            font-size: 1em;
+        }
+        .school-info .address-details span {
+            display: inline;
+            font-size: 0.75em;
+            margin-right: 4px;
+        }
+        .school-info .address-details span:last-child {
+            margin-right: 0;
+        }
+        .form-fields-grid {
+            display: grid;
+            gap: 5px 10px;
+            width: 100%;
+            margin-bottom: 25px; /* Espaço após o cabeçalho e antes do corpo do desafio */
+            grid-template-rows: auto auto auto;
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 3fr 2fr; 
+            gap: 10px;
+            width: 100%;
+        }
+        .form-field {
+            border: 1px solid black;
+            padding: 5px 8px;
+            font-size: 0.8em;
+            box-sizing: border-box;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            display: flex;
+            align-items: center;
+        }
+        .form-field strong {
+            margin-right: 5px;
+            white-space: nowrap;
+        }
+        .form-field .value-content {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            flex-grow: 1;
+        }
+        .fill-in { /* Mantido para o campo DATA, caso o aluno imprima e preencha */
+            display: inline-block;
+            border-bottom: 1px solid black;
+            min-width: 25px;
+            margin: 0 2px;
+            padding: 0 1px;
+            line-height: 0.9;
+            height: 0.8em;
+        }
+        /* Fim dos estilos do MODELO: CABEÇALHO */
+
+        /* Estilos para a simulação da interface de e-mail */
+        .email-simulation-container {
+            border: 1px solid #d1d1d1;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border-radius: 6px;
+            margin-top: 20px; /* Espaço após o cabeçalho da escola */
+        }
+        .email-header-menu {
+            background-color: #f0f0f0;
+            padding: 7px 12px;
+            border-bottom: 1px solid #ccc;
+            display: flex;
+            align-items: center;
+            border-radius: 6px 6px 0 0;
+        }
+        .email-header-menu .menu-button {
+            background-color: #e0e0e0; color: #333; border: 1px solid #bbb;
+            padding: 4px 8px; margin-right: 6px; border-radius: 3px;
+            font-size: 0.8em; cursor: default; 
+        }
+        .email-header-menu .menu-button.new-email { background-color: #4a80d9; color: white; border-color: #3c6dc7;}
+        
+        .email-content-area { padding: 15px 20px; }
+        .email-meta-info {
+            padding-bottom: 12px; margin-bottom: 12px; font-size: 0.85em; 
+            color: #555; border-bottom: 1px dotted #ddd;
+        }
+        .email-meta-info div { margin-bottom: 3px; }
+        .email-meta-info strong { color: #222; min-width: 60px; display: inline-block; }
+
+        .email-body-content { line-height: 1.6; color: #333; font-size: 0.95em; }
+        .email-body-content h3 { font-size: 1.1em; color: #004d99; margin-top: 15px;
+            margin-bottom: 8px; border-bottom: 1px dashed #d0d0d0; padding-bottom: 4px; }
+        .email-body-content ul, .email-body-content ol { padding-left: 25px; margin-top: 5px; }
+        .email-body-content ul li, .email-body-content ol li { margin-bottom: 5px; }
+        .email-signature { margin-top: 20px; font-style: italic; color: #555; font-size: 0.9em;}
+
+         /* Estilos para Impressão */
+        @media print {
+            body { font-size: 10pt; }
+            .page-container { width: auto; min-height: 0; margin: 0; padding: 0; box-shadow: none; }
+            @page { margin: 12mm 10mm 12mm 10mm; }
+            .email-simulation-container { border: none; box-shadow: none; margin-top: 10px;}
+            .email-header-menu { display: none; } /* Oculta menu do e-mail na impressão */
+            /* Outros ajustes de impressão podem ser adicionados aqui */
+        }
+    </style>
+</head>
+<body>
+<div class="page-container">
+    <div class="header-top-container">
+        <img src="https://1drv.ms/i/c/9e9e1f5991e00f07/IQTuKfwDXz6eQZG682I84WqBASSJENKf1uHvN3nSBXphxkU?width=1024" alt="Logo da Escola" class="logo" onerror="this.onerror=null; this.src='https://placehold.co/65x65/ccc/000?text=Logo'; this.alt='Erro ao carregar logo';">
+        <div class="school-info">
+            <strong class="school-name">ESCOLA ESTADUAL PROFESSORA SEBASTIANA DE ALMEIDA E SILVA</strong>
+            <div class="address-details">
+                <span>Rua São José, nº 30, Jaguaruçu - MG.</span>
+                <span>CEP: 35.188-000</span>
+                <span>Tel: (31) 3845-1209</span>
+            </div>
+        </div>
+    </div>
+    <div class="form-fields-grid">
+        <div class="form-row">
+            <div class="form-field" style="grid-column: 1 / span 3;"><strong>DISCIPLINA:</strong> <span class="value-content">Front End I</span></div>
+            <div class="form-field" style="grid-column: 4 / span 2;"><strong>PROFESSOR(A):</strong> <span class="value-content">Prentys Assis</span></div>
+        </div>
+        <div class="form-row">
+            <div class="form-field" style="grid-column: 1 / span 3;"><strong>ATIVIDADE:</strong> <span class="value-content">SEMANA 19 - Desafio: Cardápio Digital</span></div>
+            <div class="form-field" style="grid-column: 4 / span 2;"><strong>DATA:</strong> <span class="value-content"><span class="fill-in">&nbsp; &nbsp;</span>/<span class="fill-in">&nbsp; &nbsp;</span>/<span class="fill-in">&nbsp; &nbsp; &nbsp; &nbsp;</span></span></div>
+        </div>
+        <div class="form-row">
+            <div class="form-field" style="grid-column: 1 / span 3;"><strong>ALUNO(A):</strong> <span class="value-content"></span></div>
+            <div class="form-field" style="grid-column: 4 / span 2;"><strong>TURMA:</strong> <span class="value-content">2º Ano</span></div>
+        </div>
+    </div>
+    <hr style="border: 0; height: 1.5px; background: black; margin: 20px 0;">
+
+    <div class="email-simulation-container">
+        <div class="email-header-menu">
+            <button class="menu-button new-email">Escrever</button>
+            <button class="menu-button">Responder</button>
+            <button class="menu-button">Encaminhar</button>
+            <button class="menu-button">Arquivar</button>
+            <button class="menu-button">Excluir</button>
+        </div>
+
+        <div class="email-content-area">
+            <div class="email-meta-info">
+                <div><strong>De:</strong> Marina Sampaio (Proprietária, Cantinho do Código Café)</div>
+                <div><strong>Para:</strong> Equipe Sebastiana</div>
+                <div><strong>Assunto:</strong> Desenvolvimento Urgente: Nosso Novo Cardápio Digital Interativo!</div>
+                <div><strong>Data:</strong> 13 de maio de 2025</div>
+            </div>
+
+            <div class="email-body-content">
+                <p>Prezada Equipe Sebastiana,</p>
+                <p>Espero que este e-mail os encontre bem produtivos!</p>
+                <p>Meu nome é Marina Sampaio, e sou a orgulhosa proprietária do "Cantinho do Código Café", um espaço temático que une a paixão por café de alta qualidade com o universo da programação e tecnologia. Estamos crescendo e precisamos modernizar a forma como apresentamos nosso cardápio aos clientes, especialmente online!</p>
+                <p>Gostaríamos de contratar seus serviços para criar a primeira versão da página principal do nosso <strong>Cardápio Digital</strong>. O objetivo é ter uma página web clara, bem estruturada e que reflita a alma tech e aconchegante do nosso café.</p>
+
+                <h3>O que idealizamos para o conteúdo da página do cardápio:</h3>
+                <ol>
+                    <li><strong>Identificação Principal:</strong> Um título de maior destaque para o "Cardápio Estelar do Cantinho do Código Café ☕".</li>
+                    <li><strong>Mensagem de Boas-vindas:</strong> Um parágrafo introdutório, aplicando uma ênfase especial a alguma palavra chave sobre nossa proposta.</li>
+                    <li><strong>Categorias do Cardápio:</strong> Seções bem definidas para "Bebidas Quentes", "Bebidas Geladas" e "Comidinhas Binárias", cada uma com seu respectivo título de seção.</li>
+                    <li><strong>Nossos Produtos:</strong>
+                        <ul>
+                            <li>Dentro de cada categoria, os itens devem ser apresentados como listas.</li>
+                            <li>Para as "Bebidas Quentes", gostaríamos de uma lista numerada com nossos 3 principais produtos, talvez com uma contagem diferenciada.</li>
+                            <li>Para "Bebidas Geladas" e "Comidinhas Binárias", listas simples com marcadores.</li>
+                            <li>Cada produto na lista deve ter seu nome em destaque (com forte importância) e uma breve descrição.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Promoção Especial:</strong> Um espaço, talvez com um título próprio, para o "Bug Corrigido do Dia" (nossa promoção), mostrando o preço que era (como se fosse um valor antigo) e o preço atual (como um valor novo), e o nome da promoção em si com um realce visual.</li>
+                    <li><strong>Detalhe do Ingrediente:</strong> Uma pequena nota em um dos itens sobre um ingrediente especial, usando um formato de texto menor, e se possível, um símbolo de marca registrada.</li>
+                    <li><strong>Visual e Identidade:</strong> Uma imagem principal do nosso café (com um bom texto alternativo para acessibilidade) e aquele pequeno ícone que aparece na aba do navegador.</li>
+                    <li><strong>Informações Finais:</strong> Um rodapé com "© 2025 Cantinho do Código Café...", e "Endereço Fictício" (onde "End. Fic." possa revelar o endereço completo quando o mouse estiver sobre ele).</li>
+                </ol>
+
+                <h3>Considerações Adicionais:</h3>
+                <p>Sintam-se à vontade para usar outras formatações textuais (para texto elevado, rebaixado, para simular um trecho de código em nomes de bebidas, ou para uma citação curta ou em bloco maior) de forma criativa, pensando sempre no significado do que estão comunicando. Queremos uma estrutura de página lógica e que utilize bem os recursos do HTML para organizar as informações.</p>
+                <p>Contamos com a sua habilidade para este desafio!</p>
+
+                <div class="email-signature">
+                    <p>Atenciosamente,</p>
+                    <p>Marina Sampaio<br>
+                    Proprietária - Cantinho do Código Café</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

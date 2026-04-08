@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia de Configuração de Favoritos no Navegador</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-purple: #8e44ad;
+            --secondary-purple: #9b59b6;
+            --light-purple: #e9d5ff;
+            --bg-color: #f5f3f7;
+            --text-color: #4a4a4a;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .main-container {
+            display: flex;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            gap: 30px;
+        }
+
+        /* --- Barra de Navegação Lateral --- */
+        aside {
+            width: 25%;
+            min-width: 220px;
+        }
+        
+        .sticky-nav {
+            position: sticky;
+            top: 20px;
+        }
+
+        .sticky-nav h2 {
+            font-size: 1.5em;
+            font-weight: 600;
+            color: var(--primary-purple);
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--light-purple);
+        }
+
+        .sticky-nav nav button {
+            display: block;
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 8px;
+            text-align: left;
+            font-size: 1em;
+            font-weight: 500;
+            color: var(--primary-purple);
+            background-color: var(--white);
+            border: 1px solid var(--light-purple);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .sticky-nav nav button:hover {
+            background-color: var(--light-purple);
+            color: #6a1b9a;
+            transform: translateX(5px);
+        }
+
+        .sticky-nav nav button.active {
+            background-color: var(--primary-purple);
+            color: var(--white);
+            border-color: var(--primary-purple);
+            transform: translateX(5px);
+            box-shadow: 0 4px 10px rgba(142, 68, 173, 0.2);
+        }
+
+        /* --- Área de Conteúdo Principal --- */
+        main {
+            width: 75%;
+        }
+
+        header {
+            text-align: center;
+            padding-bottom: 20px;
+            border-bottom: 3px solid var(--primary-purple);
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: var(--primary-purple);
+            font-weight: 700;
+        }
+
+        h2.content-title {
+            font-size: 1.8em;
+            color: var(--secondary-purple);
+            font-weight: 600;
+            border-bottom: 2px solid var(--light-purple);
+            padding-bottom: 10px;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            font-size: 1.3em;
+            color: var(--primary-purple);
+            font-weight: 600;
+            margin-top: 25px;
+        }
+
+        .step-section {
+            background-color: var(--white);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--light-purple);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            display: none; /* Seções são ocultas por padrão */
+        }
+        
+        .step-section.active {
+            display: block; /* A seção ativa é exibida */
+        }
+        
+        .task-list {
+            list-style-type: '✓ ';
+            padding-left: 20px;
+            font-size: 1.1em;
+        }
+        
+        .task-list li {
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .important-note {
+            background-color: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+
+        code {
+            background-color: var(--light-purple);
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace;
+            color: #6a1b9a;
+        }
+
+        @media (max-width: 768px) {
+            .main-container {
+                flex-direction: column;
+            }
+            aside, main {
+                width: 100%;
+            }
+            .sticky-nav {
+                position: static;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <aside>
+            <div class="sticky-nav">
+                <h2>Etapas de Configuração</h2>
+                <nav id="section-nav">
+                    <button onclick="showSection('menu1', this)" class="active">1. Exibir Barra de Favoritos</button>
+                    <button onclick="showSection('menu2', this)">2. Favoritos Principais</button>
+                    <button onclick="showSection('menu3', this)">3. Criando Pastas</button>
+                    <button onclick="showSection('menu4', this)">4. Criando Sub-pastas</button>
+                </nav>
+            </div>
+        </aside>
+
+        <main>
+            <header>
+                <h1>Guia de Configuração de Favoritos</h1>
+                <p>Organizando seu Ambiente de Trabalho Digital no Google Chrome</p>
+            </header>
+
+            <div class="step-section active" id="menu1">
+                <h2 class="content-title">1. Exibindo a Barra de Favoritos</h2>
+                <p>O primeiro passo é garantir que a sua Barra de Favoritos esteja sempre visível. Ela aparecerá logo abaixo da barra de endereço.</p>
+                <ol>
+                    <li>No Google Chrome, clique no ícone de três pontos verticais (⋮) no canto superior direito para abrir o menu.</li>
+                    <li>Posicione o mouse sobre <strong>"Favoritos e listas"</strong>.</li>
+                    <li>No menu que aparecer, clique em <strong>"Exibir barra de favoritos"</strong>.</li>
+                </ol>
+                 <div class="important-note">
+                    <strong>Dica de Atalho:</strong> Você pode exibir ou ocultar a Barra de Favoritos a qualquer momento usando o atalho de teclado: <code>Ctrl + Shift + B</code>.
+                </div>
+            </div>
+
+            <div class="step-section" id="menu2">
+                <h2 class="content-title">2. Adicionando Favoritos Principais</h2>
+                <p>Agora, vamos adicionar alguns sites úteis diretamente na Barra de Favoritos para acesso rápido.</p>
+                <p><strong>Para cada site da lista abaixo, siga estes passos:</strong></p>
+                <ol>
+                    <li><strong>Encontre o site:</strong> Use a busca do Google para encontrar o site oficial.</li>
+                    <li><strong>Acesse o site:</strong> Clique no link correto para abrir a página principal do site.</li>
+                    <li><strong>Favorite a página:</strong> Com o site aberto, clique no ícone de estrela (☆) no lado direito da barra de endereço.</li>
+                    <li><strong>Salve na Barra de Favoritos:</strong> Na pequena janela que aparecer, certifique-se de que a "Pasta" selecionada seja a <strong>"Barra de favoritos"</strong>. Clique em "Concluído".</li>
+                </ol>
+                <h3>Sites para adicionar:</h3>
+                <ul class="task-list">
+                    <li>YouTube</li>
+                    <li>Wikipedia</li>
+                    <li>Google Sala de Aula</li>
+                    <li>Ninite</li>
+                    <li>ChatGPT</li>
+                    <li>Gemini</li>
+                    <li>Copilot</li>
+                    <li>Lightshot</li>
+                </ul>
+            </div>
+
+            <div class="step-section" id="menu3">
+                <h2 class="content-title">3. Organizando com Pastas (Nível 1)</h2>
+                <p>Para manter os favoritos organizados, vamos criar pastas por assunto. A primeira será para ferramentas de desenvolvimento web.</p>
+
+                <h3>3.1 - Criar a pasta "DESENVOLVIMENTO WEB"</h3>
+                <ol>
+                    <li>Pesquise e acesse o site oficial do <strong>Visual Studio Code</strong>.</li>
+                    <li>Clique na estrela (☆) para favoritar.</li>
+                    <li>Na janela de favoritos, clique no menu suspenso ao lado de "Pasta" e selecione <strong>"Outra pasta..."</strong>.</li>
+                    <li>Na nova janela, clique no botão <strong>"Nova pasta"</strong> no canto inferior esquerdo.</li>
+                    <li>Digite o nome <code>DESENVOLVIMENTO WEB</code> e clique em "Salvar". O site do Visual Studio Code será salvo dentro desta nova pasta.</li>
+                </ol>
+                
+                <h3>3.2 - Adicionar mais sites à pasta</h3>
+                 <p>Agora, adicione os seguintes sites à pasta que você acabou de criar:</p>
+                <ul class="task-list">
+                    <li>GIMP</li>
+                    <li>EMOJIPEDIA</li>
+                </ul>
+                <div class="important-note">
+                    <strong>Como fazer:</strong> Para cada site, clique na estrela (☆) para favoritar. Na janela que aparecer, clique no menu "Pasta" e simplesmente selecione a pasta <strong>"DESENVOLVIMENTO WEB"</strong> que já existe na lista. Clique em "Concluído".
+                </div>
+            </div>
+            
+            <div class="step-section" id="menu4">
+                <h2 class="content-title">4. Organizando com Sub-pastas (Nível 2)</h2>
+                <p>Podemos organizar ainda mais, criando pastas dentro de outras. Faremos isso para sites de bancos de imagens gratuitas.</p>
+
+                <h3>4.1 - Criar a sub-pasta "Free PIcs"</h3>
+                <ol>
+                    <li>Pesquise e acesse o site <strong>Unsplash</strong>.</li>
+                    <li>Clique na estrela (☆) para favoritar.</li>
+                    <li>Na janela de favoritos, clique no menu "Pasta" e selecione <strong>"Outra pasta..."</strong>.</li>
+                    <li>Na janela do editor de favoritos, certifique-se de que a pasta <strong>"DESENVOLVIMENTO WEB"</strong> esteja selecionada (azul).</li>
+                    <li>Clique no botão <strong>"Nova pasta"</strong>.</li>
+                    <li>Digite o nome <code>"Free PIcs"</code> e clique em "Salvar". O site será salvo dentro da nova sub-pasta.</li>
+                </ol>
+
+                <h3>4.2 - Adicionar mais sites à sub-pasta</h3>
+                 <p>Agora, adicione os seguintes sites à sub-pasta que você acabou de criar:</p>
+                <ul class="task-list">
+                    <li>Pexels</li>
+                    <li>Freepik</li>
+                    <li>Rawpixel</li>
+                    <li>Pixabay</li>
+                </ul>
+                <div class="important-note">
+                    <strong>Como fazer:</strong> Para cada site, clique na estrela (☆). No menu "Pasta", navegue e selecione a sub-pasta <strong>"Free PIcs"</strong>, que está dentro de "DESENVOLVIMENTO WEB". Clique em "Concluído".
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function showSection(sectionId, buttonElement) {
+            const sections = document.querySelectorAll('.step-section');
+            sections.forEach(section => section.classList.remove('active'));
+
+            const buttons = document.querySelectorAll('#section-nav button');
+            buttons.forEach(button => button.classList.remove('active'));
+
+            const activeSection = document.getElementById(sectionId);
+            if (activeSection) activeSection.classList.add('active');
+            if (buttonElement) buttonElement.classList.add('active');
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            showSection('menu1', document.querySelector('#section-nav button'));
+        });
+    </script>
+</body>
+</html>

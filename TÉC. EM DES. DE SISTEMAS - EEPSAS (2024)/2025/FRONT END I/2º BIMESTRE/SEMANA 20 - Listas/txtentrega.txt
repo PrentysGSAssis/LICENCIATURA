@@ -1,0 +1,24 @@
+Meu Jogo Incrível - Guia Rápido 🎮
+Banner principal do Meu Jogo Incrível com personagens em ação
+Bem-vindo ao guia rápido para dominar os segredos de "Meu Jogo Incrível"! Prepare-se para a aventura © 2025.
+
+Comandos Essenciais de Movimentação
+Mover para Cima: Tecla W / Console: ↑
+Mover para Baixo: Tecla S / Console: ↓
+Mover para Esquerda: Tecla A / Console: ←
+Mover para Direita: Tecla D / Console: →
+Pular / Confirmar: Tecla Barra de Espaço ou Enter / Console: ✕ (X)
+Ação Secundária / Cancelar: Tecla CTRL / Console: ○ (Bola/Círculo)
+Menu / Opções: Tecla ESC / Console: △ (Triângulo)
+Inventário: Tecla I / Console: □ (Quadrado)
+Sequência de Ataque Especial (Combo "Fúria Pixelada")
+Pressione □, □ (duas vezes rapidamente)
+Em seguida, pressione ○ com precisão
+Finalize segurando R2 e apertando ✕
+Glossário de Itens do Jogo
+Cristal de Energia 💎
+Restaura 100 pontos de energia da sua nave. Use com sabedoria!
+Escudo Defletor Mk.II 🛡️
+Oferece proteção temporária contra todos os tipos de dano. Dura 30 segundos.
+XP Doubler ✨
+Dobra a quantidade de Pontos de Experiência ganhos por 5 minutos.

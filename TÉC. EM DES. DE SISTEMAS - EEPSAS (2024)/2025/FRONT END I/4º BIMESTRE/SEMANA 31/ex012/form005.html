@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form003</title>
+</head>
+<body>
+
+    <h1>Formulario com Controle de Seleções Multiplos e Unicos</h1>
+
+    <form action="form005.html" method="get" autocomplete="on">
+        <fieldset>
+            <legend>Dados Pessoais</legend>
+            <p>
+                <label for="idnome">Nome: </label>
+                <input type="text" name="nome" id="idnome" required minlength="5" maxlength="40" size="50" placeholder="Nome Completo">
+            </p>
+                <input type="radio" name="sexo" id="idmasculino">
+                <label for="idmasculino">Masculino</label>
+                <input type="radio" name="sexo" id="idfeminino">
+                <label for="idfeminino">Feminino</label> 
+        </fieldset>
+        <fieldset>
+            <legend>Preferências Esportivas</legend>
+            
+            <input type="checkbox" name="fut" id="idfut" checked>
+            <label for="idfut">Futebol</label>
+            <br>
+            <input type="checkbox" name="basquete" id="idbasquete">
+            <label for="idbasquete">Basquete</label>
+            <br>
+            <input type="checkbox" name="tenis" id="idtenis">
+            <label for="idtenis">Tenis</label>
+            <br>
+            <input type="checkbox" name="natacao" id="idnatacao">
+            <label for="idnatacao">Natação</label>            
+        </fieldset>
+            <!--área dos botões de envio-->
+            <p>
+                <input type="submit" value="Enviar">
+                <input type="reset" value="Limpar">
+            </p>
+    </form>
+
+    <p><a href="ex012.html">Voltar</a></p>
+    
+</body>
+</html>

@@ -1,0 +1,13 @@
+" A ementa do curso é: 
+
+>> Objetivo da Estatística Aplicada dentro da área de informática;
+>> Estatística - Panorama Histórico;
+>> Estatística Básica;
+>> Gráficos de Pareto;
+>> Diagrama Chical;
+>> Diferença entre Tabela e Quadro;
+>> Estatística Aplicada a Informática;
+>> Conceitos e Aplicações;
+>> Elaboração de Planilhas e Gráficos;
+>> Estatística Descritiva;
+>> Medidas de Tendência Central e Medidas de Dispersão;"

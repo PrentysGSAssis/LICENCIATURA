@@ -1,0 +1,74 @@
+/* NOTA PARA O PROFESSOR:
+    Este é o gabarito do CSS. O estilo foi pensado para ser simples,
+    organizado e de fácil compreensão, focando em aplicar os conceitos
+    de seletores de id e class.
+*/
+
+/* Estilos Gerais para o Corpo da Página */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4; /* Um cinza bem claro para o fundo */
+    color: #333;
+}
+
+/* Seletor de ID para o Container Principal do Site */
+#container {
+    background-color: #ffffff; /* Fundo branco para o conteúdo */
+}
+
+/* Seletor de ID para o Cabeçalho */
+#cabecalho {
+    background-color: #663322; /* Cor de café para o cabeçalho */
+    color: #ffffff;
+    text-align: center;
+}
+/* Seletores de ID para as seções principais */
+#principal, #barra-lateral, #rodape {
+    padding: 20px;
+}
+
+/* Seletor de ID para a Barra Lateral */
+#barra-lateral {
+    background-color: #f8f8f8;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+#barra-lateral ul {
+    list-style-type: none; /* Remove os marcadores da lista */
+    padding: 0;
+}
+
+/* Seletor de ID para o Rodapé */
+#rodape {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+#rodape p {
+    margin: 5px 0;
+}
+
+/* Seletor de Classe para Títulos de Seção */
+.titulo-secao {
+    color: #663322;
+    border-bottom: 2px solid #f4f4f4;
+    padding-bottom: 5px;
+}
+
+/* Seletor de Classe para a Imagem de Destaque */
+.imagem-destaque {
+    max-width: 100%; /* Torna a imagem responsiva */
+    height: auto;
+    display: block;
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Seletor de Classe para Itens do Cardápio */
+.item-cardapio {
+    margin-bottom: 10px;
+}

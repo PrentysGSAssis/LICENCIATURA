@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEMANA 24 - Trabalhando com Estilos CSS</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+        .page-container { width: 210mm; min-height: 297mm; margin: 20px auto; padding: 15mm; box-shadow: 0 0 10px rgba(0,0,0,0.1); box-sizing: border-box; }
+        /* Estilos do CABEÇALHO */
+        .header-top-container { display: flex; justify-content: center; align-items: center; border-bottom: 1px solid black; padding-bottom: 10px; margin-bottom: 10px; }
+        .logo { max-width: 65px; height: auto; margin-right: 15px; }
+        .school-info { text-align: center; }
+        .school-info strong.school-name { display: block; font-size: 1em; }
+        .school-info .address-details span { font-size: 0.75em; }
+        .form-fields-grid { display: grid; gap: 5px 10px; width: 100%; margin-bottom: 15px; grid-template-rows: auto auto auto; }
+        .form-row { display: grid; grid-template-columns: 3fr 2fr; gap: 10px; }
+        .form-field { border: 1px solid black; padding: 5px 8px; font-size: 0.8em; }
+        /* Estilos do CONTEÚDO */
+        .content-container { padding-top: 10px; }
+        h1, h2, h3 { color: #333; }
+        h1 { font-size: 1.6em; border-bottom: 1.5px solid #eee; padding-bottom: 7px; margin-top: 0; }
+        h2 { font-size: 1.3em; margin-top: 22px; border-bottom: 1px solid #f0f0f0; padding-bottom: 5px;}
+        h3 { font-size: 1.1em; margin-top: 18px; color: #0056b3;}
+        p, li { line-height: 1.6; font-size: 0.95em; color: #333; }
+        code { background-color: #f4f4f4; padding: 2px 5px; border-radius: 4px; font-family: "Consolas", Courier, monospace; font-size: 0.9em; }
+        pre { background-color: #f8f8f8; border: 1px solid #ddd; padding: 12px; border-radius: 5px; overflow-x: auto; font-size: 0.85em; margin-top: 8px; margin-bottom: 15px; }
+        pre code { background-color: transparent; padding: 0; }
+        table { width: 100%; margin: 15px 0; border-collapse: collapse; font-size: 0.9em; }
+        th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+        th { background-color: #e9ecef; }
+        .page-break { page-break-before: always; }
+        @media print { 
+            body { background-color: white; }
+            .page-container { margin: 0; padding: 0; box-shadow: none; width: 100%; min-height: auto; }
+            @page { margin: 12mm 10mm; } 
+        }
+    </style>
+</head>
+<body>
+<div class="page-container">
+    <div class="header-top-container">
+        <img src="https://1drv.ms/i/c/9e9e1f5991e00f07/IQTuKfwDXz6eQZG682I84WqBASSJENKf1uHvN3nSBXphxkU?width=1024" alt="Logo da Escola" class="logo">
+        <div class="school-info">
+            <strong class="school-name">ESCOLA ESTADUAL PROFESSORA SEBASTIANA DE ALMEIDA E SILVA</strong>
+            <div class="address-details"><span>Rua São José, nº 30, Jaguaruçu - MG.</span> <span>CEP: 35.188-000</span> <span>Tel: (31) 3845-1209</span></div>
+        </div>
+    </div>
+    <div class="form-fields-grid">
+        <div class="form-row">
+            <div class="form-field" style="grid-column: 1 / span 3;"><strong>DISCIPLINA:</strong> <span class="value-content">Front End I</span></div>
+            <div class="form-field" style="grid-column: 4 / span 2;"><strong>PROFESSOR(A):</strong> <span class="value-content">Prentys Assis</span></div>
+        </div>
+        <div class="form-row">
+            <div class="form-field" style="grid-column: 1 / span 3;"><strong>ATIVIDADE:</strong> <span class="value-content">SEMANA 24 - Trabalhando com Estilos CSS</span></div>
+            <div class="form-field" style="grid-column: 4 / span 2;"><strong>DATA:</strong> <span class="value-content"><span class="fill-in">12</span>/<span class="fill-in">08</span>/<span class="fill-in">2025</span></span></div>
+        </div>
+        <div class="form-row">
+            <div class="form-field" style="grid-column: 1 / span 3;"><strong>ALUNO(A):</strong> <span class="value-content"></span></div>
+            <div class="form-field" style="grid-column: 4 / span 2;"><strong>TURMA:</strong> <span class="value-content">2º Ano</span></div>
+        </div>
+    </div>
+
+    <div class="content-container">
+        <h1>Introdução às CSS: Trabalhando com Estilos</h1>
+        <p>Até agora, nosso foco foi na **estrutura e semântica** do conteúdo com HTML. Hoje, iniciaremos nossa jornada em **CSS (Cascading Style Sheets - Folhas de Estilo em Cascata)**, a linguagem usada para dar vida, cor e layout às nossas páginas web.</p>
+
+        <h2>As Três Formas de Aplicar Estilos</h2>
+        <p>Existem três maneiras de aplicar estilos CSS a um documento HTML, cada uma com suas vantagens e desvantagens.</p>
+
+        <h3>1. Estilos CSS Inline</h3>
+        <p>Esta é a forma mais direta de aplicar um estilo. Usamos o atributo <code>style</code> diretamente na tag HTML que queremos modificar. Este método deve ser evitado para estilização geral, pois mistura estrutura com apresentação, mas é útil para testes rápidos ou estilos muito específicos.</p>
+        <pre><code>&lt;h1 style="color: blue;"&gt;Meu Título Azul&lt;/h1&gt;</code></pre>
+
+        <h3>2. Estilos CSS Internos (Incorporados)</h3>
+        <p>Nesta técnica, os estilos são colocados dentro da tag <code>&lt;style&gt;</code>, no <code>&lt;head&gt;</code> do HTML. Isso permite estilizar vários elementos de uma vez, mas os estilos ainda ficam presos àquela página.</p>
+        <pre><code>&lt;head&gt;
+  &lt;style&gt;
+    h1 {
+      color: green;
+    }
+    p {
+      background-color: lightgray;
+    }
+  &lt;/style&gt;
+&lt;/head&gt;</code></pre>
+
+        <h3>3. Estilos CSS Externos (A Forma Recomendada)</h3>
+        <p>Esta é a melhor prática. Criamos um arquivo separado com a extensão <code>.css</code> e o vinculamos ao HTML usando a tag <code>&lt;link&gt;</code> no <code>&lt;head&gt;</code>. Isso permite que um único arquivo de estilo seja usado por múltiplas páginas.</p>
+        <pre><code>&lt;!-- Dentro do arquivo HTML, no &lt;head&gt; --&gt;
+&lt;link rel="stylesheet" href="meu_estilo.css"&gt;
+
+/* Dentro do novo arquivo meu_estilo.css */
+body {
+  font-family: sans-serif;
+}</code></pre>
+    </div>
+</div>
+
+<div class="page-break"></div>
+
+<div class="page-container">
+     <div class="header-top-container">
+        <img src="https://1drv.ms/i/c/9e9e1f5991e00f07/IQTuKfwDXz6eQZG682I84WqBASSJENKf1uHvN3nSBXphxkU?width=1024" alt="Logo da Escola" class="logo">
+        <div class="school-info">
+            <strong class="school-name">ESCOLA ESTADUAL PROFESSORA SEBASTIANA DE ALMEIDA E SILVA</strong>
+        </div>
+    </div>
+    
+    <div class="content-container">
+        <h1>Anexo: Principais Propriedades CSS</h1>
+        <p>Abaixo, uma tabela de consulta com algumas das propriedades CSS mais comuns e úteis para começar a estilizar suas páginas.</p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Propriedade</th>
+                    <th>Para que Serve</th>
+                    <th>Exemplo de Uso</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>color</code></td>
+                    <td>Define a cor do texto de um elemento.</td>
+                    <td><code>p { color: #333333; }</code></td>
+                </tr>
+                <tr>
+                    <td><code>background-color</code></td>
+                    <td>Define a cor de fundo de um elemento.</td>
+                    <td><code>body { background-color: #f0f8ff; }</code></td>
+                </tr>
+                <tr>
+                    <td><code>font-family</code></td>
+                    <td>Define a família da fonte (ou uma lista de fontes alternativas) para o texto.</td>
+                    <td><code>h1 { font-family: 'Times New Roman', Times, serif; }</code></td>
+                </tr>
+                <tr>
+                    <td><code>font-size</code></td>
+                    <td>Define o tamanho do texto. Pode usar pixels (px), em, rem, etc.</td>
+                    <td><code>p { font-size: 16px; }</code></td>
+                </tr>
+                <tr>
+                    <td><code>font-weight</code></td>
+                    <td>Define o "peso" ou a "grossura" da fonte (ex: normal, bold).</td>
+                    <td><code>strong { font-weight: bold; }</code></td>
+                </tr>
+                <tr>
+                    <td><code>font-style</code></td>
+                    <td>Define o estilo da fonte (ex: normal, italic).</td>
+                    <td><code>em { font-style: italic; }</code></td>
+                </tr>
+                <tr>
+                    <td><code>text-align</code></td>
+                    <td>Define o alinhamento horizontal do texto (left, right, center, justify).</td>
+                    <td><code>h2 { text-align: center; }</code></td>
+                </tr>
+                <tr>
+                    <td><code>text-decoration</code></td>
+                    <td>Adiciona ou remove decorações do texto (underline, overline, line-through).</td>
+                    <td><code>a { text-decoration: none; }</code></td>
+                </tr>
+                <tr>
+                    <td><code>border</code></td>
+                    <td>Propriedade abreviada para definir a largura, estilo e cor da borda de um elemento.</td>
+                    <td><code>div { border: 1px solid black; }</code></td>
+                </tr>
+                <tr>
+                    <td><code>padding</code></td>
+                    <td>Define um espaçamento interno, entre o conteúdo e a borda de um elemento.</td>
+                    <td><code>button { padding: 10px 20px; }</code></td>
+                </tr>
+                <tr>
+                    <td><code>margin</code></td>
+                    <td>Define um espaçamento externo, ao redor de um elemento.</td>
+                    <td><code>p { margin-bottom: 15px; }</code></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

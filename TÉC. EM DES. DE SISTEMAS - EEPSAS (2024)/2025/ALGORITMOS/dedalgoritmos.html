@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plano Anual - Algoritmos e Estrutura de Dados</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #FFF8F0; /* Marrom muito claro / Bege */
+            --primary-orange: #E57373; /* Vermelho claro / Coral */
+            --accent-orange: #FFB74D; /* Laranja claro */
+            --text-dark: #4E342E; /* Marrom escuro */
+            --text-light: #A1887F; /* Marrom acinzentado */
+            --border-color: #D7CCC8; /* Marrom bem claro */
+        }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-main); color: var(--text-dark); }
+        .nav-link {
+            transition: all 0.3s;
+            border-left: 4px solid transparent;
+            color: var(--text-light);
+        }
+        .nav-link.active {
+            border-left-color: var(--primary-orange);
+            background-color: #FFFFFF;
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+        .semana-box {
+            background-color: white;
+            border: 1px solid var(--border-color);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .semana-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .semana-header h3 { font-size: 1.25rem; font-weight: 600; color: var(--text-dark); }
+        .copy-btn {
+            background-color: var(--accent-orange);
+            color: var(--text-dark);
+            font-size: 0.875rem;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .copy-btn:hover { background-color: #FFA726; }
+        .semana-content strong { color: var(--primary-orange); }
+        .semana-content ul { list-style-type: '» '; padding-left: 1.25rem; margin-top: 0.5rem; }
+        .semana-content li { margin-bottom: 0.5rem; }
+    </style>
+</head>
+<body class="p-4 sm:p-6 lg:p-8">
+
+    <header class="text-center mb-10">
+        <h1 class="text-4xl font-bold" style="color: var(--text-dark);">Plano Anual de Aulas 2025</h1>
+        <p class="text-xl mt-2" style="color: var(--text-light);">Algoritmos e Estrutura de Dados - 2º Ano</p>
+        <p class="text-lg font-semibold mt-1" style="color: var(--text-dark);">(Total: 109 aulas anuais)</p>
+    </header>
+
+    <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-10">
+        <!-- Menu Lateral Fixo -->
+        <aside class="lg:w-1/4">
+            <div class="sticky top-8">
+                <h2 class="text-xl font-semibold mb-4" style="color: var(--text-dark);">Navegação</h2>
+                <nav id="bimestre-nav" class="flex flex-col space-y-2">
+                    <a href="#bimestre-1" class="nav-link active p-4 rounded-r-lg">1º Bimestre</a>
+                    <a href="#bimestre-2" class="nav-link p-4 rounded-r-lg">2º Bimestre</a>
+                    <a href="#bimestre-3" class="nav-link p-4 rounded-r-lg">3º Bimestre</a>
+                    <a href="#bimestre-4" class="nav-link p-4 rounded-r-lg">4º Bimestre</a>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- Conteúdo Principal -->
+        <main class="lg:w-3/4">
+            <!-- 1º BIMESTRE -->
+            <section id="bimestre-1" class="bimestre-section">
+                <h2 class="text-3xl font-bold mb-6 pb-2 border-b-2" style="border-color: var(--primary-orange);">1º Bimestre (29 aulas)</h2>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 1 (05/02, 07/02)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Introdução aos Algoritmos e Pensamento Computacional.<br><strong>Objetivo:</strong> Compreender o que é um algoritmo, sua importância e desenvolver o raciocínio lógico para resolver problemas.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">05/02:</strong><ul class="mt-1"><li>Apresentação da disciplina. Discussão: algoritmos no dia a dia. Introdução ao Pensamento Computacional. Ativ. no caderno.</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">07/02:</strong><ul class="mt-1"><li>Laboratório: representações de algoritmos (Descrição Narrativa, Fluxograma). Atividade em dupla: criar fluxograma.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 2 (12/02, 14/02)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Pseudocódigo e Conceitos Básicos.<br><strong>Objetivo:</strong> Introduzir o Português Estruturado e os conceitos de variáveis e tipos de dados.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">12/02:</strong><ul class="mt-1"><li>Revisão de fluxogramas. Introdução ao Pseudocódigo. Conceito de variáveis e tipos primitivos.</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">14/02:</strong><ul class="mt-1"><li>Converter fluxograma para pseudocódigo. Introdução ao VisuAlg. Exercícios: calcular área e exibir mensagem.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 3 (19/02, 21/02)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Operadores e Expressões Aritméticas.<br><strong>Objetivo:</strong> Utilizar operadores aritméticos para realizar cálculos e manipular dados numéricos.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">19/02:</strong><ul class="mt-1"><li>Teoria dos operadores aritméticos (+, -, *, /, ^, mod). Precedência de operadores.</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">21/02:</strong><ul class="mt-1"><li>Laboratório: algoritmos para calcular média, converter temperatura e calcular total de compra.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 4 (26/02, 28/02)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Operadores Relacionais e Lógicos.<br><strong>Objetivo:</strong> Comparar valores e combinar múltiplas condições para criar expressões lógicas.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">26/02:</strong><ul class="mt-1"><li>Operadores relacionais (>, <, ==, !=) e lógicos (E, OU, NAO) e suas tabelas-verdade.</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">28/02:</strong><ul class="mt-1"><li>Exercícios: verificar se um número está em um intervalo; validar requisitos de um jogo (level E skill).</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 5 (05/03, 07/03)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Estrutura de Seleção Simples (SE).<br><strong>Objetivo:</strong> Implementar desvios condicionais que executam um bloco de código se uma condição for verdadeira.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">05/03:</strong><ul class="mt-1"><li>Introdução ao controle de fluxo. A estrutura `SE`: sintaxe e fluxograma.</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">07/03:</strong><ul class="mt-1"><li>Laboratório: algoritmos com `SE` para verificar se número é positivo e se senha está correta.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 6 (12/03, 14/03)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Estrutura de Seleção Composta (SE-SENÃO).<br><strong>Objetivo:</strong> Desenvolver algoritmos com dois caminhos de execução possíveis, baseados em uma condição.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">12/03:</strong><ul class="mt-1"><li>A estrutura `SENÃO`. Sintaxe e fluxograma da estrutura SE-SENÃO.</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">14/03:</strong><ul class="mt-1"><li>Exercícios: verificar se número é par/ímpar; checar se aluno está aprovado/reprovado; validar maioridade.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 7 (26/03, 29/03 - Sábado Letivo)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Estruturas de Seleção Aninhadas e Encadeadas.<br><strong>Objetivo:</strong> Criar lógicas de decisão complexas, com múltiplas condições e vários caminhos de execução.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">26/03:</strong><ul class="mt-1"><li>Conceito de aninhamento (um `SE` dentro de outro). Estrutura `SENÃO SE`.</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">29/03:</strong><ul class="mt-1"><li>(Horário de Quarta) Atividade: calcular IMC e exibir classificação. Desafio: criar um menu de opções.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 8 (02/04, 04/04)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Revisão e Atividades Avaliativas - 1º Bimestre.<br><strong>Objetivo:</strong> Consolidar os conhecimentos sobre lógica, variáveis, operadores e estruturas de seleção.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">02/04:</strong><ul class="mt-1"><li>Revisão geral dos tópicos do bimestre. Sessão de tira-dúvidas.</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">04/04:</strong><ul class="mt-1"><li>Aplicação de lista de exercícios valendo nota e/ou prova prática individual no laboratório.</li></ul></div></div></div></div>
+            </section>
+            
+            <!-- 2º BIMESTRE -->
+            <section id="bimestre-2" class="bimestre-section pt-10">
+                <h2 class="text-3xl font-bold mb-6 pb-2 border-b-2" style="border-color: var(--primary-orange);">2º Bimestre (26 aulas)</h2>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 9 (30/04, 02/05)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Estrutura de Repetição (ENQUANTO).<br><strong>Objetivo:</strong> Criar laços que executam um bloco de código enquanto uma condição for verdadeira.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">30/04:</strong><ul class="mt-1"><li>Estrutura `ENQUANTO`: sintaxe e fluxograma. Conceito de variável de controle. Cuidado com loops infinitos.</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">02/05:</strong><ul class="mt-1"><li>Atividade guiada: algoritmo que mostra números de 1 a 10. Exercício: validar entrada de dados.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 10 (07/05, 09/05)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Contadores e Acumuladores.<br><strong>Objetivo:</strong> Utilizar variáveis para contar eventos e somar valores dentro de estruturas de repetição.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">07/05:</strong><ul class="mt-1"><li>Diferença conceitual: contador (incremento constante) e acumulador (incremento variável).</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">09/05:</strong><ul class="mt-1"><li>Exercícios: ler 10 números e contar os pares; ler 5 idades e calcular a média; simular um caixa.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 11 (14/05, 16/05)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Estrutura de Repetição (REPITA...ATE).<br><strong>Objetivo:</strong> Aplicar laços que garantem a execução do bloco de código ao menos uma vez.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">14/05:</strong><ul class="mt-1"><li>Estrutura `REPITA...ATE`: sintaxe, fluxograma. Comparação com `ENQUANTO`.</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">16/05:</strong><ul class="mt-1"><li>Refazer exercício de validação de nota com `REPITA`. Criar um menu que se repete até o usuário sair.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 12 (21/05, 23/05)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Estrutura de Repetição (PARA).<br><strong>Objetivo:</strong> Utilizar laços para percorrer sequências com um número predefinido de iterações.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">21/05:</strong><ul class="mt-1"><li>Estrutura `PARA`: sintaxe (variável, início, fim, passo). Ideal para repetições contadas.</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">23/05:</strong><ul class="mt-1"><li>Exercícios: exibir números de 1 a 100; exibir pares de 1 a 50 (passo 2); exibir tabuada.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 13 (04/06, 06/06) - Prova Parcial</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Avaliação Parcial.<br><strong>Objetivo:</strong> Avaliar a capacidade de resolver problemas utilizando estruturas de seleção e repetição.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">04/06:</strong><ul class="mt-1"><li>Aplicação de avaliação teórica/prática.</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">06/06:</strong><ul class="mt-1"><li>Continuação da avaliação, correção e feedback.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 14 (11/06, 13/06)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Vetores (Arrays Unidimensionais).<br><strong>Objetivo:</strong> Introduzir a manipulação de estruturas de dados homogêneas.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">11/06:</strong><ul class="mt-1"><li>Conceito de estrutura de dados. Vetores: declaração, tipo, tamanho e índices.</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">13/06:</strong><ul class="mt-1"><li>Prática: criar vetor para 5 notas. Usar `PARA` para ler e outro para exibir os valores.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 15 (25/06, 28/06 - Sábado Letivo) - Prova Global</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Avaliação Global e Revisão Final.<br><strong>Objetivo:</strong> Avaliar o conhecimento do bimestre e revisar para recuperação.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">25/06:</strong><ul class="mt-1"><li>Aplicação da Prova Global do 2º Bimestre.</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">28/06:</strong><ul class="mt-1"><li>(Horário de Sexta) Correção e feedback da prova. Preparação para a recuperação.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 16 (02/07, 04/07) - Recuperação</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Semana de Recuperação Parcial.<br><strong>Objetivo:</strong> Oferecer nova oportunidade de aprendizado e avaliação dos conteúdos com maior dificuldade.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">02/07:</strong><ul class="mt-1"><li>Aula de reforço com foco em estruturas de repetição.</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">04/07:</strong><ul class="mt-1"><li>Aplicação de atividades/prova de recuperação. Atendimento individualizado.</li></ul></div></div></div></div>
+            </section>
+
+            <!-- 3º BIMESTRE -->
+            <section id="bimestre-3" class="bimestre-section pt-10">
+                <h2 class="text-3xl font-bold mb-6 pb-2 border-b-2" style="border-color: var(--primary-orange);">3º Bimestre (30 aulas)</h2>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 17 (06/08, 08/08)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Manipulação Avançada de Vetores.<br><strong>Objetivo:</strong> Aprofundar o uso de vetores com operações de busca, soma e manipulação.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">06/08:</strong><ul class="mt-1"><li>Retomada de vetores. Busca sequencial. Soma de elementos.</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">08/08:</strong><ul class="mt-1"><li>Laboratório: ler 10 números, armazenar, e buscar um 11º número no vetor.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 18 (13/08, 14/08)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Matrizes (Arrays Bidimensionais).<br><strong>Objetivo:</strong> Compreender e manipular estruturas de dados tabulares (linhas e colunas).<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">13/08:</strong><ul class="mt-1"><li>Conceito de matriz. Declaração. Acesso por dois índices (linha, coluna).</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">14/08:</strong><ul class="mt-1"><li>Prática com laços aninhados para percorrer e carregar uma matriz 3x3.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 19 (20/08, 22/08)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Modularização: Procedimentos.<br><strong>Objetivo:</strong> Aprender a dividir algoritmos em blocos de código reutilizáveis.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">20/08:</strong><ul class="mt-1"><li>Modularização. Procedimentos (sub-rotinas sem retorno). Sintaxe.</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">22/08:</strong><ul class="mt-1"><li>Atividade: criar um procedimento `cabecalho()` e um `pularLinha(n)`.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 20 (27/08, 29/08)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Modularização: Funções.<br><strong>Objetivo:</strong> Criar módulos que processam dados e retornam um valor.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">27/08:</strong><ul class="mt-1"><li>Diferença entre procedimentos e funções. Sintaxe da função. Palavra-chave `retorne`.</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">29/08:</strong><ul class="mt-1"><li>Laboratório: criar função `somar(a, b)`. Criar função `ehPar(numero)`.</li></ul></div></div></div></div>
+                 <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 21 (03/09, 05/09)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Passagem de Parâmetros e Escopo.<br><strong>Objetivo:</strong> Entender a transferência de dados para módulos e a visibilidade de variáveis (local vs. global).<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">03/09:</strong><ul class="mt-1"><li>Passagem de parâmetros por valor. Escopo de variáveis.</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">05/09:</strong><ul class="mt-1"><li>Prática: visualizar escopos. Criar procedimento que recebe e exibe um vetor.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 22 (10/09, 13/09 - Sábado Letivo)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Revisão e Atividades Avaliativas.<br><strong>Objetivo:</strong> Consolidar o aprendizado sobre vetores, matrizes e modularização.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">10/09:</strong><ul class="mt-1"><li>Revisão geral dos tópicos do bimestre. Tira-dúvidas.</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">13/09:</strong><ul class="mt-1"><li>(Horário de Sexta) Lista de exercícios e/ou prova prática sobre os temas do bimestre.</li></ul></div></div></div></div>
+            </section>
+
+            <!-- 4º BIMESTRE -->
+            <section id="bimestre-4" class="bimestre-section pt-10">
+                <h2 class="text-3xl font-bold mb-6 pb-2 border-b-2" style="border-color: var(--primary-orange);">4º Bimestre (24 aulas)</h2>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 23 (22/10, 24/10)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Tipos Abstratos de Dados (TAD) e Ponteiros.<br><strong>Objetivo:</strong> Compreender o conceito de TAD e a noção de ponteiros.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">22/10:</strong><ul class="mt-1"><li>O que é um TAD? Teoria sobre memória e endereços. Introdução a ponteiros.</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">24/10:</strong><ul class="mt-1"><li>Aprofundamento teórico: alocação de memória estática vs. dinâmica.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 24 (29/10, 31/10)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Estrutura de Dados: Pilhas (Stacks).<br><strong>Objetivo:</strong> Entender a estrutura LIFO (Last-In, First-Out) e suas operações.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">29/10:</strong><ul class="mt-1"><li>Teoria de Pilhas. Analogia com pilha de pratos. Operações: empilhar (push) e desempilhar (pop).</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">31/10:</strong><ul class="mt-1"><li>Simulação de uma pilha no quadro, mostrando o estado da estrutura após cada operação.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 25 (05/11, 07/11)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Estrutura de Dados: Filas (Queues).<br><strong>Objetivo:</strong> Compreender a estrutura FIFO (First-In, First-Out) e suas operações.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">05/11:</strong><ul class="mt-1"><li>Teoria de Filas. Analogia com fila de banco. Operações: enfileirar (enqueue) e desenfileirar (dequeue).</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">07/11:</strong><ul class="mt-1"><li>Simulação de uma fila em pseudocódigo, mostrando a entrada e saída de elementos.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 26 (12/11, 14/11)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Métodos de Busca (Pesquisa).<br><strong>Objetivo:</strong> Aprender e comparar algoritmos para encontrar informações em vetores.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">12/11:</strong><ul class="mt-1"><li>Busca Sequencial e Busca Binária (pré-requisito: vetor ordenado).</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">14/11:</strong><ul class="mt-1"><li>Laboratório: implementar busca sequencial. Discussão sobre a performance da busca binária.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 27 (19/11, 21/11)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Métodos de Ordenação.<br><strong>Objetivo:</strong> Estudar algoritmos básicos para organizar os elementos de um vetor.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">19/11:</strong><ul class="mt-1"><li>Conceito de ordenação. Introdução ao Bubble Sort: lógica e análise visual.</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">21/11:</strong><ul class="mt-1"><li>Implementação do Bubble Sort no laboratório. Introdução teórica a outros métodos.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 28 (26/11, 28/11)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Desenvolvimento do Projeto Final.<br><strong>Objetivo:</strong> Aplicar de forma integrada os principais conceitos do ano letivo.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">26/11:</strong><ul class="mt-1"><li>Apresentação da proposta do projeto final (ex: sistema de cadastro). Formação dos grupos.</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">28/11:</strong><ul class="mt-1"><li>Início do desenvolvimento do projeto no laboratório, com mentoria do professor.</li></ul></div></div></div></div>
+                <div class="semana-box"><div class="semana-header"><h3 class="week-title">Semana 29 (03/12, 06/12 - Sábado Letivo)</h3><button class="copy-btn">Copiar</button></div><div class="semana-content"><strong>Tema:</strong> Finalização e Apresentação do Projeto.<br><strong>Objetivo:</strong> Concluir o projeto e comunicar os resultados.<div class="mt-4"><strong>Tópicos:</strong><div class="mt-2"><strong class="text-sm font-semibold">03/12:</strong><ul class="mt-1"><li>Últimos ajustes no projeto. Preparação para a apresentação.</li></ul></div><div class="mt-2"><strong class="text-sm font-semibold">06/12:</strong><ul class="mt-1"><li>(Horário de Sexta) Apresentação dos projetos finais. Avaliação e encerramento da disciplina.</li></ul></div></div></div></div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('.bimestre-section');
+            const copyButtons = document.querySelectorAll('.copy-btn');
+            
+            const observer = new IntersectionObserver(entries => {
+                let intersectingSectionId = null;
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        intersectingSectionId = entry.target.id;
+                    }
+                });
+
+                if (intersectingSectionId) {
+                     navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href').substring(1) === intersectingSectionId) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            }, { rootMargin: "-40% 0px -60% 0px" });
+
+            sections.forEach(section => observer.observe(section));
+
+            copyButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const semanaBox = button.closest('.semana-box');
+                    const title = semanaBox.querySelector('.week-title').innerText;
+                    const contentNode = semanaBox.querySelector('.semana-content').cloneNode(true);
+                    
+                    contentNode.querySelectorAll('ul').forEach(ul => {
+                        ul.querySelectorAll('li').forEach(li => {
+                            li.textContent = `- ${li.textContent}`;
+                        });
+                    });
+
+                    const content = contentNode.innerText;
+                    const fullText = `${title}\n\n${content}`;
+
+                    navigator.clipboard.writeText(fullText).then(() => {
+                        const originalText = button.innerText;
+                        button.innerText = 'Copiado!';
+                        button.style.backgroundColor = '#66BB6A';
+                        button.style.color = 'white';
+                        setTimeout(() => {
+                            button.innerText = originalText;
+                            button.style.backgroundColor = '';
+                            button.style.color = '';
+                        }, 2000);
+                    }).catch(err => {
+                        console.error('Falha ao copiar:', err);
+                        alert('Falha ao copiar o texto.');
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

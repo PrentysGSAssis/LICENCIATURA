@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semana 31 - O Laço de Repetição PARA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f7f4;
+        }
+        .nav-item-active {
+            background-color: #60a5fa;
+            color: white;
+            transform: translateX(4px);
+        }
+        .code-block {
+            background-color: #363636; /* Fundo mais escuro */
+            color: #ffffff; /* Fonte mais clara para melhor contraste */
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            overflow-x: auto;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.875rem;
+            white-space: pre-wrap; 
+            word-break: break-all;
+        }
+        .output-block {
+            background-color: #4a5568;
+            color: #e2e8f0;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            overflow-x: auto;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.875rem;
+        }
+        .enunciado-block, .questions-block {
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            border: 1px solid #e2e8f0;
+            margin-bottom: 1.5rem;
+        }
+        .gabarito-answers-block {
+            background-color: #ebf8ff;
+            color: #2c5282;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-top: 1rem;
+            border: 1px solid #bee3f8;
+        }
+        .texto-didatico-content h3, .texto-didatico-content h4 { font-size: 1.3em; margin-top: 22px; margin-bottom: 12px; color: #333; font-weight: 600; }
+        .texto-didatico-content p, .texto-didatico-content li { line-height: 1.6; font-size: 0.95em; color: #444; margin-bottom: 12px;}
+        .texto-didatico-content code {
+            font-family: "Roboto Mono", monospace;
+            font-size: 0.9em;
+            color: #ffffff;
+        }
+        .texto-didatico-content ul { list-style-position: inside; }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <div class="container mx-auto max-w-7xl p-4 sm:p-6 lg:p-8">
+        <header class="mb-8 pb-4 border-b border-gray-200">
+            <h1 class="text-4xl font-bold text-gray-800">Semana 31: O Laço de Repetição `para`</h1>
+            <p class="text-lg text-gray-500 mt-2">Uma forma mais elegante de contar e repetir.</p>
+        </header>
+
+        <div class="flex flex-col md:flex-row gap-8">
+            <aside class="md:w-1/4">
+                <div class="sticky top-8">
+                    <h2 class="text-xl font-semibold mb-4 text-gray-700">Conteúdo da Aula</h2>
+                    <nav id="section-nav" class="space-y-2">
+                    </nav>
+                </div>
+            </aside>
+
+            <main id="section-content-area" class="md:w-3/4 bg-white p-6 sm:p-8 rounded-lg shadow-sm min-h-[80vh]">
+                <div id="section-placeholder" class="text-center text-gray-400 flex flex-col justify-center items-center h-full">
+                    <svg class="w-24 h-24 mb-4 text-gray-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l-4 4m0 0l-4-4m4 4V4M7 7h10M7 12h4m1.5 0h.01M7 17h4m1.5 0h.01" />
+                    </svg>
+                    <p class="text-xl font-medium">Selecione uma seção ao lado para começar.</p>
+                </div>
+            </main>
+        </div>
+
+        <footer class="mt-12 text-center text-sm text-gray-400">
+            <p>&copy; <span id="currentYear"></span> Plataforma de Revisão de Algoritmos. Desenvolvido para fins didáticos.</p>
+        </footer>
+    </div>
+
+    <script>
+        const semana34Conteudo = {
+            textoDidatico: {
+                id: "texto-didatico",
+                title: "Texto Didático",
+                subtitle: "O Laço `para`: Repetição com Controle",
+                content: `
+                    <div class="texto-didatico-content">
+                        <p>Olá, programadores! Nas últimas semanas, dominamos o laço <code>enquanto</code>. Ele é ótimo quando não sabemos quantas vezes um bloco de código precisa repetir. Mas e quando sabemos exatamente o número de repetições? Por exemplo, "leia 10 notas" ou "conte de 1 a 50". Para esses casos, existe uma estrutura mais limpa e apropriada: o laço <strong>para</strong>.</p>
+                        
+                        <h3>1. A Anatomia do Laço \`para\`</h3>
+                        <p>Imagine que você precisa de um operário para executar uma tarefa 10 vezes. Com o laço <code>enquanto</code>, você precisaria dar três instruções separadas: "comece a contar do 1", "continue enquanto não chegar no 10" e "some 1 à sua contagem a cada tarefa feita". Com o laço <strong>para</strong>, você entrega um único manual de instruções que contém tudo isso. Ele concentra toda a lógica de controle da repetição em uma única linha, tornando o código mais legível, compacto e menos propenso a erros, como esquecer o incremento. Ele é composto por três partes essenciais:</p>
+                        <div class="code-block"><pre><code>para (inicialização; condição; incremento) {
+    // Bloco de código a ser repetido
+}</code></pre></div>
+                        <ul>
+                            <li><strong>Inicialização:</strong> É executada apenas uma vez, no início. É aqui que iniciamos nossa variável de controle. Ex: <code>i = 1</code>.</li>
+                            <li><strong>Condição:</strong> É testada <em>antes</em> de cada repetição. Enquanto for verdadeira, o laço continua. Ex: <code>i <= 10</code>.</li>
+                            <li><strong>Incremento:</strong> É executado ao <em>final</em> de cada repetição. É aqui que atualizamos nossa variável de controle. Ex: <code>i = i + 1</code>.</li>
+                        </ul>
+
+                        <h3>2. Comparando \`enquanto\` e \`para\`</h3>
+                        <p>A melhor forma de entender a elegância do laço <code>para</code> é compará-lo diretamente com o <code>enquanto</code> para a mesma tarefa. Ambos podem alcançar o mesmo resultado, mas o <code>para</code> é a ferramenta especializada para repetições contadas. Observe no exemplo abaixo como a inicialização (<code>i = 1</code>), a condição (<code>i <= 5</code>) e o incremento (<code>i = i + 1</code>) ficam espalhados no código com <code>enquanto</code>, enquanto o <code>para</code> os agrupa de forma organizada e previsível.</p>
+                        
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <h4 class="font-semibold text-center mb-2">Com <code>enquanto</code></h4>
+                                <div class="code-block"><pre><code>inteiro i = 1
+enquanto (i <= 5) {
+    escreva(i, " ")
+    i = i + 1
+}</code></pre></div>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-center mb-2">Com <code>para</code></h4>
+                                <div class="code-block"><pre><code>inteiro i
+para (i = 1; i <= 5; i = i + 1) {
+    escreva(i, " ")
+}</code></pre></div>
+                            </div>
+                        </div>
+
+                        <h3>3. Exemplo Prático: A Tabuada</h3>
+                        <p>A tabuada é o exemplo perfeito para o laço <code>para</code> porque a tarefa tem um início, um meio e um fim bem definidos: ela sempre começa no 1, termina no 10 e avança de 1 em 1. Essa estrutura mapeia-se diretamente para os três componentes do <code>para</code> (inicialização, condição, incremento), resultando em um código que não só funciona, mas também descreve claramente a intenção do programador. Veja como o código para calcular a tabuada de um número qualquer fica intuitivo:</p>
+                        <div class="code-block"><pre><code>programa {
+    funcao inicio() {
+        inteiro numero, i
+
+        escreva("Digite um número para ver a tabuada: ")
+        leia(numero)
+
+        para (i = 1; i <= 10; i = i + 1) {
+            escreva(numero, " x ", i, " = ", (numero * i), "\\n")
+        }
+    }
+}</code></pre></div>
+
+                        <h3>4. Sintaxe Exata para Consulta</h3>
+                        <p>Use este bloco como um guia rápido sempre que precisar relembrar a estrutura do laço <code>para</code>. Cada parte tem um propósito claro e uma ordem de execução específica.</p>
+                        <div class="code-block"><pre><code>// O laço 'para' agrupa o controle da repetição em 3 partes:
+para ( [1. inicialização] ; [2. condição] ; [3. incremento] ) {
+
+    // Este é o bloco de código que será repetido
+    // enquanto a [2. condição] continuar sendo verdadeira.
+
+}
+
+// [1. inicialização]: Executado apenas UMA VEZ, no início. Geralmente, atribui o valor inicial ao contador.
+// [2. condição]: Verificada ANTES de CADA repetição. Se for falsa, o laço termina.
+// [3. incremento]: Executado ao FINAL de CADA repetição. Geralmente, atualiza o contador.</code></pre></div>
+                        <p class="mt-4">O laço <code>para</code> é uma ferramenta poderosa para qualquer situação que envolva um número definido de repetições. Dominá-lo deixará seu código mais limpo, legível e seguro.</p>
+                    </div>
+                `
+            },
+            atividadeGuiada: {
+                id: "atividade-guiada",
+                title: "Atividade Guiada",
+                subtitle: "Forjando Itens em Série (Tibia)",
+                objetivo: "Praticar a sintaxe do laço `para` em um problema com um número de repetições definido pelo usuário.",
+                enunciado: [
+                    "Um ferreiro (blacksmith) no Tibia precisa forjar uma quantidade específica de espadas.",
+                    "1. Pergunte ao usuário quantas espadas ele deseja forjar.",
+                    "2. Use um laço <code>para</code> que repita exatamente o número de vezes informado.",
+                    "3. A cada repetição, exiba uma mensagem indicando qual espada está sendo forjada (ex: \"Forjando a espada 1 de 5...\").",
+                    "4. Ao final do laço, exiba uma mensagem de conclusão."
+                ],
+                saidaEsperada: `Quantas espadas forjar? 3\n\nForjando a espada 1 de 3...\nForjando a espada 2 de 3...\nForjando a espada 3 de 3...\n\nTrabalho concluído!`,
+                gabarito: `programa
+{
+    funcao inicio()
+    {
+        inteiro total_espadas, i
+
+        escreva("Quantas espadas forjar? ")
+        leia(total_espadas)
+        escreva("\\n")
+
+        para (i = 1; i <= total_espadas; i = i + 1) {
+            escreva("Forjando a espada ", i, " de ", total_espadas, "...\\n")
+        }
+
+        escreva("\\nTrabalho concluído!\\n")
+    }
+}`
+            },
+            atividadesReforco: [
+                {
+                    id: "reforco-cod021",
+                    title: "Reforço (cod021): Contagem Progressiva",
+                    enunciado: ["(Baseado no Exercício 64) Crie um programa que use a estrutura `para` para mostrar na tela a seguinte contagem: 0 5 10 15 20 25 30 35 40 Acabou!"],
+                    saidaEsperada: "0 5 10 15 20 25 30 35 40 Acabou!",
+                    gabarito: `programa {
+    funcao inicio() {
+        inteiro i
+        para (i = 0; i <= 40; i = i + 5) {
+            escreva(i, " ")
+        }
+        escreva("Acabou!")
+    }
+}`
+                },
+                {
+                    id: "reforco-cod022",
+                    title: "Reforço (cod022): Contagem Regressiva",
+                    enunciado: ["(Baseado no Exercício 65) Crie um programa que use a estrutura `para` para mostrar na tela a seguinte contagem: 100 90 80 70 60 50 40 30 20 10 0 Acabou!"],
+                    saidaEsperada: "100 90 80 70 60 50 40 30 20 10 0 Acabou!",
+                    gabarito: "// Gabarito removido."
+                },
+                {
+                    id: "reforco-cod023",
+                    title: "Reforço (cod023): Tabuada",
+                    enunciado: ["(Baseado no Exercício 66) Crie um programa que leia um número qualquer e mostre a tabuada desse número, de 1 a 10, usando a estrutura `para`."],
+                    saidaEsperada: "Digite um valor: 7\n7 x 1 = 7\n7 x 2 = 14\n...",
+                    gabarito: "// Gabarito removido."
+                }
+            ],
+            interpretacaoCodigo: {
+                id: "interpretacao-codigo",
+                title: "Interpretação de Código",
+                code: `programa
+{
+    funcao inicio()
+    {
+        inteiro soma_dentro = 0
+        inteiro soma_fora = 0
+        inteiro i
+
+        para (i = 1; i <= 10; i = i + 1) {
+            se (i > 3 e i < 8) {
+                soma_dentro = soma_dentro + i
+            } senao {
+                soma_fora = soma_fora + i
+            }
+        }
+
+        escreva("Soma 'dentro': ", soma_dentro, "\\n")
+        escreva("Soma 'fora': ", soma_fora, "\\n")
+    }
+}`,
+                questions: [
+                    "Qual o objetivo principal deste algoritmo?",
+                    "Quais números serão somados na variável `soma_dentro`?",
+                    "Qual será o valor final exibido para a variável `soma_fora`?"
+                ]
+            },
+            entrega: {
+                id: "entrega",
+                title: "Entrega09: Sistema de Alquimia (Tibia)",
+                objetivo: "Aplicar o laço `para` em conjunto com a leitura de dados e estruturas condicionais para criar um programa mais complexo.",
+                enunciado: [
+                    "Você está criando poções de vida. O programa deve simular o gasto de ingredientes e o resultado da produção.",
+                    "1. Pergunte ao usuário quantas poções ele deseja criar.",
+                    "2. Use um laço <code>para</code> para simular a criação de cada poção.",
+                    "3. A cada poção criada, o programa deve perguntar o \"fator de sorte\" (um número inteiro) daquela tentativa.",
+                    "4. Use uma estrutura <code>se</code> dentro do laço:",
+                    "   - Se o fator de sorte for maior que 5, a poção é um \"Sucesso Crítico!\".",
+                    "   - Caso contrário, é um \"Sucesso Normal.\"",
+                    "5. Use contadores para rastrear o número de sucessos normais e críticos.",
+                    "6. No final, exiba um relatório com o total de poções, quantos sucessos normais e quantos sucessos críticos ocorreram."
+                ],
+                saidaEsperada: `Quantas poções criar? 3\n\nTentativa 1 - Fator de sorte: 4\n> Sucesso Normal.\n\nTentativa 2 - Fator de sorte: 8\n> Sucesso Crítico!\n\nTentativa 3 - Fator de sorte: 6\n> Sucesso Crítico!\n\n--- Relatório de Produção ---\nTotal de Poções: 3\nSucessos Normais: 1\nSucessos Críticos: 2`
+            }
+        };
+
+        const navContainer = document.getElementById('section-nav');
+        const contentArea = document.getElementById('section-content-area');
+        const placeholder = document.getElementById('section-placeholder');
+        let currentActiveButton = null;
+
+        function displaySection(sectionId) {
+            let sectionData;
+            let sectionType = 'default';
+
+            const navMap = {
+                "texto-didatico": { data: semana34Conteudo.textoDidatico, type: 'textoDidatico' },
+                "atividade-guiada": { data: semana34Conteudo.atividadeGuiada, type: 'atividade' },
+                "reforco-cod021": { data: semana34Conteudo.atividadesReforco[0], type: 'atividade' },
+                "reforco-cod022": { data: semana34Conteudo.atividadesReforco[1], type: 'atividade' },
+                "reforco-cod023": { data: semana34Conteudo.atividadesReforco[2], type: 'atividade' },
+                "interpretacao-codigo": { data: semana34Conteudo.interpretacaoCodigo, type: 'interpretacao' },
+                "entrega": { data: semana34Conteudo.entrega, type: 'atividade' }
+            };
+            
+            const selected = navMap[sectionId];
+            if (!selected) return;
+            
+            sectionData = selected.data;
+            sectionType = selected.type;
+
+            if(placeholder) placeholder.style.display = 'none';
+            contentArea.innerHTML = ''; 
+
+            const article = document.createElement('article');
+            article.id = `section-${sectionData.id}`;
+            
+            const titleText = sectionData.subtitle ? `${sectionData.title}: ${sectionData.subtitle}` : sectionData.title;
+            const titleH2 = document.createElement('h2');
+            titleH2.className = "text-3xl font-bold text-gray-800 mb-6 pb-3 border-b border-gray-200";
+            titleH2.textContent = titleText;
+            article.appendChild(titleH2);
+            
+            if (sectionType === 'textoDidatico') {
+                const divContent = document.createElement('div');
+                divContent.innerHTML = sectionData.content;
+                article.appendChild(divContent);
+            } else {
+                if (sectionData.objetivo) {
+                    const objP = document.createElement('p');
+                    objP.className = "text-gray-500 italic mb-6 text-base";
+                    objP.innerHTML = `<strong>Objetivo:</strong> ${sectionData.objetivo}`;
+                    article.appendChild(objP);
+                }
+
+                if(sectionData.enunciado){
+                    const enunciadoDiv = document.createElement('div');
+                    enunciadoDiv.className = "enunciado-block";
+                    const enunciadoTitle = document.createElement('h3');
+                    enunciadoTitle.className = "text-xl font-semibold text-gray-800 mb-3";
+                    enunciadoTitle.textContent = "Enunciado";
+                    enunciadoDiv.appendChild(enunciadoTitle);
+                    sectionData.enunciado.forEach(line => {
+                        const p = document.createElement('p');
+                        p.className = "text-gray-700 mb-2";
+                        p.innerHTML = line.replace(/`([^`]+)`/g, '<code class="bg-gray-200 text-sm text-pink-600 px-1 rounded">$1</code>');
+                        enunciadoDiv.appendChild(p);
+                    });
+                    article.appendChild(enunciadoDiv);
+                }
+                
+                if (sectionData.questions) {
+                    const questionsDiv = document.createElement('div');
+                    questionsDiv.className = "questions-block";
+                    const qTitle = document.createElement('h3');
+                    qTitle.className = "text-xl font-semibold text-gray-800 mb-3";
+                    qTitle.textContent = "Responda:";
+                    questionsDiv.appendChild(qTitle);
+                    const qOl = document.createElement('ol');
+                    qOl.className = "list-decimal list-inside space-y-2";
+                    sectionData.questions.forEach(q => {
+                        const qLi = document.createElement('li');
+                        qLi.className = "text-gray-700";
+                        qLi.innerHTML = q.replace(/`([^`]+)`/g, '<code class="bg-gray-200 text-sm text-pink-600 px-1 rounded">$1</code>');
+                        qOl.appendChild(qLi);
+                    });
+                    questionsDiv.appendChild(qOl);
+                    article.appendChild(questionsDiv);
+                }
+                
+                if (sectionData.code) {
+                    const codeTitle = document.createElement('h3');
+                    codeTitle.className = "text-xl font-semibold text-gray-800 mb-2 mt-4";
+                    codeTitle.textContent = "Analise o código abaixo:";
+                    article.appendChild(codeTitle);
+                    const codeBlockDiv = document.createElement('div');
+                    codeBlockDiv.className = "code-block";
+                    codeBlockDiv.innerHTML = `<pre><code>${sectionData.code.replace(/</g, "&lt;").replace(/>/g, "&gt;")}</code></pre>`;
+                    article.appendChild(codeBlockDiv);
+                }
+
+                if (sectionData.saidaEsperada) {
+                    const saidaTitle = document.createElement('h3');
+                    saidaTitle.className = "text-xl font-semibold text-gray-800 mb-2 mt-6";
+                    saidaTitle.textContent = "Saída Esperada (Exemplo):";
+                    article.appendChild(saidaTitle);
+                    const outputBlockDiv = document.createElement('div');
+                    outputBlockDiv.className = "output-block";
+                    outputBlockDiv.innerHTML = `<pre><code>${sectionData.saidaEsperada.replace(/</g, "&lt;").replace(/>/g, "&gt;")}</code></pre>`;
+                    article.appendChild(outputBlockDiv);
+                }
+
+                const hasGabaritoCode = sectionData.gabarito && !sectionData.gabarito.startsWith("//");
+                const hasGabaritoAnswers = sectionData.gabaritoAnswers;
+
+                if (hasGabaritoCode || hasGabaritoAnswers) {
+                    const gabaritoContainer = document.createElement('div');
+                    gabaritoContainer.className = "mt-6";
+                    const toggleButton = document.createElement('button');
+                    toggleButton.className = "bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg transition duration-150 ease-in-out mb-2 shadow";
+                    
+                    const gabaritoContent = document.createElement('div');
+                    gabaritoContent.id = `gabarito-content-${sectionData.id}`;
+                    gabaritoContent.classList.add('hidden');
+
+                    if (hasGabaritoAnswers) {
+                        toggleButton.textContent = "Mostrar Respostas das Questões";
+                        gabaritoContent.classList.add('gabarito-answers-block');
+                        let answersHtml = '<h4 class="font-semibold mb-2">Respostas:</h4><ol class="list-decimal list-inside">';
+                        sectionData.gabaritoAnswers.forEach(ans => {
+                            answersHtml += `<li>${ans.replace(/`([^`]+)`/g, '<code class="bg-gray-200 text-sm text-pink-600 px-1 rounded">$1</code>')}</li>`;
+                        });
+                        answersHtml += '</ol>';
+                        gabaritoContent.innerHTML = answersHtml;
+                    } else if (hasGabaritoCode) {
+                        toggleButton.textContent = "Mostrar Gabarito do Código";
+                        gabaritoContent.classList.add('code-block');
+                        gabaritoContent.innerHTML = `<pre><code>${sectionData.gabarito.replace(/</g, "&lt;").replace(/>/g, "&gt;")}</code></pre>`;
+                    }
+                    gabaritoContainer.appendChild(toggleButton);
+                    gabaritoContainer.appendChild(gabaritoContent);
+                    article.appendChild(gabaritoContainer);
+                    toggleButton.addEventListener('click', () => {
+                        const isHidden = gabaritoContent.classList.toggle('hidden');
+                        toggleButton.textContent = isHidden ? 
+                            (hasGabaritoAnswers ? "Mostrar Respostas" : "Mostrar Gabarito") :
+                            (hasGabaritoAnswers ? "Esconder Respostas" : "Esconder Gabarito");
+                    });
+                }
+            }
+            contentArea.appendChild(article);
+        }
+
+        function setActiveButton(button) {
+            if (currentActiveButton) {
+                currentActiveButton.classList.remove('nav-item-active');
+            }
+            button.classList.add('nav-item-active');
+            currentActiveButton = button;
+        }
+        
+        const navSections = [
+            semana34Conteudo.textoDidatico,
+            semana34Conteudo.atividadeGuiada,
+            ...semana34Conteudo.atividadesReforco,
+            semana34Conteudo.interpretacaoCodigo,
+            semana34Conteudo.entrega
+        ];
+
+        navSections.forEach((section) => {
+            const button = document.createElement('button');
+            button.textContent = section.title;
+            button.classList.add('w-full', 'text-left', 'px-4', 'py-3', 'rounded-lg', 'transition-all', 'duration-200', 'ease-in-out', 'font-medium', 'text-gray-600', 'hover:bg-blue-100', 'hover:text-blue-600');
+            button.addEventListener('click', () => {
+                displaySection(section.id);
+                setActiveButton(button);
+            });
+            navContainer.appendChild(button);
+        });
+        
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
+

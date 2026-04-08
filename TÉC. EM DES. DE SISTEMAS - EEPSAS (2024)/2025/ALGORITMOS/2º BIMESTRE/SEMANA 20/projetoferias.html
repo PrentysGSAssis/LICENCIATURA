@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto de Férias - Simulador de Batalha</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f7f4; /* Warm Neutral Background */
+        }
+        .code-block {
+            background-color: #2d3748; /* Tailwind gray-800 */
+            color: #f7fafc; /* Tailwind gray-100 */
+            padding: 1rem;
+            border-radius: 0.5rem; /* rounded-lg */
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            overflow-x: auto;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.875rem; /* text-sm */
+        }
+        .enunciado-block {
+            background-color: #ffffff;
+            padding: 1.5rem;
+            border-radius: 0.5rem; /* rounded-lg */
+            border: 1px solid #e2e8f0; /* Tailwind gray-200 */
+            margin-bottom: 1.5rem;
+        }
+        .enunciado-block ol {
+            list-style-type: decimal;
+            padding-left: 1.5rem;
+        }
+        .enunciado-block li {
+            margin-bottom: 1rem;
+        }
+        .texto-apoio-block {
+            background-color: #f0f9ff; /* Tailwind sky-50 */
+            border-left: 4px solid #38bdf8; /* Tailwind sky-400 */
+            padding: 1rem 1.5rem;
+            margin-bottom: 2rem;
+            border-radius: 0.25rem;
+        }
+        .texto-apoio-block code {
+            background-color: #e0f2fe;
+            color: #0c4a6e;
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+        .toggle-code-btn {
+            background-color: #e5e7eb;
+            color: #374151;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            margin-left: 0.5rem;
+            transition: background-color 0.2s;
+        }
+        .toggle-code-btn:hover {
+            background-color: #d1d5db;
+        }
+        .hidden-code {
+            background-color: #f9fafb;
+            border: 1px dashed #d1d5db;
+            padding: 0.5rem;
+            margin-top: 0.5rem;
+            border-radius: 0.375rem;
+        }
+    </style>
+    <!-- Chosen Palette: Warm Neutral & Soft Blue -->
+    <!-- Application Structure Plan: A single-page application that presents a comprehensive vacation project. The structure is linear and designed for easy reading: Header, a "Texto de Apoio" section to review concepts, the main "Enunciado" section detailing the project steps, and a final toggleable "Gabarito" section for the solution. This top-to-bottom flow guides the student logically from review to execution. The user flow is: read review -> read project instructions -> attempt to code -> (optional) check the gabarito for guidance. -->
+    <!-- Visualization & Content Choices: 
+        Texto de Apoio: Goal: Refresh student's memory of key concepts. Method: Formatted text with highlighted keywords. Interaction: None. Justification: Provides a quick, scannable reference before starting the project.
+        Enunciado: Goal: Clearly define the project requirements. Method: A structured list broken into logical parts (setup, input, calculations, logic, output). Interaction: Toggle buttons for individual formulas/code snippets within the instructions. Justification: Adds a layer of challenge, encouraging students to think before seeing the code.
+        Gabarito: Goal: Provide a complete, commented solution for students to check their work or get unstuck. Method: A full code block hidden by default. Interaction: A "Show/Hide" button. Justification: Encourages students to attempt the project themselves before looking at the answer.
+        All Libraries: N/A (Vanilla JS for UI interaction).
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+</head>
+<body class="text-gray-800">
+
+    <div class="container mx-auto max-w-4xl p-4 sm:p-6 lg:p-8">
+        <header class="mb-8 pb-4 text-center">
+            <h1 class="text-4xl font-bold text-gray-800">Projeto de Férias</h1>
+            <p class="text-lg text-gray-500 mt-2">Simulador de Rodada de Batalha (Tibia)</p>
+        </header>
+
+        <main>
+            <!-- Texto de Apoio -->
+            <section id="texto-apoio" class="mb-10">
+                <h2 class="text-2xl font-bold text-gray-700 mb-4">Revisão Rápida: Conceitos Essenciais</h2>
+                <div class="texto-apoio-block">
+                    <p class="text-gray-700">Olá, Programador! Antes de começar seu projeto, vamos relembrar rapidamente as ferramentas que você já domina e que serão necessárias para este desafio:</p>
+                    <ul class="list-disc list-inside mt-4 space-y-2">
+                        <li><strong>Estrutura Básica:</strong> Lembre-se que todo o seu código principal vai dentro de <code>funcao inicio() { ... }</code>.</li>
+                        <li><strong>Variáveis e Constantes:</strong> Você usará <code>inteiro</code> (para leveis, vida), <code>real</code> (para danos, fatores), <code>cadeia</code> (para nomes) e <code>logico</code> (para verificações verdadeiro/falso). Use <code>const</code> para valores que não mudam!</li>
+                        <li><strong>Entrada e Saída:</strong> Use <code>escreva()</code> para mostrar mensagens e <code>leia()</code> para capturar os dados do usuário.</li>
+                        <li><strong>Operadores Aritméticos:</strong> Você precisará de <code>+</code>, <code>-</code>, <code>*</code> e <code>/</code> para fazer os cálculos de dano e vida.</li>
+                        <li><strong>Operadores Relacionais e Lógicos:</strong> A parte chave do projeto! Use <code>>=</code>, <code>></code>, e o operador <code>e</code> para fazer as verificações lógicas.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Visão Geral e Enunciado -->
+            <section id="enunciado-projeto">
+                <h2 class="text-2xl font-bold text-gray-700 mb-4">Visão Geral e Enunciado do Projeto</h2>
+                <div class="enunciado-block">
+                    <p class="mb-4"><strong>Visão Geral:</strong> Seu desafio é criar um programa que simule **uma única rodada** de combate entre um herói (controlado por você) e um monstro (com atributos fixos). O programa irá coletar os dados do seu herói, calcular o dano do seu ataque contra o monstro e, ao final, exibir um relatório completo da rodada de batalha.</p>
+                    
+                    <p class="mb-6 bg-yellow-100 border-l-4 border-yellow-500 text-yellow-800 p-4 rounded">
+                        <strong>⚠️ Importante:</strong> Uma parte crucial deste projeto é o pensamento crítico. Você deve criar **seus próprios nomes para as variáveis**. Em vez de usar `nome_heroi`, pense em algo como `nomeDoGuerreiro`, `heroiNome`, ou o que fizer mais sentido para você. O objetivo é que você crie um código que **você** entenda facilmente ao reler depois.
+                    </p>
+
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Passo a Passo do Projeto:</h3>
+                    <ol>
+                        <li>
+                            <strong>Parte 1: Definindo os Combatentes (Constantes e Variáveis)</strong>
+                            <ul class="list-disc list-inside ml-5 mt-2">
+                                <li>Defina as constantes do Monstro: `const cadeia NOME_MONSTRO = "Cyclops"`, `const inteiro VIDA_MONSTRO = 260`, e `const real FATOR_DEFESA_MONSTRO = 1.1` (onde 1.1 significa que ele bloqueia 10% do dano).</li>
+                                <li>Declare as variáveis para os dados do seu Herói que serão lidas do usuário.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Parte 2: Coletando os Dados do Herói (Entrada)</strong>
+                            <ul class="list-disc list-inside ml-5 mt-2">
+                                <li>Peça ao usuário para digitar o nome do herói, o level, a skill de ataque (ex: Sword Fighting) e o dano base da arma que ele está usando. Armazene cada dado na sua respectiva variável.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Parte 3: Calculando o Dano (Operadores Aritméticos)</strong>
+                            <ul class="list-disc list-inside ml-5 mt-2">
+                                <li>Calcule o dano total do herói. <button class="toggle-code-btn" data-target="formula1">Mostrar Fórmula</button>
+                                    <div id="formula1" class="hidden-code hidden"><p>Use a fórmula: <code>dano_total_heroi = dano_base_arma + (skill_ataque_heroi * 0.5) + (level_heroi * 0.2)</code></p></div>
+                                </li>
+                                <li>Calcule o dano final que o monstro receberá, considerando sua defesa. <button class="toggle-code-btn" data-target="formula2">Mostrar Fórmula</button>
+                                    <div id="formula2" class="hidden-code hidden"><p>Use a fórmula: <code>dano_final_no_monstro = dano_total_heroi / FATOR_DEFESA_MONSTRO</code></p></div>
+                                </li>
+                                <li>Calcule a vida que restará ao monstro após o ataque. <button class="toggle-code-btn" data-target="formula3">Mostrar Fórmula</button>
+                                    <div id="formula3" class="hidden-code hidden"><p>Use a fórmula: <code>vida_restante_monstro = VIDA_MONSTRO - dano_final_no_monstro</code></p></div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Parte 4: Verificações Lógicas (Operadores Relacionais e Lógicos)</strong>
+                            <ul class="list-disc list-inside ml-5 mt-2">
+                                <li>Verifique se o Herói pode usar a arma. A condição de level é maior ou igual a 20` E a condição de ataque é com skill maior ou igual a 30. Armazene o resultado em uma variável lógica. <button class="toggle-code-btn" data-target="logica1">Mostrar Condição</button>
+                                    <div id="logica1" class="hidden-code hidden"><p>Exemplo de condição: <code>(level_heroi >= 20 e skill_ataque_heroi >= 30)</code></p></div>
+                                </li>
+                                <li>Verifique se o ataque foi um "Golpe Crítico". A condição é que o dano total do herói (antes da defesa) seja maior que 100.0. Armazene o resultado em outra variável lógica. <button class="toggle-code-btn" data-target="logica2">Mostrar Condição</button>
+                                    <div id="logica2" class="hidden-code hidden"><p>Exemplo de condição: <code>dano_total_heroi > 100.0</code></p></div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Parte 5: Exibindo o Relatório da Rodada (Saída)</strong>
+                            <ul class="list-disc list-inside ml-5 mt-2">
+                                <li>Mostre um relatório completo e bem organizado na tela, exibindo todas as informações do herói, os cálculos do ataque, os resultados das verificações lógicas e a vida restante do monstro.</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+            </section>
+        </main>
+
+        <footer class="mt-12 text-center text-sm text-gray-400">
+            <p>&copy; <span id="currentYear"></span> Plataforma de Revisão de Algoritmos. Bom trabalho e boas férias!</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Lógica para o botão principal do gabarito
+            const toggleButton = document.getElementById('toggle-gabarito-btn');
+            const gabaritoContent = document.getElementById('gabarito-content');
+            
+            if (toggleButton && gabaritoContent) {
+                toggleButton.addEventListener('click', () => {
+                    const isHidden = gabaritoContent.classList.toggle('hidden');
+                    toggleButton.textContent = isHidden ? 'Mostrar Gabarito do Código' : 'Esconder Gabarito do Código';
+                });
+            }
+
+            // Lógica para os botões de toggle dentro do enunciado
+            const enunciadoButtons = document.querySelectorAll('.toggle-code-btn');
+            enunciadoButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const targetId = this.getAttribute('data-target');
+                    const targetElement = document.getElementById(targetId);
+                    if (targetElement) {
+                        const isHidden = targetElement.classList.toggle('hidden');
+                        if (this.textContent.includes('Mostrar')) {
+                            this.textContent = this.textContent.replace('Mostrar', 'Esconder');
+                        } else {
+                            this.textContent = this.textContent.replace('Esconder', 'Mostrar');
+                        }
+                    }
+                });
+            });
+            
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+        });
+    </script>
+</body>
+</html>

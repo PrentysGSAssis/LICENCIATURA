@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demonstração de Tags de Formatação</title>
+    <style>
+        /* CSS inline básico para a tabela */
+        table {
+            width: 95%; /* Aumentei um pouco a largura para melhor visualização */
+            margin: 20px auto;
+            border-collapse: collapse;
+            font-family: Arial, sans-serif;
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 10px; /* Ajustei o padding */
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        /* Estilo geral para o conteúdo dentro de <code> na primeira coluna */
+        td:first-child code {
+            background-color: transparent; /* Remove o fundo do code para não conflitar */
+            padding: 0;
+        }
+        /* Novo estilo para destacar apenas as tags */
+        .tag-highlight {
+            background-color: #e0e0e0; /* Leve tonalidade de cinza */
+            font-weight: bold;
+            padding: 1px 4px; /* Pequeno padding para o destaque */
+            border-radius: 3px; /* Cantos levemente arredondados */
+            font-family: "Courier New", Courier, monospace; /* Mantém a fonte monoespaçada para tags */
+        }
+        /* Estilo para o código dentro de <pre> na terceira coluna */
+        td pre code {
+            display: block;
+            background-color: #eee;
+            padding: 10px;
+            border-radius: 3px;
+            font-family: "Courier New", Courier, monospace;
+        }
+        /* Estilo para <code> inline na terceira coluna, se houver */
+         td:not(:first-child) code { /* Evita aplicar ao <code> da primeira coluna */
+            background-color: #eee;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: "Courier New", Courier, monospace;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tabela Resumo: Tags de Formatação de Texto HTML</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Tag HTML (Exemplo de Uso no Código)</th>
+                <th>Significado Semântico / Uso Principal</th>
+                <th>Aparência Padrão (Visual no Navegador)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code><span class="tag-highlight">&lt;strong&gt;</span>Importante<span class="tag-highlight">&lt;/strong&gt;</span></code></td>
+                <td>Indica forte importância, seriedade ou urgência.</td>
+                <td><strong>Importante</strong></td>
+            </tr>
+            <tr>
+                <td><code><span class="tag-highlight">&lt;em&gt;</span>Ênfase<span class="tag-highlight">&lt;/em&gt;</span></code></td>
+                <td>Enfatiza uma palavra ou trecho, alterando a entonação.</td>
+                <td><em>Ênfase</em></td>
+            </tr>
+            <tr>
+                <td><code><span class="tag-highlight">&lt;mark&gt;</span>Destaque<span class="tag-highlight">&lt;/mark&gt;</span></code></td>
+                <td>Marca um texto relevante em um contexto específico.</td>
+                <td><mark>Destaque</mark></td>
+            </tr>
+            <tr>
+                <td><code><span class="tag-highlight">&lt;small&gt;</span>Pequeno<span class="tag-highlight">&lt;/small&gt;</span></code></td>
+                <td>Comentários laterais, letras miúdas (copyrights, etc.).</td>
+                <td><small>Pequeno</small></td>
+            </tr>
+            <tr>
+                <td><code><span class="tag-highlight">&lt;del&gt;</span>Riscado<span class="tag-highlight">&lt;/del&gt;</span></code></td>
+                <td>Indica texto que foi removido ou não é mais válido.</td>
+                <td><del>Riscado</del></td>
+            </tr>
+            <tr>
+                <td><code><span class="tag-highlight">&lt;ins&gt;</span>Inserido<span class="tag-highlight">&lt;/ins&gt;</span></code></td>
+                <td>Indica texto que foi adicionado ou inserido.</td>
+                <td><ins>Inserido</ins></td>
+            </tr>
+            <tr>
+                <td><code>X<span class="tag-highlight">&lt;sup&gt;</span>2<span class="tag-highlight">&lt;/sup&gt;</span></code></td>
+                <td>Texto Sobrescrito (acima da linha base).</td>
+                <td>X<sup>2</sup></td>
+            </tr>
+            <tr>
+                <td><code>H<span class="tag-highlight">&lt;sub&gt;</span>2<span class="tag-highlight">&lt;/sub&gt;</span>O</code></td>
+                <td>Texto Subscrito (abaixo da linha base).</td>
+                <td>H<sub>2</sub>O</td>
+            </tr>
+            <tr>
+                <td><code><span class="tag-highlight">&lt;code&gt;</span>var x = 5;<span class="tag-highlight">&lt;/code&gt;</span></code></td>
+                <td>Marca um trecho de código de computador (inline).</td>
+                <td><code>var x = 5;</code></td>
+            </tr>
+            <tr>
+                <td><code><span class="tag-highlight">&lt;pre&gt;</span><pre>função(){
+   retorna vdd;
+}</pre><span class="tag-highlight">&lt;/pre&gt;</span></code></td>
+                <td>Texto pré-formatado. Preserva espaços e quebras de linha.</td>
+                <td><pre><code>função(){
+  retorna vdd;
+}</code></pre></td>
+            </tr>
+            <tr>
+                <td><code><span class="tag-highlight">&lt;q&gt;</span>Citação curta.<span class="tag-highlight">&lt;/q&gt;</span></code></td>
+                <td>Citação curta, inline. Navegadores geralmente adicionam aspas.</td>
+                <td><q>Citação curta.</q></td>
+            </tr>
+            <tr>
+                <td><code><span class="tag-highlight">&lt;blockquote cite="url"&gt;</span>Bloco...<span class="tag-highlight">&lt;/blockquote&gt;</span></code></td>
+                <td>Bloco de citação mais longo. Navegadores geralmente recuam. O atributo 'cite' pode linkar a fonte.</td>
+                <td><blockquote cite="url_da_fonte.com">Bloco de citação mais longo, geralmente recuado para destaque.</blockquote></td>
+            </tr>
+            <tr>
+                <td><code><span class="tag-highlight">&lt;abbr title="Linguagem de Marcação de HiperTexto"&gt;</span>HTML<span class="tag-highlight">&lt;/abbr&gt;</span></code></td>
+                <td>Abreviação ou acrônimo. O atributo 'title' mostra a expansão.</td>
+                <td><abbr title="Linguagem de Marcação de HiperTexto">HTML</abbr></td>
+            </tr>
+            <tr>
+                <td><code><span class="tag-highlight">&lt;bdo dir="rtl"&gt;</span>invertido<span class="tag-highlight">&lt;/bdo&gt;</span></code></td>
+                <td>Sobrescreve a direcionalidade do texto.</td>
+                <td><bdo dir="rtl">oditrevnI</bdo> (Exibe "Inverto" como "otrevnI")</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

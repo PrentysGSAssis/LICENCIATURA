@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabela de Grouping Tags</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f0f0f0; }
+        .page-container { width: 210mm; min-height: 297mm; margin: 20px auto; padding: 15mm; box-shadow: 0 0 10px rgba(0,0,0,0.1); box-sizing: border-box; background-color: white;}
+        .content-container { padding-top: 10px; }
+        h1 { font-size: 1.6em; border-bottom: 1.5px solid #eee; padding-bottom: 7px; margin-top: 0; color: #333; text-align: center; margin-bottom: 20px;}
+        table { width: 100%; margin: 15px 0; border-collapse: collapse; font-size: 0.95em; }
+        th, td { border: 1px solid #ccc; padding: 10px 12px; text-align: left; vertical-align: top; }
+        th { background-color: #e9ecef; font-size: 1.05em;}
+        tr:nth-child(even) { background-color: #f8f9fa; }
+        code { background-color: #e4e4e4; padding: 2px 5px; border-radius: 4px; font-family: "Consolas", Courier, monospace; font-size: 1em; }
+        .tag-cell { font-weight: bold; }
+        @media print { 
+            body { background-color: white; }
+            .page-container { margin: 0; padding: 0; box-shadow: none; width: 100%; min-height: 0;}
+            @page { margin: 12mm 10mm; } 
+        }
+    </style>
+</head>
+<body>
+<div class="page-container">
+    <div class="content-container">
+        <h1>Tabela de Tags de Agrupamento (Grouping Tags)</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Tag Semântica</th>
+                    <th>Função Principal</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="tag-cell"><code>&lt;header&gt;</code></td>
+                    <td>Define o cabeçalho da página ou de uma seção. Ideal para conter o logo, título principal e navegação.</td>
+                </tr>
+                <tr>
+                    <td class="tag-cell"><code>&lt;nav&gt;</code></td>
+                    <td>Agrupa os links de navegação principais do site, como o menu principal.</td>
+                </tr>
+                <tr>
+                    <td class="tag-cell"><code>&lt;main&gt;</code></td>
+                    <td>Delimita o conteúdo <strong>principal e único</strong> da página. Só deve haver uma por documento.</td>
+                </tr>
+                <tr>
+                    <td class="tag-cell"><code>&lt;section&gt;</code></td>
+                    <td>Agrupa um bloco de conteúdos relacionados tematicamente (ex: "Sobre Nós", "Contato").</td>
+                </tr>
+                <tr>
+                    <td class="tag-cell"><code>&lt;article&gt;</code></td>
+                    <td>Representa um conteúdo completo e independente que poderia ser distribuído por conta própria (ex: um post de blog, uma notícia).</td>
+                </tr>
+                <tr>
+                    <td class="tag-cell"><code>&lt;aside&gt;</code></td>
+                    <td>Define um conteúdo complementar ou secundário, como uma barra lateral (sidebar) ou uma nota de rodapé contextual.</td>
+                </tr>
+                <tr>
+                    <td class="tag-cell"><code>&lt;footer&gt;</code></td>
+                    <td>Define o rodapé da página ou de uma seção, contendo informações de autoria, direitos autorais, etc.</td>
+                </tr>
+                <tr>
+                    <td class="tag-cell"><code>&lt;div&gt;</code></td>
+                    <td>É um contêiner genérico de bloco (block-level), <strong>não-semântico</strong>. Usado para agrupar elementos para fins de estilização quando nenhuma outra tag semântica se aplica.</td>
+                </tr>
+                <tr>
+                    <td class="tag-cell"><code>&lt;span&gt;</code></td>
+                    <td>É um contêiner genérico em linha (inline-level), <strong>não-semântico</strong>. Usado para agrupar uma pequena parte de um texto ou conteúdo para aplicar estilos específicos.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

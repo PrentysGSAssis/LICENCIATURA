@@ -1,0 +1,25 @@
+Gere um novo "plano_de_aulas_da.pdf", mas agora cruzando as informações do período letivo da EEPSAS.
+
+Mantenha a estrutura obrigatória de 40 semanas, uma vez que este é o padrão escolar exigido.
+As 40 semanas devem ser distribuídas ao longo do ano letivo.
+Crie as subdivisões por trimestre.
+Estrutura de saída esperada:
+
+"dd/mm (a segunda feira da semana de referencia)" a "dd/mm (a sexta-feira de semana de referência - ou o sábado letivo SE pertinente)": Semana 01 - Introdução ao Ecossistema Mobile"
+"Conteúdo:  Dispositivos móveis e o mercado; Definição e evolução"
+"Atividades:Análise das tendências de mercado e discussão sobre o impacto dos apps na
+sociedade moderna." (aumente este ultimo tópico para que tenha 200 caracteres)
+
+
+> Ajuste o conteúdo para que em situações em que se façam necessário a SEMANA inclua mais de 5 dias, o importante é que ao FINAL da contagem eu tenho obrigatoriamente 40 semaans letivas.
+
+> Semansa que sofrem ajustem devem incluir uma pequena nota do ajuste.
+> a SEMANA 01, 02, 03, 04 e 05 ja foram ministradas, e são:
+
+SEMANA 01 - 04/02 a 12/12
+SEMANA 02 - 23/02 a 27/02
+SEMANA 03 - 02/03 a 06/03
+SEMANA 04 - 09/03 a 13/03
+SEMANA 05 - 16/03 a 20/03
+
+Continue a partir daí a datação, MAS cosntrua a estruura "conteúdo/atividades" para elas

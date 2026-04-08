@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plano de Aula Anual - Front-End II</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Estilos personalizados para complementar o Tailwind */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-slate-50 text-slate-800 h-full">
+
+    <div class="flex h-full">
+        <aside class="w-64 bg-white border-r border-slate-200 p-6 flex flex-col fixed h-full">
+            <header class="mb-10">
+                <h1 class="text-xl font-bold text-slate-900">Front-End II</h1>
+                <p class="text-sm text-slate-500">3º Ano - Ensino Médio</p>
+            </header>
+            <nav id="navigation" class="flex flex-col space-y-2">
+                <a href="#" data-view="home" class="nav-link bg-slate-100 text-slate-900 flex items-center px-4 py-2 rounded-lg font-semibold">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" viewBox="0 0 20 20" fill="currentColor"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" /></svg>
+                    Início
+                </a>
+                <a href="#" data-view="bimestre-1" class="nav-link text-slate-600 hover:bg-slate-100 hover:text-slate-900 flex items-center px-4 py-2 rounded-lg font-medium">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd" /></svg>
+                    1º Bimestre
+                </a>
+                <a href="#" data-view="bimestre-2" class="nav-link text-slate-600 hover:bg-slate-100 hover:text-slate-900 flex items-center px-4 py-2 rounded-lg font-medium">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd" /></svg>
+                    2º Bimestre
+                </a>
+                <a href="#" data-view="bimestre-3" class="nav-link text-slate-600 hover:bg-slate-100 hover:text-slate-900 flex items-center px-4 py-2 rounded-lg font-medium">
+                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd" /></svg>
+                    3º Bimestre
+                </a>
+                <a href="#" data-view="bimestre-4" class="nav-link text-slate-600 hover:bg-slate-100 hover:text-slate-900 flex items-center px-4 py-2 rounded-lg font-medium">
+                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd" /></svg>
+                    4º Bimestre
+                </a>
+            </nav>
+        </aside>
+
+        <main id="main-content" class="ml-64 flex-1 p-8 overflow-y-auto">
+            </main>
+    </div>
+
+    <script>
+        // --- BANCO DE DADOS DA DISCIPLINA ---
+        const courseData = {
+            ementa: {
+                titulo: "Ementa: Desenvolvimento Front-End II",
+                objetivoGeral: "Desenvolver sistemas para internet com conexão ao Banco de Dados.",
+                topicos: [
+                    "Introdução ao JavaScript", "Efeitos visuais", "Validação de formulários",
+                    "Arquitetura de aplicações web", "Modelo cliente-servidor", "Padrão MVC",
+                    "Introdução ao conceito de front e back end", "Tecnologias Front-End",
+                    "Consumo de serviços de Back end", "Framework para desenvolvimento responsivo e mobile-first (Bootstrap)",
+                    "Processamento script lado cliente (Javascript)", "Introdução processamento script lado servidor",
+                    "Variáveis e tipos de dados (lado servidor)", "Decisão e laços (lado servidor)",
+                    "Persistência em banco de dados", "Conexões", "Execução de comandos SQL"
+                ]
+            },
+            focoBimestres: [
+                {
+                    bimestre: "1º Bimestre",
+                    foco: "Fundamentação em JavaScript e Interação com o DOM. Introdução à arquitetura de aplicações web, preparando o terreno para a construção de interfaces dinâmicas e validação de dados no lado do cliente."
+                },
+                {
+                    bimestre: "2º Bimestre",
+                    foco: "Consolidação das habilidades em JavaScript com foco no consumo de serviços de Back-end (APIs). Introdução e aplicação de frameworks CSS como Bootstrap para agilizar o desenvolvimento responsivo."
+                },
+                {
+                    bimestre: "3º Bimestre",
+                    foco: "Introdução ao desenvolvimento do lado do servidor (Server-Side). Compreensão dos conceitos de variáveis, tipos de dados, estruturas de decisão e laços de repetição em um ambiente de back-end."
+                },
+                {
+                    bimestre: "4º Bimestre",
+                    foco: "Integração completa (Full Stack). Foco na persistência de dados, estabelecendo conexões com bancos de dados e executando comandos SQL para criar aplicações web dinâmicas e funcionais."
+                }
+            ],
+            // O campo 'dayOfWeek' foi adicionado para facilitar a lógica de exibição. 2=Terça, 5=Sexta, 6=Sábado.
+            planejamento: [
+                // --- 1º BIMESTRE ---
+                { semana: 1, data: "11/02", dayOfWeek: 2, tema: "Introdução ao JavaScript e ao DOM", objetivo: "Compreender o papel do JavaScript na web e como ele interage com a estrutura de uma página HTML (DOM).", topicos: "Foi apresentado o conceito de script do lado do cliente e a história do JavaScript. No laboratório, os alunos criaram seu primeiro script, utilizando `console.log()` para exibir mensagens e realizaram a primeira manipulação do DOM, alterando o texto de um elemento HTML através de um seletor de ID." },
+                { semana: 2, data: "18/02", dayOfWeek: 2, tema: "Variáveis, Tipos de Dados e Operadores", objetivo: "Declarar variáveis e compreender os tipos de dados primitivos e operadores básicos do JavaScript.", topicos: "Foram explicados os conceitos de variáveis usando `let` e `const`, e os tipos de dados `string`, `number` e `boolean`. Na prática, os alunos desenvolveram pequenos scripts que realizavam operações aritméticas e de concatenação, exibindo os resultados no console e na página." },
+                { semana: 3, data: "25/02", dayOfWeek: 2, tema: "Estruturas de Decisão (if/else)", objetivo: "Implementar lógica condicional para controlar o fluxo de execução de um programa.", topicos: "Foi introduzida a estrutura condicional `if...else` e operadores de comparação. No laboratório, os alunos criaram uma página que alterava seu conteúdo ou estilo (ex: cor de fundo) com base na entrada do usuário em um campo de formulário, como verificar se um número era par ou ímpar." },
+                { semana: 4, data: "07/03", dayOfWeek: 5, tema: "Laços de Repetição (for, while)", objetivo: "Utilizar laços para executar blocos de código repetidamente.", topicos: "Foram demonstrados os laços de repetição `for` e `while` para iterar sobre sequências de números. Na atividade prática, os alunos geraram dinamicamente listas ordenadas (`<ol>`) e não ordenadas (`<ul>`) na página, preenchendo-as com itens criados dentro de um laço." },
+                { semana: 5, data: "11/03", dayOfWeek: 2, tema: "Funções e Escopo", objetivo: "Criar e invocar funções para organizar e reutilizar blocos de código.", topicos: "Foi explicado o conceito de funções, parâmetros e retorno de valores, além da diferença entre escopo global e local. Em laboratório, os alunos refatoraram os scripts anteriores, encapsulando lógicas como cálculos e manipulação de DOM dentro de funções reutilizáveis." },
+                { semana: 6, data: "18/03", dayOfWeek: 2, tema: "Eventos e Manipulação do DOM", objetivo: "Responder a interações do usuário (cliques, digitação) para criar páginas dinâmicas.", topicos: "Foram apresentados os `event listeners` para eventos como `click` e `input`. A atividade prática consistiu em criar um formulário simples onde um botão, ao ser clicado, capturava o valor de um campo de texto e o exibia em um parágrafo na mesma página." },
+                { semana: 7, data: "25/03", dayOfWeek: 2, tema: "Validação de Formulários (Básico)", objetivo: "Aplicar os conhecimentos de JavaScript para validar campos de um formulário HTML.", topicos: "Foram discutidas técnicas de validação de formulários do lado do cliente. Na prática, os alunos implementaram uma validação simples para verificar se um campo de formulário estava vazio ao ser submetido, exibindo uma mensagem de erro na página caso estivesse." },
+                { semana: 8, data: "01/04", dayOfWeek: 2, tema: "Arquitetura Cliente-Servidor", objetivo: "Compreender a distinção fundamental entre o lado do cliente (front-end) e o lado do servidor (back-end).", topicos: "Foi realizada uma exposição teórica sobre a arquitetura cliente-servidor, utilizando analogias como um restaurante (cliente pede, cozinha/servidor prepara e entrega). Os alunos, em grupo, listaram exemplos de ações que ocorrem no front-end e no back-end em sites que usam diariamente." },
+                { semana: 9, data: "08/04", dayOfWeek: 2, tema: "Padrão MVC e Conceitos Front/Back-End", objetivo: "Introduzir o padrão de arquitetura Model-View-Controller e solidificar os conceitos de front e back-end.", topicos: "Foi apresentado o padrão MVC de forma conceitual, explicando as responsabilidades de cada camada. No laboratório, os alunos analisaram um diagrama de um sistema web simples e identificaram quais partes do código (HTML, CSS, JS do cliente, Lógica do servidor) corresponderiam ao Model, View e Controller." },
+                { semana: 10, data: "15/04", dayOfWeek: 2, tema: "Projeto Prático: Validação de Formulário Completo", objetivo: "Integrar os conhecimentos adquiridos para criar um formulário com validação robusta.", topicos: "Foi proposto um projeto prático para a semana. No laboratório, os alunos iniciaram a criação de um formulário de cadastro (nome, e-mail, senha) e aplicaram validações em tempo real usando JavaScript, como verificar formato de e-mail e força da senha, exibindo mensagens de feedback ao usuário." },
+                { semana: 11, data: "22/04", dayOfWeek: 2, tema: "Finalização do Projeto e Revisão para o Bimestre", objetivo: "Concluir o projeto de validação de formulário e revisar os principais tópicos do bimestre.", topicos: "Foi dedicada a aula para a finalização e entrega do projeto do formulário de cadastro. Após a entrega, realizou-se uma revisão dos conceitos de JavaScript, DOM e arquitetura web, preparando os alunos para a avaliação bimestral." },
+                // --- 2º BIMESTRE ---
+                { semana: 12, data: "02/05", dayOfWeek: 5, tema: "Introdução ao Consumo de Serviços de Back-end (APIs)", objetivo: "Compreender o que é uma API e como o front-end pode requisitar dados de um servidor.", topicos: "Foi explicado o conceito de API (Application Programming Interface) e o formato de dados JSON. No laboratório, os alunos utilizaram a função `fetch` do JavaScript para fazer uma requisição a uma API pública (ex: API de cotação de moedas) e exibiram o resultado no console." },
+                { semana: 13, data: "06/05", dayOfWeek: 2, tema: "Manipulando Dados de APIs no Front-End", objetivo: "Processar dados JSON recebidos de uma API e exibi-los dinamicamente na página.", topicos: "Foi aprofundado o uso da função `fetch` e das Promises em JavaScript. A atividade prática consistiu em consumir uma API de curiosidades (como a `cat-facts`) e, para cada fato recebido, criar e adicionar um novo elemento `<li>` a uma lista `<ul>` na página, populando a tela dinamicamente." },
+                { semana: 14, data: "13/05", dayOfWeek: 2, tema: "Projeto: Consultando uma API de CEP", objetivo: "Aplicar os conhecimentos de API para criar uma ferramenta funcional que busca endereços a partir de um CEP.", topicos: "Foi apresentado o desafio de criar um buscador de CEP. No laboratório, os alunos construíram um formulário com um campo para o CEP e, usando `fetch`, consultaram a API 'ViaCEP'. Ao receber a resposta, preencheram automaticamente os campos de endereço (rua, bairro, cidade) na página." },
+                { semana: 15, data: "20/05", dayOfWeek: 2, tema: "Introdução a Frameworks CSS: Bootstrap", objetivo: "Compreender o conceito de frameworks CSS e utilizar o Bootstrap para estilizar uma página rapidamente.", topicos: "Foi explicado o propósito de um framework CSS como o Bootstrap, focando em sua grade de layout e componentes pré-estilizados. Na prática, os alunos incluíram o Bootstrap via CDN e recriaram uma página simples, utilizando classes do Bootstrap para layout, botões e formulários, comparando com o CSS manual." },
+                { semana: 16, data: "27/05", dayOfWeek: 2, tema: "Layout Responsivo com a Grade do Bootstrap", objetivo: "Utilizar o sistema de grid do Bootstrap para criar layouts que se adaptam a diferentes tamanhos de tela.", topicos: "Foi detalhado o funcionamento do sistema de grid de 12 colunas do Bootstrap e suas classes responsivas (col-sm, col-md, col-lg). No laboratório, os alunos construíram um layout de galeria de cards que se reorganizava automaticamente: 4 colunas em telas grandes, 2 em tablets e 1 em celulares." },
+                { semana: 17, data: "03/06", dayOfWeek: 2, tema: "Revisão e Prova Parcial", objetivo: "Avaliar o conhecimento sobre consumo de APIs e uso do Bootstrap.", topicos: "A primeira parte da aula foi dedicada a uma revisão rápida e tira-dúvidas sobre `fetch` e Bootstrap. Em seguida, foi aplicada uma avaliação parcial teórica e prática, onde os alunos tiveram que consumir uma pequena API e estilizar a exibição dos dados usando componentes do Bootstrap." },
+                { semana: 18, data: "10/06", dayOfWeek: 2, tema: "Componentes Avançados do Bootstrap: Modal e Carousel", objetivo: "Implementar componentes interativos do Bootstrap como Modals e Carousels.", topicos: "Foram demonstrados os componentes Modal e Carousel, explicando sua estrutura HTML e os atributos `data-*` necessários para a interatividade. A atividade prática foi criar uma galeria de imagens onde clicar em uma imagem abria um modal com a versão ampliada, e uma seção de destaque com um carousel de banners." },
+                { semana: 19, data: "17/06", dayOfWeek: 2, tema: "Projeto: Recriando uma Página com Bootstrap", objetivo: "Integrar diversos componentes do Bootstrap para recriar a estrutura de uma página de destino (landing page).", topicos: "Foi proposto o projeto de recriar uma landing page simples, fornecida como imagem. Os alunos utilizaram o sistema de grid para a estrutura, `navbar`, `cards`, `forms` e `modals` do Bootstrap para construir uma réplica funcional e responsiva." },
+                { semana: 20, data: "24/06", dayOfWeek: 2, tema: "Prova Global: Desenvolvimento de Interface Responsiva", objetivo: "Avaliar de forma completa a capacidade de desenvolver uma interface web responsiva e dinâmica.", topicos: "Foi realizada a Prova Global do bimestre. O desafio consistiu em desenvolver uma página de perfil de usuário que buscava dados de uma API fictícia, exibia as informações em `cards` e era totalmente responsiva, utilizando os conceitos de JavaScript e Bootstrap aprendidos." },
+                { semana: 21, data: "01/07", dayOfWeek: 2, tema: "Recuperação e Atividades de Reforço", objetivo: "Reforçar os conceitos de JavaScript e Bootstrap para alunos que necessitam de recuperação.", topicos: "Foram realizadas atividades de reforço focadas nos pontos de maior dificuldade identificados nas avaliações, como manipulação de dados de APIs e o sistema de grid do Bootstrap. Os alunos com pendências realizaram uma atividade de recuperação prática." },
+                { semana: 22, data: "08/07", dayOfWeek: 2, tema: "Introdução ao Desenvolvimento Lado Servidor (Back-End)", objetivo: "Compreender o que é e qual o papel do back-end em uma aplicação web.", topicos: "Foi apresentada a transição do front-end para o back-end, explicando a necessidade de uma camada no servidor para processar dados, autenticar usuários e interagir com um banco de dados. Utilizou-se a analogia do 'cérebro' da aplicação, que recebe requisições e envia respostas." },
+                // --- 3º BIMESTRE ---
+                { semana: 23, data: "15/07", dayOfWeek: 2, tema: "Linguagem do Lado Servidor: Variáveis e Tipos de Dados", objetivo: "Aprender a declarar variáveis e manipular tipos de dados básicos em uma linguagem de back-end (ex: PHP ou Node.js).", topicos: "Foi introduzida a sintaxe básica de uma linguagem de servidor. No laboratório, os alunos configuraram um ambiente de desenvolvimento local (XAMPP/Node) e escreveram seus primeiros scripts de servidor, declarando variáveis, realizando operações e exibindo o resultado." },
+                { semana: 24, data: "05/08", dayOfWeek: 2, tema: "Estruturas de Decisão e Laços no Back-End", objetivo: "Aplicar estruturas de controle de fluxo (if/else, for, while) na lógica do servidor.", topicos: "Foi demonstrado como as estruturas de decisão e laços são usadas no servidor para processar dados. Na prática, os alunos criaram um script que recebia um número via parâmetro de URL e retornava se era primo, utilizando laços para realizar o cálculo." },
+                { semana: 25, data: "12/08", dayOfWeek: 2, tema: "Recebendo Dados do Front-End (Formulários)", objetivo: "Capturar no back-end os dados enviados por um formulário HTML.", topicos: "Foi explicado como os formulários HTML enviam dados usando os métodos GET e POST. No laboratório, os alunos criaram um formulário de login no front-end e um script no back-end que capturava o usuário e a senha enviados, exibindo-os de volta como confirmação." },
+                { semana: 26, data: "19/08", dayOfWeek: 2, tema: "Introdução à Persistência de Dados", objetivo: "Compreender a necessidade de um banco de dados para armazenar informações de forma permanente.", topicos: "Foi discutida a limitação de usar variáveis, que perdem seus dados ao final da execução. Introduziu-se o conceito de banco de dados como solução para persistência. Os alunos fizeram um exercício teórico de modelagem de uma tabela 'usuarios' com campos como id, nome, email e senha." },
+                { semana: 27, data: "26/08", dayOfWeek: 2, tema: "Conexão com Banco de Dados", objetivo: "Estabelecer uma conexão entre o script do servidor e um banco de dados (ex: MySQL).", topicos: "Foram apresentadas as funções e os parâmetros necessários para conectar a aplicação ao banco de dados, incluindo host, usuário, senha e nome do banco. No laboratório, os alunos escreveram e testaram um script de conexão, tratando possíveis erros." },
+                { semana: 28, data: "02/09", dayOfWeek: 2, tema: "Executando Comandos SQL: Inserção de Dados (Create)", objetivo: "Inserir dados no banco de dados a partir de informações recebidas do front-end.", topicos: "Foi ensinado o comando SQL `INSERT`. A atividade prática integrou os conhecimentos anteriores: os alunos adaptaram o script do formulário de login para que, ao receber os dados, executasse um `INSERT` na tabela 'usuarios', efetivamente cadastrando um novo usuário." },
+                // --- 4º BIMESTRE ---
+                { semana: 29, data: "09/09", dayOfWeek: 2, tema: "Executando Comandos SQL: Leitura de Dados (Read)", objetivo: "Consultar e recuperar dados de uma tabela do banco de dados.", topicos: "Foi apresentado o comando SQL `SELECT` com a cláusula `WHERE`. A prática consistiu em implementar a funcionalidade de login: o script de back-end recebia usuário e senha, executava um `SELECT` para verificar se o usuário existia no banco e retornava uma mensagem de sucesso ou falha." },
+                { semana: 30, data: "16/09", dayOfWeek: 2, tema: "Executando Comandos SQL: Atualização de Dados (Update)", objetivo: "Modificar registros existentes no banco de dados.", topicos: "Foi demonstrado o comando SQL `UPDATE`. No laboratório, os alunos criaram uma página de 'perfil do usuário' onde, após o login, era possível alterar o nome. O back-end recebia a alteração e executava um `UPDATE` no registro correspondente do usuário logado." },
+                { semana: 31, data: "23/09", dayOfWeek: 2, tema: "Executando Comandos SQL: Exclusão de Dados (Delete)", objetivo: "Remover registros de uma tabela do banco de dados.", topicos: "Foi ensinado o comando SQL `DELETE`. A atividade prática foi adicionar um botão 'Excluir Conta' na página de perfil. Ao ser acionado, enviava uma requisição ao back-end que executava o comando `DELETE` para remover o usuário do banco de dados." },
+                { semana: 32, data: "30/09", dayOfWeek: 2, tema: "Projeto Integrador (Full Stack) - Parte 1: Planejamento", objetivo: "Planejar um sistema CRUD (Create, Read, Update, Delete) completo.", topicos: "Foi lançado o projeto final do curso: um sistema CRUD simples (ex: lista de tarefas, cadastro de livros). Nesta primeira parte, os alunos, em grupo, definiram o escopo do projeto, modelaram o banco de dados e desenharam o wireframe das interfaces do front-end." },
+                { semana: 33, data: "07/10", dayOfWeek: 2, tema: "Projeto Integrador - Parte 2: Back-End e API", objetivo: "Desenvolver o lado do servidor e os endpoints da API para o projeto.", topicos: "Os alunos focaram no desenvolvimento do back-end. No laboratório, criaram os scripts de servidor para conectar ao banco de dados e os endpoints da API para as quatro operações CRUD (ex: POST /tarefas, GET /tarefas, PUT /tarefas/:id, DELETE /tarefas/:id)." },
+                { semana: 34, data: "21/10", dayOfWeek: 2, tema: "Projeto Integrador - Parte 3: Front-End e Consumo da API", objetivo: "Desenvolver a interface do usuário e conectá-la à API do back-end.", topicos: "O foco foi o front-end. Utilizando HTML, Bootstrap e JavaScript, os alunos construíram a interface planejada. A lógica JavaScript foi implementada para usar `fetch` para chamar os endpoints da API, enviando e recebendo dados para criar, listar, editar e excluir itens." },
+                { semana: 35, data: "31/10", dayOfWeek: 5, tema: "Apresentação e Finalização dos Projetos", objetivo: "Apresentar o projeto CRUD funcional e realizar os ajustes finais.", topicos: "Os grupos apresentaram seus sistemas CRUD para a turma, demonstrando todas as funcionalidades. O restante da aula foi dedicado a realizar os ajustes finais, corrigir bugs e refinar o código com base no feedback recebido." }
+                // O Sábado Letivo de 04/10 e 06/12 e outros dias de aula restantes no 4º bimestre seriam para continuação e suporte ao projeto.
+            ]
+        };
+
+        // --- LÓGICA DA PÁGINA ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainContent = document.getElementById('main-content');
+            const navigation = document.getElementById('navigation');
+            
+            const setActiveLink = (view) => {
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.classList.remove('bg-slate-100', 'text-slate-900', 'font-semibold');
+                    link.classList.add('text-slate-600', 'font-medium', 'hover:bg-slate-100', 'hover:text-slate-900');
+                    if (link.dataset.view === view) {
+                        link.classList.add('bg-slate-100', 'text-slate-900', 'font-semibold');
+                        link.classList.remove('text-slate-600', 'font-medium', 'hover:bg-slate-100', 'hover:text-slate-900');
+                    }
+                });
+            };
+
+            const renderHome = () => {
+                mainContent.innerHTML = `
+                    <div class="space-y-12">
+                        <div>
+                            <h2 class="text-2xl font-bold border-b border-slate-300 pb-3 mb-4">${courseData.ementa.titulo}</h2>
+                            <p class="text-slate-600 mb-4">${courseData.ementa.objetivoGeral}</p>
+                            <ul class="list-disc list-inside space-y-2 text-slate-700">
+                                ${courseData.ementa.topicos.map(item => `<li>${item}</li>`).join('')}
+                            </ul>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-bold border-b border-slate-300 pb-3 mb-4">Foco de Cada Bimestre</h2>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                ${courseData.focoBimestres.map(b => `
+                                    <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                                        <h3 class="font-bold text-lg text-slate-900">${b.bimestre}</h3>
+                                        <p class="text-slate-600 mt-2">${b.foco}</p>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </div>
+                `;
+                setActiveLink('home');
+            };
+
+            const renderBimestre = (bimestreNum) => {
+                const bimestreRanges = [
+                    { start: 1, end: 11 }, { start: 12, end: 22 },
+                    { start: 23, end: 28 }, { start: 29, end: 35 }
+                ];
+                const range = bimestreRanges[bimestreNum - 1];
+
+                const semanasDoBimestre = courseData.planejamento.filter(
+                    aula => aula.semana >= range.start && aula.semana <= range.end
+                );
+
+                mainContent.innerHTML = `
+                    <h2 class="text-2xl font-bold border-b border-slate-300 pb-3 mb-6">${bimestreNum}º Bimestre - Planejamento Semanal</h2>
+                    <div class="space-y-8">
+                        ${semanasDoBimestre.map(aula => {
+                            let titleSuffix = '';
+                            if (aula.dayOfWeek === 2) { // 2 = Terça-feira
+                                titleSuffix = ' <span class="text-sm font-medium text-amber-600 bg-amber-100 px-2 py-1 rounded-full">2 AULAS</span>';
+                            } else if (aula.dayOfWeek === 6) { // Sábado com horário de terça
+                                titleSuffix = ' <span class="text-sm font-medium text-amber-600 bg-amber-100 px-2 py-1 rounded-full">2 AULAS</span>';
+                            }
+                            
+                            return `
+                            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                                <header class="border-b border-slate-200 pb-3 mb-4">
+                                    <h3 class="font-bold text-lg text-slate-900 flex items-center">
+                                        SEMANA ${aula.semana} - ${aula.data}
+                                        <span class="ml-3">${titleSuffix}</span>
+                                    </h3>
+                                    <p class="text-sm font-semibold text-sky-600 mt-1">${aula.tema}</p>
+                                </header>
+                                <div>
+                                    <h4 class="font-semibold text-slate-800">Objetivo:</h4>
+                                    <p class="text-slate-600 mb-4">${aula.objetivo}</p>
+                                    <h4 class="font-semibold text-slate-800">Tópicos (Registro da Aula):</h4>
+                                    <p class="text-slate-600">${aula.topicos}</p>
+                                </div>
+                            </div>
+                        `}).join('')}
+                    </div>
+                `;
+                setActiveLink(`bimestre-${bimestreNum}`);
+            };
+            
+            navigation.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetLink = e.target.closest('.nav-link');
+                if (!targetLink) return;
+                const view = targetLink.dataset.view;
+                
+                if (view === 'home') {
+                    renderHome();
+                } else if (view.startsWith('bimestre-')) {
+                    const bimestreNum = parseInt(view.split('-')[1]);
+                    renderBimestre(bimestreNum);
+                }
+            });
+
+            renderHome();
+        });
+    </script>
+</body>
+</html>

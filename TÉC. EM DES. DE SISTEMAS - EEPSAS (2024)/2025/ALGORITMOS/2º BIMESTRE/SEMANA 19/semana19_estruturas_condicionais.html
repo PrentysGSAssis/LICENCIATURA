@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semana 19 - Estruturas Condicionais</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f7f4; /* Warm Neutral Background */
+        }
+        .nav-item-active {
+            background-color: #60a5fa; /* Tailwind blue-400 - Soft Blue Accent */
+            color: white;
+            transform: translateX(4px);
+        }
+        .code-block {
+            background-color: #2d3748; /* Tailwind gray-800 */
+            color: #f7fafc; /* Tailwind gray-100 */
+            padding: 1rem;
+            border-radius: 0.5rem; /* rounded-lg */
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            overflow-x: auto;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.875rem; /* text-sm */
+        }
+        .output-block {
+            background-color: #4a5568; /* Tailwind gray-700 */
+            color: #e2e8f0; /* Tailwind gray-300 */
+            padding: 1rem;
+            border-radius: 0.5rem; /* rounded-lg */
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            overflow-x: auto;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.875rem; /* text-sm */
+        }
+        .enunciado-block, .questions-block {
+            background-color: #ffffff;
+            padding: 1.5rem;
+            border-radius: 0.5rem; /* rounded-lg */
+            border: 1px solid #e2e8f0; /* Tailwind gray-200 */
+            margin-bottom: 1.5rem;
+        }
+        .questions-block ol {
+            list-style-type: decimal;
+            padding-left: 1.5rem;
+        }
+        .questions-block li {
+            margin-bottom: 0.75rem;
+        }
+        .gabarito-answers-block {
+            background-color: #ebf8ff; /* Tailwind blue-50 */
+            color: #2c5282; /* Tailwind blue-800 */
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-top: 1rem;
+            border: 1px solid #bee3f8; /* Tailwind blue-200 */
+        }
+        /* Estilos para o Texto Didático renderizado */
+        .texto-didatico-content h1 { font-size: 1.6em; border-bottom: 1.5px solid #eee; padding-bottom: 7px; margin-bottom: 20px; color: #333; }
+        .texto-didatico-content h2 { font-size: 1.3em; margin-top: 22px; margin-bottom: 12px; color: #333; }
+        .texto-didatico-content h3 { font-size: 1.05em; margin-top: 16px; margin-bottom: 8px; color: #333; }
+        .texto-didatico-content p, .texto-didatico-content li { line-height: 1.6; font-size: 0.95em; color: #444; margin-bottom: 12px;}
+        .texto-didatico-content code { background-color: #f4f4f4; padding: 2px 5px; border-radius: 3px; font-family: "Consolas", "Courier New", Courier, monospace; font-size: 0.9em; color: #c7254e;}
+        .texto-didatico-content pre { background-color: #2d2d2d; color: #f8f8f2; padding: 15px; border-radius: 4px; overflow-x: auto; font-size: 0.85em; border: 1px solid #444; margin-top: 10px; margin-bottom: 15px;}
+        .texto-didatico-content pre code { background-color: transparent; padding: 0; color: inherit; font-size: 1em;}
+        .texto-didatico-content ul, .texto-didatico-content ol { margin-top: 5px; margin-bottom: 15px; padding-left: 30px;}
+        .texto-didatico-content table { width: auto; margin: 15px 0; border-collapse: collapse; font-size:0.9em; }
+        .texto-didatico-content th, .texto-didatico-content td { border: 1px solid #ccc; padding: 8px; text-align: center; }
+        .texto-didatico-content th { background-color: #e0e0e0; }
+        .texto-didatico-content hr { border: 0; height: 1px; background: #ccc; margin: 30px 0;}
+    </style>
+    <!-- Chosen Palette: Warm Neutral & Soft Blue -->
+    <!-- Application Structure Plan: A single-page application with a fixed left-hand navigation sidebar. The sidebar lists all sections of the Semana 19 content: Texto Didático, Atividade Guiada, Atividades de Reforço, Interpretação, and Entrega. Clicking a nav item dynamically renders the corresponding content in the main area. This structure provides a clear, organized, and non-linear way for students to access and review all materials for the week. The user flow is: select section -> view content -> interact with gabarito toggles where available. This is more effective than a long scroll, as it allows students to jump directly to a specific activity or review the theory. -->
+    <!-- Visualization & Content Choices: 
+        Texto Didático: Goal: Provide theory on conditional structures. Method: Formatted text with distinct code examples. Interaction: None (static text). Justification: Clear separation of theory and examples.
+        Atividade Guiada: Goal: Guided practice of `se-senao se-senao`. Method: Enunciado, step-by-step instructions, and a toggleable code gabarito. Interaction: Show/hide button. Justification: Encourages students to try first, then check.
+        Atividades de Reforço: Goal: Independent practice. Method: Enunciado and a toggleable code gabarito for each. Interaction: Show/hide button. Justification: Reinforces learning through practice.
+        Interpretação de Código: Goal: Analytical skill test. Method: Code snippet, questions, and a toggleable answer gabarito. Interaction: Show/hide button. Justification: Develops code-reading and debugging mindset.
+        Entrega: Goal: Cumulative application. Method: Themed challenge with enunciado and toggleable code gabarito. Interaction: Show/hide button. Justification: Assesses integrated understanding.
+        All Libraries: N/A (Vanilla JS for UI interaction).
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+</head>
+<body class="text-gray-800">
+
+    <div class="container mx-auto max-w-7xl p-4 sm:p-6 lg:p-8">
+        <header class="mb-8 pb-4 border-b border-gray-200">
+            <h1 class="text-4xl font-bold text-gray-800">Semana 19: Estruturas Condicionais</h1>
+            <p class="text-lg text-gray-500 mt-2">Tomando Decisões com `se`, `senao se` e `senao`</p>
+        </header>
+
+        <div class="flex flex-col md:flex-row gap-8">
+            <aside class="md:w-1/4">
+                <div class="sticky top-8">
+                    <h2 class="text-xl font-semibold mb-4 text-gray-700">Conteúdo da Aula</h2>
+                    <nav id="section-nav" class="space-y-2">
+                    </nav>
+                </div>
+            </aside>
+
+            <main id="section-content-area" class="md:w-3/4 bg-white p-6 sm:p-8 rounded-lg shadow-sm min-h-[80vh]">
+                <div id="section-placeholder" class="text-center text-gray-400 flex flex-col justify-center items-center h-full">
+                    <svg class="w-24 h-24 mb-4 text-gray-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l-4 4m0 0l-4-4m4 4V4M7 7h10M7 12h4m1.5 0h.01M7 17h4m1.5 0h.01" />
+                    </svg>
+                    <p class="text-xl font-medium">Selecione uma seção ao lado para começar.</p>
+                    <p class="mt-2 text-base">Explore o texto didático e as atividades da semana.</p>
+                </div>
+            </main>
+        </div>
+
+        <footer class="mt-12 text-center text-sm text-gray-400">
+            <p>&copy; <span id="currentYear"></span> Plataforma de Revisão de Algoritmos. Desenvolvido para fins didáticos.</p>
+        </footer>
+    </div>
+
+    <script>
+        const semana20Conteudo = {
+            textoDidatico: {
+                id: "texto-didatico",
+                title: "Texto Didático",
+                subtitle: "Tomando Decisões: A Estrutura `se`",
+                content: `
+                    <div class="texto-didatico-content">
+                        <p class="mb-4">Olá, Programadores! Até agora, nossos programas executam uma linha após a outra, sem desvios. Mas e se quiséssemos que o programa fizesse algo <em>somente se</em> uma condição for verdadeira? Para isso, usamos as <strong>estruturas de controle de fluxo condicional</strong>. A principal delas é o <code>se</code>.</p>
+                        
+                        <h3 class="text-xl font-semibold mt-6 mb-3">1. A Estrutura <code>se</code> (Condicional Simples)</h3>
+                        <p>Executa um bloco de código apenas se a condição for <code>verdadeiro</code>.</p>
+                        <div class="code-block"><pre><code>se (condicao_logica) {\n    // Bloco de código a ser executado\n}</code></pre></div>
+
+                        <h3 class="text-xl font-semibold mt-6 mb-3">2. A Estrutura <code>se-senao</code> (Condicional Composta)</h3>
+                        <p>Oferece um caminho alternativo. Se a condição for <code>verdadeiro</code>, executa o bloco do <code>se</code>; caso contrário (<code>falso</code>), executa o bloco do <code>senao</code>.</p>
+                        <div class="code-block"><pre><code>se (condicao_logica) {\n    // Bloco para condição verdadeira\n} senao {\n    // Bloco para condição falsa\n}</code></pre></div>
+
+                        <h3 class="text-xl font-semibold mt-6 mb-3">3. A Estrutura <code>senao se</code> (Condicional Encadeada)</h3>
+                        <p>Permite testar múltiplas condições em sequência. O programa testa a primeira condição. Se for falsa, testa a segunda, e assim por diante. O <code>senao</code> no final é opcional e serve como um "caso padrão".</p>
+                        <div class="code-block"><pre><code>se (condicao_1) {\n    // Bloco para condição 1\n} senao se (condicao_2) {\n    // Bloco para condição 2\n} senao {\n    // Bloco se nenhuma for verdadeira\n}</code></pre></div>
+                        
+                        <h3 class="text-xl font-semibold mt-8 mb-3">Exemplo Prático (Tibia)</h3>
+                        <div class="code-block"><pre><code>programa {\n    inteiro dano_recebido = 75\n\n    funcao inicio() {\n        escreva("Você recebeu ", dano_recebido, " de dano!\\n")\n        se (dano_recebido > 100) {\n            escreva("Cuidado! Dano muito alto!\\n")\n        } senao se (dano_recebido > 50) {\n            escreva("Dano moderado. Fique atento!\\n")\n        } senao {\n            escreva("Dano baixo. Continue lutando!\\n")\n        }\n    }\n}\n// Saída: Dano moderado. Fique atento!</code></pre></div>
+                        <p class="mt-4"><strong>Importante:</strong> A indentação (o recuo dos blocos de código dentro das chaves <code>{}</code>) não muda o funcionamento do programa, mas é <strong>essencial</strong> para que o código seja legível e organizado.</p>
+                    </div>
+                `
+            },
+            atividadeGuiada: {
+                id: "atividade-guiada",
+                title: "Atividade Guiada",
+                subtitle: "Calculadora de Dano Elemental (Tibia)",
+                objetivo: "Praticar o uso de `se`, `senao se` e `senao` para criar um programa que modifica um valor com base em múltiplas condições.",
+                gabarito: `programa
+{
+    cadeia elemento_ataque, elemento_monstro
+    real dano_base, dano_final
+
+    funcao inicio()
+    {
+        escreva("--- Calculadora de Dano Elemental ---\\n")
+        escreva("Digite o dano base do seu ataque: ")
+        leia(dano_base)
+        escreva("Digite o elemento do seu ataque (ex: Fogo, Gelo, Energia): ")
+        leia(elemento_ataque)
+        escreva("Digite o elemento do monstro (ex: Fogo, Gelo, Energia): ")
+        leia(elemento_monstro)
+
+        dano_final = dano_base
+
+        se (elemento_ataque == "Fogo" e elemento_monstro == "Gelo") {
+            dano_final = dano_base * 1.5
+            escreva("Super efetivo! O monstro é fraco contra seu ataque.\\n")
+        } senao se (elemento_ataque == "Fogo" e elemento_monstro == "Fogo") {
+            dano_final = dano_base * 0.5
+            escreva("Não muito efetivo... O monstro é resistente.\\n")
+        } senao {
+            escreva("Dano neutro.\\n")
+        }
+
+        escreva("Dano Final: ", dano_final, "\\n")
+    }
+}`
+            },
+            atividadesReforco: [
+                {
+                    id: "reforco-1",
+                    title: "Reforço (cod013): Par ou Ímpar",
+                    enunciado: ["Crie um programa que leia um número inteiro e, usando `se-senao` e o operador módulo (`%`), exiba se o número é \"Par\" ou \"Ímpar\"."],
+                    saidaEsperada: "Digite um número inteiro: 7\nO número é Ímpar",
+                    gabarito: `programa\n{\n    inteiro numero\n\n    funcao inicio()\n    {\n        escreva("Digite um número inteiro: ")\n        leia(numero)\n        se (numero % 2 == 0) {\n            escreva("O número é Par\\n")\n        } senao {\n            escreva("O número é Ímpar\\n")\n        }\n    }\n}`
+                },
+                {
+                    id: "reforco-2",
+                    title: "Reforço (cod014): Classificação Etária",
+                    enunciado: ["Crie um programa que leia uma idade e exiba \"Criança\" (se idade <= 12), \"Adolescente\" (se idade > 12 e <= 17) ou \"Adulto\" (se idade > 17). Use `se`, `senao se` e `senao`."],
+                    saidaEsperada: "Digite sua idade: 15\nClassificação: Adolescente",
+                    gabarito: `programa\n{\n    inteiro idade\n\n    funcao inicio()\n    {\n        escreva("Digite sua idade: ")\n        leia(idade)\n        se (idade <= 12) {\n            escreva("Classificação: Criança\\n")\n        } senao se (idade <= 17) {\n            escreva("Classificação: Adolescente\\n")\n        } senao {\n            escreva("Classificação: Adulto\\n")\n        }\n    }\n}`
+                },
+                {
+                    id: "reforco-3",
+                    title: "Reforço (cod015): Login Simples",
+                    enunciado: ["Crie um programa que leia um nome de usuário e uma senha. Se o usuário for \"admin\" E a senha for \"1234\", exiba \"Acesso Permitido\". Caso contrário, exiba \"Acesso Negado\"."],
+                    saidaEsperada: "Usuário: admin\nSenha: 123\nAcesso Negado",
+                    gabarito: `programa\n{\n    cadeia usuario, senha\n\n    funcao inicio()\n    {\n        escreva("Usuário: ")\n        leia(usuario)\n        escreva("Senha: ")\n        leia(senha)\n\n        se (usuario == "admin" e senha == "1234") {\n            escreva("Acesso Permitido\\n")\n        } senao {\n            escreva("Acesso Negado\\n")\n        }\n    }\n}`
+                }
+            ],
+            interpretacaoCodigo: {
+                id: "interpretacao-codigo",
+                title: "Interpretação de Código",
+                code: `programa
+{
+    inteiro pontuacao
+    cadeia rank
+
+    funcao inicio()
+    {
+        escreva("Digite a pontuação: ")
+        leia(pontuacao)
+
+        se (pontuacao >= 1000) {
+            rank = "Ouro"
+        } senao se (pontuacao >= 500) {
+            rank = "Prata"
+        } senao {
+            rank = "Bronze"
+        }
+
+        escreva("Seu rank é: ", rank, "\\n")
+    }
+}`,
+                questions: [
+                    "Qual o objetivo deste algoritmo?",
+                    "Qual será a saída se o usuário digitar `750`?",
+                    "E se a primeira condição `se (pontuacao >= 1000)` fosse alterada para `se (pontuacao > 1000)` e o usuário digitasse `1000`? Qual seria a nova saída?"
+                ],
+                gabaritoAnswers: [
+                    "O objetivo é classificar um jogador em um rank (Ouro, Prata ou Bronze) com base em sua pontuação.",
+                    "A saída será: `Seu rank é: Prata`.",
+                    "A nova saída seria `Seu rank é: Prata`. Como `1000 > 1000` é falso, o programa testaria a próxima condição, `1000 >= 500`, que é verdadeira."
+                ]
+            },
+            entrega: {
+                id: "entrega",
+                title: "Entrega06: Calculadora de Recompensa de Quest (Tibia)",
+                objetivo: "Aplicar de forma cumulativa os conhecimentos de variáveis, constantes, aritmética e a nova estrutura `se-senao se-senao`.",
+                enunciado: [
+                    "Uma quest no Tibia oferece uma recompensa base em XP e GP, mas essa recompensa é multiplicada por um bônus dependendo do level do jogador. Crie um programa `RecompensaDeQuest` que:",
+                    "1. Defina constantes para a recompensa base: `const inteiro XP_BASE = 5000` e `const real GP_BASE = 1000.0`.",
+                    "2. Leia o nome do personagem (`cadeia`) e seu level (`inteiro`).",
+                    "3. Calcule a recompensa final com base nas seguintes regras:",
+                    "   * Se o level for menor ou igual a 30, o bônus é de 1.0 (recompensa normal).",
+                    "   * Se o level for maior que 30 e menor ou igual a 60, o bônus é de 1.2 (20% a mais).",
+                    "   * Se o level for maior que 60, o bônus é de 1.5 (50% a mais).",
+                    "4. Calcule o XP final e o GP final (recompensa base * bônus).",
+                    "5. Exiba um relatório mostrando o nome do personagem, o bônus aplicado e a recompensa final de XP e GP."
+                ],
+                saidaEsperada: `--- Calculadora de Recompensa de Quest ---
+Nome do Personagem: Mago Poderoso
+Level do Personagem: 45
+
+--- Recompensa Final para Mago Poderoso ---
+Bônus de Level aplicado: 1.2x
+Recompensa de XP: 6000
+Recompensa de GP: 1200.0`,
+                gabarito: `programa
+{
+    const inteiro XP_BASE = 5000
+    const real GP_BASE = 1000.0
+    
+    cadeia nome_char
+    inteiro level_char
+    real bonus, xp_final, gp_final
+
+    funcao inicio()
+    {
+        escreva("--- Calculadora de Recompensa de Quest ---\\n")
+        escreva("Nome do Personagem: ")
+        leia(nome_char)
+        escreva("Level do Personagem: ")
+        leia(level_char)
+
+        se (level_char <= 30) {
+            bonus = 1.0
+        } senao se (level_char <= 60) {
+            bonus = 1.2
+        } senao {
+            bonus = 1.5
+        }
+
+        xp_final = XP_BASE * bonus
+        gp_final = GP_BASE * bonus
+
+        escreva("\\n--- Recompensa Final para ", nome_char, " ---\\n")
+        escreva("Bônus de Level aplicado: ", bonus, "x\\n")
+        escreva("Recompensa de XP: ", inteiro(xp_final), "\\n")
+        escreva("Recompensa de GP: ", gp_final, "\\n")
+    }
+}`
+            }
+        };
+
+        const navContainer = document.getElementById('section-nav');
+        const contentArea = document.getElementById('section-content-area');
+        const placeholder = document.getElementById('section-placeholder');
+        let currentActiveButton = null;
+
+        function displaySection(sectionId) {
+            let sectionData;
+            let sectionType;
+
+            const navMap = {
+                "texto-didatico": { data: semana20Conteudo.textoDidatico, type: 'textoDidatico' },
+                "atividade-guiada": { data: semana20Conteudo.atividadeGuiada, type: 'atividade' },
+                "reforco-1": { data: semana20Conteudo.atividadesReforco[0], type: 'atividade' },
+                "reforco-2": { data: semana20Conteudo.atividadesReforco[1], type: 'atividade' },
+                "reforco-3": { data: semana20Conteudo.atividadesReforco[2], type: 'atividade' },
+                "interpretacao-codigo": { data: semana20Conteudo.interpretacaoCodigo, type: 'interpretacao' },
+                "entrega": { data: semana20Conteudo.entrega, type: 'atividade' }
+            };
+
+            const selected = navMap[sectionId];
+            if (!selected) {
+                contentArea.innerHTML = '<p class="text-red-500">Conteúdo não encontrado.</p>';
+                return;
+            }
+            sectionData = selected.data;
+            sectionType = selected.type;
+
+            if(placeholder) placeholder.style.display = 'none';
+            contentArea.innerHTML = ''; 
+
+            const article = document.createElement('article');
+            article.id = `section-${sectionData.id}`;
+            article.className = "fade-in";
+
+            const titleText = sectionData.subtitle ? `${sectionData.title}: ${sectionData.subtitle}` : sectionData.title;
+            const titleH2 = document.createElement('h2');
+            titleH2.className = "text-3xl font-bold text-gray-800 mb-6 pb-3 border-b border-gray-200";
+            titleH2.textContent = titleText;
+            article.appendChild(titleH2);
+            
+            if (sectionType === 'textoDidatico') {
+                const divContent = document.createElement('div');
+                divContent.innerHTML = sectionData.content;
+                article.appendChild(divContent);
+            } else {
+                 if (sectionData.objetivo) {
+                    const objP = document.createElement('p');
+                    objP.className = "text-gray-500 italic mb-6 text-base";
+                    objP.innerHTML = `<strong>Objetivo:</strong> ${sectionData.objetivo}`;
+                    article.appendChild(objP);
+                }
+
+                if(sectionData.enunciado){
+                    const enunciadoDiv = document.createElement('div');
+                    enunciadoDiv.className = "enunciado-block";
+                    const enunciadoTitle = document.createElement('h3');
+                    enunciadoTitle.className = "text-xl font-semibold text-gray-800 mb-3";
+                    enunciadoTitle.textContent = "Enunciado";
+                    enunciadoDiv.appendChild(enunciadoTitle);
+                    sectionData.enunciado.forEach(line => {
+                        const p = document.createElement('p');
+                        p.className = "text-gray-700 mb-1";
+                        p.innerHTML = line.replace(/`([^`]+)`/g, '<code class="bg-gray-200 text-sm text-pink-600 px-1 rounded">$1</code>');
+                        enunciadoDiv.appendChild(p);
+                    });
+                    article.appendChild(enunciadoDiv);
+                }
+                
+                 if (sectionData.questions) { 
+                    const questionsDiv = document.createElement('div');
+                    questionsDiv.className = "questions-block";
+                    const qTitle = document.createElement('h3');
+                    qTitle.className = "text-xl font-semibold text-gray-800 mb-3";
+                    qTitle.textContent = "Responda:";
+                    questionsDiv.appendChild(qTitle);
+                    const qOl = document.createElement('ol');
+                    qOl.className = "list-decimal list-inside"
+                    sectionData.questions.forEach(q => {
+                        const qLi = document.createElement('li');
+                        qLi.className = "text-gray-700"
+                        qLi.innerHTML = q.replace(/`([^`]+)`/g, '<code class="bg-gray-200 text-sm text-pink-600 px-1 rounded">$1</code>');
+                        qOl.appendChild(qLi);
+                    });
+                    questionsDiv.appendChild(qOl);
+                    article.appendChild(questionsDiv);
+                }
+                
+                if (sectionData.code) { 
+                    const codeTitle = document.createElement('h3');
+                    codeTitle.className = "text-xl font-semibold text-gray-800 mb-2 mt-4";
+                    codeTitle.textContent = "Analise o código abaixo:";
+                    article.appendChild(codeTitle);
+                    const codeBlockDiv = document.createElement('div');
+                    codeBlockDiv.className = "code-block";
+                    codeBlockDiv.innerHTML = `<pre><code>${sectionData.code.replace(/</g, "&lt;").replace(/>/g, "&gt;")}</code></pre>`;
+                    article.appendChild(codeBlockDiv);
+                }
+
+                if (sectionData.saidaEsperada) {
+                    const saidaTitle = document.createElement('h3');
+                    saidaTitle.className = "text-xl font-semibold text-gray-800 mb-2 mt-6";
+                    saidaTitle.textContent = "Saída Esperada (Exemplo):";
+                    article.appendChild(saidaTitle);
+                    const outputBlockDiv = document.createElement('div');
+                    outputBlockDiv.className = "output-block";
+                    outputBlockDiv.innerHTML = `<pre><code>${sectionData.saidaEsperada.replace(/</g, "&lt;").replace(/>/g, "&gt;")}</code></pre>`;
+                    article.appendChild(outputBlockDiv);
+                }
+
+                if (sectionData.gabarito || sectionData.gabaritoAnswers) {
+                    const gabaritoContainer = document.createElement('div');
+                    gabaritoContainer.className = "mt-6";
+                    const toggleButton = document.createElement('button');
+                    toggleButton.className = "bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg transition duration-150 ease-in-out mb-2 shadow";
+                    const gabaritoContent = document.createElement('div');
+                    gabaritoContent.id = `gabarito-content-${sectionData.id}`;
+                    gabaritoContent.classList.add('hidden');
+                    if (sectionData.gabaritoAnswers) {
+                        toggleButton.textContent = "Mostrar Respostas das Questões";
+                        gabaritoContent.classList.add('gabarito-answers-block');
+                        let answersHtml = '<h4 class="font-semibold mb-2">Respostas:</h4><ol class="list-decimal list-inside">';
+                        sectionData.gabaritoAnswers.forEach(ans => {
+                            answersHtml += `<li>${ans.replace(/`([^`]+)`/g, '<code class="bg-gray-200 text-sm text-pink-600 px-1 rounded">$1</code>')}</li>`;
+                        });
+                        answersHtml += '</ol>';
+                        gabaritoContent.innerHTML = answersHtml;
+                    } else if (sectionData.gabarito) {
+                        toggleButton.textContent = "Mostrar Gabarito do Código";
+                        gabaritoContent.classList.add('code-block');
+                        gabaritoContent.innerHTML = `<pre><code>${sectionData.gabarito.replace(/</g, "&lt;").replace(/>/g, "&gt;")}</code></pre>`;
+                    }
+                    gabaritoContainer.appendChild(toggleButton);
+                    gabaritoContainer.appendChild(gabaritoContent);
+                    article.appendChild(gabaritoContainer);
+                    toggleButton.addEventListener('click', () => {
+                        const isHidden = gabaritoContent.classList.toggle('hidden');
+                        toggleButton.textContent = isHidden ? (sectionData.gabaritoAnswers ? "Mostrar Respostas" : "Mostrar Gabarito") : (sectionData.gabaritoAnswers ? "Esconder Respostas" : "Esconder Gabarito");
+                    });
+                }
+
+            }
+            contentArea.appendChild(article);
+        }
+
+        function setActiveButton(button) {
+            if (currentActiveButton) {
+                currentActiveButton.classList.remove('nav-item-active');
+            }
+            button.classList.add('nav-item-active');
+            currentActiveButton = button;
+        }
+        
+        const navSections = [
+            semana20Conteudo.textoDidatico,
+            semana20Conteudo.atividadeGuiada,
+            ...semana20Conteudo.atividadesReforco,
+            semana20Conteudo.interpretacaoCodigo,
+            semana20Conteudo.entrega
+        ];
+
+        navSections.forEach((section, index) => {
+            const button = document.createElement('button');
+            let buttonText = section.title;
+
+            button.textContent = buttonText;
+            button.classList.add(
+                'w-full', 'text-left', 'px-4', 'py-3', 'rounded-lg', 
+                'transition-all', 'duration-200', 'ease-in-out', 
+                'font-medium', 'text-gray-600', 'hover:bg-blue-100', 'hover:text-blue-600'
+            );
+            button.addEventListener('click', () => {
+                displaySection(section.id);
+                setActiveButton(button);
+            });
+            navContainer.appendChild(button);
+        });
+        
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

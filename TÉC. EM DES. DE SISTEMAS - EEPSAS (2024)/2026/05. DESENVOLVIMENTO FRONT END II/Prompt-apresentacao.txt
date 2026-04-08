@@ -1,0 +1,23 @@
+> Público Alvo: Apresentação para a turma do 3º do curso técnico de Desenvolvimento de Sistemas, com foco no conteúdo de Desenvolvimento Front End II;
+> Layout: A apresentação deve utilizar uma paleta de tons claros;
+> Parametros:
+
+1º A apresentação deve focar SOMENTE nos arquivos:
+
+fonte01_carregando-projeto-base
+fonte02_exibindo-mensagens-na-tela
+fonte03_comparando-variaveis
+fonte04_else-e-comentarios
+fonte05_concatencao
+fonte06_novas-condicoes
+fonte07_while
+fonte08_loops
+fonte09_break
+fonte10_operador-ternario
+fonte11_math-random
+fonte12_numero-aletorio
+
+2º A apresentação deve conter exatamente 2 slides para cada fonte, sendo 1 slide focado exclusivamente na sintaxe da linguagem explorada pela fonte, e a outra em como ela será utilizada no contexto do projeto abordado;
+3º A apresentação não deve em momento nenhum citar ALURA, ou dar a entender que a fonte de conteúdo se trata de uma transcrição e/ou diálogo;
+4º A apresentação será um guia de explicação dos itens que serão trabalhados em sala de aula, funcionando como uma espécie de passo-a-passo junto do professor;
+5º O titulo de cada slide deve ser o principal item que será explorado (pode utilizar como REFERÊNCIA o titulo da fonte, mas não utilize o TÍTULO EXATO DA FONTE

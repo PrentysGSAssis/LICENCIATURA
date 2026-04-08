@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEMANA 21 - Conectando a Web: Links, Âncoras e SEO</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f0f0f0; }
+        .page-container { width: 210mm; min-height: 297mm; margin: 20px auto; padding: 15mm; box-shadow: 0 0 10px rgba(0,0,0,0.1); box-sizing: border-box; background-color: white;}
+        /* Estilos do MODELO: CABEÇALHO */
+        .header-top-container { display: flex; justify-content: center; align-items: center; border-bottom: 1px solid black; padding-bottom: 10px; margin-bottom: 10px; }
+        .logo { max-width: 65px; height: auto; margin-right: 15px; }
+        .school-info { text-align: center; padding: 0 5px; }
+        .school-info strong.school-name { display: block; margin-bottom: 4px; font-size: 1em; }
+        .school-info .address-details span { display: inline; font-size: 0.75em; margin-right: 4px; }
+        .form-fields-grid { display: grid; gap: 5px 10px; width: 100%; margin-bottom: 15px; grid-template-rows: auto auto auto; }
+        .form-row { display: grid; grid-template-columns: 3fr 2fr; gap: 10px; width: 100%; }
+        .form-field { border: 1px solid black; padding: 5px 8px; font-size: 0.8em; box-sizing: border-box; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; display: flex; align-items: center; }
+        .form-field strong { margin-right: 5px; }
+        .form-field .value-content { flex-grow: 1; }
+        .fill-in { display: inline-block; border-bottom: 1px solid black; min-width: 25px; margin: 0 2px; height: 0.8em; }
+        /* Estilos do Conteúdo Didático */
+        .content-container { padding-top: 10px; }
+        h1 { font-size: 1.6em; border-bottom: 1.5px solid #eee; padding-bottom: 7px; margin-top: 0; color: #333; }
+        h2 { font-size: 1.3em; margin-top: 25px; color: #333; border-bottom: 1px solid #f0f0f0; padding-bottom: 5px;}
+        h3 { font-size: 1.1em; margin-top: 20px; color: #0056b3; }
+        p, li { line-height: 1.6; font-size: 0.95em; color: #333; }
+        ul { padding-left: 20px; }
+        table { width: 100%; margin: 15px 0; border-collapse: collapse; font-size: 0.9em; }
+        th, td { border: 1px solid #ccc; padding: 8px; text-align: left; vertical-align: top; }
+        th { background-color: #e9ecef; }
+        tr:nth-child(even) { background-color: #f8f9fa; }
+        code { background-color: #f4f4f4; padding: 2px 5px; border-radius: 4px; font-family: "Consolas", Courier, monospace; font-size: 0.9em; }
+        pre { background-color: #f8f8f8; border: 1px solid #ddd; padding: 12px; border-radius: 5px; overflow-x: auto; font-size: 0.85em; margin-top: 8px; margin-bottom: 15px; }
+        pre code { background-color: transparent; padding: 0; }
+        hr { border: 0; height: 1px; background: #ccc; margin: 30px 0; }
+        @media print { 
+            body { background-color: white; }
+            .page-container { margin: 0; padding: 0; box-shadow: none; width: 100%; min-height: 0;}
+            @page { margin: 12mm 10mm; } 
+        }
+    </style>
+</head>
+<body>
+<div class="page-container">
+    <div class="header-top-container">
+        <img src="https://1drv.ms/i/c/9e9e1f5991e00f07/IQTuKfwDXz6eQZG682I84WqBASSJENKf1uHvN3nSBXphxkU?width=1024" alt="Logo da Escola" class="logo" onerror="this.onerror=null; this.src='https://placehold.co/65x65/ccc/000?text=Logo'; this.alt='Erro ao carregar logo';">
+        <div class="school-info">
+            <strong class="school-name">ESCOLA ESTADUAL PROFESSORA SEBASTIANA DE ALMEIDA E SILVA</strong>
+            <div class="address-details"><span>Rua São José, nº 30, Jaguaruçu - MG.</span> <span>CEP: 35.188-000</span> <span>Tel: (31) 3845-1209</span></div>
+        </div>
+    </div>
+    <div class="form-fields-grid">
+        <div class="form-row">
+            <div class="form-field" style="grid-column: 1 / span 3;"><strong>DISCIPLINA:</strong> <span class="value-content">Front End I</span></div>
+            <div class="form-field" style="grid-column: 4 / span 2;"><strong>PROFESSOR(A):</strong> <span class="value-content">Prentys Assis</span></div>
+        </div>
+        <div class="form-row">
+            <div class="form-field" style="grid-column: 1 / span 3;"><strong>ATIVIDADE:</strong> <span class="value-content">SEMANA 21 - Conectando a Web: Links, Âncoras e SEO</span></div>
+            <div class="form-field" style="grid-column: 4 / span 2;"><strong>DATA:</strong> <span class="value-content"><span class="fill-in">01</span>/<span class="fill-in">07</span>/<span class="fill-in">2025</span></span></div>
+        </div>
+        <div class="form-row">
+            <div class="form-field" style="grid-column: 1 / span 3;"><strong>ALUNO(A):</strong> <span class="value-content"></span></div>
+            <div class="form-field" style="grid-column: 4 / span 2;"><strong>TURMA:</strong> <span class="value-content">2º Ano</span></div>
+        </div>
+    </div>
+
+    <div class="content-container">
+        <h1>Conectando a Web: Um Guia Completo sobre Links, Âncoras e SEO</h1>
+        <p>Se o HTML é o esqueleto da web, os <strong>links (ou hiperlinks)</strong> são o sistema nervoso, conectando tudo e permitindo a navegação. Sem eles, teríamos apenas páginas isoladas. Hoje vamos aprender a criar essas conexões usando a tag âncora (<code>&lt;a&gt;</code>) e entender por que uma boa estrutura de links é vital para o sucesso de um site.</p>
+
+        <h2>Links e Âncoras: Os Fundamentos</h2>
+        <p>O elemento central para criar links é a tag <code>&lt;a&gt;</code>, de âncora. O texto que fica entre <code>&lt;a&gt;</code> e <code>&lt;/a&gt;</code> se torna clicável. Para que o link funcione, ele precisa do atributo essencial <code>href</code> (Hypertext Reference), que especifica o destino.</p>
+
+        <h3>1. Links Externos e Atributos de Comportamento</h3>
+        <p>São links que apontam para outros sites ou recursos na internet. Para isso, o valor do atributo <code>href</code> deve ser a URL (endereço web) completa.</p>
+        <pre><code>&lt;p&gt;Para fazer uma pesquisa, acesse o &lt;a href="https://www.google.com/"&gt;Google&lt;/a&gt;.&lt;/p&gt;</code></pre>
+
+        <h4>O Atributo `target`: Controlando o Destino</h4>
+        <p>Por padrão, um link abre na mesma aba do navegador. Podemos mudar esse comportamento com o atributo <code>target</code>. Os valores mais comuns são:</p>
+        <ul>
+            <li><code>_self</code>: (Padrão) Abre o link na mesma janela/aba.</li>
+            <li><code>_blank</code>: Abre o link em uma nova janela/aba. É a escolha mais comum para links externos.</li>
+            <li><code>_parent</code>: Abre o link no "frame pai" (usado em contextos de <code>&lt;iframe&gt;</code>).</li>
+            <li><code>_top</code>: Abre o link no corpo completo da janela, cancelando todos os frames.</li>
+        </ul>
+        <pre><code>&lt;p&gt;Acesse o &lt;a href="https://www.google.com/" target="_blank"&gt;Google em uma nova aba&lt;/a&gt;.&lt;/p&gt;</code></pre>
+        
+        <h4>O Atributo `rel`: Descrevendo a Relação do Link</h4>
+        <p>O atributo <code>rel</code> (de "relationship") descreve a relação entre a página atual e o recurso linkado. Isso é importante para a semântica. Alguns valores úteis:</p>
+        <ul>
+            <li><code>rel="external"</code>: Indica que o link aponta para um site externo.</li>
+            <li><code>rel="next"</code>: Indica que o link leva à próxima página de uma série.</li>
+            <li><code>rel="prev"</code>: Indica que o link leva à página anterior de uma série.</li>
+            <li><code>rel="nofollow"</code>: Pede aos mecanismos de busca para não "seguirem" o link.</li>
+            <li><code>rel="author"</code>: Indica que o link leva à página do autor do conteúdo.</li>
+        </ul>
+        <pre><code>&lt;a href="https://siteexterno.com" target="_blank" rel="external nofollow"&gt;Link externo não endossado&lt;/a&gt;</code></pre>
+
+        <h2>Links Internos: Navegando em seu Próprio Site</h2>
+        <h3>1. Links para Outras Páginas Locais</h3>
+        <p>Se você tem um arquivo chamado <code>contato.html</code> na mesma pasta, o link é simples:</p>
+        <pre><code>&lt;p&gt;Fale conosco através da nossa &lt;a href="contato.html"&gt;página de contato&lt;/a&gt;.&lt;/p&gt;</code></pre>
+
+        <h3>2. Âncoras: Links para Seções da Mesma Página</h3>
+        <p>Para "pular" para uma parte da mesma página, marque o destino com um <code>id</code> e use <code>#</code> no link.</p>
+        <pre><code>&lt;a href="#contato"&gt;Ir para Contato&lt;/a&gt;
+&lt;!-- ... muito conteúdo ... --&gt;
+&lt;h2 id="contato"&gt;Seção de Contato&lt;/h2&gt;</code></pre>
+
+        <h2>Links Especiais: Download de Arquivos</h2>
+        <p>Para forçar o download de um arquivo, use o atributo <code>download</code>.</p>
+        <pre><code>&lt;p&gt;Baixe nosso &lt;a href="documento.pdf" download="relatorio-anual.pdf"&gt;relatório em PDF&lt;/a&gt;.&lt;/p&gt;</code></pre>
+        
+        <hr>
+        
+        <h2>Seção Especial: Como os Links Ajudam o Google a Encontrar seu Site</h2>
+        <p>Agora que sabemos *como* criar links, é fundamental entender *por que* fazê-los bem feitos é tão importante. Os mecanismos de busca, como o Google, usam programas automatizados, chamados "crawlers" ou "spiders", para descobrir e entender o conteúdo da web.</p>
+
+        <p>Esses crawlers navegam pela internet de uma forma muito simples: eles **seguem os links**. Ao chegar em uma página, eles leem seu conteúdo e todos os links (tags &lt;a&gt;) que ela contém. Cada link é uma porta para outra página. Se uma página não recebe links de nenhum outro lugar, ela se torna uma "ilha", e os crawlers terão muita dificuldade para encontrá-la e indexá-la.</p>
+
+        <p>Além de descobrir páginas, o texto que você usa dentro do link (o **texto âncora**) é uma pista valiosa para o Google. Um link como &lt;a href="receitas-de-bolo.html">Veja nossas deliciosas receitas de bolo&lt;/a> é muito mais informativo e relevante para SEO do que um genérico &lt;a href="...">Clique aqui&lt;/a>. Ele informa ao Google sobre o que se trata a página de destino, ajudando a classificá-la melhor nos resultados de busca para quem procura por "receitas de bolo".</p>
+
+        <hr>
+
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <h2>Anexo: Tabela de Atributos e Usos Especiais da Tag `&lt;a&gt;`</h2>
+        <p>A tag <code>&lt;a&gt;</code> é mais poderosa do que parece! Além dos atributos que vimos, ela pode ter seu comportamento modificado para interagir com outros aplicativos do seu sistema. A tabela abaixo detalha os atributos mais importantes e alguns usos especiais para o <code>href</code>.</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Atributo / Valor de `href`</th>
+                    <th>Para que Serve</th>
+                    <th>Como Utilizar / Sintaxe</th>
+                    <th>Exemplo Prático</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>href</code></td>
+                    <td>**Essencial.** Define o destino do link (URL, arquivo, âncora, etc.).</td>
+                    <td><code>href="URL_ou_caminho"</code></td>
+                    <td><code>&lt;a href="https://www.google.com"&gt;Ir para o Google&lt;/a&gt;</code></td>
+                </tr>
+                <tr>
+                    <td><code>target</code></td>
+                    <td>Define onde o link será aberto.</td>
+                    <td><code>target="_blank"</code> (ou <code>_self</code>, <code>_parent</code>, <code>_top</code>)</td>
+                    <td><code>&lt;a href="..." target="_blank"&gt;Abre em nova aba&lt;/a&gt;</code></td>
+                </tr>
+                <tr>
+                    <td><code>rel</code></td>
+                    <td>Especifica a relação entre a página atual e o documento linkado. Importante para semântica e SEO.</td>
+                    <td><code>rel="valor"</code> (ex: external, nofollow, next, prev)</td>
+                    <td><code>&lt;a href="..." rel="external"&gt;Site Externo&lt;/a&gt;</code></td>
+                </tr>
+                <tr>
+                    <td><code>download</code></td>
+                    <td>Instrui o navegador a baixar o recurso linkado em vez de navegar até ele.</td>
+                    <td><code>download</code> (usa o nome original do arquivo) ou <code>download="novo-nome.ext"</code> (sugere um novo nome).</td>
+                    <td><code>&lt;a href="docs/relatorio.pdf" download&gt;Baixar Relatório&lt;/a&gt;</code></td>
+                </tr>
+                <tr>
+                    <td><code>hreflang</code></td>
+                    <td>Especifica o idioma do recurso linkado. Ajuda os mecanismos de busca.</td>
+                    <td><code>hreflang="código_do_idioma"</code> (ex: pt-br, en, es)</td>
+                    <td><code>&lt;a href="english_version.html" hreflang="en"&gt;English Version&lt;/a&gt;</code></td>
+                </tr>
+                 <tr>
+                    <td><code>type</code></td>
+                    <td>Especifica o tipo de mídia (MIME type) do documento linkado. Ajuda o navegador a decidir como lidar com o arquivo.</td>
+                    <td><code>type="tipo/subtipo"</code> (ex: application/pdf, image/png)</td>
+                    <td><code>&lt;a href="manual.pdf" type="application/pdf"&gt;Ver Manual&lt;/a&gt;</code></td>
+                </tr>
+                <tr>
+                    <td>Valor <code>mailto:</code></td>
+                    <td>Abre o cliente de e-mail padrão do usuário para enviar uma mensagem.</td>
+                    <td><code>href="mailto:email@exemplo.com?subject=Assunto&amp;body=Corpo do email"</code></td>
+                    <td><code>&lt;a href="mailto:contato@escola.com"&gt;Enviar E-mail&lt;/a&gt;</code></td>
+                </tr>
+                 <tr>
+                    <td>Valor <code>tel:</code></td>
+                    <td>Em dispositivos móveis, inicia uma chamada telefônica para o número especificado.</td>
+                    <td><code>href="tel:+5531999998888"</code> (Padrão internacional recomendado)</td>
+                    <td><code>&lt;a href="tel:+5531999998888"&gt;Ligue para Nós&lt;/a&gt;</code></td>
+                </tr>
+                <tr>
+                    <td>Imagem como Link</td>
+                    <td>Permite que uma imagem funcione como um link clicável.</td>
+                    <td>Envolver uma tag <code>&lt;img&gt;</code> dentro de uma tag <code>&lt;a&gt;</code>.</td>
+                    <td><code>&lt;a href="destino.html"&gt;&lt;img src="botao.png" alt="Descrição do botão"&gt;&lt;/a&gt;</code></td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
+</body>
+</html>

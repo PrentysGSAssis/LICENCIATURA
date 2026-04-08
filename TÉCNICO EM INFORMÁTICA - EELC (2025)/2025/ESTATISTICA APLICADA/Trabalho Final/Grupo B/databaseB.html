@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>MID - Sistema de Gerenciamento de Incidentes (Grupo B)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        :root {
+            --primary-color: #0d47a1; /* Azul escuro */
+            --secondary-color: #1976d2; /* Azul médio */
+            --background-color: #f4f6f8;
+            --sidebar-bg: #1e2a38;
+            --sidebar-text: #e0e0e0;
+            --sidebar-active: #ffffff;
+            --content-bg: #ffffff;
+            --border-color: #e0e0e0;
+            --text-color: #333;
+            --header-bg: #ffffff;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background-color: var(--background-color);
+            display: flex;
+        }
+        .sidebar {
+            width: 240px;
+            background-color: var(--sidebar-bg);
+            color: var(--sidebar-text);
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            position: fixed;
+        }
+        .sidebar-header {
+            padding: 20px;
+            text-align: center;
+            font-size: 1.5em;
+            font-weight: bold;
+            background-color: rgba(0,0,0,0.2);
+        }
+        .sidebar-header span {
+            color: #4fc3f7;
+        }
+        .sidebar-menu {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+            flex-grow: 1;
+        }
+        .sidebar-menu li a {
+            display: block;
+            padding: 15px 20px;
+            text-decoration: none;
+            color: var(--sidebar-text);
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .sidebar-menu li a.active, .sidebar-menu li a:hover {
+            background-color: var(--secondary-color);
+            color: var(--sidebar-active);
+            border-left: 4px solid #4fc3f7;
+            padding-left: 16px;
+        }
+        .sidebar-footer {
+            padding: 20px;
+            text-align: center;
+            font-size: 0.8em;
+        }
+        .main-content {
+            margin-left: 240px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .header {
+            background-color: var(--header-bg);
+            padding: 15px 30px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 1.8em;
+            color: var(--primary-color);
+        }
+        .user-info {
+            font-size: 0.9em;
+        }
+        .content {
+            padding: 30px;
+            flex-grow: 1;
+        }
+        .log-container {
+            background-color: #2d2d2d;
+            color: #f0f0f0;
+            padding: 20px;
+            border-radius: 5px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.95em;
+            height: 70vh;
+            overflow-y: scroll;
+            border: 1px solid #444;
+        }
+        .log-entry {
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed #555;
+        }
+        .log-entry:last-child {
+            border-bottom: none;
+        }
+        .log-entry span {
+            color: #87ceeb; /* Sky blue for labels */
+        }
+    </style>
+</head>
+<body>
+
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            MID<span>.gov</span>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="#">Página Inicial</a></li>
+            <li><a href="#" class="active">Consultar Incidentes</a></li>
+            <li><a href="#">Relatórios (Desativado)</a></li>
+            <li><a href="#">Administração (Desativado)</a></li>
+        </ul>
+        <div class="sidebar-footer">
+            &copy; 2025 Ministério da Inovação Digital
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="header">
+            <h1>Log de Incidentes do Sistema</h1>
+            <div class="user-info">
+                Usuário: <strong>consultor.grupoB@mid.gov.br</strong>
+            </div>
+        </header>
+        <section class="content">
+            <h3>Registros Brutos - Plataforma "Conecta Cidadão" - Lote B</h3>
+            <p>Exibindo 100 registros do período de 01/Mar/2025 a 31/Mai/2025.</p>
+            <div class="log-container">
+                <!-- Log data for Group B -->
+                <div class="log-entry"><span>ID do Incidente:</span> 1<br><span>Data de Abertura:</span> 01/03/2025<br><span>Sistema Afetado:</span> App Mobile<br><span>Tipo do Problema:</span> Lentidão ao Carregar<br><span>Prioridade Reportada:</span> Alta<br><span>Tempo para Resolução (Horas):</span> 10</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 3<br><span>Data de Abertura:</span> 02/03/2025<br><span>Sistema Afetado:</span> Portal Web<br><span>Tipo do Problema:</span> Lentidão ao Carregar<br><span>Prioridade Reportada:</span> Média<br><span>Tempo para Resolução (Horas):</span> 8</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 2<br><span>Data de Abertura:</span> 01/03/2025<br><span>Sistema Afetado:</span> Portal Web<br><span>Tipo do Problema:</span> Erro de Login<br><span>Prioridade Reportada:</span> Alta<br><span>Tempo para Resolução (Horas):</span> 3</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 5<br><span>Data de Abertura:</span> 03/03/2025<br><span>Sistema Afetado:</span> App Mobile<br><span>Tipo do Problema:</span> Funcionalidade Incorreta<br><span>Prioridade Reportada:</span> Alta<br><span>Tempo para Resolução (Horas):</span> 15</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 4<br><span>Data de Abertura:</span> 02/03/2025<br><span>Sistema Afetado:</span> API<br><span>Tipo do Problema:</span> Falha na API<br><span>Prioridade Reportada:</span> Alta<br><span>Tempo para Resolução (Horas):</span> 22</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 7<br><span>Data de Abertura:</span> 04/03/2025<br><span>Sistema Afetado:</span> Portal Web<br><span>Tipo do Problema:</span> Bug Visual<br><span>Prioridade Reportada:</span> Baixa<br><span>Tempo para Resolução (Horas):</span> 4</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 6<br><span>Data de Abertura:</span> 03/03/2025<br><span>Sistema Afetado:</span> Portal Web<br><span>Tipo do Problema:</span> Lentidão ao Carregar<br><span>Prioridade Reportada:</span> Alta<br><span>Tempo para Resolução (Horas):</span> 9</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 9<br><span>Data de Abertura:</span> 05/03/2025<br><span>Sistema Afetado:</span> App Mobile<br><span>Tipo do Problema:</span> Erro de Login<br><span>Prioridade Reportada:</span> Média<br><span>Tempo para Resolução (Horas):</span> 2</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 8<br><span>Data de Abertura:</span> 04/03/2025<br><span>Sistema Afetado:</span> App Mobile<br><span>Tipo do Problema:</span> Dúvida de Uso<br><span>Prioridade Reportada:</span> Baixa<br><span>Tempo para Resolução (Horas):</span> 1</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 11<br><span>Data de Abertura:</span> 06/03/2025<br><span>Sistema Afetado:</span> Portal Web<br><span>Tipo do Problema:</span> Erro de Login<br><span>Prioridade Reportada:</span> Alta<br><span>Tempo para Resolução (Horas):</span> 5</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 10<br><span>Data de Abertura:</span> 05/03/2025<br><span>Sistema Afetado:</span> Portal Web<br><span>Tipo do Problema:</span> Lentidão ao Carregar<br><span>Prioridade Reportada:</span> Média<br><span>Tempo para Resolução (Horas):</span> 7</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 13<br><span>Data de Abertura:</span> 08/03/2025<br><span>Sistema Afetado:</span> App Mobile<br><span>Tipo do Problema:</span> Lentidão ao Carregar<br><span>Prioridade Reportada:</span> Alta<br><span>Tempo para Resolução (Horas):</span> 80</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 12<br><span>Data de Abertura:</span> 07/03/2025<br><span>Sistema Afetado:</span> Portal Web<br><span>Tipo do Problema:</span> Bug Visual<br><span>Prioridade Reportada:</span> Baixa<br><span>Tempo para Resolução (Horas):</span> 3</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 15<br><span>Data de Abertura:</span> 10/03/2025<br><span>Sistema Afetado:</span> API<br><span>Tipo do Problema:</span> Erro de Login<br><span>Prioridade Reportada:</span> Alta<br><span>Tempo para Resolução (Horas):</span> 6</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 14<br><span>Data de Abertura:</span> 09/03/2025<br><span>Sistema Afetado:</span> App Mobile<br><span>Tipo do Problema:</span> Lentidão ao Carregar<br><span>Prioridade Reportada:</span> Alta<br><span>Tempo para Resolução (Horas):</span> 12</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 17<br><span>Data de Abertura:</span> 12/03/2025<br><span>Sistema Afetado:</span> Portal Web<br><span>Tipo do Problema:</span> Lentidão ao Carregar<br><span>Prioridade Reportada:</span> Média<br><span>Tempo para Resolução (Horas):</span> 10</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 18<br><span>Data de Abertura:</span> 13/03/2025<br><span>Sistema Afetado:</span> Portal Web<br><span>Tipo do Problema:</span> Erro de Login<br><span>Prioridade Reportada:</span> Alta<br><span>Tempo para Resolução (Horas):</span> 4</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 16<br><span>Data de Abertura:</span> 11/03/2025<br><span>Sistema Afetado:</span> App Mobile<br><span>Tipo do Problema:</span> Dúvida de Uso<br><span>Prioridade Reportada:</span> Baixa<br><span>Tempo para Resolução (Horas):</span> 1</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 20<br><span>Data de Abertura:</span> 15/03/2025<br><span>Sistema Afetado:</span> Portal Web<br><span>Tipo do Problema:</span> Erro de Login<br><span>Prioridade Reportada:</span> Média<br><span>Tempo para Resolução (Horas):</span> 3</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 19<br><span>Data de Abertura:</span> 14/03/2025<br><span>Sistema Afetado:</span> API<br><span>Tipo do Problema:</span> Falha na API<br><span>Prioridade Reportada:</span> Alta<br><span>Tempo para Resolução (Horas):</span> 19</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 22<br><span>Data de Abertura:</span> 17/03/2025<br><span>Sistema Afetado:</span> App Mobile<br><span>Tipo do Problema:</span> Lentidão ao Carregar<br><span>Prioridade Reportada:</span> Média<br><span>Tempo para Resolução (Horas):</span> 9</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 21<br><span>Data de Abertura:</span> 16/03/2025<br><span>Sistema Afetado:</span> Portal Web<br><span>Tipo do Problema:</span> Erro de Login<br><span>Prioridade Reportada:</span> Alta<br><span>Tempo para Resolução (Horas):</span> 5</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 24<br><span>Data de Abertura:</span> 19/03/2025<br><span>Sistema Afetado:</span> Portal Web<br><span>Tipo do Problema:</span> Lentidão ao Carregar<br><span>Prioridade Reportada:</span> Média<br><span>Tempo para Resolução (Horas):</span> 6</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 23<br><span>Data de Abertura:</span> 18/03/2025<br><span>Sistema Afetado:</span> Portal Web<br><span>Tipo do Problema:</span> Dúvida de Uso<br><span>Prioridade Reportada:</span> Baixa<br><span>Tempo para Resolução (Horas):</span> 2</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 26<br><span>Data de Abertura:</span> 21/03/2025<br><span>Sistema Afetado:</span> Portal Web<br><span>Tipo do Problema:</span> Erro de Login<br><span>Prioridade Reportada:</span> Alta<br><span>Tempo para Resolução (Horas):</span> 4</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 25<br><span>Data de Abertura:</span> 20/03/2025<br><span>Sistema Afetado:</span> App Mobile<br><span>Tipo do Problema:</span> Funcionalidade Incorreta<br><span>Prioridade Reportada:</span> Alta<br><span>Tempo para Resolução (Horas):</span> 16</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 28<br><span>Data de Abertura:</span> 23/03/2025<br><span>Sistema Afetado:</span> App Mobile<br><span>Tipo do Problema:</span> Lentidão ao Carregar<br><span>Prioridade Reportada:</span> Média<br><span>Tempo para Resolução (Horas):</span> 7</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 27<br><span>Data de Abertura:</span> 22/03/2025<br><span>Sistema Afetado:</span> Portal Web<br><span>Tipo do Problema:</span> Erro de Login<br><span>Prioridade Reportada:</span> Média<br><span>Tempo para Resolução (Horas):</span> 3</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 30<br><span>Data de Abertura:</span> 25/03/2025<br><span>Sistema Afetado:</span> Portal Web<br><span>Tipo do Problema:</span> Lentidão ao Carregar<br><span>Prioridade Reportada:</span> Alta<br><span>Tempo para Resolução (Horas):</span> 11</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 29<br><span>Data de Abertura:</span> 24/03/2025<br><span>Sistema Afetado:</span> Portal Web<br><span>Tipo do Problema:</span> Bug Visual<br><span>Prioridade Reportada:</span> Baixa<br><span>Tempo para Resolução (Horas):</span> 4</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 32<br><span>Data de Abertura:</span> 27/03/2025<br><span>Sistema Afetado:</span> App Mobile<br><span>Tipo do Problema:</span> Erro de Login<br><span>Prioridade Reportada:</span> Alta<br><span>Tempo para Resolução (Horas):</span> 5</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 31<br><span>Data de Abertura:</span> 26/03/2025<br><span>Sistema Afetado:</span> Portal Web<br><span>Tipo do Problema:</span> Lentidão ao Carregar<br><span>Prioridade Reportada:</span> Alta<br><span>Tempo para Resolução (Horas):</span> 10</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 34<br><span>Data de Abertura:</span> 29/03/2025<br><span>Sistema Afetado:</span> API<br><span>Tipo do Problema:</span> Falha na API<br><span>Prioridade Reportada:</span> Média<br><span>Tempo para Resolução (Horas):</span> 21</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 33<br><span>Data de Abertura:</span> 28/03/2025<br><span>Sistema Afetado:</span> Portal Web<br><span>Tipo do Problema:</span> Lentidão ao Carregar<br><span>Prioridade Reportada:</span> Média<br><span>Tempo para Resolução (Horas):</span> 8</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 36<br><span>Data de Abertura:</span> 31/03/2025<br><span>Sistema Afetado:</span> App Mobile<br><span>Tipo do Problema:</span> Dúvida de Uso<br><span>Prioridade Reportada:</span> Baixa<br><span>Tempo para Resolução (Horas):</span> 2</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 35<br><span>Data de Abertura:</span> 30/03/2025<br><span>Sistema Afetado:</span> Portal Web<br><span>Tipo do Problema:</span> Erro de Login<br><span>Prioridade Reportada:</span> Alta<br><span>Tempo para Resolução (Horas):</span> 4</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 38<br><span>Data de Abertura:</span> 02/04/2025<br><span>Sistema Afetado:</span> App Mobile<br><span>Tipo do Problema:</span> Funcionalidade Incorreta<br><span>Prioridade Reportada:</span> Média<br><span>Tempo para Resolução (Horas):</span> 17</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 37<br><span>Data de Abertura:</span> 01/04/2025<br><span>Sistema Afetado:</span> Portal Web<br><span>Tipo do Problema:</span> Lentidão ao Carregar<br><span>Prioridade Reportada:</span> Média<br><span>Tempo para Resolução (Horas):</span> 9</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 40<br><span>Data de Abertura:</span> 04/04/2025<br><span>Sistema Afetado:</span> API<br><span>Tipo do Problema:</span> Erro de Login<br><span>Prioridade Reportada:</span> Alta<br><span>Tempo para Resolução (Horas):</span> 6</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 39<br><span>Data de Abertura:</span> 03/04/2025<br><span>Sistema Afetado:</span> Portal Web<br><span>Tipo do Problema:</span> Dúvida de Uso<br><span>Prioridade Reportada:</span> Média<br><span>Tempo para Resolução (Horas):</span> 2</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 42<br><span>Data de Abertura:</span> 06/04/2025<br><span>Sistema Afetado:</span> Portal Web<br><span>Tipo do Problema:</span> Erro de Login<br><span>Prioridade Reportada:</span> Alta<br><span>Tempo para Resolução (Horas):</span> 5</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 41<br><span>Data de Abertura:</span> 05/04/2025<br><span>Sistema Afetado:</span> App Mobile<br><span>Tipo do Problema:</span> Lentidão ao Carregar<br><span>Prioridade Reportada:</span> Alta<br><span>Tempo para Resolução (Horas):</span> 110</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 44<br><span>Data de Abertura:</span> 08/04/2025<br><span>Sistema Afetado:</span> Portal Web<br><span>Tipo do Problema:</span> Bug Visual<br><span>Prioridade Reportada:</span> Baixa<br><span>Tempo para Resolução (Horas):</span> 6</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 43<br><span>Data de Abertura:</span> 07/04/2025<br><span>Sistema Afetado:</span> Portal Web<br><span>Tipo do Problema:</span> Lentidão ao Carregar<br><span>Prioridade Reportada:</span> Média<br><span>Tempo para Resolução (Horas):</span> 8</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 46<br><span>Data de Abertura:</span> 10/04/2025<br><span>Sistema Afetado:</span> App Mobile<br><span>Tipo do Problema:</span> Erro de Login<br><span>Prioridade Reportada:</span> Alta<br><span>Tempo para Resolução (Horas):</span> 3</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 45<br><span>Data de Abertura:</span> 09/04/2025<br><span>Sistema Afetado:</span> API<br><span>Tipo do Problema:</span> Falha na API<br><span>Prioridade Reportada:</span> Baixa<br><span>Tempo para Resolução (Horas):</span> 18</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 48<br><span>Data de Abertura:</span> 12/04/2025<br><span>Sistema Afetado:</span> Portal Web<br><span>Tipo do Problema:</span> Lentidão ao Carregar<br><span>Prioridade Reportada:</span> Média<br><span>Tempo para Resolução (Horas):</span> 10</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 47<br><span>Data de Abertura:</span> 11/04/2025<br><span>Sistema Afetado:</span> Portal Web<br><span>Tipo do Problema:</span> Dúvida de Uso<br><span>Prioridade Reportada:</span> Baixa<br><span>Tempo para Resolução (Horas):</span> 1</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 50<br><span>Data de Abertura:</span> 14/04/2025<br><span>Sistema Afetado:</span> App Mobile<br><span>Tipo do Problema:</span> Erro de Login<br><span>Prioridade Reportada:</span> Alta<br><span>Tempo para Resolução (Horas):</span> 4</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 49<br><span>Data de Abertura:</span> 13/04/2025<br><span>Sistema Afetado:</span> Portal Web<br><span>Tipo do Problema:</span> Funcionalidade Incorreta<br><span>Prioridade Reportada:</span> Alta<br><span>Tempo para Resolução (Horas):</span> 24</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 52<br><span>Data de Abertura:</span> 16/04/2025<br><span>Sistema Afetado:</span> Portal Web<br><span>Tipo do Problema:</span> Lentidão ao Carregar<br><span>Prioridade Reportada:</span> Média<br><span>Tempo para Resolução (Horas):</span> 7</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 51<br><span>Data de Abertura:</span> 15/04/2025<br><span>Sistema Afetado:</span> App Mobile<br><span>Tipo do Problema:</span> Erro de Login<br><span>Prioridade Reportada:</span> Média<br><span>Tempo para Resolução (Horas):</span> 5</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 54<br><span>Data de Abertura:</span> 18/04/2025<br><span>Sistema Afetado:</span> Portal Web<br><span>Tipo do Problema:</span> Lentidão ao Carregar<br><span>Prioridade Reportada:</span> Alta<br><span>Tempo para Resolução (Horas):</span> 12</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 53<br><span>Data de Abertura:</span> 17/04/2025<br><span>Sistema Afetado:</span> API<br><span>Tipo do Problema:</span> Falha na API<br><span>Prioridade Reportada:</span> Alta<br><span>Tempo para Resolução (Horas):</span> 32</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 56<br><span>Data de Abertura:</span> 20/04/2025<br><span>Sistema Afetado:</span> App Mobile<br><span>Tipo do Problema:</span> Dúvida de Uso<br><span>Prioridade Reportada:</span> Baixa<br><span>Tempo para Resolução (Horas):</span> 2</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 55<br><span>Data de Abertura:</span> 19/04/2025<br><span>Sistema Afetado:</span> Portal Web<br><span>Tipo do Problema:</span> Lentidão ao Carregar<br><span>Prioridade Reportada:</span> Média<br><span>Tempo para Resolução (Horas):</span> 9</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 58<br><span>Data de Abertura:</span> 22/04/2025<br><span>Sistema Afetado:</span> Portal Web<br><span>Tipo do Problema:</span> Bug Visual<br><span>Prioridade Reportada:</span> Baixa<br><span>Tempo para Resolução (Horas):</span> 3</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 57<br><span>Data de Abertura:</span> 21/04/2025<br><span>Sistema Afetado:</span> Portal Web<br><span>Tipo do Problema:</span> Erro de Login<br><span>Prioridade Reportada:</span> Média<br><span>Tempo para Resolução (Horas):</span> 4</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 60<br><span>Data de Abertura:</span> 24/04/2025<br><span>Sistema Afetado:</span> App Mobile<br><span>Tipo do Problema:</span> Funcionalidade Incorreta<br><span>Prioridade Reportada:</span> Média<br><span>Tempo para Resolução (Horas):</span> 12</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 59<br><span>Data de Abertura:</span> 23/04/2025<br><span>Sistema Afetado:</span> App Mobile<br><span>Tipo do Problema:</span> Lentidão ao Carregar<br><span>Prioridade Reportada:</span> Alta<br><span>Tempo para Resolução (Horas):</span> 11</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 62<br><span>Data de Abertura:</span> 26/04/2025<br><span>Sistema Afetado:</span> Portal Web<br><span>Tipo do Problema:</span> Lentidão ao Carregar<br><span>Prioridade Reportada:</span> Alta<br><span>Tempo para Resolução (Horas):</span> 8</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 61<br><span>Data de Abertura:</span> 25/04/2025<br><span>Sistema Afetado:</span> Portal Web<br><span>Tipo do Problema:</span> Erro de Login<br><span>Prioridade Reportada:</span> Alta<br><span>Tempo para Resolução (Horas):</span> 3</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 64<br><span>Data de Abertura:</span> 28/04/2025<br><span>Sistema Afetado:</span> API<br><span>Tipo do Problema:</span> Dúvida de Uso<br><span>Prioridade Reportada:</span> Baixa<br><span>Tempo para Resolução (Horas):</span> 3</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 63<br><span>Data de Abertura:</span> 27/04/2025<br><span>Sistema Afetado:</span> App Mobile<br><span>Tipo do Problema:</span> Bug Visual<br><span>Prioridade Reportada:</span> Baixa<br><span>Tempo para Resolução (Horas):</span> 4</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 66<br><span>Data de Abertura:</span> 30/04/2025<br><span>Sistema Afetado:</span> Portal Web<br><span>Tipo do Problema:</span> Lentidão ao Carregar<br><span>Prioridade Reportada:</span> Média<br><span>Tempo para Resolução (Horas):</span> 9</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 65<br><span>Data de Abertura:</span> 29/04/2025<br><span>Sistema Afetado:</span> App Mobile<br><span>Tipo do Problema:</span> Erro de Login<br><span>Prioridade Reportada:</span> Média<br><span>Tempo para Resolução (Horas):</span> 5</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 68<br><span>Data de Abertura:</span> 02/05/2025<br><span>Sistema Afetado:</span> Portal Web<br><span>Tipo do Problema:</span> Funcionalidade Incorreta<br><span>Prioridade Reportada:</span> Alta<br><span>Tempo para Resolução (Horas):</span> 19</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 67<br><span>Data de Abertura:</span> 01/05/2025<br><span>Sistema Afetado:</span> Portal Web<br><span>Tipo do Problema:</span> Dúvida de Uso<br><span>Prioridade Reportada:</span> Baixa<br><span>Tempo para Resolução (Horas):</span> 1</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 70<br><span>Data de Abertura:</span> 04/05/2025<br><span>Sistema Afetado:</span> Portal Web<br><span>Tipo do Problema:</span> Erro de Login<br><span>Prioridade Reportada:</span> Alta<br><span>Tempo para Resolução (Horas):</span> 4</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 69<br><span>Data de Abertura:</span> 03/05/2025<br><span>Sistema Afetado:</span> API<br><span>Tipo do Problema:</span> Falha na API<br><span>Prioridade Reportada:</span> Alta<br><span>Tempo para Resolução (Horas):</span> 42</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 72<br><span>Data de Abertura:</span> 06/05/2025<br><span>Sistema Afetado:</span> App Mobile<br><span>Tipo do Problema:</span> Erro de Login<br><span>Prioridade Reportada:</span> Média<br><span>Tempo para Resolução (Horas):</span> 5</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 71<br><span>Data de Abertura:</span> 05/05/2025<br><span>Sistema Afetado:</span> Portal Web<br><span>Tipo do Problema:</span> Lentidão ao Carregar<br><span>Prioridade Reportada:</span> Média<br><span>Tempo para Resolução (Horas):</span> 10</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 74<br><span>Data de Abertura:</span> 08/05/2025<br><span>Sistema Afetado:</span> App Mobile<br><span>Tipo do Problema:</span> Bug Visual<br><span>Prioridade Reportada:</span> Baixa<br><span>Tempo para Resolução (Horas):</span> 3</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 73<br><span>Data de Abertura:</span> 07/05/2025<br><span>Sistema Afetado:</span> Portal Web<br><span>Tipo do Problema:</span> Erro de Login<br><span>Prioridade Reportada:</span> Alta<br><span>Tempo para Resolução (Horas):</span> 3</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 76<br><span>Data de Abertura:</span> 10/05/2025<br><span>Sistema Afetado:</span> Portal Web<br><span>Tipo do Problema:</span> Funcionalidade Incorreta<br><span>Prioridade Reportada:</span> Média<br><span>Tempo para Resolução (Horas):</span> 14</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 75<br><span>Data de Abertura:</span> 09/05/2025<br><span>Sistema Afetado:</span> App Mobile<br><span>Tipo do Problema:</span> Dúvida de Uso<br><span>Prioridade Reportada:</span> Baixa<br><span>Tempo para Resolução (Horas):</span> 1</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 78<br><span>Data de Abertura:</span> 12/05/2025<br><span>Sistema Afetado:</span> Portal Web<br><span>Tipo do Problema:</span> Lentidão ao Carregar<br><span>Prioridade Reportada:</span> Alta<br><span>Tempo para Resolução (Horas):</span> 13</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 77<br><span>Data de Abertura:</span> 11/05/2025<br><span>Sistema Afetado:</span> Portal Web<br><span>Tipo do Problema:</span> Erro de Login<br><span>Prioridade Reportada:</span> Média<br><span>Tempo para Resolução (Horas):</span> 4</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 80<br><span>Data de Abertura:</span> 14/05/2025<br><span>Sistema Afetado:</span> App Mobile<br><span>Tipo do Problema:</span> Lentidão ao Carregar<br><span>Prioridade Reportada:</span> Alta<br><span>Tempo para Resolução (Horas):</span> 9</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 79<br><span>Data de Abertura:</span> 13/05/2025<br><span>Sistema Afetado:</span> Portal Web<br><span>Tipo do Problema:</span> Bug Visual<br><span>Prioridade Reportada:</span> Baixa<br><span>Tempo para Resolução (Horas):</span> 4</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 82<br><span>Data de Abertura:</span> 16/05/2025<br><span>Sistema Afetado:</span> API<br><span>Tipo do Problema:</span> Falha na API<br><span>Prioridade Reportada:</span> Média<br><span>Tempo para Resolução (Horas):</span> 26</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 81<br><span>Data de Abertura:</span> 15/05/2025<br><span>Sistema Afetado:</span> Portal Web<br><span>Tipo do Problema:</span> Lentidão ao Carregar<br><span>Prioridade Reportada:</span> Média<br><span>Tempo para Resolução (Horas):</span> 8</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 84<br><span>Data de Abertura:</span> 18/05/2025<br><span>Sistema Afetado:</span> App Mobile<br><span>Tipo do Problema:</span> Dúvida de Uso<br><span>Prioridade Reportada:</span> Baixa<br><span>Tempo para Resolução (Horas):</span> 2</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 83<br><span>Data de Abertura:</span> 17/05/2025<br><span>Sistema Afetado:</span> Portal Web<br><span>Tipo do Problema:</span> Funcionalidade Incorreta<br><span>Prioridade Reportada:</span> Alta<br><span>Tempo para Resolução (Horas):</span> 21</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 86<br><span>Data de Abertura:</span> 20/05/2025<br><span>Sistema Afetado:</span> Portal Web<br><span>Tipo do Problema:</span> Erro de Login<br><span>Prioridade Reportada:</span> Alta<br><span>Tempo para Resolução (Horas):</span> 3</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 85<br><span>Data de Abertura:</span> 19/05/2025<br><span>Sistema Afetado:</span> App Mobile<br><span>Tipo do Problema:</span> Lentidão ao Carregar<br><span>Prioridade Reportada:</span> Média<br><span>Tempo para Resolução (Horas):</span> 9</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 88<br><span>Data de Abertura:</span> 22/05/2025<br><span>Sistema Afetado:</span> Portal Web<br><span>Tipo do Problema:</span> Dúvida de Uso<br><span>Prioridade Reportada:</span> Baixa<br><span>Tempo para Resolução (Horas):</span> 1</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 87<br><span>Data de Abertura:</span> 21/05/2025<br><span>Sistema Afetado:</span> Portal Web<br><span>Tipo do Problema:</span> Erro de Login<br><span>Prioridade Reportada:</span> Média<br><span>Tempo para Resolução (Horas):</span> 6</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 90<br><span>Data de Abertura:</span> 24/05/2025<br><span>Sistema Afetado:</span> App Mobile<br><span>Tipo do Problema:</span> Bug Visual<br><span>Prioridade Reportada:</span> Baixa<br><span>Tempo para Resolução (Horas):</span> 5</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 89<br><span>Data de Abertura:</span> 23/05/2025<br><span>Sistema Afetado:</span> API<br><span>Tipo do Problema:</span> Falha na API<br><span>Prioridade Reportada:</span> Alta<br><span>Tempo para Resolução (Horas):</span> 14</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 92<br><span>Data de Abertura:</span> 26/05/2025<br><span>Sistema Afetado:</span> Portal Web<br><span>Tipo do Problema:</span> Lentidão ao Carregar<br><span>Prioridade Reportada:</span> Alta<br><span>Tempo para Resolução (Horas):</span> 15</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 91<br><span>Data de Abertura:</span> 25/05/2025<br><span>Sistema Afetado:</span> App Mobile<br><span>Tipo do Problema:</span> Funcionalidade Incorreta<br><span>Prioridade Reportada:</span> Média<br><span>Tempo para Resolução (Horas):</span> 14</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 94<br><span>Data de Abertura:</span> 28/05/2025<br><span>Sistema Afetado:</span> Portal Web<br><span>Tipo do Problema:</span> Dúvida de Uso<br><span>Prioridade Reportada:</span> Baixa<br><span>Tempo para Resolução (Horas):</span> 2</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 93<br><span>Data de Abertura:</span> 27/05/2025<br><span>Sistema Afetado:</span> App Mobile<br><span>Tipo do Problema:</span> Erro de Login<br><span>Prioridade Reportada:</span> Alta<br><span>Tempo para Resolução (Horas):</span> 4</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 96<br><span>Data de Abertura:</span> 30/05/2025<br><span>Sistema Afetado:</span> Portal Web<br><span>Tipo do Problema:</span> Bug Visual<br><span>Prioridade Reportada:</span> Baixa<br><span>Tempo para Resolução (Horas):</span> 6</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 95<br><span>Data de Abertura:</span> 29/05/2025<br><span>Sistema Afetado:</span> Portal Web<br><span>Tipo do Problema:</span> Funcionalidade Incorreta<br><span>Prioridade Reportada:</span> Alta<br><span>Tempo para Resolução (Horas):</span> 26</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 98<br><span>Data de Abertura:</span> 30/05/2025<br><span>Sistema Afetado:</span> API<br><span>Tipo do Problema:</span> Erro de Login<br><span>Prioridade Reportada:</span> Média<br><span>Tempo para Resolução (Horas):</span> 7</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 97<br><span>Data de Abertura:</span> 29/05/2025<br><span>Sistema Afetado:</span> App Mobile<br><span>Tipo do Problema:</span> Lentidão ao Carregar<br><span>Prioridade Reportada:</span> Média<br><span>Tempo para Resolução (Horas):</span> 10</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 100<br><span>Data de Abertura:</span> 31/05/2025<br><span>Sistema Afetado:</span> Portal Web<br><span>Tipo do Problema:</span> Erro de Login<br><span>Prioridade Reportada:</span> Alta<br><span>Tempo para Resolução (Horas):</span> 5</div>
+                <div class="log-entry"><span>ID do Incidente:</span> 99<br><span>Data de Abertura:</span> 31/05/2025<br><span>Sistema Afetado:</span> Portal Web<br><span>Tipo do Problema:</span> Lentidão ao Carregar<br><span>Prioridade Reportada:</span> Alta<br><span>Tempo para Resolução (Horas):</span> 12</div>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>

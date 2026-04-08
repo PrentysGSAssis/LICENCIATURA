@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interpretação de Código - Revisão Semana 17</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .nav-item-active {
+            background-color: #3b82f6; /* Tailwind blue-500 */
+            color: white;
+        }
+        .code-block {
+            background-color: #1f2937; /* Tailwind gray-800 */
+            color: #f3f4f6; /* Tailwind gray-100 */
+            padding: 1rem;
+            border-radius: 0.375rem; /* rounded-md */
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            overflow-x: auto;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.875rem; /* text-sm */
+        }
+        .questions-block {
+            background-color: #f9fafb; /* Tailwind gray-50 */
+            padding: 1rem;
+            border-radius: 0.375rem; /* rounded-md */
+            border: 1px solid #e5e7eb; /* Tailwind gray-200 */
+            margin-top: 1.5rem;
+        }
+        .questions-block ol {
+            list-style-type: decimal;
+            margin-left: 1.5rem;
+        }
+        .questions-block li {
+            margin-bottom: 0.75rem;
+        }
+        .gabarito-answers-block {
+            background-color: #eef2ff; /* Tailwind indigo-50 */
+            color: #3730a3; /* Tailwind indigo-800 */
+            padding: 1rem;
+            border-radius: 0.375rem;
+            margin-top: 1rem;
+            border: 1px solid #c7d2fe; /* Tailwind indigo-200 */
+        }
+    </style>
+    <!-- Visualization & Content Choices: 
+        All Codes (1-5): Goal: Test understanding of code execution, variable states, and output. Method: Display Portugol Studio code in a code block, list questions. Interaction: (Code 1 only) Gabarito toggle for question answers. Justification: Direct assessment of interpretation skills. Library: N/A.
+    -->
+    </head>
+<body class="bg-gray-100 text-gray-900">
+
+    <div class="container mx-auto max-w-6xl p-4 sm:p-6 lg:p-8">
+        <header class="mb-8 text-center">
+            <h1 class="text-4xl font-bold text-blue-600">Interpretação de Código</h1>
+            <p class="text-lg text-gray-600 mt-2">Revisão para Prova - Semana 17</p>
+        </header>
+
+        <div class="flex flex-col md:flex-row gap-6">
+            <aside class="md:w-1/4 bg-white p-6 rounded-lg shadow-lg max-h-[80vh] overflow-y-auto">
+                <h2 class="text-xl font-semibold mb-4 text-blue-700 border-b pb-2 sticky top-0 bg-white">Códigos</h2>
+                <nav id="code-nav" class="space-y-1">
+                </nav>
+            </aside>
+
+            <main id="code-content-area" class="md:w-3/4 bg-white p-6 rounded-lg shadow-lg min-h-[60vh]">
+                <div id="code-placeholder" class="text-center text-gray-500 flex flex-col justify-center items-center h-full">
+                     <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 mx-auto mb-4 text-blue-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l-4 4m0 0l-4-4m4 4V4M7 7h10M7 12h4m1.5 0h.01M7 17h4m1.5 0h.01" />
+                    </svg>
+                    <p class="text-xl">Selecione um código ao lado para começar a interpretação.</p>
+                    <p class="text-sm mt-2">Analise cada trecho de código e responda às questões propostas.</p>
+                </div>
+            </main>
+        </div>
+
+        <footer class="mt-12 text-center text-sm text-gray-500">
+            <p>&copy; <span id="currentYear"></span> Plataforma de Revisão de Algoritmos. Desenvolvido para fins didáticos.</p>
+        </footer>
+    </div>
+
+    <script>
+        const interpretationCodes = [
+            {
+                id: 1,
+                title: "Boas-vindas Simples",
+                code: `programa
+{
+    // Variável para armazenar o nome do usuário
+    cadeia nome_usuario
+
+    funcao inicio()
+    {
+        escreva("Qual o seu nome? ")
+        leia(nome_usuario) // Lê a entrada do usuário
+        // Exibe a saudação personalizada
+        escreva("Olá, ", nome_usuario, "! Tudo bem?\\n")
+    }
+}`,
+                questions: [
+                    "Qual o objetivo principal deste algoritmo?",
+                    "Se o usuário digitar \"Maria\" quando solicitado, qual será a saída EXATA do programa no console?",
+                    "E se a linha `escreva(\"Olá, \", nome_usuario, \"! Tudo bem?\\n\")` fosse movida para *antes* da linha `leia(nome_usuario)`? O que seria exibido para `nome_usuario` na saudação e por quê?"
+                ],
+                gabaritoAnswers: [
+                    "O objetivo é saudar o usuário de forma personalizada após ler o nome dele.",
+                    "Olá, Maria! Tudo bem?",
+                    "A variável `nome_usuario` ainda não teria recebido um valor do usuário através do comando `leia`. O Portugol Studio geralmente inicializa variáveis `cadeia` com um valor vazio (\"\"). Assim, a saudação provavelmente seria \"Olá, ! Tudo bem?\", e somente depois o programa solicitaria o nome."
+                ]
+            },
+            {
+                id: 2,
+                title: "Cálculo de Idade",
+                code: `programa
+{
+    // Constante para o ano atual, facilitando futuras atualizações
+    const inteiro ANO_ATUAL = 2025 
+    // Variáveis para armazenar o ano de nascimento e a idade calculada
+    inteiro ano_nascimento, idade
+
+    funcao inicio()
+    {
+        escreva("Em que ano você nasceu? ")
+        leia(ano_nascimento) // Captura o ano de nascimento
+        // Calcula a idade subtraindo o ano de nascimento do ano atual
+        idade = ANO_ATUAL - ano_nascimento
+        escreva("Em ", ANO_ATUAL, ", você completa (ou completou) ", idade, " anos.\\n")
+    }
+}`,
+                questions: [
+                    "Qual o objetivo principal deste algoritmo?",
+                    "Se o usuário digitar \"1995\" como ano de nascimento, qual será a saída EXATA do programa?",
+                    "E se a constante `ANO_ATUAL` fosse alterada para `2030` e a variável `idade` fosse exibida *antes* de ser calculada (ou seja, a linha `idade = ANO_ATUAL - ano_nascimento` fosse movida para depois do `escreva` final)? Qual valor seria exibido para `idade`?"
+                ]
+            },
+            {
+                id: 3,
+                title: "Registro de Produto",
+                code: `programa
+{
+    cadeia nome_produto
+    real preco_unitario
+    inteiro quantidade
+    real valor_total
+
+    funcao inicio()
+    {
+        escreva("Nome do produto: ")
+        leia(nome_produto)
+        escreva("Preço unitário (R$): ")
+        leia(preco_unitario)
+        escreva("Quantidade em estoque: ")
+        leia(quantidade)
+
+        valor_total = preco_unitario * quantidade
+
+        escreva("\\n--- Detalhes do Produto ---\\n")
+        escreva("Produto: ", nome_produto, "\\n")
+        escreva("Estoque: ", quantidade, " unidades\\n")
+        escreva("Valor total em estoque: R$", valor_total, "\\n")
+    }
+}`,
+                questions: [
+                    "Qual o objetivo principal deste algoritmo?",
+                    "Se o usuário digitar \"Caneta\", depois \"1.50\" e depois \"100\", qual será a saída completa do programa?",
+                    "E se a variável `valor_total` fosse declarada como `inteiro` e os mesmos valores fossem inseridos, qual seria o valor exibido para \"Valor total em estoque\"? Por quê?"
+                ]
+            },
+            {
+                id: 4,
+                title: "Mensagem com Caracter",
+                code: `programa
+{
+    const cadeia MENSAGEM_PADRAO = "Status: "
+    caracter status_atual
+    cadeia mensagem_completa
+
+    funcao inicio()
+    {
+        escreva("Digite o status atual (A para Ativo, I para Inativo): ")
+        leia(status_atual)
+
+        mensagem_completa = MENSAGEM_PADRAO + status_atual 
+
+        escreva(mensagem_completa, "\\n")
+    }
+}`,
+                questions: [
+                    "Qual o objetivo principal deste algoritmo?",
+                    "Se o usuário digitar 'A' como status, qual será a saída exata?",
+                    "E se, em vez de `caracter status_atual`, a variável fosse `cadeia status_atual`, e o usuário digitasse \"Ativo\"? A linha `mensagem_completa = MENSAGEM_PADRAO + status_atual` ainda funcionaria como esperado para concatenar? Qual seria a saída?"
+                ]
+            },
+            {
+                id: 5,
+                title: "Cálculos Simples",
+                code: `programa
+{
+    real valor_a, valor_b
+    real soma, multiplicacao
+    const real FATOR_MULTIPLICACAO = 2.0
+
+    funcao inicio()
+    {
+        escreva("Digite o valor A (real): ")
+        leia(valor_a)
+        escreva("Digite o valor B (real): ")
+        leia(valor_b)
+
+        soma = valor_a + valor_b
+        multiplicacao = valor_a * FATOR_MULTIPLICACAO
+
+        escreva("\\n--- Resultados ---\\n")
+        escreva("Soma (A+B): ", soma, "\\n")
+        escreva("Valor A multiplicado por ", FATOR_MULTIPLICACAO, ": ", multiplicacao, "\\n")
+    }
+}`,
+                questions: [
+                    "Qual o objetivo principal deste algoritmo?",
+                    "Se o usuário digitar `10.0` para Valor A e `4.0` para Valor B, qual será a saída completa?",
+                    "E se a constante `FATOR_MULTIPLICACAO` fosse alterada para `0.5` e o usuário digitasse `10.0` para Valor A (e qualquer valor para B), qual seria o valor exibido para \"Valor A multiplicado por 0.5\"?"
+                ]
+            }
+        ];
+
+        const navContainer = document.getElementById('code-nav');
+        const contentArea = document.getElementById('code-content-area');
+        const placeholder = document.getElementById('code-placeholder');
+        let currentActiveButton = null;
+
+        function displayCode(codeId) {
+            const codeItem = interpretationCodes.find(c => c.id === codeId);
+            if (!codeItem) {
+                contentArea.innerHTML = '<p class="text-red-500">Código de interpretação não encontrado.</p>';
+                return;
+            }
+
+            if(placeholder) placeholder.style.display = 'none';
+
+            let questionsHtml = '<ol>';
+            codeItem.questions.forEach(q => {
+                questionsHtml += `<li>${q.replace(/`([^`]+)`/g, '<code class="bg-gray-200 text-sm text-pink-600 px-1 rounded">\$1</code>')}</li>`;
+            });
+            questionsHtml += '</ol>';
+
+            let gabaritoAnswersHtml = '';
+            if (codeItem.gabaritoAnswers) {
+                let answersListHtml = '<ol>';
+                codeItem.gabaritoAnswers.forEach(ans => {
+                    answersListHtml += `<li>${ans.replace(/`([^`]+)`/g, '<code class="bg-gray-200 text-sm text-pink-600 px-1 rounded">\$1</code>')}</li>`;
+                });
+                answersListHtml += '</ol>';
+
+                gabaritoAnswersHtml = `
+                    <div class="mt-6">
+                        <button id="toggle-gabarito-answers-btn-${codeItem.id}" class="bg-indigo-500 hover:bg-indigo-600 text-white font-semibold py-2 px-4 rounded-md transition duration-150 ease-in-out mb-2">
+                            Mostrar Gabarito das Questões
+                        </button>
+                        <div id="gabarito-answers-content-${codeItem.id}" class="gabarito-answers-block hidden">
+                            <h4 class="font-semibold mb-2">Respostas:</h4>
+                            ${answersListHtml}
+                        </div>
+                    </div>
+                `;
+            }
+            
+            contentArea.innerHTML = `
+                <article id="code-interpretation-${codeItem.id}">
+                    <h2 class="text-3xl font-bold text-blue-700 mb-4 border-b-2 border-blue-200 pb-3">Código para Interpretação ${codeItem.id}: ${codeItem.title}</h2>
+                    
+                    <div class="code-block mb-6">
+                        <pre><code>${codeItem.code.replace(/</g, "&lt;").replace(/>/g, "&gt;")}</code></pre>
+                    </div>
+
+                    <div class="questions-block">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Questões de Interpretação:</h3>
+                        ${questionsHtml}
+                    </div>
+                    
+                    ${gabaritoAnswersHtml}
+                </article>
+            `;
+
+            if (codeItem.gabaritoAnswers) {
+                const toggleButton = document.getElementById(`toggle-gabarito-answers-btn-${codeItem.id}`);
+                const gabaritoContent = document.getElementById(`gabarito-answers-content-${codeItem.id}`);
+                toggleButton.addEventListener('click', () => {
+                    const isHidden = gabaritoContent.classList.toggle('hidden');
+                    toggleButton.textContent = isHidden ? 'Mostrar Gabarito das Questões' : 'Esconder Gabarito das Questões';
+                });
+            }
+        }
+
+        function setActiveButton(button) {
+            if (currentActiveButton) {
+                currentActiveButton.classList.remove('nav-item-active', 'bg-blue-500', 'text-white');
+                currentActiveButton.classList.add('bg-gray-200', 'hover:bg-gray-300', 'text-gray-700');
+            }
+            button.classList.remove('bg-gray-200', 'hover:bg-gray-300', 'text-gray-700');
+            button.classList.add('nav-item-active', 'bg-blue-500', 'text-white');
+            currentActiveButton = button;
+        }
+
+        interpretationCodes.sort((a, b) => a.id - b.id).forEach(cItem => {
+            const button = document.createElement('button');
+            button.textContent = `Código ${cItem.id}`;
+            button.classList.add(
+                'w-full', 'text-left', 'px-4', 'py-2', 'rounded-md', 
+                'transition', 'duration-150', 'ease-in-out', 
+                'font-medium', 'bg-gray-200', 'hover:bg-gray-300', 'text-gray-700'
+            );
+            button.addEventListener('click', () => {
+                displayCode(cItem.id);
+                setActiveButton(button);
+            });
+            navContainer.appendChild(button);
+        });
+        
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio Cliente - Semana 23: Landing Page de Lançamento Musical</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: #2c3e50; display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; }
+        .page-container { width: 210mm; min-height: 200mm; padding: 15mm; box-shadow: 0 0 15px rgba(0,0,0,0.2); box-sizing: border-box; background-color: #34495e; color: #ecf0f1; margin-top: 20px; margin-bottom: 20px; border-radius: 8px;}
+        /* Estilos do MODELO: CABEÇALHO */
+        .header-top-container { display: flex; justify-content: center; align-items: center; border-bottom: 1px solid #7f8c8d; padding-bottom: 10px; margin-bottom: 20px; }
+        .logo { max-width: 60px; height: auto; margin-right: 15px; filter: invert(1); }
+        .school-info { text-align: center; padding: 0 5px; }
+        .school-info strong.school-name { display: block; margin-bottom: 4px; font-size: 0.9em; color: #ecf0f1; }
+        .school-info .address-details span { display: inline; font-size: 0.7em; margin-right: 4px; color: #bdc3c7; }
+        .form-fields-grid { display: grid; gap: 4px 8px; width: 100%; margin-bottom: 20px; grid-template-rows: auto auto auto; }
+        .form-row { display: grid; grid-template-columns: 3fr 2fr; gap: 8px; width: 100%; }
+        .form-field { border: 1px solid #7f8c8d; padding: 4px 6px; font-size: 0.75em; box-sizing: border-box; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; display: flex; align-items: center; background-color: #2c3e50; }
+        .form-field strong { margin-right: 5px; white-space: nowrap; }
+        .form-field .value-content { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex-grow: 1; }
+        /* Estilos para o conteúdo do desafio */
+        .challenge-brief { margin-top: 20px; }
+        .challenge-brief h1.main-challenge-title { font-size: 1.8em; text-align: center; margin-bottom: 20px; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
+        .client-dialogue { border: 1px dashed #3498db; padding: 20px; border-radius: 8px; background-color: rgba(255, 255, 255, 0.05); margin-bottom: 25px; box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);}
+        .client-dialogue p { margin: 10px 0; line-height: 1.7; font-size: 1em; }
+        .client-dialogue strong { color: #5dade2; font-weight: bold; }
+        .task-list h2 { font-size: 1.25em; color: #95a5a6; margin-top: 25px; margin-bottom: 12px; }
+        .task-list ul { list-style-type: '🎤'; margin-left: 5px; padding-left: 15px; font-size: 0.9em;}
+        .task-list li { margin-bottom: 10px; line-height: 1.5; }
+        .deliverables p { font-size: 0.95em; font-style: italic; color: #bdc3c7; background-color: rgba(0,0,0,0.1); padding: 10px; border-left: 4px solid #3498db; }
+        .footer-note { text-align: center; font-size: 0.85em; color: #95a5a6; margin-top: 35px; padding-top: 15px; border-top: 1px solid #7f8c8d;}
+        @media print {
+            body { background-color: white; color: black;}
+            .page-container { margin: 0; padding: 10mm; box-shadow: none; width: 100%; min-height: auto; color: black; }
+            .school-info strong.school-name, .school-info .address-details span, .challenge-brief h1.main-challenge-title, .client-dialogue p, .task-list h2, .task-list li, .deliverables p, .footer-note { color: black; }
+            .form-field { background-color: #f0f0f0; }
+            .client-dialogue { background-color: #f5f5f5; border-style: solid; border-color: #ccc;}
+            .client-dialogue strong { color: #0056b3; }
+            .logo { filter: none; }
+            @page { margin: 10mm; }
+        }
+    </style>
+</head>
+<body>
+<div class="page-container">
+    <!-- MODELO: CABEÇALHO ESCOLAR -->
+    <div class="header-top-container">
+        <img src="https://1drv.ms/i/c/9e9e1f5991e00f07/IQTuKfwDXz6eQZG682I84WqBASSJENKf1uHvN3nSBXphxkU?width=1024" alt="Logo da Escola" class="logo" onerror="this.onerror=null; this.src='https://placehold.co/60x60/ccc/000?text=Logo'; this.alt='Erro ao carregar logo';">
+        <div class="school-info">
+            <strong class="school-name">ESCOLA ESTADUAL PROFESSORA SEBASTIANA DE ALMEIDA E SILVA</strong>
+            <div class="address-details">
+                <span>Rua São José, nº 30, Jaguaruçu - MG.</span>
+                <span>CEP: 35.188-000</span>
+                <span>Tel: (31) 3845-1209</span>
+            </div>
+        </div>
+    </div>
+    <div class="form-fields-grid">
+        <div class="form-row">
+            <div class="form-field" style="grid-column: 1 / span 3;"><strong>DISCIPLINA:</strong> <span class="value-content">Front End I</span></div>
+            <div class="form-field" style="grid-column: 4 / span 2;"><strong>PROFESSOR(A):</strong> <span class="value-content">Prentys Assis</span></div>
+        </div>
+        <div class="form-row">
+            <div class="form-field" style="grid-column: 1 / span 3;"><strong>ATIVIDADE:</strong> <span class="value-content">SEMANA 23 - Desafio: Lançamento Musical</span></div>
+            <div class="form-field" style="grid-column: 4 / span 2;"><strong>DATA:</strong> <span class="value-content"></span></div>
+        </div>
+        <div class="form-row">
+            <div class="form-field" style="grid-column: 1 / span 3;"><strong>ALUNO(A):</strong> <span class="value-content"></span></div>
+            <div class="form-field" style="grid-column: 4 / span 2;"><strong>TURMA:</strong> <span class="value-content">2º Ano</span></div>
+        </div>
+    </div>
+    <!-- FIM DO MODELO: CABEÇALHO ESCOLAR -->
+
+    <div class="challenge-brief">
+        <h1 class="main-challenge-title">Desafio da Semana: Página de Lançamento do Single da Banda "Os Devs Desafinados"</h1>
+
+        <div class="client-dialogue">
+            <p><strong>Beto (Vocalista da Banda):</strong> "E aí, tudo certo? Então, nós somos 'Os Devs Desafinados', uma banda de garagem, e estamos pra lançar nosso primeiro single, 'Hello, World! (em Sol Maior)'. A gente precisa de uma página na internet pra divulgar, uma coisa só, tipo uma 'landing page' que a galera do marketing fala."</p>
+            <p>"Pensei numa página com uma foto grande e legal da banda no topo. Mas seria maneiro se essa foto mudasse, tipo, uma foto mais deitada pra quem vê no computador e outra em pé pra quem vê no celular, saca? Pra ficar bem enquadrado."</p>
+            <p>"Logo abaixo, o **nome da música bem grande** e um player de áudio pra galera ouvir a música ali na hora. E claro, o clipe que a gente postou no YouTube também tem que estar lá, pra pessoa assistir sem sair da página."</p>
+            <p>"Queria também uma listinha com o nome dos integrantes da banda e para qual **página da rede social** de cada um o link levaria."</p>
+            <p>"Ah, e uma coisa que seria **MUITO** legal: se desse pra colocar o título principal, 'Hello, World! (em Sol Maior)', com uma cor tipo um **azul elétrico**, e o fundo da página num **cinza bem escuro**. Seria um primeiro passo pra dar uma cara pra nossa página, né? Um estilinho próprio."</p>
+            <p>"No final, um link pra galera poder baixar a letra da música em PDF e um rodapé com o nome da banda e o ano, com aquele símbolo de copyright."</p>
+            <p>"É isso! Uma página só com tudo junto, bem organizada. Consegue montar essa estrutura pra gente ver como fica?"</p>
+        </div>
+
+        <div class="task-list">
+            <h2>Sua Missão Detalhada:</h2>
+            <p>
+                <ul>
+                    <li>Gere <strong>TODOS</strong> os dados da banda em uma IA a sua escolha:</li>
+                    <ol>
+                        <li>A capa do single (não se esqueça de gerar a versão de vários tamanhos para a versão adaptatva do &lt;picture&gt;);</li>
+                        <li>A letra completa da musica;</li>
+                        <li>Utilize uma IA geradora de musica para "cantar" a letra da musica criada;</li>
+                        <li>Para o clipe, faça uma versão Lyrics e faça o upload dele na sua conta no Youtube;</li>
+                        <li>Crie uma sub-página simples dentro do seu site para cada integrante da banda (gere a foto e a biografia do integrante tb na IA);</li>
+                    </ol>
+                </ul>
+
+
+
+            </p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

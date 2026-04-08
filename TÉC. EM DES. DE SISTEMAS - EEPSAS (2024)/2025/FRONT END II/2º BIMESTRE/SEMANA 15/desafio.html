@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio Cliente - Semana 21: Site Arte & Charme</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f9f5f0; display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; }
+        .page-container { width: 210mm; min-height: 200mm; padding: 15mm; box-shadow: 0 0 12px rgba(0,0,0,0.15); box-sizing: border-box; background-color: white; margin-top:20px; margin-bottom:20px;}
+        /* Estilos do MODELO: CABEÇALHO (Integrados) */
+        .header-top-container { display: flex; justify-content: center; align-items: center; border-bottom: 1px solid black; padding-bottom: 10px; margin-bottom: 20px; }
+        .logo { max-width: 60px; height: auto; margin-right: 15px; }
+        .school-info { text-align: center; padding: 0 5px; }
+        .school-info strong.school-name { display: block; margin-bottom: 4px; font-size: 0.9em; }
+        .school-info .address-details span { display: inline; font-size: 0.7em; margin-right: 4px; }
+        .school-info .address-details span:last-child { margin-right: 0; }
+        .form-fields-grid { display: grid; gap: 4px 8px; width: 100%; margin-bottom: 20px; grid-template-rows: auto auto auto; }
+        .form-row { display: grid; grid-template-columns: 3fr 2fr; gap: 8px; width: 100%; }
+        .form-field { border: 1px solid black; padding: 4px 6px; font-size: 0.75em; box-sizing: border-box; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; display: flex; align-items: center; background-color: #fdfdfd; }
+        .form-field strong { margin-right: 5px; white-space: nowrap; }
+        .form-field .value-content { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex-grow: 1; }
+        /* Estilos para o conteúdo do desafio */
+        .challenge-brief { margin-top: 20px; }
+        .challenge-brief h1.main-challenge-title { font-size: 1.5em; color: #5D4037; text-align: center; margin-bottom: 20px; border-bottom: 2px solid #BCAAA4; padding-bottom: 10px; }
+        .client-dialogue { border: 1px solid #D7CCC8; padding: 20px; border-radius: 8px; background-color: #EFEBE9; margin-bottom: 25px; box-shadow: 0 1px 3px rgba(0,0,0,0.05);}
+        .client-dialogue p { margin: 10px 0; line-height: 1.65; font-size: 0.95em; color: #4E342E;}
+        .client-dialogue strong { color: #3E2723; font-weight: bold; }
+        .task-list h2 { font-size: 1.25em; color: #6D4C41; margin-top: 25px; margin-bottom: 12px; }
+        .task-list ul { list-style-type: '🎨'; margin-left: 5px; padding-left: 15px; font-size: 0.9em;}
+        .task-list li { margin-bottom: 10px; line-height: 1.5; }
+        .deliverables p { font-size: 0.95em; font-style: italic; color: #795548; background-color: #F5F5F5; padding: 10px; border-left: 4px solid #A1887F; }
+        .footer-note { text-align: center; font-size: 0.85em; color: #8D6E63; margin-top: 35px; padding-top: 15px; border-top: 1px solid #E0E0E0;}
+    </style>
+</head>
+<body>
+<div class="page-container">
+    <div class="header-top-container">
+        <img src="https://1drv.ms/i/c/9e9e1f5991e00f07/IQTuKfwDXz6eQZG682I84WqBASSJENKf1uHvN3nSBXphxkU?width=1024" alt="Logo da Escola" class="logo" onerror="this.onerror=null; this.src='https://placehold.co/60x60/ccc/000?text=Logo'; this.alt='Erro ao carregar logo';">
+        <div class="school-info">
+            <strong class="school-name">ESCOLA ESTADUAL PROFESSORA SEBASTIANA DE ALMEIDA E SILVA</strong>
+            <div class="address-details">
+                <span>Rua São José, nº 30, Jaguaruçu - MG.</span>
+                <span>CEP: 35.188-000</span>
+                <span>Tel: (31) 3845-1209</span>
+            </div>
+        </div>
+    </div>
+    <div class="form-fields-grid">
+        <div class="form-row">
+            <div class="form-field" style="grid-column: 1 / span 3;"><strong>DISCIPLINA:</strong> <span class="value-content">Front End I</span></div>
+            <div class="form-field" style="grid-column: 4 / span 2;"><strong>PROFESSOR(A):</strong> <span class="value-content">Prentys Assis</span></div>
+        </div>
+        <div class="form-row">
+            <div class="form-field" style="grid-column: 1 / span 3;"><strong>ATIVIDADE:</strong> <span class="value-content">SEMANA 21 - Desafio: Site Completo Arte & Charme</span></div>
+            <div class="form-field" style="grid-column: 4 / span 2;"><strong>DATA:</strong> <span class="value-content"></span></div>
+        </div>
+        <div class="form-row">
+            <div class="form-field" style="grid-column: 1 / span 3;"><strong>ALUNO(A):</strong> <span class="value-content"></span></div>
+            <div class="form-field" style="grid-column: 4 / span 2;"><strong>TURMA:</strong> <span class="value-content">2º Ano</span></div>
+        </div>
+    </div>
+    <div class="challenge-brief">
+        <h1 class="main-challenge-title">🎨 Desafio da Semana: Lançando o Site da Loja "Arte & Charme"! 🎁</h1>
+
+        <div class="client-dialogue">
+            <p><strong>Dona Clara (Artesã da Loja Arte & Charme):</strong> "Olá, meu anjo! Que bom falar com você de novo! Sabe o site da minha lojinha, 'Arte & Charme'? Pois então, meu neto Zezinho começou, mas agora com as provas... ficou pra mim! E eu preciso de uma ajudinha sua, que entende dessas modernidades de computador, pra gente colocar no ar pelo menos uma página principal e uma página de 'Nossos Produtos', bem bonitinho."</p>
+            <p>"Eu queria que a página principal tivesse um **título bem grande** com o nome da loja e talvez um emoji de presente 🎁. Logo abaixo, uma foto bonita dos meus artesanatos (lembre de colocar uma descrição pra quem não pode ver!). Depois, um **texto de boas-vindas**, falando com carinho sobre meu trabalho, sabe? Dando uma ênfase especial em como tudo é feito à mão."</p>
+            <p>"Aí, pensei em colocar as **categorias dos meus produtos**, como 'Cerâmicas Pintadas', 'Bordados Delicados' e 'Esculturas em Madeira'. Queria que esses nomes quando a pessoa clicar, ir pra tal página 'Nossos Produtos', e lá ela veria mais detalhes. Que tal uma lista com marcadores para essas categorias?"</p>
+            <p>"Lá na página 'Nossos Produtos', a gente poderia ter um título e, para cada categoria que eu te falei, um subtítulo. Por exemplo, em 'Bordados Delicados', eu queria listar os tipos: 'Toalhas de Mesa', 'Panos de Prato' e 'Lembrancinhas'. E se a pessoa clicar em 'Toalhas de Mesa', ela veria os tamanhos: 'Pequena (4 lugares)', 'Média (6 lugares)' e 'Grande (8 lugares)'. Essa lista de tamanhos podia ser numerada, né? Pra dar uma ordem."</p>
+            <p>"Ah! E na página principal, lá embaixo, queria um **rodapézinho** com 'Arte & Charme © 2025' e talvez um 'Todos os direitos reservados' em letras menores. E se desse pra colocar um ícone pequenininho lá na aba do navegador, tipo um novelo de lã 🧶, ia ser um charme!"</p>
+            <p>"Eu também uso uns termos que nem todo mundo conhece, tipo o que é **'Ponto Cruz'** (aquela técnica de bordado que forma um 'X') ou **'Macramê'** (que é uma tecelagem com nós). Seria legal ter uma parte, talvez na página de produtos ou na principal, como um 'Glossário da Artesã', explicando esses termos."</p>
+            <p>"Use a criatividade para deixar tudo organizado e com um toque especial."</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

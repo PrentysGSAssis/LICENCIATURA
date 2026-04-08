@@ -1,0 +1,27 @@
+body {
+    background-image: linear-gradient(90deg, #FF4AAD,#EB452F, #EBA015, #FFDF30);
+}
+
+main {
+    background-color: white;
+}
+
+p {
+    color: #FF8B3D;
+}
+
+h1 {
+    color: #FF4AAD;
+}
+
+h2 {
+    color: #EB452F;
+}
+
+h3 {
+    color: #FF8B3D;
+}
+
+h4 {
+    color: #FFDF30;
+}

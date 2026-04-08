@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planejamento - 2º Bimestre - Estatística Aplicada à Informática</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-purple: #004085;
+            --secondary-purple: #0056b3;
+            --light-purple: #e2f0ff;
+            --bg-color: #f5f3f7;
+            --text-color: #4a4a4a;
+            --white: #ffffff;
+            --border-color: #ced4da;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        header {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid var(--primary-purple);
+            text-align: center;
+        }
+        h1 {
+            font-size: 2.8em;
+            color: var(--primary-purple);
+            font-weight: 700;
+        }
+        header p {
+            font-size: 1.2em;
+            color: var(--secondary-purple);
+        }
+        .semana-block {
+            background-color: var(--white);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            transition: all 0.2s ease-in-out;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        .semana-block:hover {
+            border-color: var(--secondary-purple);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px rgba(0, 64, 133, 0.1);
+        }
+        .semana-block h3 {
+            font-size: 1.6em;
+            color: var(--primary-purple);
+            font-weight: 600;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+        .semana-block p {
+            margin-bottom: 10px;
+        }
+        .semana-block strong {
+            color: var(--secondary-purple);
+        }
+        .semana-block ul {
+            list-style-type: '✓ ';
+            padding-left: 20px;
+        }
+        .semana-block li {
+            margin-bottom: 8px;
+        }
+        .highlight {
+            background-color: var(--light-purple);
+            color: #004085;
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+        .bimestre-title {
+            text-align: center;
+            font-size: 2em;
+            color: var(--secondary-purple);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Planejamento de Aulas</h1>
+            <p>Disciplina: Estatística Aplicada à Informática</p>
+        </header>
+
+        <main>
+            <h2 class="bimestre-title">2º Bimestre</h2>
+
+            <article>
+                <div class="semana-block">
+                    <h3>Semana 12 (29/04 & 02/05)</h3>
+                    <p><strong>Tema:</strong> O Princípio de Pareto e a Priorização de Problemas em TI</p>
+                    <p><strong>Objetivo:</strong> Compreender o Princípio 80/20 e sua aplicação prática para identificar os problemas que causam maior impacto em um cenário de tecnologia.</p>
+                    <p><strong>Tópicos e Atividades:</strong></p>
+                    <ul>
+                        <li>Aula expositiva sobre Vilfredo Pareto e a origem da Regra 80/20.</li>
+                        <li>Discussão e exemplificação da Regra 80/20 aplicada a cenários de TI (bugs em software, tipos de chamados de suporte).</li>
+                        <li>Atividade prática inicial: Análise de dados brutos, realização do "Rol" e construção de uma Tabela de Frequência completa, revisando conceitos do 1º bimestre.</li>
+                    </ul>
+                </div>
+
+                <div class="semana-block">
+                    <h3>Semana 13 (06/05 & 09/05)</h3>
+                    <p><strong>Tema:</strong> Construção e Interpretação do Gráfico de Pareto</p>
+                    <p><strong>Objetivo:</strong> Desenvolver a habilidade de construir manualmente e digitalmente o Gráfico de Pareto, interpretando corretamente as barras de frequência e a linha de percentual acumulado.</p>
+                    <p><strong>Tópicos e Atividades:</strong></p>
+                    <ul>
+                        <li>Aula prática guiada para a construção passo a passo de um Gráfico de Pareto.</li>
+                        <li>Uso de planilhas (Excel/Google Sheets) para automatizar a criação do gráfico a partir de uma tabela de frequência.</li>
+                        <li>Análise de exemplos práticos: identificação dos "poucos vitais" em diferentes cenários de TI.</li>
+                    </ul>
+                </div>
+
+                <div class="semana-block">
+                    <h3>Semana 14 (13/05 & 16/05)</h3>
+                    <p><strong>Tema:</strong> Ferramentas de Estruturação de Problemas: 5W e 5W2H</p>
+                    <p><strong>Objetivo:</strong> Aprender a utilizar as ferramentas 5W (What, Who, When, Where, Why) e 5W2H (What, Why, Where, When, Who, How, How much) para definir claramente um problema antes de iniciar a coleta de dados e a análise de Pareto.</p>
+                    <p><strong>Tópicos e Atividades:</strong></p>
+                    <ul>
+                        <li>Aula expositiva sobre as metodologias 5W e 5W2H como ferramentas para definir um problema.</li>
+                        <li>Exercício prático: Os alunos recebem um problema de TI mal definido (ex: "o sistema está ruim") e devem usar o 5W2H para estruturá-lo em uma declaração clara e mensurável.</li>
+                    </ul>
+                </div>
+
+                <div class="semana-block">
+                    <h3>Semana 15 (20/05 & 23/05)</h3>
+                    <p><strong>Tema:</strong> Introdução ao Diagrama de Ishikawa para Análise de Causa Raiz</p>
+                    <p><strong>Objetivo:</strong> Compreender a estrutura e o propósito do Diagrama de Ishikawa (Espinha de Peixe) como ferramenta para organizar e visualizar as causas de um problema.</p>
+                    <p><strong>Tópicos e Atividades:</strong></p>
+                    <ul>
+                        <li>Apresentação da estrutura do diagrama (cabeça, espinha, categorias) e do criador, Kaoru Ishikawa.</li>
+                        <li>Discussão e adaptação dos 6Ms (Método, Máquina, Mão de Obra, etc.) para o contexto de problemas de software e hardware.</li>
+                        <li>Construção coletiva em sala de um diagrama para um problema simples.</li>
+                    </ul>
+                </div>
+
+                <div class="semana-block">
+                    <h3>Semana 16 (27/05 & 30/05)</h3>
+                    <p><strong>Tema:</strong> A Sinergia entre Pareto e Ishikawa na Solução de Problemas</p>
+                    <p><strong>Objetivo:</strong> Entender como utilizar as duas ferramentas de forma complementar e estratégica.</p>
+                    <p><strong>Tópicos e Atividades:</strong></p>
+                    <ul>
+                        <li>Discussão sobre o fluxo de trabalho: Usar o Pareto para <strong>priorizar</strong> o problema mais impactante e, em seguida, usar o Ishikawa para <strong>investigar</strong> as causas raiz desse problema específico.</li>
+                        <li>Atividade prática guiada com um estudo de caso que exige a aplicação de ambas as ferramentas em sequência.</li>
+                    </ul>
+                </div>
+
+                <div class="semana-block">
+                    <h3>Semana 17 (03/06 & 06/06)</h3>
+                    <p><strong>Tema:</strong> Aprofundando a Análise Causal com os "5 Porquês"</p>
+                    <p><strong>Objetivo:</strong> Aprender a usar a técnica dos "5 Porquês" para detalhar as causas levantadas no Diagrama de Ishikawa e chegar à causa fundamental do problema.</p>
+                    <p><strong>Tópicos e Atividades:</strong></p>
+                    <ul>
+                        <li>Aula expositiva sobre a técnica dos "5 Porquês".</li>
+                        <li>Exercício prático: Os alunos pegam um Diagrama de Ishikawa construído na aula anterior e aplicam os "5 Porquês" em duas das causas principais listadas para encontrar as raízes mais profundas.</li>
+                    </ul>
+                </div>
+
+                <div class="semana-block">
+                    <h3>Semanas 18 e 19 (10/06, 13/06 & 17/06) - <span class="highlight">Atenção: Dia 20/06 é recesso.</span></h3>
+                    <p><strong>Tema:</strong> Projeto Prático de Análise: "Ministério da Inovação Digital"</p>
+                    <p><strong>Objetivo:</strong> Aplicar de forma integrada todo o conhecimento do semestre para analisar um cenário complexo e propor um plano de ação estratégico.</p>
+                    <p><strong>Tópicos e Atividades:</strong></p>
+                    <ul>
+                        <li>Apresentação do projeto e da "Ordem de Serviço" do MID.</li>
+                        <li>As equipes recebem o log bruto com 100 incidentes (cada grupo com sua variação).</li>
+                        <li>Durante as aulas, os alunos trabalharão no projeto, com o professor atuando como mentor, tirando dúvidas e guiando as análises. O trabalho inclui a organização dos dados, construção das análises e preparação da apresentação final.</li>
+                    </ul>
+                </div>
+
+                <div class="semana-block">
+                    <h3>Semana 20 (24/06 & 28/06) - <span class="highlight">Sábado Letivo (28/06 com horário de sexta-feira)</span></h3>
+                    <p><strong>Tema:</strong> Apresentação dos Relatórios Estratégicos e Encerramento do Curso</p>
+                    <p><strong>Objetivo:</strong> Desenvolver habilidades de comunicação e apresentação de dados técnicos, e consolidar o aprendizado através da avaliação dos projetos dos colegas.</p>
+                    <p><strong>Tópicos e Atividades:</strong></p>
+                    <ul>
+                        <li><span class="highlight">Avaliação Final do Curso:</span> Apresentação final do projeto "Ministério da Inovação Digital" por cada equipe.</li>
+                        <li>A apresentação será avaliada e valerá como a nota final do bimestre e do curso.</li>
+                        <li>Discussão final e feedback do professor sobre os trabalhos apresentados e o desenvolvimento da turma ao longo do semestre.</li>
+                    </ul>
+                </div>
+            </article>
+        </main>
+    </div>
+
+</body>
+</html>

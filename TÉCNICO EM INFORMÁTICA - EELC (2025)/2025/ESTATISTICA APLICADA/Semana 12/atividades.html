@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Guia Prático Simplificado: Ishikawa e Pareto em TI (Casos)</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            line-height: 1.5; 
+            margin: 15px; 
+            background-color: #f8f9fa; 
+            color: #212529; 
+            text-align: justify;
+        }
+        .container { 
+            background-color: #fff; 
+            padding: 15px; 
+            border-radius: 6px; 
+            box-shadow: 0 0 8px rgba(0,0,0,0.1); 
+        }
+        h1, h2, h3, h4 { 
+            color: #004085; 
+            text-align: left;
+        }
+        h1 { 
+            text-align: center; 
+            border-bottom: 2px solid #004085; 
+            padding-bottom: 8px; 
+            font-size: 1.8em; 
+            margin-bottom: 20px;
+        }
+        h2 { 
+            border-bottom: 1px solid #ced4da; 
+            padding-bottom: 4px; 
+            margin-top: 30px; 
+            font-size: 1.6em; 
+            margin-bottom: 15px;
+        }
+        h3 { 
+            margin-top: 20px; 
+            color: #0056b3; 
+            font-size: 1.3em; 
+            margin-bottom: 10px;
+        }
+        h4 {
+            margin-top: 15px;
+            color: #0069d9;
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+        p { 
+            margin-bottom: 12px; 
+        }
+        ul, ol { 
+            margin-bottom: 12px; 
+            padding-left: 20px; 
+        }
+        li { 
+            margin-bottom: 4px; 
+        }
+        .singlecolumn-list ol, .singlecolumn-list ul { 
+            column-count: 1;
+            -webkit-column-count: 1;
+            -moz-column-count: 1;
+        }
+        strong { 
+            color: #000; 
+        }
+        .study-case {
+            background-color: #f0f0f0;
+            border: 1px solid #dcdcdc;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 4px;
+        }
+        .study-case h4 {
+            margin-top: 0;
+        }
+        .guidance {
+            background-color: #fff3cd; /* Amarelo claro para orientações */
+            border-left: 4px solid #ffeeba;
+            padding: 12px;
+            margin-top: 12px;
+            border-radius: 4px;
+        }
+        .student-note {
+            background-color: #e2f0ff; /* Azul claro para notas ao aluno */
+            border-left: 4px solid #b8d6f3;
+            padding: 10px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            font-style: italic;
+        }
+        .student-note p {
+            margin-bottom: 5px;
+        }
+        .questions ol li {
+            margin-bottom: 10px;
+        }
+        table {
+            width: 80%;
+            margin: 15px auto;
+            border-collapse: collapse;
+            box-shadow: 0 2px 3px rgba(0,0,0,0.1);
+        }
+        th, td {
+            border: 1px solid #dee2e6;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #e9ecef;
+            color: #495057;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        caption {
+            caption-side: bottom;
+            font-size: 0.9em;
+            color: #6c757d;
+            padding: 8px;
+            text-align: center;
+        }
+        .conclusion { 
+            margin-top: 30px; 
+            padding-top: 15px; 
+            border-top: 2px solid #004085; 
+            text-align: center; 
+            font-style: italic; 
+            font-size: 0.95em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Guia Prático: Aplicação dos Diagramas de Ishikawa e Pareto em Cenários de TI</h1>
+
+        <h2>Seção 9: Estudo de Caso Prático Guiado em Sala (TI)</h2>
+        <div class="study-case">
+            <h3>Problema Central: Aumento de 50% no número de chamados de suporte técnico sobre "Sistema Lento" nos últimos 30 dias.</h3>
+            <p>Uma empresa de desenvolvimento de software SaaS (Software as a Service) notou um aumento alarmante no volume de tickets de suporte classificados como "Sistema Lento" pelos usuários de sua principal plataforma de gestão. Esse aumento está gerando insatisfação nos clientes e sobrecarregando a equipe de suporte.</p>
+        </div>
+        <div class="guidance">
+            <h4>Orientações para o Professor Guiar a Atividade (Foco no Diagrama de Ishikawa):</h4>
+            <div class="singlecolumn-list">
+                <ol>
+                    <li><strong>Apresentação do Problema:</strong> Detalhe o cenário acima. Explique que, neste exercício guiado, o foco será na análise causal profunda do problema já priorizado ("Sistema Lento").</li>
+                    <li><strong>Definição do Efeito:</strong> Peça aos alunos para definirem claramente o "efeito" na cabeça do peixe. (Ex: "Aumento de 50% em chamados 'Sistema Lento'").</li>
+                    <li><strong>Brainstorming de Categorias (6Ms Adaptados para TI):</strong>
+                        <ul>
+                            <li><strong>Infraestrutura/Equipamentos (Máquina):</strong> Capacidade dos servidores, configuração da rede, qualidade dos computadores dos usuários.</li>
+                            <li><strong>Software/Aplicativo (Material/Método):</strong> Otimizações no código, bugs conhecidos, novas funcionalidades implementadas.</li>
+                            <li><strong>Banco de Dados (Máquina/Material):</strong> Performance das consultas, volume de dados armazenados, índices.</li>
+                            <li><strong>Ambiente Externo (Meio Ambiente):</strong> Qualidade da internet do cliente, picos de acesso ao sistema.</li>
+                            <li><strong>Processos de Suporte (Método):</strong> Como os chamados são registrados e escalados, documentação existente.</li>
+                            <li><strong>Equipe/Usuários (Mão de Obra):</strong> Conhecimento técnico da equipe de suporte, como os usuários utilizam o sistema.</li>
+                        </ul>
+                        (Incentive a discussão e adaptação dessas categorias pelos alunos).
+                    </li>
+                    <li><strong>Identificação de Causas (Brainstorming por Categoria):</strong>
+                        <ul>
+                            <li>Para cada categoria, incentive os alunos a listarem causas específicas. Ex:
+                                <ul>
+                                    <li><em>Infraestrutura:</em> "Servidor de aplicação com pouca memória", "Link de internet da empresa instável".</li>
+                                    <li><em>Software:</em> "Nova função de relatório consome muitos recursos", "Código antigo não otimizado".</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><strong>Técnica dos 5 Porquês:</strong> Escolha 2-3 causas levantadas e aplique os "5 Porquês" para aprofundar. Ex: Causa: "Nova função de relatório consome muitos recursos". Por quê? "A consulta ao banco de dados é muito complexa". Por quê? "Não foram criados índices adequados". Por quê? ...</li>
+                    <li><strong>Discussão e Priorização (Qualitativa):</strong> Discuta em grupo quais causas parecem mais prováveis ou impactantes.</li>
+                    <li><strong>Próximos Passos:</strong> Pergunte aos alunos: "Com base neste diagrama, quais seriam as primeiras ações ou investigações que vocês recomendariam?".</li>
+                </ol>
+            </div>
+        </div>
+
+        <h2>Seção 10: Estudos de Caso Adicionais (Aplicação Integrada de Pareto e Ishikawa em TI)</h2>
+        <p>Para cada caso abaixo, os alunos devem seguir as tarefas propostas, utilizando os dados fornecidos para construir o Diagrama de Pareto e, a partir dele, selecionar o(s) problema(s) principal(is) para a análise com o Diagrama de Ishikawa.</p>
+
+        <div class="study-case">
+            <h3>Caso 1: Problemas ao Tentar Comprar em uma Loja Online</h3>
+            <p>Uma loja online de camisetas personalizadas está recebendo muitas reclamações de clientes que não conseguem finalizar suas compras. Isso está causando perda de vendas e frustração.</p>
+            <h4>Dados para Análise de Pareto:</h4>
+            <table>
+                <caption>Tabela 1: Tipos de Problemas ao Comprar na Loja Online (Última Semana)</caption>
+                <thead>
+                    <tr>
+                        <th>Tipo de Problema Reportado</th>
+                        <th>Nº de Ocorrências</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Site fica fora do ar</td>
+                        <td>30</td>
+                    </tr>
+                    <tr>
+                        <td>Erro ao adicionar produto no carrinho</td>
+                        <td>15</td>
+                    </tr>
+                    <tr>
+                        <td>Pagamento não é processado</td>
+                        <td>55</td>
+                    </tr>
+                    <tr>
+                        <td>Página de produto não carrega</td>
+                        <td>25</td>
+                    </tr>
+                    <tr>
+                        <td>Não consegue calcular o frete</td>
+                        <td>40</td>
+                    </tr>
+                    <tr>
+                        <td>Botão "Comprar" não funciona</td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td>Outros problemas menores</td>
+                        <td>5</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="student-note">
+                <p><strong>Nota 1 (Ishikawa - Método):</strong> Ao analisar o principal problema (ex: "Pagamento não processado"), pense nos passos do processo de checkout. Existem gargalos ou falhas no método de processamento do pagamento? A sequência de ações do usuário é clara?</p>
+                <p><strong>Nota 2 (Ishikawa - Máquina/Tecnologia):</strong> Considere a infraestrutura da loja. O servidor onde o site está hospedado é robusto? O sistema de pagamento integrado (gateway) está funcionando corretamente? Há falhas de compatibilidade com navegadores ou dispositivos?</p>
+            </div>
+            <div class="questions">
+                <ol>
+                    <li>Com base nos dados da Tabela 1, construa um Diagrama de Pareto para identificar os principais tipos de problemas que impedem as compras. Quais são os "poucos vitais"?</li>
+                    <li>Selecione o <strong>principal tipo de problema</strong> identificado pelo Pareto. Desenvolva um Diagrama de Ishikawa para explorar as possíveis causas raiz deste problema específico.</li>
+                    <li>Como a equipe de TI da loja online poderia atuar para solucionar os principais problemas identificados e melhorar a experiência de compra dos clientes?</li>
+                    <li>**Desafio Extra:** Pense em um problema comum em uma área que você conhece bem (um hobby, um problema na sua casa, um desafio em um jogo, etc.). Se você fosse coletar dados sobre as causas desse problema, quais seriam as categorias? Tente listar de 5 a 7 categorias e, se possível com a ajuda de uma IA (como o Gemini ou outra ferramenta de sua escolha, usada externamente) para gerar dados fictícios ou com base em sua própria estimativa, crie uma pequena tabela de dados (Causa, Frequência). Em seguida, esboce um Diagrama de Pareto e, para os <strong>dois principais "poucos vitais"</strong>, crie Diagramas de Ishikawa para explorar suas causas.</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="study-case">
+            <h3>Caso 2: Infecções por Vírus nos Computadores da Escola</h3>
+            <p>A coordenação de informática de uma escola percebeu um aumento no número de computadores dos laboratórios e da secretaria infectados por vírus e outros malwares, causando lentidão e perda de arquivos.</p>
+            <h4>Dados para Análise de Pareto:</h4>
+            <table>
+                <caption>Tabela 2: Fontes Prováveis de Infecção por Malware (Último Mês)</caption>
+                <thead>
+                    <tr>
+                        <th>Fonte de Infecção</th>
+                        <th>Nº de Computadores Afetados</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Download de arquivos de sites suspeitos</td>
+                        <td>45</td>
+                    </tr>
+                    <tr>
+                        <td>Clique em links maliciosos em e-mails</td>
+                        <td>25</td>
+                    </tr>
+                    <tr>
+                        <td>Uso de pen drives infectados</td>
+                        <td>60</td>
+                    </tr>
+                    <tr>
+                        <td>Instalação de programas não autorizados</td>
+                        <td>30</td>
+                    </tr>
+                    <tr>
+                        <td>Navegação em sites com pop-ups perigosos</td>
+                        <td>15</td>
+                    </tr>
+                    <tr>
+                        <td>Outras formas de contaminação</td>
+                        <td>5</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="student-note">
+                <p><strong>Nota 1 (Ishikawa - Mão de Obra/Pessoas):</strong> Para a principal fonte de infecção, analise o comportamento dos usuários. Existe falta de conhecimento sobre segurança digital? Há negligência ao usar dispositivos externos ou ao clicar em links?</p>
+                <p><strong>Nota 2 (Ishikawa - Método/Políticas):</strong> Existem políticas claras na escola sobre o uso de pen drives, downloads ou instalação de software? Essas políticas são comunicadas e fiscalizadas adequadamente?</p>
+            </div>
+            <div class="questions">
+                <ol>
+                    <li>Utilizando os dados da Tabela 2, construa um Diagrama de Pareto para identificar as fontes de infecção por malware mais comuns nos computadores da escola. Quais são os "poucos vitais"?</li>
+                    <li>Escolha a <strong>principal fonte de infecção</strong> identificada. Desenvolva um Diagrama de Ishikawa para analisar suas causas raiz.</li>
+                    <li>Que medidas preventivas e de conscientização a coordenação de informática poderia implementar para reduzir os incidentes de malware na escola?</li>
+                    <li>**Desafio Extra:** Pense em um problema comum em uma área que você conhece bem. Se você fosse coletar dados sobre as causas desse problema, quais seriam as categorias? Tente listar de 5 a 7 categorias e, se possível com a ajuda de uma IA (como o Gemini ou outra ferramenta de sua escolha, usada externamente) para gerar dados fictícios ou com base em sua própria estimativa, crie uma pequena tabela de dados (Causa, Frequência). Em seguida, esboce um Diagrama de Pareto e, para os <strong>dois principais "poucos vitais"</strong>, crie Diagramas de Ishikawa para explorar suas causas.</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="study-case">
+            <h3>Caso 3: Falhas no Backup Semanal dos Arquivos da Empresa "AlfaDocs"</h3>
+            <p>A empresa "AlfaDocs", que trabalha com digitalização de documentos, está tendo problemas frequentes com sua rotina de backup semanal dos arquivos dos clientes, gerando risco de perda de dados importantes.</p>
+            <h4>Dados para Análise de Pareto:</h4>
+            <table>
+                <caption>Tabela 3: Causas de Falha no Backup Semanal (Últimos 3 Meses)</caption>
+                <thead>
+                    <tr>
+                        <th>Causa da Falha no Backup</th>
+                        <th>Nº de Ocorrências</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Falta de espaço no disco de backup</td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td>Erro no software de backup</td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                        <td>Falha de conexão com o servidor de backup</td>
+                        <td>7</td>
+                    </tr>
+                    <tr>
+                        <td>Arquivo corrompido impedindo o backup</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>Backup interrompido por queda de energia</td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td>Outras falhas diversas</td>
+                        <td>1</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="student-note">
+                <p><strong>Nota 1 (Ishikawa - Máquina/Equipamento):</strong> Se a principal causa for "Falta de espaço no disco", investigue: o disco é pequeno demais para o volume de dados? Há um problema de gerenciamento do espaço existente (ex: backups antigos não são excluídos)?</p>
+                <p><strong>Nota 2 (Ishikawa - Meio Ambiente):</strong> Se "Queda de energia" for relevante, pense no ambiente físico. Existe um nobreak (UPS) para os equipamentos de backup? A rede elétrica da empresa é estável?</p>
+            </div>
+            <div class="questions">
+                <ol>
+                    <li>Construa um Diagrama de Pareto com os dados da Tabela 3 para identificar as principais causas de falha no backup. Quais são os "poucos vitais"?</li>
+                    <li>Selecione a <strong>principal causa mais impactante</strong>. Desenvolva um Diagrama de Ishikawa para explorar suas causas raiz.</li>
+                    <li>Como a equipe de TI da "AlfaDocs" poderia melhorar o processo de backup para aumentar sua confiabilidade e evitar a perda de dados?</li>
+                    <li>**Desafio Extra:** Pense em um problema comum em uma área que você conhece bem. Se você fosse coletar dados sobre as causas desse problema, quais seriam as categorias? Tente listar de 5 a 7 categorias e, se possível com a ajuda de uma IA (como o Gemini ou outra ferramenta de sua escolha, usada externamente) para gerar dados fictícios ou com base em sua própria estimativa, crie uma pequena tabela de dados (Causa, Frequência). Em seguida, esboce um Diagrama de Pareto e, para os <strong>dois principais "poucos vitais"</strong>, crie Diagramas de Ishikawa para explorar suas causas.</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="study-case">
+            <h3>Caso 4: Sistema da Biblioteca da Escola Fica Lento ou Trava</h3>
+            <p>Os alunos e funcionários da biblioteca de uma escola estão reclamando que o sistema de consulta e empréstimo de livros fica muito lento ou trava com frequência, especialmente em horários de pico.</p>
+            <h4>Dados para Análise de Pareto:</h4>
+            <table>
+                <caption>Tabela 4: Situações que Causam Lentidão/Travamento no Sistema da Biblioteca (Registros do Último Mês)</caption>
+                <thead>
+                    <tr>
+                        <th>Situação de Lentidão/Travamento</th>
+                        <th>Nº de Registros</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Muitos alunos usando ao mesmo tempo</td>
+                        <td>40</td>
+                    </tr>
+                    <tr>
+                        <td>Ao gerar relatório de livros emprestados</td>
+                        <td>15</td>
+                    </tr>
+                    <tr>
+                        <td>Ao buscar por um livro específico</td>
+                        <td>25</td>
+                    </tr>
+                    <tr>
+                        <td>Ao registrar novo empréstimo/devolução</td>
+                        <td>30</td>
+                    </tr>
+                    <tr>
+                        <td>Problema geral no servidor da escola</td>
+                        <td>10</td>
+                    </tr>
+                     <tr>
+                        <td>Outras situações menos comuns</td>
+                        <td>5</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="student-note">
+                <p><strong>Nota 1 (Ishikawa - Máquina/Infraestrutura):</strong> Se a principal causa for "Muitos alunos usando ao mesmo tempo", analise a capacidade do servidor do sistema. Ele está subdimensionado para o volume de acessos? A rede da escola suporta o tráfego?</p>
+                <p><strong>Nota 2 (Ishikawa - Material/Software):</strong> O software da biblioteca está otimizado? Consultas ao banco de dados são eficientes? Existem processos no software que consomem muitos recursos desnecessariamente?</p>
+            </div>
+            <div class="questions">
+                <ol>
+                    <li>Com base nos dados da Tabela 4, construa um Diagrama de Pareto para identificar as situações que mais causam lentidão ou travamento no sistema da biblioteca. Quais são os "poucos vitais"?</li>
+                    <li>Escolha a <strong>principal situação</strong> que leva aos problemas. Desenvolva um Diagrama de Ishikawa para investigar as causas raiz.</li>
+                    <li>Quais ações a equipe de TI da escola poderia tomar para melhorar o desempenho do sistema da biblioteca, com base na sua análise?</li>
+                    <li>**Desafio Extra:** Pense em um problema comum em uma área que você conhece bem. Se você fosse coletar dados sobre as causas desse problema, quais seriam as categorias? Tente listar de 5 a 7 categorias e, se possível com a ajuda de uma IA (como o Gemini ou outra ferramenta de sua escolha, usada externamente) para gerar dados fictícios ou com base em sua própria estimativa, crie uma pequena tabela de dados (Causa, Frequência). Em seguida, esboce um Diagrama de Pareto e, para os <strong>dois principais "poucos vitais"</strong>, crie Diagramas de Ishikawa para explorar suas causas.</li>
+                </ol>
+            </div>
+        </div>
+        
+        <div class="study-case">
+            <h3>Caso 5: Erros ao Cadastrar Novos Alunos no Sistema da Escola</h3>
+            <p>A secretaria da escola está tendo dificuldades ao cadastrar novos alunos no sistema online. Muitos erros acontecem, e o processo está demorando mais do que o esperado.</p>
+            <h4>Dados para Análise de Pareto:</h4>
+            <table>
+                <caption>Tabela 5: Tipos de Erro no Cadastro de Novos Alunos (Última Semana de Matrículas)</caption>
+                <thead>
+                    <tr>
+                        <th>Tipo de Erro no Cadastro</th>
+                        <th>Nº de Ocorrências</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Formato de data de nascimento inválido</td>
+                        <td>60</td>
+                    </tr>
+                    <tr>
+                        <td>Campo "Nome da Mãe" deixado em branco</td>
+                        <td>35</td>
+                    </tr>
+                    <tr>
+                        <td>CEP não encontrado ou inválido</td>
+                        <td>45</td>
+                    </tr>
+                    <tr>
+                        <td>Sistema lento ao salvar o cadastro</td>
+                        <td>20</td>
+                    </tr>
+                    <tr>
+                        <td>Erro de digitação no nome do aluno</td>
+                        <td>15</td>
+                    </tr>
+                    <tr>
+                        <td>Outros pequenos erros de preenchimento</td>
+                        <td>10</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="student-note">
+                <p><strong>Nota 1 (Ishikawa - Método/Processo):</strong> Para o principal tipo de erro (ex: "Formato de data inválido"), como é o processo de entrada de dados? O sistema oferece instruções claras sobre o formato esperado? Existem validações automáticas para evitar erros comuns?</p>
+                <p><strong>Nota 2 (Ishikawa - Mão de Obra/Usuário):</strong> Os funcionários da secretaria receberam treinamento adequado sobre como usar o sistema de cadastro? Eles estão cientes dos formatos corretos e campos obrigatórios?</p>
+            </div>
+            <div class="questions">
+                <ol>
+                    <li>Utilizando os dados da Tabela 5, construa um Diagrama de Pareto para identificar os tipos de erro mais comuns no cadastro de alunos. Quais são os "poucos vitais"?</li>
+                    <li>Selecione o <strong>principal tipo de erro</strong> predominante. Desenvolva um Diagrama de Ishikawa para explorar suas causas raiz.</li>
+                    <li>Que melhorias poderiam ser feitas no sistema de cadastro ou no treinamento dos funcionários para reduzir esses erros?</li>
+                    <li>**Desafio Extra:** Pense em um problema comum em uma área que você conhece bem. Se você fosse coletar dados sobre as causas desse problema, quais seriam as categorias? Tente listar de 5 a 7 categorias e, se possível com a ajuda de uma IA (como o Gemini ou outra ferramenta de sua escolha, usada externamente) para gerar dados fictícios ou com base em sua própria estimativa, crie uma pequena tabela de dados (Causa, Frequência). Em seguida, esboce um Diagrama de Pareto e, para os <strong>dois principais "poucos vitais"</strong>, crie Diagramas de Ishikawa para explorar suas causas.</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="study-case">
+            <h3>Caso 6: Demora no Atendimento de Suporte Técnico aos Professores</h3>
+            <p>Os professores de uma universidade estão reclamando que o suporte técnico de TI demora muito para responder e resolver os problemas com computadores e projetores nas salas de aula.</p>
+            <h4>Dados para Análise de Pareto:</h4>
+            <table>
+                <caption>Tabela 6: Fatores que Causam Demora no Atendimento de Suporte (Feedback dos Professores e Técnicos)</caption>
+                <thead>
+                    <tr>
+                        <th>Fator de Demora no Atendimento</th>
+                        <th>Nº de Menções</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Poucos técnicos para muitos chamados</td>
+                        <td>70</td>
+                    </tr>
+                    <tr>
+                        <td>Problema precisa de peça de reposição (demora para chegar)</td>
+                        <td>30</td>
+                    </tr>
+                    <tr>
+                        <td>Dificuldade em encontrar o técnico no campus</td>
+                        <td>45</td>
+                    </tr>
+                    <tr>
+                        <td>Professor não descreve bem o problema no chamado</td>
+                        <td>55</td>
+                    </tr>
+                    <tr>
+                        <td>Sistema de abertura de chamados é confuso</td>
+                        <td>20</td>
+                    </tr>
+                    <tr>
+                        <td>Outros fatores menos citados</td>
+                        <td>10</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="student-note">
+                <p><strong>Nota 1 (Ishikawa - Mão de Obra/Recursos):</strong> Se "Poucos técnicos" for o principal fator, investigue: a equipe está realmente subdimensionada? Ou será que a alocação dos técnicos durante o dia não é otimizada para os horários de pico de chamados?</p>
+                <p><strong>Nota 2 (Ishikawa - Método/Comunicação):</strong> Se "Professor não descreve bem o problema" for relevante, como é o processo de abertura de chamados? O formulário de chamado pede as informações corretas? Há um guia para ajudar os professores a descreverem os problemas de forma eficaz?</p>
+            </div>
+            <div class="questions">
+                <ol>
+                    <li>Com base nos dados da Tabela 6, construa um Diagrama de Pareto para identificar os principais fatores que causam demora no atendimento de suporte. Quais são os "poucos vitais"?</li>
+                    <li>Escolha o <strong>principal fator mais impactante</strong>. Desenvolva um Diagrama de Ishikawa para analisar suas causas raiz.</li>
+                    <li>Como a gestão do suporte técnico da universidade poderia otimizar o atendimento aos professores com base nas causas identificadas?</li>
+                    <li>**Desafio Extra:** Pense em um problema comum em uma área que você conhece bem. Se você fosse coletar dados sobre as causas desse problema, quais seriam as categorias? Tente listar de 5 a 7 categorias e, se possível com a ajuda de uma IA (como o Gemini ou outra ferramenta de sua escolha, usada externamente) para gerar dados fictícios ou com base em sua própria estimativa, crie uma pequena tabela de dados (Causa, Frequência). Em seguida, esboce um Diagrama de Pareto e, para os <strong>dois principais "poucos vitais"</strong>, crie Diagramas de Ishikawa para explorar suas causas.</li>
+                </ol>
+            </div>
+        </div>
+        
+        <div class="study-case">
+            <h3>Caso 7: Problemas ao Enviar Código Novo para o Sistema da Empresa "DevSys"</h3>
+            <p>A equipe de desenvolvimento da empresa "DevSys" está enfrentando muitas falhas ao tentar enviar (fazer "deploy") novas atualizações de código para o sistema principal da empresa, atrasando a entrega de novas funcionalidades.</p>
+            <h4>Dados para Análise de Pareto:</h4>
+            <table>
+                <caption>Tabela 7: Tipos de Falha ao Enviar Código Novo (Últimas 4 Semanas)</caption>
+                <thead>
+                    <tr>
+                        <th>Tipo de Falha no Envio do Código</th>
+                        <th>Nº de Falhas</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Erro de digitação simples no código (sintaxe)</td>
+                        <td>25</td>
+                    </tr>
+                    <tr>
+                        <td>Teste automatizado não passou</td>
+                        <td>50</td>
+                    </tr>
+                    <tr>
+                        <td>Servidor de testes estava indisponível</td>
+                        <td>35</td>
+                    </tr>
+                    <tr>
+                        <td>Conflito com código de outro desenvolvedor</td>
+                        <td>15</td>
+                    </tr>
+                    <tr>
+                        <td>Falta de configuração no ambiente de produção</td>
+                        <td>40</td>
+                    </tr>
+                    <tr>
+                        <td>Outras pequenas falhas de processo</td>
+                        <td>5</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="student-note">
+                <p><strong>Nota 1 (Ishikawa - Método/Processo de Teste):</strong> Se "Teste automatizado não passou" for a principal falha, como é o processo de criação e manutenção desses testes? Os testes são atualizados junto com o código? Eles são confiáveis?</p>
+                <p><strong>Nota 2 (Ishikawa - Meio Ambiente/Infraestrutura de Deploy):</strong> Se "Servidor de testes indisponível" ou "Falta de configuração no ambiente de produção" forem relevantes, analise a estabilidade e a consistência dos ambientes de desenvolvimento, teste e produção. Eles são padronizados?</p>
+            </div>
+            <div class="questions">
+                <ol>
+                    <li>Utilizando os dados da Tabela 7, construa um Diagrama de Pareto para identificar os tipos de falha mais frequentes ao enviar código novo. Quais são os "poucos vitais"?</li>
+                    <li>Selecione o <strong>principal tipo de falha mais crítico</strong>. Desenvolva um Diagrama de Ishikawa para investigar suas causas raiz.</li>
+                    <li>Que ações a equipe da "DevSys" poderia tomar para tornar o processo de envio de código mais estável e confiável?</li>
+                    <li>**Desafio Extra:** Pense em um problema comum em uma área que você conhece bem. Se você fosse coletar dados sobre as causas desse problema, quais seriam as categorias? Tente listar de 5 a 7 categorias e, se possível com a ajuda de uma IA (como o Gemini ou outra ferramenta de sua escolha, usada externamente) para gerar dados fictícios ou com base em sua própria estimativa, crie uma pequena tabela de dados (Causa, Frequência). Em seguida, esboce um Diagrama de Pareto e, para os <strong>dois principais "poucos vitais"</strong>, crie Diagramas de Ishikawa para explorar suas causas.</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="study-case">
+            <h3>Caso 8: Pouco Uso do Novo Aplicativo de Avisos da Escola</h3>
+            <p>A escola "Aprender Mais" lançou um novo aplicativo para enviar avisos e comunicados aos pais e alunos. No entanto, após dois meses, a maioria das pessoas ainda não está usando o aplicativo.</p>
+            <h4>Dados para Análise de Pareto:</h4>
+            <table>
+                <caption>Tabela 8: Motivos para Não Usar o Novo Aplicativo da Escola (Pesquisa com Pais e Alunos)</caption>
+                <thead>
+                    <tr>
+                        <th>Motivo para Não Usar o Aplicativo</th>
+                        <th>Nº de Menções</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Não tive tempo de baixar/aprender a usar</td>
+                        <td>90</td>
+                    </tr>
+                    <tr>
+                        <td>Aplicativo é difícil de usar/confuso</td>
+                        <td>50</td>
+                    </tr>
+                    <tr>
+                        <td>Não vejo utilidade, prefiro os avisos antigos (ex: e-mail, agenda)</td>
+                        <td>110</td>
+                    </tr>
+                    <tr>
+                        <td>Não sabia que o aplicativo existia</td>
+                        <td>70</td>
+                    </tr>
+                    <tr>
+                        <td>Ocupa muita memória no celular</td>
+                        <td>30</td>
+                    </tr>
+                    <tr>
+                        <td>Outros motivos pessoais</td>
+                        <td>15</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="student-note">
+                <p><strong>Nota 1 (Ishikawa - Método/Comunicação e Marketing):</strong> Se "Não vejo utilidade" ou "Não sabia que existia" forem os principais motivos, como foi feita a divulgação do aplicativo e de seus benefícios? A comunicação foi clara e atingiu o público-alvo?</p>
+                <p><strong>Nota 2 (Ishikawa - Material/Design do App):</strong> Se "Aplicativo difícil de usar" for relevante, analise a interface e a experiência do usuário (UI/UX). O aplicativo é intuitivo? As funcionalidades são fáceis de encontrar e usar?</p>
+            </div>
+            <div class="questions">
+                <ol>
+                    <li>Com base nos dados da Tabela 8, construa um Diagrama de Pareto para identificar os principais motivos para o baixo uso do novo aplicativo de avisos. Quais são os "poucos vitais"?</li>
+                    <li>Escolha o <strong>principal motivo predominante</strong>. Desenvolva um Diagrama de Ishikawa para analisar suas causas raiz.</li>
+                    <li>Quais estratégias a escola "Aprender Mais" poderia implementar para incentivar o uso do novo aplicativo e mostrar seu valor para a comunidade escolar?</li>
+                    <li>**Desafio Extra:** Pense em um problema comum em uma área que você conhece bem. Se você fosse coletar dados sobre as causas desse problema, quais seriam as categorias? Tente listar de 5 a 7 categorias e, se possível com a ajuda de uma IA (como o Gemini ou outra ferramenta de sua escolha, usada externamente) para gerar dados fictícios ou com base em sua própria estimativa, crie uma pequena tabela de dados (Causa, Frequência). Em seguida, esboce um Diagrama de Pareto e, para os <strong>dois principais "poucos vitais"</strong>, crie Diagramas de Ishikawa para explorar suas causas.</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="study-case">
+            <h3>Caso 9: Computadores do Laboratório de Informática Estão Muito Lentos</h3>
+            <p>Os alunos do curso técnico de informática estão reclamando que os computadores do laboratório estão muito lentos, dificultando a realização das aulas práticas e atividades.</p>
+            <h4>Dados para Análise de Pareto:</h4>
+            <table>
+                <caption>Tabela 9: Possíveis Causas para Lentidão nos Computadores do Laboratório (Observação e Diagnóstico Preliminar)</caption>
+                <thead>
+                    <tr>
+                        <th>Causa da Lentidão</th>
+                        <th>Nº de Computadores Afetados Gravemente</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Muitos programas desnecessários iniciando com o Windows</td>
+                        <td>12</td>
+                    </tr>
+                    <tr>
+                        <td>Pouca memória RAM para os softwares utilizados</td>
+                        <td>8</td>
+                    </tr>
+                    <tr>
+                        <td>Infecção por vírus ou malware</td>
+                        <td>15</td>
+                    </tr>
+                    <tr>
+                        <td>Disco rígido (HD) antigo e quase cheio</td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td>Sistema operacional desatualizado</td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td>Outros problemas de configuração</td>
+                        <td>3</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="student-note">
+                <p><strong>Nota 1 (Ishikawa - Máquina/Hardware):</strong> Se "Infecção por vírus" for a principal causa, qual o estado do antivírus (Máquina/Software)? Mas se for "Pouca memória RAM" ou "HD antigo", a questão é de hardware. Os componentes são adequados para os softwares usados nas aulas?</p>
+                <p><strong>Nota 2 (Ishikawa - Método/Manutenção):</strong> Existe uma rotina de manutenção preventiva para os computadores do laboratório? Os sistemas são atualizados regularmente? Como é feito o controle de instalação de softwares pelos alunos?</p>
+            </div>
+            <div class="questions">
+                <ol>
+                    <li>Utilizando os dados da Tabela 9, construa um Diagrama de Pareto para identificar as causas mais frequentes da lentidão nos computadores do laboratório. Quais são os "poucos vitais"?</li>
+                    <li>Selecione a <strong>principal causa mais crítica</strong>. Desenvolva um Diagrama de Ishikawa para explorar as causas raiz do seu alto impacto.</li>
+                    <li>Que plano de ação a equipe de suporte de TI da escola poderia implementar para otimizar o desempenho dos computadores do laboratório, focando nas causas mais relevantes?</li>
+                    <li>**Desafio Extra:** Pense em um problema comum em uma área que você conhece bem. Se você fosse coletar dados sobre as causas desse problema, quais seriam as categorias? Tente listar de 5 a 7 categorias e, se possível com a ajuda de uma IA (como o Gemini ou outra ferramenta de sua escolha, usada externamente) para gerar dados fictícios ou com base em sua própria estimativa, crie uma pequena tabela de dados (Causa, Frequência). Em seguida, esboce um Diagrama de Pareto e, para os <strong>dois principais "poucos vitais"</strong>, crie Diagramas de Ishikawa para explorar suas causas.</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="conclusion">
+            <p>A aplicação combinada dos Diagramas de Pareto e Ishikawa oferece uma abordagem estruturada e poderosa para a solução de problemas. O Pareto ajuda a focar nos problemas certos, e o Ishikawa ajuda a encontrar as causas certas para esses problemas, otimizando os esforços de melhoria contínua em qualquer organização.</p>
+        </div>
+    </div>
+</body>
+</html>
